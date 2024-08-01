@@ -1,0 +1,19 @@
+// Sidebar Short,Eye Event
+const xMark = document.querySelector("#sidebar_xmark");
+const cartMark = document.querySelector(".sidebar_icon_cart");
+const commonSidebar = document.querySelector(".sidebar");
+
+xMark.addEventListener("click", () => {
+  commonSidebar.classList.remove("cart");
+  commonSidebar.classList.toggle("short");
+});
+
+cartMark.addEventListener("click", () => {
+  const sidebarXmark = sidebar.querySelector(".sidebar_cart_box_header i");
+  commonSidebar.classList.toggle("cart");
+  sidebarXmark.addEventListener("click", () => {
+    commonSidebar.classList.remove("cart");
+  });
+});
+
+let test = document.querySelector(".haeder_category_container");
