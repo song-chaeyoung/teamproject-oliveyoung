@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  font: normal 16px/1.4 "Noto Sans KR", sans-serif;
+  font: normal 1rem/1.4 "Noto Sans KR", sans-serif;
   /* font-family: "Noto Sans KR", sans-serif; */
 }
 
@@ -124,7 +124,7 @@ main {
     margin-top: 50px;
   }
   .only_pc {
-    display: none;
+    display: none !important;
   }
   .only_mobile {
     display: block;
