@@ -28,6 +28,42 @@ fetch("./component/footer.html")
     footer.innerHTML = data;
   });
 
+// tab
+const tab1 = document.querySelector(".tab1");
+const tab2 = document.querySelector(".tab2");
+const tab3 = document.querySelector(".tab3");
+
+const content1 = document.querySelector(".content1");
+const content2 = document.querySelector(".content2");
+const content3 = document.querySelector(".content3");
+
+tab1.addEventListener("click", function () {
+  this.classList.add("active");
+  tab2.classList.remove("active");
+  tab3.classList.remove("active");
+  content1.classList.add("active");
+  content2.classList.remove("active");
+  content3.classList.remove("active");
+});
+
+tab2.addEventListener("click", function () {
+  this.classList.add("active");
+  tab1.classList.remove("active");
+  tab3.classList.remove("active");
+  content2.classList.add("active");
+  content1.classList.remove("active");
+  content3.classList.remove("active");
+});
+
+tab3.addEventListener("click", function () {
+  this.classList.add("active");
+  tab1.classList.remove("active");
+  tab2.classList.remove("active");
+  content3.classList.add("active");
+  content1.classList.remove("active");
+  content2.classList.remove("active");
+});
+
 // fetch("./index.html")
 //   .then((res) => res.text())
 //   .then((data) => (header.innerHTML = data));
