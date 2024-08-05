@@ -1,11 +1,11 @@
 @import url(../common.css);
 
-main {
-  /* display: flex;
+/* main {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; */
-}
+  justify-content: center;
+} */
 .section-all {
   display: flex;
   flex-direction: column;
@@ -13,6 +13,7 @@ main {
   justify-content: center;
 }
 .product-detail-A {
+  margin-top: 60px;
   border: 1px solid #f00;
   width: 925px;
   height: 716px;
@@ -40,10 +41,11 @@ main {
   .A-right {
     .title {
       h2 {
+        margin-top: 0;
+        margin-bottom: 12px;
         font-size: 32px;
         font-weight: 400;
         border: 1px solid #f00;
-        margin-bottom: 12px;
       }
     }
     .detail {
@@ -68,6 +70,7 @@ main {
         font-size: 12px;
         display: flex;
         justify-content: end;
+        gap: 14px;
       }
     }
     .desc {
@@ -153,4 +156,77 @@ main {
 }
 
 .product-detail-B {
+}
+
+.product-detail-C {
+  .review-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .reviews {    
+      width: 1152px;
+      height: 146px;
+      border: 1px solid #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .review-sum {
+        display: flex;
+        hr {
+          margin: 20px;
+          height: 87px;
+          border: 1px solid #e7e7e7;
+        }
+        .sum-left {
+          border: 1px solid #000;
+          display: flex;
+          flex-direction: column;
+          line-height: 1.5;
+          margin: 10px 10px;
+          /* justify-content: center; */
+          gap: 10px;
+          .sum-top {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            .stars {
+              font-size: 22px;
+              color: var(--main-green);
+            }
+            .rate {
+              font-size: 22px;
+              font-weight: bold;
+            }
+          }
+          .sum-bottom {
+            font-size: 16px;
+          }
+        }
+        .sum-right {
+          border: 1px solid #000;
+          width: 826px;
+          margin: 10px 10px;
+          .desc {
+            width: 806px;
+            font-size: 14px;
+          }
+          span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            ion-icon{
+              margin-top: 6px;
+            }
+            p{
+              font-size: 12px;
+              margin-top: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
