@@ -105,12 +105,17 @@
 
 /* main content */
 .content {
-  border: 1px solid #f00;
-  position: relative;
   display: flex;
-  padding-left: 410px;
-  padding-top: 120px;
-  gap: 45px;
+  justify-content: center;
+  .list_container {
+    border: 1px solid #f00;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* padding-left: 410px; */
+    padding-top: 120px;
+    gap: 45px;
+  }
   /* list */
   .list {
     display: flex;

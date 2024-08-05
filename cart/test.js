@@ -35,8 +35,8 @@ tab3.addEventListener("click", function () {
 });
 
 // 두번째
-// const tabs = document.querySelectorAll(".tabs li");
-// const contents = document.querySelectorAll(".contents div");
+// const tabs = document.querySelectorAll(".tabs li"); //배열
+// const contents = document.querySelectorAll(".contents div"); //배열
 
 // tabs.forEach((tab, i) => {
 //   tab.addEventListener("click", () => {
