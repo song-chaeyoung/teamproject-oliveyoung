@@ -1,0 +1,156 @@
+@import url(../common.css);
+
+main {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+.section-all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.product-detail-A {
+  border: 1px solid #f00;
+  width: 925px;
+  height: 716px;
+  display: flex;
+  .A-left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+    .thumbs {
+      width: 344px;
+      height: 458px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .card-gift {
+      ul {
+        li {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .A-right {
+    .title {
+      h2 {
+        font-size: 32px;
+        font-weight: 400;
+        border: 1px solid #f00;
+        margin-bottom: 12px;
+      }
+    }
+    .detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 12px;
+      .detail-left {
+        display: flex;
+        align-items: end;
+        gap: 10px;
+        font-size: 24px;
+        .discount {
+          font-size: 16px;
+          color: #f00;
+        }
+        .default-price {
+          font-size: 14px;
+        }
+      }
+      .detail-right {
+        font-size: 12px;
+        display: flex;
+        justify-content: end;
+      }
+    }
+    .desc {
+      .reviewdesc {
+        font-size: 14px;
+      }
+      .more-read {
+        font-size: 12px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      hr {
+        margin-top: 24px;
+        margin-bottom: 24px;
+        opacity: 0.2;
+      }
+    }
+    .benefits {
+      display: flex;
+      border: 1px solid #f00;
+      justify-content: space-between;
+      .benefit {
+        font-size: 14px;
+        border: 1px solid #ff0;
+      }
+      .benefits-right {
+        display: flex;
+        .benefit-img {
+          border: 1px solid #f00;
+          width: 50px;
+          height: 72px;
+          margin-right: 10px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .box {
+          border: 1px solid #f00;
+          display: flex;
+          flex-direction: column;
+          .benefit-desc {
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: -0.6px;
+            width: 386px;
+            border: 1px solid #f00;
+          }
+          .date {
+            font-size: 12px;
+          }
+          .sample {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+    hr {
+      margin-top: 30px;
+      margin-bottom: 54px;
+    }
+    .points {
+      display: flex;
+      flex-direction: column;
+      width: 330px;
+      border: 1px solid dodgerblue;
+      font-size: 14px;
+      .desc {
+        display: flex;
+        border: 1px solid #ff0;
+        p {
+          &:first-child {
+            width: 100px;
+            border: 1px solid #f00;
+            margin-right: 30px;
+          }
+        }
+      }
+    }
+    .purchase {
+    }
+  }
+}
+
+.product-detail-B {
+}
