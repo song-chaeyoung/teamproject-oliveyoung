@@ -1,0 +1,99 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+        <!-- fontawsome -->
+        <script
+        src="https://kit.fontawesome.com/580465cdf5.js"
+        crossorigin="anonymous"
+      ></script>
+      <!--custom css & js-->
+    <link rel="stylesheet" href="./login.css" />
+    <script defer src="./login.js"></script>
+
+  </head>
+  <body>
+    <!--header-->
+    <header></header>
+    <!--Login-->
+    <main>
+      <div class="container">
+        <div class="login-text">
+          <h2>로그인</h2>
+          <span>올리브영의 다양한 서비스와 혜택을 누리세요.</span>
+        </div>
+        <ul class="tabs">
+          <li class="tab">
+            <input type="radio" id="tab-1" name="tab-group-1" checked />
+            <label for="tab-1"><span>회원</span></label>
+            <div class="content">
+              <div class="member-id">
+                <input id="input-id" placeholder="CJ ONE 통합회원 아이디 입력" type="text"></input>
+            </div>
+            <div class="member-pw">
+                <input id="input-pw" placeholder="비밀번호(8-12자 영문자+숫자+특수문자)" type="password"></input>
+            </div>
+  
+            <div class="check-find">
+              <div class="id-checkbox">
+                  <div class= "id-check">
+                      <input 
+                      type="checkbox"
+                      name="checked"
+                      id="id-check"
+                      class="id-text">아이디 저장
+                  </div>
+                  </div>
+                  <div class="find">
+                      <span>아이디 찾기</span>
+                      <span>|</span>
+                      <span>비밀번호 찾기</span>
+              </div>
+          </div>
+          <div class="btn">
+            <div class="login-btn">
+                <button>로그인</button>
+            </div>
+        <div class="sign-btn">
+                <div class="cjone-btn">
+                    <button>
+                      <img src="./img/cj.svg" alt="cj">CJ ONE 통합가입</button>
+                </div>
+                <div class="kakao-btn">
+                    <button>
+                      <img src="./img/kakao.svg" alt="kakao">카카오로 시작하기</button>
+                </div>
+        </div>
+        </div>
+            </div>
+          </li>
+          <li class="tab">
+            <input type="radio" id="tab-2" name="tab-group-1" />
+            <label for="tab-2">비회원 주문조회</label>
+            <div class="content">
+              <div class="member-id">
+                <input id="input-id" placeholder="주문자명 입력" type="text"></input>
+            </div>
+            <div class="member-pw">
+                <input id="input-pw" placeholder="주문번호" type="password"></input>
+            </div>
+            <div class="noBtn">
+              <div class="orderbtn">
+                  <button>비회원 주문조회</button>
+              </div>
+              <div class="joinbtn">
+                <button>회원가입 하러가기 </button>
+            </div>
+              </div>
+              
+              
+              
+            </li>
+          </ul>
+      </div>
+    </main>
+    <div class="sidebar_common"></div>
+    <!--footer-->
+    <footer></footer>
+  </body>
