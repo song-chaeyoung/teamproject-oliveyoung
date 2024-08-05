@@ -1,0 +1,166 @@
+/* reset */
+@import url(/common.css);
+
+body {
+    .inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrapper {
+        width: 980px;
+        /* border: 1px solid #f00; */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .error {
+            color: #f00;
+            width: 100%;
+            height: 10px;
+            font-size: 11px;
+            padding-left: 18px;
+    } 
+
+h3 {
+    margin-bottom: 50px;
+    font-size: 28px;
+    line-height: 35px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+h4 {
+    padding-bottom: 10px;
+    /* border-bottom: 2px solid rgb(51, 51, 51); */
+    font-size: 18px;
+    font-style: normal;
+    color: #333;
+    line-height: 17px;
+    text-align: right;
+    span {
+        color: #FF7878;
+        margin: 0 6px;
+    }
+}
+
+.user_id, .pw01, .pw02, 
+.user_name, .user_email, 
+.user_phone, .user_address {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    display: block;
+    width: 165px;
+    height: 80px;
+    padding-top: 12px;
+    margin: 22px;
+    line-height: 56px;
+    flex-shrink: 0; /* width값 고정 */
+    font-size: 20px;
+    color: #333;
+    span {
+        color: #FF7878;
+    }
+}
+
+.inputbox {
+    width: 596px;
+    height: 80px;
+    padding: 30px 30px;
+    border: 1px solid #eee;
+    flex-shrink: 0; /* width값 고정 */
+}
+
+.inputbox::placeholder {
+    font-size: 18px;
+    color: #aaa;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.check_wrapper, .token_wrapper, .address_wrapper {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; 
+}
+
+.check_wrapper > button, .token_wrapper > button, 
+.address_wrapper > button {
+    height: 80px; 
+    text-align: center;
+    width: 187px;
+    gap: 32px;
+    background: #fff;
+    font-size: 18px;
+    color: #9AC75B;
+    border: 1px solid #9AC75B;
+}
+
+.token_wrapper > button {
+    color: #aaa;
+    border: 1px solid #eee;
+}
+
+.address_wrapper > button {
+    width: 596px;
+    span {
+        margin: 0 10px;
+    }
+}
+
+.useCheck_wrapper {
+    display: flex;
+}
+
+.user_checkbox {
+    margin-top: 30px;
+}
+.useCheck_section {
+    margin: 0 10px;
+    display: flex;
+    width: 596px;
+    height: 60px;
+    align-items: center; 
+    /* border: 1px solid #f00; */
+    span {
+        margin-left: 220px;
+    }       
+}
+.agreeAll {
+    width: 320px;
+}
+
+.user_signup {
+display: flex;
+justify-content: center;
+text-align: center;
+#signup_button {
+    margin: 40px;
+    height: 80px; 
+    text-align: center;
+    width: 596px;
+    gap: 32px;
+    background:#9AC75B;
+    color: #ffff;
+    border: 1px solid #9AC75B;
+    font-size: 18px;
+}
+}
+}
+}
+
+
+/* mobile */
+
+
+
+@media (max-width: 768px) {
+    .wrapper {
+        width: 90%;
+    }
+}

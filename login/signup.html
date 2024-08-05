@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/dc916c7b69.js" crossorigin="anonymous"></script>
+    <!--custom css & JS-->
+    <link rel="stylesheet" href="./signup.css" />
+    <script defer src="./signup.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!--header-->
+    <header></header>
+    <main>
+<div class="inner">
+        <form action="http://localhost:3000" method="post">
+          <div class="wrapper">
+            <h3>
+              회원가입
+            </h3>
+            <h4><span>*</span>필수입력사항</h4>
+    
+            <!--아이디-->
+        <div class="user_id">
+              <label for="userId">아이디 <span>*</span></label>
+              <input
+                id="signId"
+                class="inputbox"
+                type="text"
+                name="signId"
+                placeholder="아이디를 입력해주세요."/>
+              <div id="error_id" class="error"></div>
+              <div class="check_wrapper">
+                <button id="check_button" disabled>중복확인</button>
+              </div>
+          </div> 
+            <!--비밀번호-->
+          <div class="user_pw">
+            <div class="pw01">
+                <label for="password1">비밀번호 <span>*</span></label>
+                <input
+                  id="password1"
+                  class="inputbox"
+                  type="password"
+                  name="password1"
+                  placeholder="비밀번호를 입력해주세요"/>
+                <div id="error_password1" class="error"></div>
+            </div>
+            <div class="pw02">
+                <label for="password2">비밀번호 확인 <span>*</span></label>
+                <input
+                  id="password2"
+                  class="inputbox"
+                  type="password"
+                  name="password2"
+                  placeholder="비밀번호를 한번 더 입력해주세요."/>
+                <div id="error_password2" class="error"></div>
+            </div>
+          </div>
+            <!--이름-->
+          <div class="user_name">
+              <label for="name">이름 <span>*</span></label>
+              <input
+                id="name"
+                class="inputbox"
+                type="text"
+                name="name"
+                placeholder="이름을 입력해주세요."/>
+                <div id="error_writer" class="error"></div>
+          </div>
+            <!--이메일-->
+          <div class="user_email">
+                <label for="email">이메일 <span>*</span></label>
+                <input
+                  id="email"
+                  class="inputbox"
+                  type="text"
+                  name="email"
+                  placeholder="이메일을 입력해주세요."/>
+                <div id="error_email" class="error"></div>
+                <div class="check_wrapper">
+                  <button id="check_button" disabled>중복확인</button>
+                </div>
+          </div>
+            <!--휴대폰-->
+          <div class="user_phone">
+                <label for="phoneNum">휴대폰 <span>*</span></label>
+                <input
+                  id="phoneNum"
+                  class="inputbox"
+                  type="phonenumber"
+                  name="phoneNum"
+                  placeholder="휴대폰 번호를 입력해주세요"/>
+                <div id="error_phoneNum" class="error"></div>
+              <div class="token_wrapper">
+                <button id="token_button" disabled>인증번호 받기</button>
+              </div>
+              <!-- <label for="phoneNum"></label>
+              <input
+                id="phoneNum"
+                class="inputbox"
+                type="phonenumber"
+                name="phoneNum"
+                placeholder="인증번호를 입력해주세요"/>
+              <div id="error_phoneNum" class="error"></div>
+              <div class="token_wrapper">
+                <div id="token_timer">3:00</div>
+                <button id="token_timer_confirmBtn" disabled>인증완료</button>
+              </div> -->
+          </div>
+            <!--주소검색-->
+          <div class="user_address">
+                <label for="address">주소 <span>*</span></label>
+                <div class="address_wrapper">
+                  <button id="address_button" disabled>
+                    <span><i class="fa-solid fa-magnifying-glass"></i></span>주소검색</button>
+                </div>
+          </div>
+          <!--line-->
+          <br>
+          <hr />
+            <!--이용약관동의-->
+          <div class="useCheck_wrapper">
+              <label for="useCheck">이용약관 동의 <span>*</span></label>
+            
+    <div class="user_checkbox">
+              <div class="useCheck_section">
+                <input type="checkbox" id="agreeAll" class="checkbox">
+                <label class="agreeAll" for="agreeAll">전체 동의합니다.</label>
+              </div>
+            <div class="useCheck_section">
+              <input type="checkbox" id="agreeAll" class="checkbox">
+              <label class="agreeAll" for="agreeAll">이용약관 동의 (필수)</label>
+              <span><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="useCheck_section">
+              <input type="checkbox" id="agreeAll" class="checkbox">
+              <label class="agreeAll" for="agreeAll">개인정보 수집 및 이용동의 (필수)</label>
+              <span><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="useCheck_section">
+              <input type="checkbox" id="agreeAll" class="checkbox">
+              <label class="agreeAll" for="agreeAll">마케팅 정보수신 및 활용에 동의 (선택)</label>
+              <span><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+            <div class="useCheck_section">
+              <input type="checkbox" id="agreeAll" class="checkbox">
+              <label class="snsBox" for="snsBox">SNS</label>
+              <input type="checkbox" id="agreeAll" class="checkbox">
+              <label class="emailBox" for="emailBox">이메일</label>
+            </div>
+            <div class="useCheck_section">
+              <input type="checkbox" id="agreeAll" class="checkbox">
+              <label class="agreeAll" for="agreeAll">만 14세 이상입니다. (필수)</label>
+            </div>
+          </div>
+          </div>
+          <!--가입하기버튼-->
+            <div class="user_signup">
+              <button id="signup_button" disabled>가입하기</button>
+              <!-- <button id="signup_button">가입하기</button> -->
+            </div>
+        </form>
+</div>
+    </main>
+    <div class="sidebar_common"></div>
+    <!--footer-->
+    <footer></footer>
+  </body>
+</html>

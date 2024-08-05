@@ -1,6 +1,7 @@
 const header = document.querySelector("header");
 const sidebar = document.querySelector(".sidebar_common");
 const footer = document.querySelector("footer");
+console.log(header)
 
 fetch("./component/header.html")
   .then((res) => res.text())
