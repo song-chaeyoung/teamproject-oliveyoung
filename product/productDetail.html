@@ -12,8 +12,14 @@
       crossorigin="anonymous"
     ></script>
     <!-- iomicon -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <title>Document</title>
   </head>
   <body>
@@ -30,10 +36,21 @@
             </div>
             <div class="card-gift">
               <ul>
-                <li>결제카드 혜택</li>
-                <li>카카오페이 독학생중 프로모션! 최대 9,000원 혜택 받기</li>
-                <li>KT 달.달 혜택 5천원 추가할인!</li>
-                <li>BC카드 마이태그하고 3만원 이상 5천원 할인!</li>
+                <li><span>결제카드 혜택</span></li>
+                <li>
+                  카카오페이 독학생중 프로모션! 최대 9,000원 혜택 받기
+                  <a href="#"><i class="fa-solid fa-angle-right"></i></a>
+                </li>
+                <li>
+                  KT 달.달 혜택 5천원 추가할인!<a href="#"
+                    ><i class="fa-solid fa-angle-right"></i
+                  ></a>
+                </li>
+                <li>
+                  BC카드 마이태그하고 3만원 이상 5천원 할인!<a href="#"
+                    ><i class="fa-solid fa-angle-right"></i
+                  ></a>
+                </li>
               </ul>
             </div>
           </div>
@@ -97,7 +114,9 @@
             </div>
             <section class="purchase">
               <div class="quantity">
-                <input type="button" value="- 1 +" />
+                <input type="button" value="-" />
+                <p>1</p>
+                <input type="button" value="+" />
               </div>
               <div class="price">
                 <span>79,800원</span>
@@ -111,35 +130,35 @@
           </div>
         </section>
         <section class="product-detail-B">
-          <div class="list-tabs">
-            <ul class="tabs">
-              <li class="tab">
-                <input
-                  type="radio"
-                  id="tab-detali-desc"
-                  name="tab-group-a"
-                  checked
-                />
-                <label for="tab-detali-desc">상세정보</label>
-                <div class="detail-desc"></div>
-              </li>
-              <li class="tab">
-                <input type="radio" id="tab-review" name="tab-group-a" />
-                <label for="tab-review">리뷰 999+</label>
-                <div class="review"></div>
-              </li>
-              <li class="tab">
-                <input type="radio" id="tab-notice" name="tab-group-a" />
-                <label for="tab-notice">유의사항</label>
-                <div class="notice"></div>
-              </li>
-              <li class="tab">
-                <input type="radio" id="tab-inquiry" name="tab-group-a" />
-                <label for="tab-inquiry">문의</label>
-                <div class="inquiry"></div>
-              </li>
-            </ul>
-          </div>
+          <ul class="tabs">
+            <li class="tab">
+              <input
+                type="radio"
+                id="tab-detali-desc"
+                name="tab-group-a"
+                checked
+              />
+              <label for="tab-detali-desc">상세정보</label>
+              <div class="tabs-contents">
+                <div></div>
+              </div>
+            </li>
+            <li class="tab">
+              <input type="radio" id="tab-review" name="tab-group-a" />
+              <label for="tab-review">리뷰 999+</label>
+              <div class="tabs-contents"></div>
+            </li>
+            <li class="tab">
+              <input type="radio" id="tab-notice" name="tab-group-a" />
+              <label for="tab-notice">유의사항</label>
+              <div class="tabs-contents"></div>
+            </li>
+            <li class="tab">
+              <input type="radio" id="tab-inquiry" name="tab-group-a" />
+              <label for="tab-inquiry">문의</label>
+              <div class="tabs-contents"></div>
+            </li>
+          </ul>
         </section>
         <section class="product-detail-C">
           <div class="review-main">
@@ -161,7 +180,7 @@
                     <span>최고! 평생 쓸래요</span>
                   </div>
                 </div>
-                <hr>
+                <hr />
                 <div class="sum-right">
                   <p class="desc">
                     고객들은 이 제품의 피부 진정, 잡티개선, 피부결 개선 등
@@ -184,43 +203,73 @@
             <div class="review-imgs">
               <ul>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/32009369640522724.jpg" alt="review-imgs1" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/32009369640522724.jpg"
+                    alt="review-imgs1"
+                  />
                 </li>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/31997371252286543.jpg" alt="review-imgs2" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/31997371252286543.jpg"
+                    alt="review-imgs2"
+                  />
                 </li>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/31995045256812695.jpg" alt="review-imgs3" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/31995045256812695.jpg"
+                    alt="review-imgs3"
+                  />
                 </li>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/31993264588609104.jpg" alt="review-imgs4" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/31993264588609104.jpg"
+                    alt="review-imgs4"
+                  />
                 </li>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/31995045256812695.jpg" alt="review-imgs5" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/31995045256812695.jpg"
+                    alt="review-imgs5"
+                  />
                 </li>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/32009300378275631.jpeg" alt="review-imgs6" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/32009300378275631.jpeg"
+                    alt="review-imgs6"
+                  />
                 </li>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/32009369640522724.jpg" alt="review-imgs7" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/32009369640522724.jpg"
+                    alt="review-imgs7"
+                  />
                 </li>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/31995045256812695.jpg" alt="review-imgs8" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/31995045256812695.jpg"
+                    alt="review-imgs8"
+                  />
                 </li>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/32009369640522724.jpg" alt="review-imgs9" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/32009369640522724.jpg"
+                    alt="review-imgs9"
+                  />
                 </li>
                 <li>
-                  <img src="https://images.innisfree.co.kr/upload/productReview/32006870341920384.jpg" alt="review-imgs10" />
+                  <img
+                    src="https://images.innisfree.co.kr/upload/productReview/32006870341920384.jpg"
+                    alt="review-imgs10"
+                  />
                 </li>
               </ul>
             </div>
             <div class="review-title">
               <div class="review-title-left">
                 <span>전체 48,425</span>
-                <hr>
+                <hr />
                 <span>포토리뷰 48,425</span>
-                <hr>
+                <hr />
                 <span>포토리뷰 48,425</span>
               </div>
               <div class="review-title-right">
@@ -261,19 +310,26 @@
                 </div>
                 <div class="review-imgs">
                   <div>
-                    <img src="https://images.innisfree.co.kr/upload/productReview/30319179197970260_crop.jpeg?T202408062357" alt="img1">
+                    <img
+                      src="https://images.innisfree.co.kr/upload/productReview/30319179197970260_crop.jpeg?T202408062357"
+                      alt="img1"
+                    />
                   </div>
-                    <div>
-                      <img src="https://images.innisfree.co.kr/upload/productReview/30046039003174495_crop.jpeg?T202408062357" alt="img1">
-                    </div>
+                  <div>
+                    <img
+                      src="https://images.innisfree.co.kr/upload/productReview/30046039003174495_crop.jpeg?T202408062357"
+                      alt="img1"
+                    />
                   </div>
-                  <div class="review-text">
-                    <span class="mark">
-                      체험단
-                    </span>
-                    <span class="text">전, 후 입니다! 2,3 주 동안 써본결과에요! 사진으로는 별 차이 없어보이지는 효과는 좋은것 같습니다!</span>
-                  </div>
-                </li>
+                </div>
+                <div class="review-text">
+                  <span class="mark"> 체험단 </span>
+                  <span class="text"
+                    >전, 후 입니다! 2,3 주 동안 써본결과에요! 사진으로는 별 차이
+                    없어보이지는 효과는 좋은것 같습니다!</span
+                  >
+                </div>
+              </li>
               <li class="review">
                 <div class="review-list-top">
                   <div class="top-left">
@@ -300,62 +356,76 @@
                 </div>
                 <div class="review-imgs">
                   <div>
-                    <img src="https://images.innisfree.co.kr/upload/productReview/30319179197970260_crop.jpeg?T202408062357" alt="img1">
+                    <img
+                      src="https://images.innisfree.co.kr/upload/productReview/30319179197970260_crop.jpeg?T202408062357"
+                      alt="img1"
+                    />
                   </div>
-                    <div>
-                      <img src="https://images.innisfree.co.kr/upload/productReview/30046039003174495_crop.jpeg?T202408062357" alt="img1">
-                    </div>
+                  <div>
+                    <img
+                      src="https://images.innisfree.co.kr/upload/productReview/30046039003174495_crop.jpeg?T202408062357"
+                      alt="img1"
+                    />
                   </div>
-                  <div class="review-text">
-                    <span class="mark">
-                      체험단
+                </div>
+                <div class="review-text">
+                  <span class="mark"> 체험단 </span>
+                  <span class="text"
+                    >전, 후 입니다! 2,3 주 동안 써본결과에요! 사진으로는 별 차이
+                    없어보이지는 효과는 좋은것 같습니다!</span
+                  >
+                </div>
+              </li>
+              <li class="review">
+                <div class="review-list-top">
+                  <div class="top-left">
+                    <span class="id">ana*******</span>
+                    <p class="bar">|</p>
+                    <span class="age">10대</span>
+                    <p class="bar">|</p>
+                    <span class="gender">여성</span>
+                    <p class="bar">|</p>
+                    <span class="stars">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
                     </span>
-                    <span class="text">전, 후 입니다! 2,3 주 동안 써본결과에요! 사진으로는 별 차이 없어보이지는 효과는 좋은것 같습니다!</span>
+                    <span class="date">2024.07.13</span>
                   </div>
-                </li>
-                <li class="review">
-                  <div class="review-list-top">
-                    <div class="top-left">
-                      <span class="id">ana*******</span>
-                      <p class="bar">|</p>
-                      <span class="age">10대</span>
-                      <p class="bar">|</p>
-                      <span class="gender">여성</span>
-                      <p class="bar">|</p>
-                      <span class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                      </span>
-                      <span class="date">2024.07.13</span>
-                    </div>
-                    <div class="top-right">
-                      <span>신고</span>
-                      <p class="bar">|</p>
-                      <span>차단하기</span>
-                    </div>
+                  <div class="top-right">
+                    <span>신고</span>
+                    <p class="bar">|</p>
+                    <span>차단하기</span>
                   </div>
-                  <div class="review-imgs">
-                    <div>
-                      <img src="https://images.innisfree.co.kr/upload/productReview/30319179197970260_crop.jpeg?T202408062357" alt="img1">
-                    </div>
-                      <div>
-                        <img src="https://images.innisfree.co.kr/upload/productReview/30046039003174495_crop.jpeg?T202408062357" alt="img1">
-                      </div>
-                    </div>
-                    <div class="review-text">
-                      <span class="mark">
-                        체험단
-                      </span>
-                      <span class="text">전, 후 입니다! 2,3 주 동안 써본결과에요! 사진으로는 별 차이 없어보이지는 효과는 좋은것 같습니다!</span>
-                    </div>
-                  </li>
+                </div>
+                <div class="review-imgs">
+                  <div>
+                    <img
+                      src="https://images.innisfree.co.kr/upload/productReview/30319179197970260_crop.jpeg?T202408062357"
+                      alt="img1"
+                    />
+                  </div>
+                  <div>
+                    <img
+                      src="https://images.innisfree.co.kr/upload/productReview/30046039003174495_crop.jpeg?T202408062357"
+                      alt="img1"
+                    />
+                  </div>
+                </div>
+                <div class="review-text">
+                  <span class="mark"> 체험단 </span>
+                  <span class="text"
+                    >전, 후 입니다! 2,3 주 동안 써본결과에요! 사진으로는 별 차이
+                    없어보이지는 효과는 좋은것 같습니다!</span
+                  >
+                </div>
+              </li>
             </ul>
-            </div>
-            <div class="pagers">
-              <ul>
+          </div>
+          <div class="pagers">
+            <ul>
               <span><</span>
               <li>1</li>
               <li>2</li>
@@ -366,7 +436,7 @@
               <li>7</li>
               <span>></span>
             </ul>
-            </div>
+          </div>
         </section>
       </section>
     </main>
