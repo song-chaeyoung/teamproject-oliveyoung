@@ -1,6 +1,9 @@
 @import url(/common.css);
 
+/* tab */
+
 /* title */
+
 .title {
   display: flex;
   width: 100%;
@@ -58,51 +61,47 @@
 }
 
 /* tab */
-/* .tabs {
-  margin-top: 200px;
-  position: relative;
+.tabs {
+  margin-top: 50px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
+  gap: 20px;
+  cursor: pointer;
   li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
+    height: 72px;
+    font-size: 26px;
     padding: 10px 30px;
+    background: var(--main-btn-green);
+    color: var(--white);
     &.active {
-      background: green;
-      color: #fff;
+      background: var(--main-black);
+      color: var(--white);
     }
   }
-  label {
-    cursor: pointer;
-    display: block;
-    text-align: center;
-    margin: 0 10px;
-    position: relative;
-    border-bottom: 3px solid #ccc;
-  }
-  input[type="radio"]:checked ~ label {
-    border-bottom: 3px solid #f00;
-  }
 }
+
 .contents {
-  margin-top: 10px;
   width: 100%;
-  height: 500px;
+  height: fit-content;
   position: relative;
-  div {
+  .content1 {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    border: 1px solid #00f;
     text-align: center;
     display: none;
     &.active {
-      background: #bbb;
+      /* background: #bbb; */
+      display: block;
     }
-  } */
-
+  }
+}
 /* main content */
 .content {
   display: flex;
@@ -113,7 +112,7 @@
     display: flex;
     justify-content: center;
     /* padding-left: 410px; */
-    padding-top: 205px;
+    padding-top: 85px;
     gap: 45px;
   }
   /* list */
@@ -138,6 +137,24 @@
         width: 180px;
         height: 240px;
         background: #999;
+      }
+      input:before {
+        display: none;
+        content: "✓";
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #000;
+        line-height: 40px;
+        text-align: center;
+      }
+      input#check:checked:before {
+        content: "✓";
+        background-color: var(--main-btn-green);
+        color: #fff;
+        border: none;
+        background-repeat: no-repeat;
+        background-position: 50%;
       }
       .text {
         width: 804px;
@@ -214,7 +231,7 @@
   height: 100%;
   position: sticky;
   top: 80px;
-  margin-top: 205px;
+  margin-top: 85px;
   .inner {
     .pay_first_text {
       width: 270px;
@@ -347,19 +364,23 @@
       }
     }
     .pay_click_box {
-      width: 270px;
-      height: 80px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--main-btn-green);
-      color: var(--white);
-      font-size: 20px;
+      button {
+        width: 270px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--main-btn-green);
+        color: var(--white);
+        font-size: 20px;
+        cursor: pointer;
+      }
     }
   }
 }
 /* bottom btn */
 .btn {
+  margin-top: 1316px;
   width: 100%;
   height: 100%;
   padding-top: 30px;
@@ -373,6 +394,7 @@
       color: var(--white);
       background: var(--main-btn-green);
       border: 1px solid #fff;
+      cursor: pointer;
     }
   }
 }
@@ -426,16 +448,25 @@
           justify-content: center;
           .text_box {
             display: flex;
-            justify-content: ;
             width: 195px;
             height: 82px;
             font-size: 18px;
             font-weight: 500;
           }
           .introduction_pay {
-            width: 129px;
-            height: 22px;
             display: flex;
+            border: 1px solid #f00;
+            font-size: 16px;
+            gap: 8px;
+            p:nth-child(1) {
+              text-decoration: line-through;
+              color: #999;
+              font-weight: 500;
+            }
+            p:nth-child(2) {
+              color: var(--main-price-red);
+              font-weight: 500;
+            }
           }
         }
       }
