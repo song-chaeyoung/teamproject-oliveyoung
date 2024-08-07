@@ -78,8 +78,6 @@ input[type="text"] {
 }
 
 .inner {
-  /* margin: auto 300px; */
-  /* width: 1300px; */
   max-width: 1300px;
   width: 100%;
   margin: 0 auto;

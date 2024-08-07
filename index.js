@@ -29,61 +29,68 @@ fetch("./component/footer.html")
     footer.innerHTML = data;
   });
 
-// fetch("./index.html")
-//   .then((res) => res.text())
-//   .then((data) => (header.innerHTML = data));
+// Main Page
 
-// fetch("./component/header.html")
-//   .then((res) => res.text())
-//   .then((data) => (header.innerHTML = data));
+// Shortcut Tab Change Event
+const shortcutTabs = document.querySelectorAll(".shortcut_tab > p");
+shortcutTabs.forEach((tab, i) => {
+  tab.addEventListener("click", function () {
+    const shortcutContents = document.querySelectorAll(".shortcut_icons");
+    for (let i = 0; i < shortcutTabs.length; i++) {
+      let tab = shortcutTabs[i];
+      tab.classList.remove("active");
+    }
+    for (let i = 0; i < shortcutContents.length; i++) {
+      let content = shortcutContents[i];
+      content.classList.remove("active");
+    }
+    tab.classList.add("active");
+    shortcutContents[i].classList.add("active");
 
-// fetch("./component/header.html")
-//   .then((res) => res.text())
-//   .then((data) => {
-//     header.innerHTML = data;
+    this.classList.add("active");
+  });
+});
 
-//     // 삽입된 HTML 내의 script 태그 찾아 실행
-//     const scripts = header.querySelectorAll("script");
-//     scripts.forEach((script) => {
-//       const newScript = document.createElement("script");
-//       newScript.textContent = script.textContent;
-//       doc;
-//       ument.head.appendChild(newScript);
-//     });
+// Shortcut Modal Event
+const shortcutSetting = document.querySelector(".shortcut_header_setting");
 
-// // 삽입된 HTML 내의 link 태그 찾아 추가
-// const styles = header.querySelectorAll('link[rel="stylesheet"]');
-// styles.forEach((style) => {
-//   const newLink = document.createElement("link");
-//   newLink.rel = "stylesheet";
-//   newLink.href = style.href;
-//   document.head.appendChild(newLink);
-// });
-// });
+shortcutSetting.addEventListener("click", () => {
+  const shortcutModal = document.querySelector(".shortcut_modal_container");
+  shortcutModal.classList.add("active");
 
-// fetch("./component/header.html")
-//   .then((response) => response.text())
-//   .then((html) => {
-//     const tempDiv = document.createElement("div");
-//     tempDiv.innerHTML = html;
-//     document.body.appendChild(tempDiv);
+  const xMark = shortcutModal.querySelector(".fa-xmark");
+  const cancelBtn = shortcutModal.querySelector(
+    ".shortcut_modal_btnarea button:nth-child(1)"
+  );
+  xMark.addEventListener("click", () => {
+    shortcutModal.classList.remove("active");
+  });
+  cancelBtn.addEventListener("click", () => {
+    shortcutModal.classList.remove("active");
+  });
 
-//     // DOMContentLoaded 이벤트를 기다린 후 클래스 값 찾기
-//     document.addEventListener("DOMContentLoaded", () => {
-//       const elements = document.querySelectorAll(".header_left_category");
-//       // elements를 활용하여 원하는 작업 수행
-//     });
-//   });
+  const modalTabs = document.querySelectorAll(".shortcut_modal_tab > div");
+  const contents = document.querySelectorAll(".shortcut_modal_contents");
 
-// async function fetchAndParseHtml() {
-//   const response = await fetch("./component/header.html");
-//   const html = await response.text();
-//   const tempDiv = document.createElement("div");
-//   tempDiv.innerHTML = html;
-//   document.body.appendChild(tempDiv);
+  modalTabs.forEach((tab, i) => {
+    tab.addEventListener("click", function () {
+      for (let i = 0; i < modalTabs.length; i++) {
+        let tab = modalTabs[i];
+        tab.classList.remove("active");
+      }
+      for (let i = 0; i < contents.length; i++) {
+        let content = contents[i];
+        content.classList.remove("active");
+      }
+      tab.classList.add("active");
+      contents[i].classList.add("active");
+    });
+  });
+  const modalIcon = document.querySelectorAll(".shortcut_modal_content_icon");
 
-//   const elements = document.querySelectorAll(".header_left_category");
-//   // elements를 활용하여 원하는 작업 수행
-// }
-
-// fetchAndParseHtml();
+  modalIcon.forEach((icon) => {
+    icon.addEventListener("click", function () {
+      this.classList.toggle("check");
+    });
+  });
+});
