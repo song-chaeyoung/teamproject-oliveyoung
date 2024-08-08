@@ -171,20 +171,39 @@
   .tabs {
     width: 1152px;
     height: 60px;
-    border: 1px solid #ff0;
+    border: 4px solid #ff0;
     display: flex;
     align-items: center;
     justify-content: center;
     .tab {
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      align-items: center;
       flex: 1;
+      width: 100%;
       label {
+        width: 100%;
       }
       .tabs-contents {
+        border: 1px solid #f99;
       }
       input[type="radio"] {
         display: none;
+        width: 100%;
+        border: 1px solid #f99;
+        color: #f99;
+      }
+      input[type="radio"]:checked ~ label {
+        display: block;
+        border-bottom: 3px solid #f55;
+        position: relative;
+      }
+      input[type="radio"]:checked + .tab-contents {
+        display: block;
+        color: #f00;
+        position: absolute;
+        z-index: 1;
       }
     }
   }
