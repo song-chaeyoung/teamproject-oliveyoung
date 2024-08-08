@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+@import url("../common.css");
+
+=======
+>>>>>>> ea2254796e5269a4fa595ef18a9d8ea3c8df7b61
 /* Sidebar */
 .sidebar {
   position: fixed;
@@ -112,7 +117,7 @@
 }
 
 /* Mobile */
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1280px) {
   /* Mobile Btm Bar */
   .mobile_btmbar {
     position: fixed;

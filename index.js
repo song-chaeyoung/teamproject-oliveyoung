@@ -1,6 +1,13 @@
 const header = document.querySelector("header");
 const sidebar = document.querySelector(".sidebar_common");
 const footer = document.querySelector("footer");
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+console.log(header)
+>>>>>>> 18f9cd84d5e2c398472edb3389fd853d7e975842
+=======
+>>>>>>> ea2254796e5269a4fa595ef18a9d8ea3c8df7b61
 
 fetch("./component/header.html")
   .then((res) => res.text())
