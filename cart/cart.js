@@ -27,3 +27,22 @@ fetch("/component/footer.html")
   .then((data) => {
     footer.innerHTML = data;
   });
+
+// tab
+const tabs = document.querySelectorAll(".tabs li");
+const contents = document.querySelectorAll(".contents div");
+
+tabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => {
+    for (let i = 0; i < tabs.length; i++) {
+      let tab = tabs[i];
+      tab.classList.remove("active");
+    }
+    for (let i = 0; i < contents.length; i++) {
+      let content = contents[i];
+      content.classList.remove("active");
+    }
+    tab.classList.add("active");
+    contents[i].classList.add("active");
+  });
+});

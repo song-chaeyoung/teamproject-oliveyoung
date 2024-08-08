@@ -36,7 +36,8 @@
 
 // 두번째
 const tabs = document.querySelectorAll(".tabs li");
-const contents = document.querySelectorAll(".contents div");
+const contents = document.querySelectorAll(".contents > div");
+
 
 tabs.forEach((tab, i) => {
   tab.addEventListener("click", () => {
@@ -52,3 +53,50 @@ tabs.forEach((tab, i) => {
     contents[i].classList.add("active");
   });
 });
+
+
+
+
+// header & footer
+
+const header = document.querySelector("header");
+const sidebar = document.querySelector(".sidebar_common");
+const footer = document.querySelector("footer");
+
+fetch("/component/header.html")
+    .then((res) => res.text())
+    .then((data) => {
+    header.innerHTML = data;
+    const script = document.createElement("script");
+    script.src = "/component/header.js";
+    script.defer = true;
+    document.body.appendChild(script);
+    });
+
+fetch("/component/sidebar.html")
+    .then((res) => res.text())
+    .then((data) => {
+    sidebar.innerHTML = data;
+    const script = document.createElement("script");
+    script.src = "/component/sidebar.js";
+    script.defer = true;
+    document.body.appendChild(script);
+    });
+
+fetch("/component/footer.html")
+    .then((res) => res.text())
+    .then((data) => {
+    footer.innerHTML = data;
+    });
+    
+
+
+
+// login JS
+// 1. 아이디를 입력한다.
+// 2. 비밀번호를 입력한다.
+// 3. 로그인 버튼을 누른다.
+// 3-1. 아이디와 비밀번호가 일치하지 않을 경우 '아이디 & 비밀번호를 확인하세요. 창을 띄운다'
+// 3-2. 알림창을 닫으면 다시 아이디부터 입력 할 수 있도록 되돌아 온다.
+
+

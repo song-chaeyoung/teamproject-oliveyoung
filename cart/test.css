@@ -1,0 +1,49 @@
+.inner {
+  width: 1300px;
+  margin: 0 auto;
+  height: fit-content;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.tabs {
+  margin-top: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  label {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin: 0 10px;
+    position: relative;
+    border-bottom: 3px solid #ccc;
+  }
+  input[type="radio"]:checked ~ label {
+    border-bottom: 3px solid #f00;
+  }
+  .content {
+    /* 탭 컨텐츠 */
+    display: none;
+    position: absolute;
+    background: white;
+    top: 50px;
+    left: 0;
+    right: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+  }
+  input[type="radio"]:checked + label + .content {
+    z-index: 1;
+    display: block;
+    height: 1000px;
+    text-align: center;
+    padding: 10px;
+  }
+}
