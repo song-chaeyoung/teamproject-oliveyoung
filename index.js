@@ -37,6 +37,45 @@ fetch("./component/footer.html")
 
 // Main Page
 
+// Main Slide Event
+
+const slideinfo = "./indexslide.json";
+fetch(slideinfo)
+  .then((response) => response.json())
+  .then((data) => {
+    // const [firstData, ...otherData] = data;
+    const slideList = document.querySelector(".mainslide");
+    // console.log(slideList);
+
+    function createSlideItem(slideData) {
+      // const slideItem = document.createElement("div");
+      // slideItem.classList.add("slider_item");
+      slideList.innerHTML = `
+        <img src="${slideData.img}" alt="${slideData.title}">
+        <div class="inner">
+          <div class="mianslide_text">
+            <p class="sub_title">${slideData.subdessc}</p>
+            <h2 class="title">${slideData.title}</h2>
+            <p class="description">${slideData.description}</p>
+                        <div class="mainslide_arrow">
+              <div class="mainslide_arrow_left">
+                <i class="fa-solid fa-chevron-left"></i>
+              </div>
+              <div class="mainslide_arrow_right">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      return slideItem;
+    }
+
+    // data.forEach((slide) => {
+    //   slideList.appendChild(createSlideItem(slide));
+    // });
+  });
+
 // Shortcut Tab Change Event
 const shortcutTabs = document.querySelectorAll(".shortcut_tab > p");
 shortcutTabs.forEach((tab, i) => {

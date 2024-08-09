@@ -113,7 +113,7 @@ button {
     width: 1300px;
     height: fit-content;
     margin: 0 auto;
-    color: var(--mian-black);
+    color: var(--white);
     p {
       &:nth-of-type(1) {
         font-size: 18px;
@@ -121,11 +121,38 @@ button {
       }
       &:nth-of-type(2) {
         margin-top: 10px;
-        font: 700 18px/1 "Noto Sans";
+        font: 500 18px/1 "Noto Sans";
       }
     }
     h2 {
       font: 400 3rem/56px "Noto Sans";
+      word-break: keep-all;
+    }
+    .mainslide_arrow {
+      display: flex;
+      gap: 100px;
+      margin-top: 60px;
+      > div {
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        i {
+          font-weight: 700;
+          font-size: 20px;
+          transition: all 0.5s;
+        }
+      }
+      .mainslide_arrow_left:hover > i {
+        color: var(--main-black);
+      }
+      .mainslide_arrow_right:hover > i {
+        color: var(--main-black);
+      }
     }
   }
 }
@@ -172,7 +199,9 @@ button {
   .shortcut_icons_wrapper {
     .shortcut_icons {
       display: none;
-      justify-content: space-between;
+      width: 100%;
+      /* display: grid; */
+      grid: repeat(1, 1fr) / repeat(8, 1fr);
       .shortcut_icon {
         display: flex;
         flex-direction: column;
@@ -186,7 +215,7 @@ button {
         }
       }
       &.active {
-        display: flex;
+        display: grid;
       }
     }
   }
@@ -426,6 +455,7 @@ button {
                     label {
                       width: 194px;
                       height: 38px;
+                      /* padding: 10px 100px; */
                       color: #bfbfbf;
                       font: 400 18px/1 "Noto Sans";
                       border: 1px solid #bfbfbf;
@@ -486,9 +516,8 @@ button {
       width: 100%;
       height: fit-content;
       .todayprice_content_items {
-        display: flex;
-        justify-content: center;
-        gap: 46px;
+        display: grid;
+        grid: repeat(1, 1fr) / repeat(4, 1fr);
         .todayprice_content_item {
           display: flex;
           flex-direction: column;
@@ -671,6 +700,7 @@ button {
         width: 100%;
         height: 400px;
         margin-bottom: 50px;
+        object-fit: cover;
       }
       .brand_content_items {
         display: flex;
@@ -685,7 +715,7 @@ button {
           justify-content: center;
           .brand_content_item_img {
             width: 140px;
-            height: 140px;
+            height: 100%;
           }
           .brand_content_item_info {
             display: flex;
@@ -698,7 +728,7 @@ button {
             div {
               display: flex;
               gap: 8px;
-              font: 500 15px/1 "Noto Sans";
+              font: 500 16px/1 "Noto Sans";
               letter-spacing: -0.07px;
               p:nth-of-type(1) {
                 color: #999;
@@ -951,5 +981,313 @@ button {
   }
 }
 
-@media screen and (maxwidth: 1080px) {
+@media screen and (max-width: 1080px) {
+  h1 {
+    font: 700 20px/1 "Noto Sans";
+  }
+  section {
+    margin: 50px 0;
+  }
+
+  .productitem {
+    gap: 10px;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    .productitem_img {
+      height: 200px;
+      .productitem_img_hoverbox {
+        gap: 20px;
+        li > a > i {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  /* MainSlide */
+  .mainslide {
+    img {
+      width: 100%;
+      height: 270px;
+      object-position: 68% 50%;
+    }
+    .mianslide_text {
+      top: 40px;
+      width: 100%;
+      p {
+        &:nth-of-type(1) {
+          display: none;
+        }
+        &:nth-of-type(2) {
+          margin-top: 10px;
+          font: 400 18px/1 "Noto Sans";
+        }
+      }
+      h2 {
+        font: 700 24px/30px "Noto Sans";
+      }
+    }
+  }
+
+  /* Shorcut */
+  .shortcut {
+    .shortcut_header {
+      .shortcut_header_setting {
+        p {
+          font: 500 12px/1 "Noto Sans";
+        }
+        i {
+          font-size: 14px;
+        }
+      }
+    }
+    .shortcut_icons_wrapper {
+      .shortcut_icons {
+        grid: repeat(2, 1fr) / repeat(4, 1fr);
+        .shortcut_icon {
+          gap: 6px;
+          div {
+            width: 46px;
+            height: 46px;
+          }
+          p {
+            font-size: 14px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Shortcut modal */
+  .shortcut_modal_container {
+    .shortcut_modal {
+      width: 90%;
+      margin: 0 auto;
+      .shortcut_modal_header {
+        p {
+          font: 500 16px/1 "Noto Sans";
+        }
+        i {
+          font-size: 18px;
+        }
+      }
+      .shortcut_modal_tab {
+        font-size: 14px;
+      }
+      .shortcut_modal_contents {
+        .shortcut_modal_content {
+          .shortcut_modal_content_title {
+            p {
+              font: 500 14px/50px "Noto Sans";
+            }
+          }
+          .shortcut_modal_content_icons {
+            grid: repeat(5, 1fr) / repeat(2, 1fr);
+            overflow: scroll;
+            .shortcut_modal_content_icon {
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* personalitem */
+  .personalitem {
+    .inner {
+      flex-direction: column;
+      article {
+        &.personalitem_select {
+          .personalitem_select_container {
+            > p {
+              font: 900 18px/1 "Noto Sans";
+            }
+            .personalitem_select_type {
+              .personalitem_select_type_inner {
+                .personalitem_select_type_selectbox {
+                  div {
+                    > div {
+                      input {
+                        &:checked ~ label {
+                          font: 700 14px/1 "Noto Sans";
+                          line-height: 34px;
+                        }
+                      }
+                      label {
+                        width: 120px;
+                        height: 34px;
+                        font: 400 14px/1 "Noto Sans";
+                        line-height: 34px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .personalitem_select_btn {
+              font: bold 16px/1 "Noto Sans";
+            }
+          }
+        }
+        &.personalitem_product {
+          margin: 0 auto;
+          .personalitem_product_itmes {
+            justify-items: center;
+            grid: repeat(3, 1fr) / repeat(2, 1fr);
+          }
+        }
+      }
+    }
+  }
+
+  /* todayprice */
+  .todayprice {
+    .inner {
+      .todayprice_content {
+        .todayprice_content_items {
+          grid: repeat(2, 1fr) / repeat(2, 1fr);
+          .todayprice_content_item {
+            justify-self: center;
+            margin-bottom: 20px;
+            .todayprice_content_item_timer_sale {
+              p {
+                font: 500 18px/1 "Noto Sans";
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Update */
+  .update {
+    .inner {
+      .update_content_container {
+        flex-direction: column;
+        .update_content {
+          .update_content_img {
+            width: 100%;
+            height: 200px;
+          }
+          .update_content_text {
+            h5 {
+              font: 700 16px/1 "Noto Sans";
+              margin-bottom: 8px;
+            }
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .update_changetab {
+        width: 100%;
+      }
+    }
+  }
+
+  /* todayranking */
+  .todayranking {
+    .inner {
+      width: 100%;
+      overflow: hidden;
+      .todayranking_title {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .todayranking_tab {
+        overflow: hidden;
+        width: 800px;
+        align-self: stretch;
+        ul {
+          gap: 8px;
+        }
+      }
+      .todayranking_items {
+        grid: repeat(5, 1fr) / repeat(2, 1fr);
+        justify-items: center;
+      }
+    }
+  }
+
+  /* Brand */
+  .brand {
+    .inner {
+      /* justify-content: start; */
+      .brand_tab {
+        ul {
+          width: 100%;
+          overflow: hidden;
+          /* justify-content: start; */
+          width: 2000px;
+          gap: 8px;
+          li {
+            align-self: stretch;
+          }
+        }
+      }
+      .brand_content {
+        .brand_content_img {
+          height: auto;
+        }
+        .brand_content_items {
+          flex-direction: column;
+          gap: 20px;
+          /* height: 110px; */
+          .brand_content_item {
+            height: 110px;
+            gap: 14px;
+            .brand_content_item_img {
+              width: 110px;
+              height: 100%;
+            }
+            .brand_content_item_info {
+              h6,
+              > p:nth-of-type(1) {
+                font: 500 16px/1 "Noto Sans";
+              }
+              div {
+                font: 500 16px/1 "Noto Sans";
+                margin-top: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Banner */
+  .banner {
+    width: 100%;
+    background: url("https://image.oliveyoung.co.kr/uploads/images/display/90000010001/136/8591365337859719299.jpg?rs=640x0&sf=webp")
+      center/cover no-repeat;
+    .banner_text {
+      display: none;
+    }
+  }
+
+  /* oliveyounglive */
+  .oliveyounglive {
+    .inner {
+      .oliveyounglive_content {
+        flex-direction: column;
+        .oliveyounglive_left {
+          gap: 40px;
+        }
+        .oliveyounglive_right {
+          width: 100%;
+          .oliveyounglive_right_video_hover {
+            .oliveyounglive_right_video_hover_title {
+              margin-top: 220px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
