@@ -113,25 +113,35 @@
               </div>
             </div>
             <section class="purchase">
-              <div class="quantity">
-                <input type="button" value="-" />
-                <p>1</p>
-                <input type="button" value="+" />
+              <div class="top-price">
+                <div class="quantity">
+                  <input type="button" value="-" />
+                  <p>1</p>
+                  <input type="button" value="+" />
+                </div>
+                <span><b>79,800</b> 원</span>
               </div>
-              <div class="price">
-                <span>79,800원</span>
-                <div class="price-big">
+              <div class="bottom-price">
                   <span>합계</span>
                   <h4>79,800</h4>
                   <p>원</p>
-                </div>
+              </div>
+              <div class="btns">
+                <button class="small-btns">
+                  <ion-icon name="share-social-outline"></ion-icon>
+                </button>
+                <button class="small-btns">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button class="big-btns leftbtn">장바구니</button>
+                <button class="big-btns rightbtn">바로구매</button>
               </div>
             </section>
           </div>
         </section>
         <section class="product-detail-B">
           <ul class="tabs">
-            <li class="tab">
+            <li class="tab" onclick="location.href='review-imgs'">
               <input
                 type="radio"
                 id="tab-detali-desc"
@@ -139,24 +149,36 @@
                 checked
               />
               <label for="tab-detali-desc">상세정보</label>
-              <div class="tabs-contents">1111</div>
             </li>
             <li class="tab">
               <input type="radio" id="tab-review" name="tab-group-a" />
               <label for="tab-review">리뷰 999+</label>
-              <div class="tabs-contents">2222</div>
+            </a>
             </li>
             <li class="tab">
               <input type="radio" id="tab-notice" name="tab-group-a" />
               <label for="tab-notice">유의사항</label>
-              <div class="tabs-contents">3333</div>
             </li>
             <li class="tab">
               <input type="radio" id="tab-inquiry" name="tab-group-a" />
               <label for="tab-inquiry">문의</label>
-              <div class="tabs-contents">4444</div>
             </li>
           </ul>
+          <div class="tabs-contents">
+            <div class="detail-desc inner">
+              <div class="imgs">
+                <img src="./product_img/detail_01.png" alt="img1">
+                <img src="./product_img/detail_02.png" alt="img2">
+                <img src="./product_img/detail_03.png" alt="img3">
+                <img src="./product_img/detail_04.jpg" alt="img4">
+                <img src="./product_img/detail_05.png" alt="img5">
+                <img src="./product_img/detail_06.jpg" alt="img6">
+                <img src="./product_img/detail_07.png" alt="img7">
+              </div>
+            </div>
+            <div class="notice inner">333</div>
+            <div class="inquiry inner">444</div>
+          </div>
         </section>
         <section class="product-detail-C">
           <div class="review-main">
