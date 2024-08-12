@@ -1,0 +1,199 @@
+{
+  "oliveyoungProduct": [
+    {
+      "id": 37,
+      "company": "플라이밀",
+      "title": "플라이밀 단백질 쉐이크 45g*7포입 6종 택 1",
+      "price": 28000,
+      "salePrice": 28000,
+      "score": "4.8",
+      "review": "3,468",
+      "tag": [{ "name": "세일" }, { "name": "오늘드림" }],
+      "img": "/productimg/product37.jpg",
+      "category": "food"
+    },
+    {
+      "id": 38,
+      "company": "아이오페",
+      "title": "[하루특가] 아이오페 스템3 2종세트 (소프너150ml+에멀젼150ml)",
+      "price": 86000,
+      "salePrice": 55040,
+      "score": "4.9",
+      "review": "203",
+      "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
+      "img": "/productimg/product38.jpg",
+      "category": "skincare"
+    },
+    {
+      "id": 39,
+      "company": "바이오더마",
+      "title": "[립앤아이 18ml증정]바이오더마 센시비오 H2O 500ml(클렌징 워터)",
+      "price": 27000,
+      "salePrice": 18900,
+      "score": "4.9",
+      "review": "57,004",
+      "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
+      "img": "/productimg/product39.jpg",
+      "category": "themocoms"
+    },
+    {
+      "id": 40,
+      "company": "프롬리에",
+      "title": "프롬리에 비건 EGF 시카 선앰플 56ml 2종(보송/워터)",
+      "price": 33000,
+      "salePrice": 17800,
+      "score": "4.9",
+      "review": "582",
+      "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
+      "img": "/productimg/product40.jpg",
+      "category": "skincare"
+    },
+    {
+      "id": 41,
+      "company": "딜라이트 프로젝트",
+      "title": "[온라인단독] 딜라이트 프로젝트 베이글칩 5입 컬렉션",
+      "price": 13000,
+      "salePrice": 8900,
+      "score": "4.8",
+      "review": "3.468",
+      "tag": [{ "name": "세일" }, { "name": "오늘드림" }],
+      "img": "/productimg/product41.jpg",
+      "category": "food"
+    },
+    {
+      "id": 42,
+      "company": "토리든",
+      "title": "[8월 올영픽/단독기획] 토리든 다이브인 저분자 히알루론산 토너 500ml 기획 (+화장솜 60매 증정)",
+      "price": 29000,
+      "salePrice": 19000,
+      "score": "4.8",
+      "review": "12.166",
+      "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
+      "img": "/productimg/product42.jpg",
+      "category": "skincare"
+    },
+    {
+      "id": 43,
+      "company": "웰라쥬",
+      "title": "[단독/더블기획] 웰라쥬 리얼 히알루로닉 블루 100 앰플 75ml 1+1 기획",
+      "price": 46000,
+      "salePrice": 29900,
+      "score": "4.8",
+      "review": "17.276",
+      "tag": [{ "name": "세일" }, { "name": "오늘드림" }],
+      "img": "/productimg/product43.jpg",
+      "category": "skincare"
+    },
+    {
+      "id": 44,
+      "company": "브링그린",
+      "title": "[NEW 최초 대용량] 브링그린 징크테카트러블세럼 50mL기획(리필25mL+티트리액티베이터2g)",
+      "price": 56100,
+      "salePrice": 29800,
+      "score": "4.7",
+      "review": "8.222",
+      "tag": [{ "name": "세일" }, { "name": "오늘드림" }],
+      "img": "/productimg/product44.jpg",
+      "category": "skincare"
+    },
+    {
+      "id": 45,
+      "company": "비클리닉스",
+      "title": "[8/12 하루특가] 비클리닉스 PHA 5% 스킨 폴리싱 바디로션 300ml (+100ml 증정)",
+      "price": 27500,
+      "salePrice": 20900,
+      "score": "4.8",
+      "review": "210",
+      "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
+      "img": "/productimg/product45.jpg",
+      "category": "bodycare"
+    },
+    {
+      "id": 46,
+      "company": "닥터지",
+      "title": "[굿즈증정/1+1]닥터지 레드 블레미쉬 클리어 수딩 크림 70ml 1+1 기획",
+      "price": 38000,
+      "salePrice": 28800,
+      "score": "4.8",
+      "review": "21.877",
+      "tag": [{ "name": "세일" }, { "name": "오늘드림" }],
+      "img": "/productimg/product46.jpg",
+      "category": "skincare"
+    },
+    {
+      "id": 47,
+      "company": "구달",
+      "title": "[구달X먼작귀][1+1기획] 구달 맑은 어성초 진정 수분 선크림 50ml 1+1기획 (50ml+50ml+스티커)",
+      "price": 20000,
+      "salePrice": 16900,
+      "score": "4.9",
+      "review": "8,386",
+      "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
+      "img": "/productimg/product47.jpg",
+      "category": "suncare"
+    },
+    {
+      "id": 48,
+      "company": "롬앤",
+      "title": "롬앤 쥬시 래스팅 틴트",
+      "price": 9900,
+      "salePrice": 8900,
+      "score": "",
+      "review": "",
+      "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
+      "img": "/productimg/product48.jpg",
+      "category": "makeup"
+    },
+    {
+      "id": 49,
+      "company": "넘버즈인",
+      "title": "[모공세럼]넘버즈인 3번 보들보들 결 세럼 50ml 리필기획(50ml+50ml)",
+      "price": 38000,
+      "salePrice": 28500,
+      "score": "4.8",
+      "review": "33.935",
+      "tag": [{ "name": "세일" }, { "name": "오늘드림" }],
+      "img": "/productimg/product49.jpg",
+      "category": "skincare"
+    },
+    {
+      "id": 50,
+      "company": "라로슈포제",
+      "title": "라로슈포제 시카플라스트 밤 B5+ 100ml 기획 (+3ml 추가증정)",
+      "price": 39000,
+      "salePrice": 33350,
+      "score": "4.8",
+      "review": "16.250",
+      "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
+      "img": "/productimg/product50.jpg",
+      "category": "themocoms"
+    },
+    {
+      "id": 51,
+      "company": "메디힐",
+      "title": "[35관왕] 메디힐 패드 100매 +100매 더블 기획 7종 택 1",
+      "price": 39900,
+      "salePrice": 28400,
+      "score": "4.7",
+      "review": "19.038",
+      "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
+      "img": "/productimg/product51.jpg",
+      "category": "maskpack"
+    }
+  ]
+}
+
+// category
+// skincare
+// maskpack
+// cleansing
+// sunkcare
+// makeup
+// nails
+// beautyproduct
+// themocoms
+// menscare
+// perfume
+// haircare
+// bodycare
+// food
