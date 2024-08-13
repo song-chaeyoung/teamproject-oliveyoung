@@ -115,6 +115,7 @@
 @media screen and (max-width: 1080px) {
   /* Mobile Btm Bar */
   .mobile_btmbar {
+    z-index: 9;
     position: fixed;
     bottom: 0;
     left: 0;

@@ -101,11 +101,19 @@ button {
 .mainslide {
   margin: 0;
   position: relative;
+  cursor: pointer;
+  height: 469px;
+  overflow: hidden;
+  &:hover img {
+    transform: scale(1.1);
+  }
   img {
     width: 100%;
-    height: 469px;
+    height: 100%;
     background-size: contain;
     object-fit: cover;
+    transform: scale(1);
+    transition: all 0.5s;
   }
   .mianslide_text {
     position: absolute;
@@ -130,9 +138,11 @@ button {
     }
     .mainslide_arrow {
       display: flex;
-      gap: 100px;
+      gap: 20px;
+      align-items: center;
       margin-top: 60px;
-      > div {
+      .mainslide_arrow_left,
+      .mainslide_arrow_right {
         width: 36px;
         height: 36px;
         background: rgba(255, 255, 255, 0.5);
@@ -146,6 +156,10 @@ button {
           font-size: 20px;
           transition: all 0.5s;
         }
+      }
+      .mainslide_arrow_text {
+        font-size: 14px;
+        color: #f5f5f5;
       }
       .mainslide_arrow_left:hover > i {
         color: var(--main-black);
@@ -211,7 +225,14 @@ button {
         div {
           width: 64px;
           height: 64px;
-          background: #666;
+          border-radius: 50%;
+          background: var(--line-gray);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          i {
+            font-size: 18px;
+          }
         }
       }
       &.active {
@@ -329,16 +350,12 @@ button {
               font-size: 18px;
               color: var(--white);
             }
-            form {
+            ul {
               width: 120px;
               display: flex;
               justify-content: space-between;
               align-items: center;
               font-size: 14px;
-              label {
-                cursor: pointer;
-              }
-              input[type="checkbox"],
               i {
                 display: none;
               }
@@ -349,7 +366,7 @@ button {
               i {
                 color: var(--main-btn-green);
               }
-              form {
+              ul {
                 i {
                   display: block;
                 }
@@ -540,8 +557,8 @@ button {
             }
           }
           .todayprice_content_item_timer_num {
-            font: normal 38px/1 "Noto Sans";
-            letter-spacing: -1px;
+            font: normal 34px/1 "Noto Sans";
+            letter-spacing: -3px;
           }
         }
       }
@@ -795,12 +812,13 @@ button {
           height: 100%;
         }
         .oliveyounglive_right_video_hover {
-          z-index: 2;
+          /* display: none; */
+          z-index: 0;
           top: 0;
           left: 0;
           position: absolute;
           opacity: 0;
-          transition: all 0.5s;
+          transition: all 1s;
           width: 100%;
           height: 100%;
           background: rgba(0, 0, 0, 0.5);
@@ -860,8 +878,9 @@ button {
               }
             }
           }
-          &:hover {
+          &.active {
             opacity: 1;
+            z-index: 2;
           }
         }
       }
@@ -1007,9 +1026,10 @@ button {
 
   /* MainSlide */
   .mainslide {
+    height: 270px;
     img {
       width: 100%;
-      height: 270px;
+      height: 100%;
       object-position: 68% 50%;
     }
     .mianslide_text {
@@ -1086,7 +1106,19 @@ button {
           .shortcut_modal_content_icons {
             grid: repeat(5, 1fr) / repeat(2, 1fr);
             overflow: scroll;
+            margin: 10px 16px;
+            align-content: start;
             .shortcut_modal_content_icon {
+              height: 40px;
+              padding: 6px;
+              width: 100%;
+              > i {
+                margin-right: 10px;
+              }
+              ul {
+                width: auto;
+                font-size: 12px;
+              }
             }
           }
         }
@@ -1275,9 +1307,11 @@ button {
   .oliveyounglive {
     .inner {
       .oliveyounglive_content {
-        flex-direction: column;
+        flex-direction: column-reverse;
+        gap: 60px;
         .oliveyounglive_left {
           gap: 40px;
+          padding: 0;
         }
         .oliveyounglive_right {
           width: 100%;
@@ -1285,6 +1319,63 @@ button {
             .oliveyounglive_right_video_hover_title {
               margin-top: 220px;
             }
+          }
+        }
+      }
+    }
+  }
+
+  /* lastlive */
+  .lastlive {
+    height: fit-content;
+    margin-bottom: 40px;
+    h2 {
+      margin-bottom: 20px;
+    }
+    .lastlive_contents {
+      width: fit-content;
+      height: 100%;
+      gap: 10px;
+      .lastlive_content {
+        width: 150px;
+        height: 100%;
+        .lastlive_content_inner {
+          height: 100%;
+          margin-bottom: 10px;
+          .lastlive_content_info {
+            display: none;
+          }
+        }
+        .lastlive_content_btmtext {
+          height: fit-content;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  /* epilogue */
+  .epilogue {
+    .inner {
+      gap: 20px;
+      .epilogue_content {
+        width: 100%;
+        .epilogue_content_img {
+          height: 100px;
+          border-radius: 30px;
+          img {
+            width: 80px;
+            height: 80px;
+          }
+        }
+        .epilogue_content_text {
+          h6 {
+            font: bold 20px/1 "Noto Sans";
+            margin-bottom: 4px;
+          }
+          p {
+            font-size: 14px;
+            word-break: keep-all;
           }
         }
       }
