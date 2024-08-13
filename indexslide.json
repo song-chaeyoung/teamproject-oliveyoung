@@ -70,5 +70,37 @@
       "description": "단독특가, 쿠폰 증정",
       "img": "./indeximg/mainslide10.jpg"
     }
+  ],
+  "update": [
+    {
+      "title": "나에게 필요한 컬러만 PICK!",
+      "desc": "나만의 톤온톤 인생 팔레트 완성",
+      "img": "./indeximg/update01.jpg"
+    },
+    {
+      "title": "소나무 코팩으로 매끈&맑은 모공 완성",
+      "desc": "블랙헤드 제거부터 모공 수렴까지!",
+      "img": "./indeximg/update02.jpg"
+    },
+    {
+      "title": "강민경 붓기 케어 비결",
+      "desc": "바디 순환 셀룰라이트 마사지 크림",
+      "img": "./indeximg/update03.jpg"
+    },
+    {
+      "title": "어디든지 붙이기 좋은 워터스티커",
+      "desc": "귀여운 에너지를 주는 커스텀 아이템 만들기",
+      "img": "./indeximg/update04.jpg"
+    },
+    {
+      "title": "탱글 쫀-쫀 반투명 광채 스틱",
+      "desc": "원하는 곳 어디든 생기를 부여하는 멀티 스틱",
+      "img": "./indeximg/update05.jpg"
+    },
+    {
+      "title": "콘시리얼맛 단백질 쉐이크 런칭",
+      "desc": "물만 넣어도 맛있는 플라이밀",
+      "img": "./indeximg/update06.jpg"
+    }
   ]
 }
