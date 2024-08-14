@@ -55,6 +55,23 @@
             <div for="tab-2">오늘드림</div>
           </li>
         </ul>
+
+        <div class="list_text only_pc">
+          <input type="checkbox" id="check" />
+          <label for="check"><i class="fa-solid fa-check"></i></label>
+          <p>상품정보</p>
+        </div>
+        <!-- mobile -->
+        <div class="list_text only_mobile">
+          <input type="checkbox" id="check6" />
+          <label for="check6"> <i class="fa-solid fa-check"></i></label>
+        </div>
+        <!-- mobile -->
+        <div class="check_box only_mobile">
+          <input type="checkbox" id="check " />
+          <label for="check"> <i class="fa-solid fa-check"></i></label>
+          <p>일반배송</p>
+        </div>
         <div class="contents">
           <div class="content1 active">
             <div class="inner">
@@ -67,7 +84,7 @@
                         <div class="list_box">
                           <div class="image">
                             <!-- input -->
-                            <input type="checkbox" id="check" />
+                            <input type="checkbox" id="check " />
                             <label for="check">
                               <i class="fa-solid fa-check"></i
                             ></label>
@@ -104,44 +121,7 @@
                       <div class="inner">
                         <div class="list_box">
                           <div class="image">
-                            <input type="checkbox" id="check2" />
-                            <label for="check2">
-                              <i class="fa-solid fa-check"></i
-                            ></label>
-                            <img src="#none" alt="img01" />
-                          </div>
-                          <div class="text">
-                            <div class="text_box">
-                              <p>브랜드명</p>
-                              <p>남성 전용 스킨로션</p>
-                              <div class="text_inner">
-                                <span>텍스트</span>
-                                <span>텍스트</span>
-                                <span>텍스트</span>
-                              </div>
-                            </div>
-                            <div class="money">
-                              <div class="money_icon">
-                                <i class="fa-solid fa-xmark"></i>
-                              </div>
-                              <div class="money_box">
-                                <p>59,900 원</p>
-                              </div>
-                              <div class="money_listbox">
-                                <p>-</p>
-                                <p>1</p>
-                                <p>+</p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="list">
-                      <div class="inner">
-                        <div class="list_box">
-                          <div class="image">
-                            <input type="checkbox" id="check2" />
+                            <input type="checkbox" id="check2 " />
                             <label for="check2">
                               <i class="fa-solid fa-check"></i
                             ></label>
@@ -248,11 +228,79 @@
                         </div>
                       </div>
                     </div>
-                    <div class="list_two"></div>
+                    <div class="list">
+                      <div class="inner">
+                        <div class="list_box">
+                          <div class="image">
+                            <input type="checkbox" id="check5" />
+                            <label for="check5">
+                              <i class="fa-solid fa-check"></i
+                            ></label>
+                            <img src="#none" alt="img01" />
+                          </div>
+                          <div class="text">
+                            <div class="text_box">
+                              <p>브랜드명</p>
+                              <p>남성 전용 스킨로션</p>
+                              <div class="text_inner">
+                                <span>텍스트</span>
+                                <span>텍스트</span>
+                                <span>텍스트</span>
+                              </div>
+                            </div>
+                            <div class="money">
+                              <div class="money_icon">
+                                <i class="fa-solid fa-xmark"></i>
+                              </div>
+                              <div class="money_box">
+                                <p>59,900 원</p>
+                              </div>
+                              <div class="money_listbox">
+                                <p>-</p>
+                                <p>1</p>
+                                <p>+</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- moblie pay -->
+                <div class="mobile_pay_inner only_mobile">
+                  <div class="moblie_pay only_mobile">
+                    <div class="moblie_pay_text only_mobile">
+                      <p>총 상품금액</p>
+                      <p>0원</p>
+                    </div>
+                    <div class="moblie_pay_text_two only_mobile">
+                      <p>총 할인 금액</p>
+                      <p>0원</p>
+                    </div>
+                    <div class="moblie_pay_text_three only_mobile">
+                      <p>총 배송비</p>
+                      <p>0원</p>
+                    </div>
+                    <div class="moblie_pay_text_four only_mobile">
+                      <p>최종 결제금액</p>
+                      <p>0원</p>
+                    </div>
+                    <div class="warning only_mobile">
+                      <div class="warning_inner">
+                        <div class="warning_icon">
+                          <i class="fa-solid fa-circle-exclamation"></i>
+                        </div>
+                        <div class="warning_text">
+                          쿠폰적응 및 결제 수단에 따라 최종 금액이 변경될 수
+                          있습니다.
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <!-- pay page -->
-                <div class="pay_page">
+                <div class="pay_page only_pc">
                   <div class="inner">
                     <div class="pay_first_text">
                       <div class="frist_box">
@@ -305,7 +353,7 @@
               </div>
             </div>
             <!-- bottom btn -->
-            <div class="btn">
+            <div class="btn only_pc">
               <div class="inner">
                 <input type="button" value="전체삭제" />
               </div>
@@ -315,6 +363,7 @@
               <div class="inner">
                 <div class="introduction_text">
                   <p>함께 구매하면 좋은 추천 상품이에요</p>
+                  <p class="plus only_mobile">더보기</p>
                 </div>
                 <div class="introduction_contents">
                   <div class="introduction_container">

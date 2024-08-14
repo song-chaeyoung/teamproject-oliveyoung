@@ -30,7 +30,9 @@ fetch("/component/footer.html")
 
 // tab
 const tabs = document.querySelectorAll(".tabs li");
-const contents = document.querySelectorAll(".contents .content1");
+const contents = document.querySelectorAll(
+  ".contents .content1, .contents .content2"
+);
 
 tabs.forEach((tab, i) => {
   tab.addEventListener("click", () => {

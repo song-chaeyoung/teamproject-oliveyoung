@@ -9,13 +9,14 @@
   width: 100%;
   height: auto;
   margin-top: 138px;
-  border: 1px solid #f00;
+
   .inner {
     width: 100%;
     height: 100%;
     .cart_container {
       width: 100%;
       height: 100%;
+      border: 1px solid #f00;
       gap: 29px;
       display: flex;
       flex-direction: column;
@@ -67,11 +68,12 @@
   justify-content: center;
   gap: 20px;
   cursor: pointer;
+  padding-bottom: 60px;
   li {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 650px;
+    /* width: 650px; */
     height: 72px;
     font-size: 26px;
     padding: 10px 30px;
@@ -82,6 +84,17 @@
       color: var(--white);
     }
   }
+}
+
+.list_text {
+  font-size: 20px;
+  font-weight: 500;
+}
+input {
+  display: none;
+}
+label {
+  display: none;
 }
 
 .contents {
@@ -97,7 +110,6 @@
     left: 0;
     text-align: center;
     display: none;
-    border: 1px solid #00f;
     &.active {
       /* background: #bbb; */
       display: block;
@@ -114,20 +126,24 @@
     display: flex;
     justify-content: center;
     /* padding-left: 410px; */
-    padding-top: 85px;
+    padding-top: 30px;
     gap: 45px;
   }
   /* list */
   .list {
+    width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     .inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       width: 100%;
       height: 100%;
       .list_box {
         display: flex;
-        width: 985px;
+        /* width: 985px; */
         height: 240px;
         border-top: 1px solid #efefef;
         border-bottom: 1px solid #efefef;
@@ -170,7 +186,7 @@
         }
       }
       .text {
-        width: 804px;
+        width: 200px;
         height: 240px;
         display: flex;
         justify-content: space-between;
@@ -179,8 +195,6 @@
         .text_box {
           width: 240px;
           height: 95px;
-          display: flex;
-          flex-direction: column;
           gap: 5px;
           p {
             font-size: 20px;
@@ -220,7 +234,6 @@
       }
       .money_box {
         display: flex;
-
         align-items: center;
         font-size: 30px;
         font-weight: 400;
@@ -244,7 +257,7 @@
   height: 100%;
   position: sticky;
   top: 80px;
-  margin-top: 85px;
+  margin-top: 30px;
   .inner {
     .pay_first_text {
       width: 270px;
@@ -391,6 +404,8 @@
     }
   }
 }
+/* mobolie */
+
 /* bottom btn */
 .btn {
   margin-top: 1316px;
@@ -398,8 +413,11 @@
   height: 100%;
   padding-top: 30px;
   .inner {
+    width: 100%;
+    height: 100%;
     display: flex;
     input {
+      display: flex;
       font-size: 18px;
       font-weight: 500;
       width: 140px;
@@ -429,9 +447,10 @@
       }
     }
     .introduction_contents {
-      width: 1300px;
+      /* width: 1300px; */
       height: 140px;
       display: flex;
+      flex-direction: column;
       .introduction_container {
         width: 100%;
         height: 100%;
@@ -468,7 +487,6 @@
           }
           .introduction_pay {
             display: flex;
-            border: 1px solid #f00;
             font-size: 16px;
             gap: 8px;
             p:nth-child(1) {
@@ -481,6 +499,293 @@
               font-weight: 500;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .title {
+    display: none;
+  }
+  .tabs {
+    gap: 0;
+    width: 100%;
+    display: flex;
+    padding-bottom: 20px;
+    li {
+      width: 180px;
+      height: 60px;
+      font-size: 18px;
+    }
+  }
+
+  .list_text {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .list_text p {
+    display: none;
+  }
+  .list_text::before {
+    display: inline-block;
+    content: "전체|배송방법 변경 > 전체삭제";
+    font-size: 20px;
+  }
+  .list_text label {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: var(--white);
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #000;
+    .fa-check {
+      font-size: 20px;
+    }
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  input:checked ~ label {
+    background: var(--main-btn-green);
+    color: var(--white);
+    border: 1px solid #fff;
+    .fa-check {
+      display: inline-block;
+      font-size: 20px;
+    }
+  }
+  .check_box {
+    width: 100%;
+    height: 60px;
+    background: #f2fbdf;
+    display: flex;
+    input {
+      display: inline-block;
+      .fa-check {
+        display: inline-block;
+        font-size: 20px;
+      }
+    }
+    p {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  .contents {
+    width: 360px;
+    height: 100%;
+    .content1,
+    .content2 {
+      width: 100%;
+    }
+  }
+  .content {
+    .list_container {
+      width: 320px;
+      display: flex;
+    }
+    .list {
+      padding-bottom: -100px;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      text-align: center;
+      .inner {
+        width: 100%;
+        height: 100%;
+        .list_box {
+          border-top: none;
+          border-bottom: 1px solid #efefef;
+          display: flex;
+          margin-right: 40px;
+          width: 320px;
+          height: 134px;
+          display: flex;
+        }
+        .image {
+          width: 80px;
+          height: 80px;
+        }
+        .text {
+          width: 320px;
+          height: 122px;
+          display: flex;
+          flex-direction: column;
+          .text_box {
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            width: 210px;
+            height: 80px;
+            margin-right: 178px;
+            p {
+              display: flex;
+              gap: 10px;
+              padding: 0 15px;
+              font-size: 12px;
+            }
+            .text_inner {
+              width: 210px;
+              height: 50px;
+            }
+            span {
+              font-size: 8px;
+              width: 40px;
+              height: 10px;
+            }
+          }
+        }
+      }
+      .money {
+        position: relative;
+        width: 322px;
+        height: 30px;
+        display: flex;
+        margin-right: 232px;
+        flex-direction: row-reverse;
+        .money_icon {
+          position: absolute;
+          top: -66px;
+          right: 15px;
+          width: 10px;
+          height: 10px;
+          font-size: 10px;
+        }
+        .money_box {
+          display: flex;
+          width: 80px;
+          height: 30px;
+          font-size: 16px;
+          margin-right: 0px;
+          justify-content: center;
+          align-items: center;
+        }
+        .money_listbox {
+          width: 80px;
+          height: 30px;
+          font-size: 16px;
+        }
+      }
+    }
+    .mobile_pay_inner {
+      width: 360px;
+      height: 500px;
+      position: absolute;
+      top: 765px;
+      right: 20px;
+      display: flex;
+      .moblie_pay {
+        width: 360px;
+        height: 165px;
+        right: 40px;
+        padding-bottom: 40px;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        padding-top: 24px;
+        border-top: 1px solid #efefef;
+        align-content: center;
+        .moblie_pay_text {
+          width: 320px;
+          height: 20px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          margin-top: 24px;
+          margin-left: 20px;
+        }
+        .moblie_pay_text_two {
+          width: 320px;
+          height: 20px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          margin-left: 20px;
+        }
+        .moblie_pay_text_three {
+          width: 320px;
+          height: 20px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 16px;
+          margin-left: 20px;
+        }
+        .moblie_pay_text_four {
+          width: 320px;
+          height: 20px;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          margin-left: 20px;
+          p:nth-child(1) {
+            font-weight: bold;
+          }
+          p:nth-child(2) {
+            font-weight: bold;
+          }
+        }
+        .warning {
+          border-bottom: 3px solid #efefef;
+          width: 320px;
+          height: 30px;
+          position: absolute;
+          justify-content: center;
+          align-items: center;
+          top: 144px;
+          right: 20px;
+          .warning_inner {
+            width: 320px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            .warning_icon {
+              color: #999;
+              padding-right: 10px;
+            }
+            .warning_text {
+              font-size: 10px;
+              color: #999;
+            }
+          }
+        }
+      }
+    }
+  }
+  .pay_page {
+    display: none;
+  }
+  .introduction {
+    width: 100%;
+    height: 236px;
+    position: relative;
+    top: 964px;
+    right: 20px;
+    border: 1px solid #f00;
+    .inner {
+      .introduction_text {
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 320px;
+        height: 30px;
+        p {
+          font-size: 16px;
         }
       }
     }
