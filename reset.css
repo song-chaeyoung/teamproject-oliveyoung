@@ -1,0 +1,105 @@
+/* import */
+/* notosans kr */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+}
+body {
+  font: normal 16px/1.4 "Noto Sans KR", sans-serif;
+  /* font-family: "Noto Sans KR", sans-serif; */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+button {
+  outline: none;
+  background: inherit;
+  border: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input[type="text"] {
+  &::placeholder {
+    opacity: 1;
+    transition: all 0.5s;
+  }
+  &:focus::placeholder {
+    opacity: 0;
+  }
+}
+
+:focus {
+  outline: none;
+}
+
+.inner {
+  /* margin: auto 300px; */
+  /* width: 1300px; */
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* color */
+:root {
+  /* color */
+  --main-green: #82dc28;
+  --main-coral: #ff7878;
+  --main-btn-green: #9ac75b;
+  --main-black: #231815;
+  --main-price-red: #e02020;
+  --text-color-gray: #666;
+  --white: #fff;
+  --line-gray: #efefef;
+
+  /* size */
+  --font-16px: 16px;
+  --font-18px: 18px;
+  --font-title-26px: 26px;
+}
+
+/* icon */
+.logo {
+  display: block;
+  width: 190px;
+  height: 30px;
+  background: url("./indeximg/logo.png") center/cover no-repeat;
+}
+
+.logo_s {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url("./indeximg/logo_s_2.png") center/cover no-repeat;
+}
+
+/* Mobile */
+@media screen and (max-width: 1280px) {
+  .inner {
+    width: 100%;
+    margin: 0 20px;
+  }
+}

@@ -3,6 +3,7 @@
 /* Sidebar */
 .sidebar {
   position: fixed;
+  z-index: 10;
   bottom: 8%;
   right: 0px;
   transition: all 0.5s;
