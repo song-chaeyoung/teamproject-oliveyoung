@@ -45,7 +45,6 @@ fetch(indexInfo)
   });
 
 let slideIndex = Number(slideListImg[0].dataset.index);
-console.log(slideListImg);
 slideArrowLeft.addEventListener("click", () => {
   slideIndex--;
   if (slideIndex == 0) slideIndex = slideData.length;
@@ -95,7 +94,6 @@ startMainSlide();
 slideList.addEventListener("mouseout", startMainSlide);
 
 function createSlideItem(currentSlideData) {
-  // let slideIndex = Number(slideListImg[0].dataset.index);
   slideListImg[0].src = currentSlideData.img;
   slideListImg[0].alt = currentSlideData.title;
   slideListImg[0].dataset.index = currentSlideData.id;
@@ -115,83 +113,6 @@ function createSlideItem(currentSlideData) {
     slideArrowText.style.color = "#fff";
   }
 }
-
-// Product Json Data
-const productJson = "./db.json";
-
-fetch(productJson)
-  .then((response) => response.json())
-  .then((data) => {
-    productData = data.oliveyoungProduct;
-
-    const productItem = document.querySelectorAll(".productitem");
-
-    productItem.forEach((product, i) => {
-      product.innerHTML = `                
-      <div class="productitem_img">
-        <img src="${productData[i].img}" alt="" />
-        <ul class="productitem_img_hoverbox">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa-regular fa-heart"></i>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa-solid fa-cart-arrow-down"></i>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="fa-regular fa-credit-card"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="productitem_text">
-        <p>${productData[i].title}</p>
-        <h5>${productData[i].salePrice}</h5>
-        <ul> 
-        </ul>
-        <ul>
-          <li><i class="fa-solid fa-star"></i></li>
-          <li>${productData[i].score}</li>
-          <li>${productData[i].review}</li>
-        </ul>
-      </div>`;
-
-      let madeLi;
-      const uls = document.querySelectorAll(
-        ".productitem_text > ul:nth-of-type(1)"
-      );
-      console.log(uls);
-      const tags = productData[i].tag;
-      // console.log(tags);
-      for (let a = 0; a < product.length; a++) {
-        for (let b = 0; b < tags.length; b++) {
-          // console.log("click");
-          // madeLi = document.createElement("li");
-          // console.log(madeLi);
-          // madeLi.innerText = tags[b].name;
-          document.createElement("li");
-        }
-      }
-
-      // console.log(uls);
-      uls.forEach((ul, idx) => {
-        console.log("test");
-        // for (let k = 0; k < productData[i].tag.length; k++) {
-        //   // li.innerText = productData[i].tag[i].name;
-        //   // console.log(productData[idx].tag[0].name);
-        // }
-        // console.log(productData[i].tag.length);
-        // for (let k = 0; k < productData[i].tag.length; k++) {
-        //   li.innerText = productData[i].tag[i].name;
-        //   ul.appendChild(li);
-        // }
-      });
-    });
-  });
 
 // Shortcut Tab Change Event
 const shortcutTabs = document.querySelectorAll(".shortcut_tab > p");
@@ -215,11 +136,6 @@ shortcutTabs.forEach((tab, i) => {
 
 // Shortcut Modal Event
 const shortcutSetting = document.querySelector(".shortcut_header_setting");
-const modalTabs = document.querySelectorAll(".shortcut_modal_tab > div");
-const contents = document.querySelectorAll(".shortcut_modal_contents");
-const modalIcon = document.querySelectorAll(
-  ".modal_content_service .shortcut_modal_content_icon"
-);
 
 shortcutSetting.addEventListener("click", () => {
   const shortcutModal = document.querySelector(".shortcut_modal_container");
@@ -257,61 +173,20 @@ shortcutSetting.addEventListener("click", () => {
       contents[i].classList.add("active");
     });
   });
+  const modalIcon = document.querySelectorAll(".shortcut_modal_content_icon");
 
   let activeCount = 0;
-  let serviceArray = [];
   modalIcon.forEach((icon) => {
-    icon.addEventListener("click", (event) => {
+    icon.addEventListener("click", () => {
+      // this.classList.toggle("check");
       if (activeCount < 8) {
-        icon.classList.toggle("check");
-        activeCount = Math.max(
-          0,
-          activeCount + (icon.classList.contains("check") ? 1 : -1)
-        );
+        icon.classList.add("active");
+        activeCount++;
       } else {
-        if (icon.classList.contains("check")) {
-          event.currentTarget.classList.remove("check");
-          activeCount--;
-        }
+        alert("최대 8개까지의 카테고리만 선택할 수 있습니다.");
       }
-
-      if (activeCount === 8) {
-        if (!icon.classList.contains("check") && event.currentTarget)
-          alert("최대 8개까지의 카테고리만 선택할 수 있습니다.");
-      }
-
-      if (serviceArray.length) event.currentTarget.classList.toggle("check");
-
-      console.log("체크 갯수 ==>", activeCount);
     });
   });
-
-  const listPush = () => {
-    serviceArray = [];
-    modalIcon.forEach((item) => {
-      if (item.classList.contains("check")) {
-        serviceArray.push({
-          name: item.dataset.name,
-          icon: item.children[0].className,
-        });
-      }
-    });
-    console.log("serviceArray", serviceArray);
-
-    let serviceFirstTab = document.querySelectorAll(".first-short > div");
-    serviceFirstTab.forEach((division, index) => {
-      division.children[0].children[0].className = "fa-solid fa-plus";
-      division.children[1].innerHTML = "바로가기";
-      serviceArray.forEach((userchoice, idx) => {
-        if (index == idx) {
-          division.children[0].children[0].className = userchoice.icon;
-          division.children[1].innerHTML = userchoice.name;
-        }
-      });
-    });
-    shortcutModal.classList.remove("active");
-  };
-  pushBtn.addEventListener("click", listPush);
 });
 
 // update tab Event
@@ -336,24 +211,83 @@ const todayPriceTimers = document.querySelectorAll(
   ".todayprice_content_item_timer_num"
 );
 
+function dateCalc() {
+  const nowTime = new Date();
+  const tomorrow = new Date(
+    nowTime.getFullYear(),
+    nowTime.getMonth(),
+    nowTime.getDate() + 1
+  );
+  const remainingMs = tomorrow - nowTime;
+
+  const seconds = Math.floor(remainingMs / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+
+  const remainingSeconds = seconds % 60;
+  const remainingMinutes = minutes % 60;
+  const remainingHours = hours % 24;
+
+  return {
+    hours: String(remainingHours).padStart(2, "0"),
+    minutes: String(remainingMinutes).padStart(2, "0"),
+    seconds: String(remainingSeconds).padStart(2, "0"),
+  };
+}
+
 todayPriceTimers.forEach((timer) => {
   setInterval(() => {
-    const nowTime = new Date();
-
-    let todayRemainHour = 24 - nowTime.getHours();
-    let todayRemainMin = 59 - nowTime.getMinutes();
-    let todayRemainSec = 59 - nowTime.getSeconds();
-
-    todayRemainHour =
-      todayRemainHour < 10 ? `0${todayRemainHour}` : todayRemainHour;
-    todayRemainMin =
-      todayRemainMin < 10 ? `0${todayRemainMin}` : todayRemainMin;
-    todayRemainSec =
-      todayRemainSec < 10 ? `0${todayRemainSec}` : todayRemainSec;
-
-    timer.innerText = `${todayRemainHour} : ${todayRemainMin} : ${todayRemainSec}`;
+    const { hours, minutes, seconds } = dateCalc();
+    timer.innerText = `${hours} : ${minutes} : ${seconds}`;
   }, 1000);
 });
+
+// update tab Event
+const updateContentsContainer = document.querySelector(
+  ".update_content_container"
+);
+const updateContents = document.querySelectorAll(".update_content");
+const updateChangeBtn = document.querySelector(".update_changetab");
+const updateNum = document.querySelector(".update_number");
+
+fetch(indexInfo)
+  .then((response) => response.json())
+  .then((data) => {
+    updateData = data.update;
+    updateNum.innerHTML = `<span>1</span><span></span><span> ${
+      updateData.length / 2
+    }</span>`;
+  });
+
+let updateSectionIndex = Number(updateContentsContainer.dataset.index);
+
+const updateItem = (updateSlideData) => {
+  updateContents.forEach((content, idx) => {
+    content.children[0].children[0].src = updateSlideData[idx].img;
+    content.children[1].children[0].innerText = updateSlideData[idx].title;
+    content.children[1].children[1].innerText = updateSlideData[idx].desc;
+  });
+  updateNum.innerHTML = `<span>${updateSectionIndex}</span><span></span><span> ${
+    updateData.length / 2
+  }</span>`;
+};
+
+const updateSlide = () => {
+  updateSectionIndex++;
+  if (updateSectionIndex == updateData.length / 2 + 1) updateSectionIndex = 1;
+  let updateSlideData = [];
+  updateData.forEach((data, i) => {
+    if (updateSectionIndex == 1) {
+      if (i == 0 || i == 1) updateSlideData.push(data);
+    } else if (updateSectionIndex == 2) {
+      if (i == 2 || i == 3) updateSlideData.push(data);
+    } else if (updateSectionIndex == 3) {
+      if (i == 4 || i == 5) updateSlideData.push(data);
+    }
+  });
+  updateItem(updateSlideData);
+};
+updateChangeBtn.addEventListener("click", updateSlide);
 
 // TodayRanking Timer
 const timeWrapper = document.querySelector(".todayranking_title > p");
@@ -368,6 +302,105 @@ setInterval(() => {
 
   timeWrapper.innerText = `${nowHour}:${nowMin}`;
 }, 1000);
+
+// TodayRanking Category
+const todayRankingTabs = document.querySelectorAll(".todayranking_tab li");
+const todayRankingItems = document.querySelectorAll(".todayranking_item");
+
+let categoryItems = [];
+const productChange = (tab, i) => {
+  productData.forEach(() => {
+    categoryItems = productData.filter((data) => data.category == tab.id);
+  });
+
+  todayRankingItems.forEach((item, idx) => {
+    if (categoryItems == "all") {
+      item.innerHTML = "";
+    } else {
+      price = new Intl.NumberFormat("ko-kr", {
+        currency: "KRW",
+      }).format(productData[idx].salePrice);
+      item.innerHTML = `
+        <div class="productitem_img">
+          <img src="${categoryItems[idx].img}" alt="${categoryItems[idx].id}" />
+          <ul class="productitem_img_hoverbox">
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa-regular fa-heart"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa-solid fa-cart-arrow-down"></i>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">
+                <i class="fa-regular fa-credit-card"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="productitem_text">
+          <p>${categoryItems[idx].title}</p>
+          <h5>${price}</h5>
+          <ul> 
+          </ul>
+          <ul>
+            <li><i class="fa-solid fa-star"></i></li>
+            <li>${categoryItems[idx].score}</li>
+            <li>(${categoryItems[idx].review})</li>
+          </ul>
+        </div>
+        `;
+    }
+  });
+};
+
+todayRankingTabs.forEach((tab, i) => {
+  tab.addEventListener("click", function () {
+    todayRankingTabs.forEach((t) => {
+      t.classList.remove("active");
+    });
+    this.classList.add("active");
+    productChange(tab, i);
+  });
+});
+
+// Brand Event
+const brandTabs = document.querySelectorAll(".brand_tab li");
+const brandContent = document.querySelector(".brand_content");
+const brandSlide = brandContent.querySelector(".brand_content_slide");
+const brandItems = document.querySelectorAll(".brand_content_item");
+
+fetch(indexInfo)
+  .then((response) => response.json())
+  .then((data) => {
+    brandData = data.brand;
+  });
+
+brandTabs.forEach((tab, idx) => {
+  tab.addEventListener("click", () => {
+    brandTabs.forEach((t) => {
+      t.classList.remove("active");
+    });
+    tab.classList.add("active");
+
+    // contentChange(tab, idx);
+
+    const makeContent = (data, i) => {
+      if (idx == i) {
+        brandSlide.querySelector("img").src = data.img;
+        brandSlide.querySelector("h4").innerText = data.brandname;
+        brandSlide.querySelector(
+          "p"
+        ).innerHTML = `<i class="fa-regular fa-heart"></i> ${data.likenum}명이 좋아합니다.`;
+      }
+    };
+
+    brandData.forEach(makeContent);
+  });
+});
 
 // oliveyoung Live
 const videoMain = document.querySelector(".video_main");
@@ -385,3 +418,5 @@ videoMain.addEventListener("pause", () => {
     videoHover.classList.add("active");
   });
 });
+
+const cartbtn = document.querySelectorAll(".productitem_img");
