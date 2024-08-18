@@ -189,23 +189,6 @@ shortcutSetting.addEventListener("click", () => {
   });
 });
 
-// update tab Event
-fetch(indexInfo)
-  .then((response) => response.json())
-  .then((data) => {
-    updateDate = data.update;
-    // console.log(updateDate);
-  });
-
-const updateContents = document.querySelectorAll(".update_content");
-const updateChangeBtn = document.querySelector(".update_changetab");
-
-// updateDate.forEach((data, idx) => {});
-
-// updateContents.forEach((content) => {
-//   let updateData = content;
-// });
-
 // todayprice Timer
 const todayPriceTimers = document.querySelectorAll(
   ".todayprice_content_item_timer_num"
