@@ -174,7 +174,7 @@ label {
       label {
         z-index: 2;
         top: 10px;
-        left: 10px;
+        left: 0px;
         position: absolute;
         bottom: 100px;
         right: 35px;
@@ -635,8 +635,9 @@ label {
     }
   }
   label {
+    margin: 10px 10px;
     z-index: 2;
-    left: 0px;
+    left: 10px;
     bottom: 100px;
     right: 0px;
     display: inline-block;
