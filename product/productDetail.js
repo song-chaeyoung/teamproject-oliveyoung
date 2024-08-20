@@ -27,3 +27,5 @@ fetch("/component/footer.html")
   .then((data) => {
     footer.innerHTML = data;
   });
+
+// +- 계산 버튼
