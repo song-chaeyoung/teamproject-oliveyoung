@@ -29,7 +29,6 @@ fetch("./component/footer.html")
   });
 
 // Main Page
-
 // Main Slide Event
 const indexInfo = "./indexslide.json";
 const slideList = document.querySelector(".mainslide");
@@ -58,7 +57,6 @@ slideArrowLeft.addEventListener("click", () => {
 });
 
 slideArrowRight.addEventListener("click", () => {
-  // let slideIndex = Number(slideListImg[0].dataset.index);
   slideIndex++;
   if (slideIndex == slideData.length + 1) slideIndex = 1;
 
@@ -114,6 +112,154 @@ function createSlideItem(currentSlideData) {
   }
 }
 
+// Product Json Data
+const productJson = "./db.json";
+let productData = [];
+const productItem = document.querySelectorAll(".productitem");
+
+fetch(productJson)
+  .then((response) => response.json())
+  .then((data) => {
+    return new Promise(async (resolve) => {
+      try {
+        await createProductData(data);
+        cartEvent();
+        resolve();
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  });
+
+createProductData = (data) => {
+  data.oliveyoungProduct.forEach((item) => {
+    item.price = new Intl.NumberFormat("ko-kr", { currency: "KRW" }).format(
+      item.price
+    );
+    item.salePrice = new Intl.NumberFormat("ko-kr", {
+      currency: "KRW",
+    }).format(item.salePrice);
+  });
+  productData = data.oliveyoungProduct;
+  allProductData = data.oliveyoungProduct.slice(
+    10,
+    data.oliveyoungProduct.length - 1
+  );
+
+  productItem.forEach((product, i) => {
+    product.innerHTML = commonChangeElement(productData[i]);
+
+    const uls = product.querySelectorAll(
+      ".productitem_text > ul:nth-of-type(1)"
+    );
+    const tags = productData[i].tag;
+
+    for (let b = 0; b < tags.length; b++) {
+      let madeLi = document.createElement("li");
+      madeLi.innerText = tags[b].name;
+      uls.forEach((ul) => {
+        ul.appendChild(madeLi);
+      });
+    }
+  });
+};
+
+// Product Common
+let saveData = [];
+const commonChangeElement = (data) => {
+  let newElement = document.createElement("div");
+  return (newElement.innerHTML = `
+          <div class="productitem_img" data-category="${data.category}" data-id="${data.id}">
+            <img src="${data.img}" alt="${data.id}" />
+            <ul class="productitem_img_hoverbox">
+              <li>
+                <a href="javascript:void(0)">
+                  <i class="fa-regular fa-heart"></i>
+                </a>
+              </li>
+              <li class="cart_btn">
+                <a href="javascript:void(0)">
+                  <i class="fa-solid fa-cart-arrow-down"></i>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">
+                  <i class="fa-regular fa-credit-card"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="productitem_text">
+            <p>${data.title}</p>
+            <h5>${data.price}</h5>
+            <ul> 
+            </ul>
+            <ul>
+              <li><i class="fa-solid fa-star"></i></li>
+              <li>${data.score}</li>
+              <li>(${data.review})</li>
+            </ul>
+          </div>
+          `);
+};
+
+productItem.forEach((item, idx) => {
+  item.addEventListener("click", (e) => {
+    console.log("target ==>", e.currentTarget);
+    console.log(
+      "target category ==>",
+      e.currentTarget.children[0].dataset.category
+    );
+    console.log("target ID ==>", e.currentTarget.children[0].dataset.id);
+    let category = e.currentTarget.children[0].dataset.category;
+    let targetId = e.currentTarget.children[0].dataset.id;
+    const url = `/product/productDetail.html?category=${encodeURIComponent(
+      category
+    )}&id=${targetId}`;
+    // window.location.href = url;
+  });
+});
+
+// Cart Btn Event
+let productCart = [];
+function cartEvent() {
+  const cartBtns = document.querySelectorAll(".cart_btn");
+
+  cartBtns.forEach((btn) => {
+    const pushLocalEvent = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      let dataID = btn.parentNode.parentNode.dataset.id;
+      console.log("dataID", dataID);
+      productData.forEach((data, i) => {
+        if (dataID == productData[i].id) {
+          productCart.push(productData[i]);
+          save();
+        }
+      });
+      // alert("장바구니에 담겼습니다.");
+      if (!confirm("장바구니에 추가되었습니다. 장바구니로 이동하시겠습니까?")) {
+      } else {
+        window.location.href = `/cart/cart.html`;
+      }
+    };
+
+    const save = () => {
+      localStorage.setItem(`cart`, JSON.stringify(productCart));
+    };
+
+    const init = () => {
+      const cartInfos = JSON.parse(localStorage.getItem(`cart`));
+      if (cartInfos) {
+        productCart = cartInfos;
+      }
+    };
+    init();
+    btn.addEventListener("click", pushLocalEvent);
+  });
+}
+
 // Shortcut Tab Change Event
 const shortcutTabs = document.querySelectorAll(".shortcut_tab > p");
 shortcutTabs.forEach((tab, i) => {
@@ -136,6 +282,14 @@ shortcutTabs.forEach((tab, i) => {
 
 // Shortcut Modal Event
 const shortcutSetting = document.querySelector(".shortcut_header_setting");
+const modalTabs = document.querySelectorAll(".shortcut_modal_tab > div");
+const contents = document.querySelectorAll(".shortcut_modal_contents");
+const modalIcon = document.querySelectorAll(
+  ".modal_content_service .shortcut_modal_content_icon"
+);
+const modalIcon2 = document.querySelectorAll(
+  ".modal_content_category .shortcut_modal_content_icon"
+);
 
 shortcutSetting.addEventListener("click", () => {
   const shortcutModal = document.querySelector(".shortcut_modal_container");
@@ -150,15 +304,9 @@ shortcutSetting.addEventListener("click", () => {
   );
   xMark.addEventListener("click", () => {
     shortcutModal.classList.remove("active");
-    // modalIcon.forEach((icon) => {
-    //   icon.classList.remove("check");
-    // });
   });
   cancelBtn.addEventListener("click", () => {
     shortcutModal.classList.remove("active");
-    // modalIcon.forEach((icon) => {
-    //   icon.classList.remove("check");
-    // });
   });
 
   modalTabs.forEach((tab, i) => {
@@ -173,20 +321,166 @@ shortcutSetting.addEventListener("click", () => {
       contents[i].classList.add("active");
     });
   });
-  const modalIcon = document.querySelectorAll(".shortcut_modal_content_icon");
 
-  let activeCount = 0;
-  modalIcon.forEach((icon) => {
-    icon.addEventListener("click", () => {
-      // this.classList.toggle("check");
-      if (activeCount < 8) {
-        icon.classList.add("active");
-        activeCount++;
+  let activeCount0 = 0;
+  let activeCount1 = 0;
+  let serviceArray = [];
+  let serviceArray1 = [];
+
+  const modalEvent = (icon) => {
+    icon.addEventListener("click", (event) => {
+      if (activeCount0 < 8) {
+        icon.classList.toggle("check");
+        activeCount0 = Math.max(
+          0,
+          activeCount0 + (icon.classList.contains("check") ? 1 : -1)
+        );
       } else {
-        alert("최대 8개까지의 카테고리만 선택할 수 있습니다.");
+        if (icon.classList.contains("check")) {
+          event.currentTarget.classList.remove("check");
+          activeCount0--;
+        }
+      }
+
+      if (activeCount0 === 8) {
+        if (!icon.classList.contains("check") && event.currentTarget)
+          alert("최대 8개까지의 카테고리만 선택할 수 있습니다.");
+      }
+
+      if (serviceArray.length) event.currentTarget.classList.toggle("check");
+    });
+  };
+
+  const modalEvent1 = (icon) => {
+    icon.addEventListener("click", (event) => {
+      if (activeCount1 < 8) {
+        icon.classList.toggle("check");
+        activeCount1 = Math.max(
+          0,
+          activeCount1 + (icon.classList.contains("check") ? 1 : -1)
+        );
+      } else {
+        if (icon.classList.contains("check")) {
+          event.currentTarget.classList.remove("check");
+          activeCount1--;
+        }
+      }
+
+      if (activeCount1 === 8) {
+        if (!icon.classList.contains("check") && event.currentTarget)
+          alert("최대 8개까지의 카테고리만 선택할 수 있습니다.");
+      }
+
+      if (serviceArray1.length) event.currentTarget.classList.toggle("check");
+    });
+  };
+
+  modalIcon.forEach(modalEvent);
+  modalIcon2.forEach(modalEvent1);
+
+  const listPush = () => {
+    modalIcon.forEach((item) => {
+      if (item.classList.contains("check")) {
+        serviceArray.push({
+          name: item.dataset.name,
+          icon: item.children[0].className,
+        });
       }
     });
+    modalIcon2.forEach((item) => {
+      if (item.classList.contains("check")) {
+        serviceArray1.push({
+          name: item.dataset.name,
+          icon: item.children[0].className,
+        });
+      }
+    });
+
+    let serviceFirstTab = document.querySelectorAll(".first-short > div");
+    let serviceSecondTab = document.querySelectorAll(".second-short > div");
+
+    const tabPush = (division, index) => {
+      division.children[0].children[0].className = "fa-solid fa-plus";
+      division.children[0].children[0].style.color = "";
+      division.children[1].innerHTML = "바로가기";
+      serviceArray.forEach((userchoice, idx) => {
+        if (index == idx) {
+          division.children[0].children[0].className = userchoice.icon;
+          division.children[0].children[0].style.color = "#9ac75b";
+          division.children[1].innerHTML = userchoice.name;
+        }
+      });
+    };
+
+    const tabPush2 = (division, index) => {
+      division.children[0].children[0].className = "fa-solid fa-plus";
+      division.children[0].children[0].style.color = "";
+      division.children[1].innerHTML = "바로가기";
+      serviceArray1.forEach((userchoice, idx) => {
+        if (index == idx) {
+          division.children[0].children[0].className = userchoice.icon;
+          division.children[0].children[0].style.color = "#9ac75b";
+          division.children[1].innerHTML = userchoice.name;
+        }
+      });
+    };
+
+    serviceFirstTab.forEach(tabPush);
+    serviceSecondTab.forEach(tabPush2);
+
+    shortcutModal.classList.remove("active");
+  };
+  pushBtn.addEventListener("click", listPush);
+});
+
+// personalitem Event
+const form = document.querySelector(".personalitem_select_container");
+
+const personalItemRandom = () => {
+  const personalProducts = document.querySelectorAll(
+    ".personalitem_product_itme"
+  );
+  let randomNum = new Set();
+  personalProducts.forEach((product, idx) => {
+    for (let i = 0; i <= idx; i++) {
+      randomNum = Math.floor(Math.random() * productData.length);
+    }
+
+    price = new Intl.NumberFormat("ko-kr", {
+      currency: "KRW",
+    }).format(productData[randomNum].salePrice);
+
+    if (randomNum == productData[randomNum].id) {
+      product.innerHTML = commonChangeElement(productData[randomNum]);
+    }
   });
+};
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const inputs = document.querySelectorAll(".personalitem_select_type input");
+  let isChecked = false;
+  inputs.forEach((input) => {
+    if (input.checked) {
+      isChecked = true;
+    }
+  });
+  if (!isChecked) {
+    alert("피부 정보를 입력해주세요!");
+  } else {
+    document
+      .querySelector(".personalitem_product_itmes_loading")
+      .classList.add("loading");
+    setTimeout(() => {
+      document
+        .querySelector(".personalitem_product_itmes_loading")
+        .classList.remove("loading");
+    }, 3000);
+    personalItemRandom();
+  }
+
+  cartEvent();
 });
 
 // todayprice Timer
@@ -291,53 +585,18 @@ const todayRankingTabs = document.querySelectorAll(".todayranking_tab li");
 const todayRankingItems = document.querySelectorAll(".todayranking_item");
 
 let categoryItems = [];
+
 const productChange = (tab, i) => {
   productData.forEach(() => {
     categoryItems = productData.filter((data) => data.category == tab.id);
   });
 
   todayRankingItems.forEach((item, idx) => {
-    if (categoryItems == "all") {
-      item.innerHTML = "";
-    } else {
-      price = new Intl.NumberFormat("ko-kr", {
-        currency: "KRW",
-      }).format(productData[idx].salePrice);
-      item.innerHTML = `
-        <div class="productitem_img">
-          <img src="${categoryItems[idx].img}" alt="${categoryItems[idx].id}" />
-          <ul class="productitem_img_hoverbox">
-            <li>
-              <a href="javascript:void(0)">
-                <i class="fa-regular fa-heart"></i>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <i class="fa-solid fa-cart-arrow-down"></i>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <i class="fa-regular fa-credit-card"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="productitem_text">
-          <p>${categoryItems[idx].title}</p>
-          <h5>${price}</h5>
-          <ul> 
-          </ul>
-          <ul>
-            <li><i class="fa-solid fa-star"></i></li>
-            <li>${categoryItems[idx].score}</li>
-            <li>(${categoryItems[idx].review})</li>
-          </ul>
-        </div>
-        `;
-    }
+    if (tab.id == "all") {
+      item.innerHTML = commonChangeElement(allProductData[idx]);
+    } else item.innerHTML = commonChangeElement(categoryItems[idx]);
   });
+  cartEvent();
 };
 
 todayRankingTabs.forEach((tab, i) => {
@@ -350,17 +609,153 @@ todayRankingTabs.forEach((tab, i) => {
   });
 });
 
+// TodayRanking Category Touch Event Mobile
+const todayRankingTabContainer = document.querySelector(".todayranking_tab");
+let startX = 0;
+let nowX = 0;
+let endX = 0;
+let listX = 0;
+
+const getClientX = (e) => {
+  // console.log(e.clientX);
+  // console.log(e);
+  // console.log(e.touches[0]);
+  // console.log(e.clientX);
+  return e.touches ? e.touches[0].clientX : e.clientX;
+  // return e.clientX;
+};
+// console.log(window.getComputedStyle(todayRankingTabContainer).transform);
+const getTranslateX = () => {
+  return parseInt(
+    getComputedStyle(todayRankingTabContainer).transform.split(/[^\-0-9]+/g)[5]
+  );
+};
+
+const setTranslateX = (x) => {
+  // console.log(x);
+  todayRankingTabContainer.style.transform = `translateX(${x}px)`;
+};
+
+const onScrollMove = (e) => {
+  e.stopPropagation();
+  nowX = getClientX(e);
+  // startX = getClientX(e);
+  console.log(nowX);
+  console.log(startX);
+  setTranslateX(listX + nowX - startX);
+};
+
+const onScrollEnd = (e) => {
+  endX = getClientX(e.clientX);
+  listX = getTranslateX();
+
+  if (listX > 0) {
+    // setTranslateX(0);
+    todayRankingTabContainer.style.transition = `all 0.1s ease`;
+    // listX = 0;
+  }
+};
+
+const onScrollStart = (e) => {
+  e.stopPropagation();
+  nowX = getClientX(e);
+  startX = getClientX(e);
+
+  window.addEventListener("touchmove", onScrollMove);
+  window.addEventListener("mousedown", onScrollMove);
+  window.addEventListener("touchend", onScrollEnd);
+  window.addEventListener("mouseup", onScrollEnd);
+};
+
+// if (window.matchMedia("(max-width: 445px)").matches) {
+todayRankingTabContainer.addEventListener("touchstart", onScrollStart);
+todayRankingTabContainer.addEventListener("mousedown", onScrollStart);
+
+// }
+
 // Brand Event
 const brandTabs = document.querySelectorAll(".brand_tab li");
-const brandContent = document.querySelector(".brand_content");
-const brandSlide = brandContent.querySelector(".brand_content_slide");
+const brandSlideContainer = document.querySelector(
+  ".brand_content_slide_container"
+);
 const brandItems = document.querySelectorAll(".brand_content_item");
 
 fetch(indexInfo)
   .then((response) => response.json())
   .then((data) => {
-    brandData = data.brand;
+    return new Promise(async (resolve) => {
+      try {
+        await creatBrandSlide(data.brand);
+        resolve();
+      } catch (error) {
+        console.error(error);
+      }
+    });
   });
+
+const makeClone = () => {
+  let slides = document.querySelectorAll(".brand_content_slide");
+  let firstChild = slides[0];
+  let clonedFirst = firstChild.cloneNode(true);
+  clonedFirst.classList.add("clone");
+  brandSlideContainer.appendChild(clonedFirst);
+
+  let lastChild = slides[slides.length - 1];
+  let clonedLast = lastChild.cloneNode(true);
+  clonedLast.classList.add("clone");
+  brandSlideContainer.prepend(clonedLast);
+
+  firstPosition(slides);
+};
+
+const firstPosition = (slides) => {
+  // const slideWidth = slides[0].clientWidth;
+  const slideWidth = 1300;
+  brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
+};
+
+creatBrandSlide = (brandData) => {
+  brandData.forEach((item) => {
+    let newElement = document.createElement("div");
+    newElement.classList.add("brand_content_slide");
+    newElement.innerHTML = `
+        <div class="brand_content_img">
+          <img src="${item.img}" alt="brandimg01" />
+          <div class="brand_content_text">
+            <h4>${item.brandname}</h4>
+            <p>
+              <i class="fa-regular fa-heart"></i> ${item.likenum}명이 좋아합니다.
+            </p>
+          </div>
+        </div>
+      `;
+    brandSlideContainer.appendChild(newElement);
+  });
+  makeClone();
+};
+
+let currentSlide = 1;
+let brandItemData = [];
+const contentChange = (tab) => {
+  productData.forEach(() => {
+    brandItemData = productData.filter((data) => data.company == tab.innerText);
+  });
+  brandItems.forEach((item, i) => {
+    item.innerHTML = `
+                <div class="brand_content_item_img">
+                  <img src="${brandItemData[i].img}" alt="${brandItemData[i].id}" />
+                </div>
+                <div class="brand_content_item_info">
+                <p>${brandItemData[i].company}</p>
+                  <h6>${brandItemData[i].title}</h6>
+                  <div>
+                    <p><span>${brandItemData[i].price}</span>원</p>
+                    <p><span>${brandItemData[i].salePrice}</span>원</p>
+                  </div>
+                </div>
+    `;
+  });
+};
 
 brandTabs.forEach((tab, idx) => {
   tab.addEventListener("click", () => {
@@ -368,22 +763,106 @@ brandTabs.forEach((tab, idx) => {
       t.classList.remove("active");
     });
     tab.classList.add("active");
+    currentSlide = idx + 1;
 
-    // contentChange(tab, idx);
-
-    const makeContent = (data, i) => {
-      if (idx == i) {
-        brandSlide.querySelector("img").src = data.img;
-        brandSlide.querySelector("h4").innerText = data.brandname;
-        brandSlide.querySelector(
-          "p"
-        ).innerHTML = `<i class="fa-regular fa-heart"></i> ${data.likenum}명이 좋아합니다.`;
-      }
-    };
-
-    brandData.forEach(makeContent);
+    slide();
+    contentChange(tab);
   });
 });
+
+const brandArrowLeft = document.querySelector(".brand_content_arrow_left");
+const brandArrowRight = document.querySelector(".brand_content_arrow_right");
+
+brandArrowLeft.addEventListener("click", () => {
+  brandTabs.forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  currentSlide--;
+  console.log("currentSlide", currentSlide);
+
+  let newbrandItem = [];
+  brandTabs.forEach((item, idx) => {
+    if (idx + 1 === currentSlide) {
+      item.classList.add("active");
+      newbrandItem = item;
+    }
+  });
+
+  slide();
+
+  if (currentSlide == 0) {
+    let slides = document.querySelectorAll(".brand_content_slide");
+    const slideWidth = slides[0].clientWidth;
+    currentSlide = 10;
+
+    setTimeout(() => {
+      brandSlideContainer.style.transform = `translateX(${-slideWidth})`;
+      brandSlideContainer.style.transition = "none";
+    }, 500);
+
+    let newbrandItem = [];
+    brandTabs.forEach((item, idx) => {
+      if (idx + 1 === currentSlide) {
+        item.classList.add("active");
+        newbrandItem = item;
+        contentChange(brandTabs[9]);
+      }
+    });
+  }
+  contentChange(newbrandItem);
+});
+
+brandArrowRight.addEventListener("click", () => {
+  brandTabs.forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  currentSlide++;
+  console.log("currentSlide", currentSlide);
+
+  let newbrandItem = [];
+  brandTabs.forEach((item, idx) => {
+    if (idx + 1 === currentSlide) {
+      item.classList.add("active");
+      newbrandItem = item;
+    }
+  });
+  let slides = document.querySelectorAll(".brand_content_slide");
+
+  slide();
+
+  if (currentSlide == slides.length - 1) {
+    const slides = document.querySelectorAll(".brand_content_slide");
+    const slideWidth = slides[0].clientWidth;
+    currentSlide = 1;
+
+    setTimeout(() => {
+      brandSlideContainer.style.transition = "none";
+      brandSlideContainer.style.transform = `translateX(${-slideWidth})`;
+    }, 500);
+
+    let newbrandItem = [];
+    brandTabs.forEach((item, idx) => {
+      if (idx + 1 === currentSlide) {
+        item.classList.add("active");
+        newbrandItem = item;
+        contentChange(brandTabs[0]);
+      }
+    });
+  }
+  contentChange(newbrandItem);
+});
+
+function slide() {
+  let slides = document.querySelectorAll(".brand_content_slide");
+  let slideWidth = slides[0].clientWidth;
+
+  brandSlideContainer.style.transform = `translateX(${
+    currentSlide * -slideWidth
+  }px)`;
+  brandSlideContainer.style.transition = "0.3s";
+}
 
 // oliveyoung Live
 const videoMain = document.querySelector(".video_main");
@@ -401,5 +880,3 @@ videoMain.addEventListener("pause", () => {
     videoHover.classList.add("active");
   });
 });
-
-const cartbtn = document.querySelectorAll(".productitem_img");
