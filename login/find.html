@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- fontawsome -->
+    <script
+    src="https://kit.fontawesome.com/580465cdf5.js"crossorigin="anonymous"></script>
+    <!--custom css & js-->
+    <script defer src="./find.js"></script>
+    <link rel="stylesheet" href="./find.css">
+  </head>
+  <body>
+    <!--header-->
+    <header></header>
+    <!--login-->
+    <main>
+      <div class="inner">
+        <div class="loginText">
+          <h2>아이디 찾기</h2>
+          <!-- <span>올리브영의 다양한 서비스와 혜택을 누리세요.</span> -->
+        </div>
+        <!--tab 부분-->
+        <ul class="tabs">
+          <li class="tab1 active">
+            <div for="tab-1">휴대폰 인증</div>
+          </li>
+          <li class="tab2">
+            <div for="tab-2">이메일 인증</div>
+          </li>
+        </ul>
+        <!--ID & PW 입력부분-->
+        <div class="contents">
+          <div class="content1 active">
+        <div class="userMember">
+              <div class="memberId">
+                <input id="inputId" placeholder="이름을 입력해주세요." type="text"></input>
+            </div>
+            <div class="memberPw">
+                <input id="inputPw" placeholder="휴대폰번호를 입력해주세요.( -를 제외한 숫자입력)" type="text"></input>
+            </div>
+        </div>
+              <!--button 부분-->
+              <div class="loginBtn">
+                <div class="loginBtn01">
+                    <button>인증번호 받기</button>
+                </div>
+
+            </div>
+          </div>
+          <!--비회원 주문조회-->
+          <div class="content2">
+            <div class="orderMember">
+              <div class="memberId">
+                <input 
+                id="inputId" 
+                placeholder="이름을 입력해주세요." 
+                type="text">
+              </input>
+            </div>
+            <div class="memberPw">
+                <input 
+                id="inputPw" 
+                placeholder="이메일을 입력해주세요." 
+                type="email">
+              </input>
+            </div>
+            </div>
+            <div class="nomemberBtn">
+              <div class="orderbtn">
+                  <button>
+                    확인
+                  </button>
+              </div>
+            </div>              
+          </div>
+        </div>
+      </div>
+    </main>   
+    <div class="sidebar_common"></div>
+    <!--footer-->
+    <footer></footer>
+  </body>
+</html>
