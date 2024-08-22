@@ -99,8 +99,8 @@ main {
 /* icon */
 .logo {
   display: block;
-  width: 190px;
-  height: 30px;
+  width: 200px;
+  height: 32px;
   background: url("./indeximg/logo.png") center/cover no-repeat;
 }
 
