@@ -77,3 +77,44 @@ tabs.forEach((tab, i) => {
 
 //   content1.classList.remove("active");
 // });
+
+// JSON 데이터 파일 URL
+const introductionproductJson = "/db.json";
+const cartItems = document.querySelectorAll(".introduction_box");
+console.log(cartItems);
+
+fetch(introductionproductJson)
+  .then((response) => response.json())
+  .then((data) => {
+    // data.oliveyoungProduct.forEach((item) => {
+    //   item.price = new Intl.NumberFormat("ko-kr", { currency: "KRW" }).format(
+    //     item.price
+    //   );
+    //   item.salePrice = new Intl.NumberFormat("ko-kr", {
+    //     currency: "KRW",
+    //   }).format(item.salePrice);
+    // });
+    productData = data.oliveyoungProduct;
+    console.log(productData);
+
+    productData.forEach((data, idx) => {
+      cartItems.forEach((item, i) => {
+        item.innerHTML = `
+                          <div class="introduction_img">
+                        <img src="${data.img}" alt="${data.id}" />
+                      </div>
+                      <div class="brand_content_item_info">
+                      <p>${data.company}</p>
+                        <h6>${data.title}</h6>
+                        <div>
+                          <p><span>${data.price}</span>원</p>
+                          <p><span>${data.salePrice}</span>원</p>
+                        </div>
+                      </div>
+          `;
+      });
+    });
+  });
+
+// const contentChange = () => {};
+// contentChange();
