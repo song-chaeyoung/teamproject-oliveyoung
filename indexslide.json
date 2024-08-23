@@ -102,5 +102,67 @@
       "desc": "물만 넣어도 맛있는 플라이밀",
       "img": "./indeximg/update06.jpg"
     }
+  ],
+  "brand": [
+    {
+      "id": 0,
+      "brandname": "클리오",
+      "likenum": "21,398",
+      "img": "./indeximg/brandimg0.jpg"
+    },
+    {
+      "id": 1,
+      "brandname": "어반디케이",
+      "likenum": "4,337",
+      "img": "./indeximg/brandimg1.jpg"
+    },
+    {
+      "id": 2,
+      "brandname": "코링코",
+      "likenum": "799",
+      "img": "./indeximg/brandimg2.jpg"
+    },
+    {
+      "id": 3,
+      "brandname": "오프라 코스메틱",
+      "likenum": "191",
+      "img": "./indeximg/brandimg3.jpg"
+    },
+    {
+      "id": 4,
+      "brandname": "코스노리",
+      "likenum": "5,188",
+      "img": "./indeximg/brandimg4.jpg"
+    },
+    {
+      "id": 5,
+      "brandname": "이지듀",
+      "likenum": "515",
+      "img": "./indeximg/brandimg5.jpg"
+    },
+    {
+      "id": 6,
+      "brandname": "닥터지",
+      "likenum": "19,982",
+      "img": "./indeximg/brandimg6.jpg"
+    },
+    {
+      "id": 7,
+      "brandname": "유이크",
+      "likenum": "164",
+      "img": "./indeximg/brandimg7.jpg"
+    },
+    {
+      "id": 8,
+      "brandname": "아누아",
+      "likenum": "9,597",
+      "img": "./indeximg/brandimg8.jpg"
+    },
+    {
+      "id": 9,
+      "brandname": "토리든",
+      "likenum": "14,293",
+      "img": "./indeximg/brandimg9.jpg"
+    }
   ]
 }

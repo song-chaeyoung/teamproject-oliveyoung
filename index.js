@@ -117,56 +117,6 @@ const productJson = "./db.json";
 let productData = [];
 const productItem = document.querySelectorAll(".productitem");
 
-// fetch(productJson)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     data.oliveyoungProduct.forEach((item) => {
-//       item.price = new Intl.NumberFormat("ko-kr", { currency: "KRW" }).format(
-//         item.price
-//       );
-//       item.salePrice = new Intl.NumberFormat("ko-kr", {
-//         currency: "KRW",
-//       }).format(item.salePrice);
-//     });
-//     productData = data.oliveyoungProduct;
-//     allProductData = data.oliveyoungProduct.slice(
-//       10,
-//       data.oliveyoungProduct.length - 1
-//     );
-
-//     const productItem = document.querySelectorAll(".productitem");
-//     let madeLi = document.createElement("li");
-
-//     productItem.forEach((product, i) => {
-//       let price = new Intl.NumberFormat("ko-kr", {
-//         currency: "KRW",
-//       }).format(productData[i].salePrice);
-
-//       product.innerHTML = commonChangeElement(productData[i]);
-
-//       const uls = product.querySelectorAll(
-//         ".productitem_text > ul:nth-of-type(1)"
-//       );
-//       const tags = productData[i].tag;
-
-//       for (let b = 0; b < tags.length; b++) {
-//         let madeLi = document.createElement("li");
-//         madeLi.innerText = tags[b].name;
-//         uls.forEach((ul) => {
-//           ul.appendChild(madeLi);
-//         });
-//       }
-
-//       // productItem.forEach((item) => {
-//       //   item.addEventListener("click", () => {
-//       //     const url = `/product/productDetail.html?category=${encodeURIComponent(
-//       //       productData[i].category
-//       //     )}&name=${productData[i].id}`;
-//       //     window.location.href = url;
-//       //   });
-//       // });
-//     });
-//   });
 
 fetch(productJson)
   .then((response) => response.json())
@@ -182,7 +132,6 @@ fetch(productJson)
   });
 
 createProductData = (data) => {
-  console.log("createProductData ==>", data);
   data.oliveyoungProduct.forEach((item) => {
     item.price = new Intl.NumberFormat("ko-kr", { currency: "KRW" }).format(
       item.price
@@ -219,7 +168,6 @@ createProductData = (data) => {
 let saveData = [];
 const commonChangeElement = (data) => {
   let newElement = document.createElement("div");
-  // saveData.push(data);
   return (newElement.innerHTML = `
           <div class="productitem_img" data-category="${data.category}" data-id="${data.id}">
             <img src="${data.img}" alt="${data.id}" />
@@ -268,11 +216,6 @@ productItem.forEach((item, idx) => {
     const url = `/product/productDetail.html?category=${encodeURIComponent(
       category
     )}&id=${targetId}`;
-    window.location.href = url;
-    console.log("url", url);
-  });
-});
-
 // Shortcut Tab Change Event
 const shortcutTabs = document.querySelectorAll(".shortcut_tab > p");
 shortcutTabs.forEach((tab, i) => {
@@ -449,49 +392,6 @@ shortcutSetting.addEventListener("click", () => {
 // personalitem Event
 const form = document.querySelector(".personalitem_select_container");
 
-const personalItemRandom = () => {
-  const personalProducts = document.querySelectorAll(
-    ".personalitem_product_itme"
-  );
-  let randomNum = new Set();
-  personalProducts.forEach((product, idx) => {
-    for (let i = 0; i <= idx; i++) {
-      randomNum = Math.floor(Math.random() * productData.length);
-    }
-
-    price = new Intl.NumberFormat("ko-kr", {
-      currency: "KRW",
-    }).format(productData[randomNum].salePrice);
-
-    if (randomNum == productData[randomNum].id) {
-      product.innerHTML = commonChangeElement(productData[randomNum]);
-    }
-  });
-};
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const inputs = document.querySelectorAll(".personalitem_select_type input");
-  let isChecked = false;
-  inputs.forEach((input) => {
-    if (input.checked) {
-      isChecked = true;
-    }
-  });
-  if (!isChecked) {
-    alert("피부 정보를 입력해주세요!");
-  } else {
-    document
-      .querySelector(".personalitem_product_itmes_loading")
-      .classList.add("loading");
-    setTimeout(() => {
-      document
-        .querySelector(".personalitem_product_itmes_loading")
-        .classList.remove("loading");
-    }, 3000);
-    personalItemRandom();
-  }
 });
 
 // todayprice Timer
@@ -607,6 +507,7 @@ const productChange = (tab, i) => {
       item.innerHTML = commonChangeElement(allProductData[idx]);
     } else item.innerHTML = commonChangeElement(categoryItems[idx]);
   });
+
 };
 
 todayRankingTabs.forEach((tab, i) => {
@@ -619,73 +520,19 @@ todayRankingTabs.forEach((tab, i) => {
   });
 });
 
+
 // Brand Event
 const brandTabs = document.querySelectorAll(".brand_tab li");
 const brandSlideContainer = document.querySelector(
   ".brand_content_slide_container"
 );
 const brandItems = document.querySelectorAll(".brand_content_item");
-// const slideWidth = slides[0].clientWidth;
-// const slideWidth = 1300;
+
 
 fetch(indexInfo)
   .then((response) => response.json())
   .then((data) => {
-    brandData = data.brand;
 
-    brandData.forEach((item) => {
-      let newElement = document.createElement("div");
-      newElement.classList.add("brand_content_slide");
-      newElement.innerHTML = `
-          <div class="brand_content_img">
-            <img src="${item.img}" alt="brandimg01" />
-            <div class="brand_content_text">
-              <h4>${item.brandname}</h4>
-              <p>
-                <i class="fa-regular fa-heart"></i> ${item.likenum}명이 좋아합니다.
-              </p>
-            </div>
-          </div>
-        `;
-      brandSlideContainer.appendChild(newElement);
-    });
-
-    const slides = document.querySelectorAll(".brand_content_slide");
-    const slideWidth = slides[0].clientWidth;
-    console.log(slideWidth);
-
-    const updateWidth = () => {
-      const newSlideCount = slides.length;
-      const newWidth = `${slideWidth * newSlideCount}px`;
-      brandSlideContainer.computedStyleMap.width = newWidth;
-    };
-
-    const setInitialPos = () => {
-      const initialTranslateValue = -slideWidth * slides.length;
-      brandSlideContainer.style.transform = `translateX(${initialTranslateValue}px)`;
-    };
-
-    const makeClone = () => {
-      for (let i = 0; i < slides.length; i++) {
-        const cloneSlide = slides[i].cloneNode(true);
-        cloneSlide.classList.add("clone");
-        brandSlideContainer.appendChild(cloneSlide);
-      }
-      for (let i = slides.length - 1; i >= 0; i--) {
-        const cloneSlide = slides[i].cloneNode(true);
-        cloneSlide.classList.add("clone");
-        brandSlideContainer.prepend(cloneSlide);
-      }
-      updateWidth();
-      setInitialPos();
-      // setTimeout(() => {
-      //   brandSlideContainer.classList.add("animated");
-      // }, 100);
-    };
-    makeClone();
-  });
-
-let currentSlide = 0;
 let brandItemData = [];
 const contentChange = (tab) => {
   productData.forEach(() => {
@@ -707,17 +554,13 @@ const contentChange = (tab) => {
     `;
   });
 };
+
 brandTabs.forEach((tab, idx) => {
   tab.addEventListener("click", () => {
     brandTabs.forEach((t) => {
       t.classList.remove("active");
     });
     tab.classList.add("active");
-
-    // const slides = document.querySelectorAll(".brand_content_slide");
-
-    currentSlide = idx;
-    slide(currentSlide, slideWidth);
 
     contentChange(tab);
   });
@@ -727,76 +570,29 @@ const brandArrowLeft = document.querySelector(".brand_content_arrow_left");
 const brandArrowRight = document.querySelector(".brand_content_arrow_right");
 
 brandArrowLeft.addEventListener("click", () => {
-  const slides = document.querySelectorAll(".brand_content_slide");
-  const slideWidth = slides[0].clientWidth;
-  let slideCount = slides.length;
+
   brandTabs.forEach((item) => {
     item.classList.remove("active");
   });
 
   currentSlide--;
-  if (currentSlide < 0) currentSlide = slideCount - 1;
-  // if (currentSlide == -1) currentSlide = slideCount - 1;
 
-  let newbrandItem = [];
-  brandTabs.forEach((item, idx) => {
-    if (idx === currentSlide) {
       item.classList.add("active");
       newbrandItem = item;
     }
   });
-  contentChange(newbrandItem);
-  slide(currentSlide, slideWidth);
-});
 
-brandArrowRight.addEventListener("click", () => {
-  const slides = document.querySelectorAll(".brand_content_slide");
-  // const slideWidth = slides[0].clientWidth;
   brandTabs.forEach((item) => {
     item.classList.remove("active");
   });
 
   currentSlide++;
-  // if (currentSlide == 10) currentSlide = 0;
 
-  let newbrandItem = [];
-  brandTabs.forEach((item, idx) => {
-    if (idx === currentSlide) {
       item.classList.add("active");
       newbrandItem = item;
     }
   });
-  contentChange(newbrandItem);
-  slide(currentSlide, slideWidth);
-});
 
-function slide(currentSlide, slideWidth) {
-  // if (currentSlide == 0) brandSlideContainer.style.transform = `translateX(0)`;
-  // else
-  //   brandSlideContainer.style.transform = `translateX(-${
-  //     currentSlide * slideWidth
-  //   }px)`;
-
-  // const slideCount = brandItems.length; // 총 슬라이드 개수 (복제된 슬라이드 포함)
-  // let translateX = 0;
-
-  // // 왼쪽 끝으로 이동했을 때 처리
-  // if (currentSlide === 0) {
-  //   translateX = -slideWidth * (slideCount - 1);
-  //   // 오른쪽 끝으로 이동했을 때 처리
-  // } else if (currentSlide === slideCount - 1) {
-  //   translateX = -slideWidth;
-  // } else {
-  //   translateX = -currentSlide * slideWidth;
-  // }
-
-  setTimeout(() => {
-    slides.classList.remove("animated");
-    slides.style.left = "0px";
-    currentIdx = 0;
-  }, 500);
-
-  brandSlideContainer.style.transform = `translateX(${translateX}px)`;
 }
 
 // oliveyoung Live
