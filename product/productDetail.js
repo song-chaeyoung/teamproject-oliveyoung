@@ -28,9 +28,8 @@ fetch("/component/footer.html")
     footer.innerHTML = data;
   });
 
-// JSON~
 document.addEventListener("DOMContentLoaded", function () {
-  // URL에서 쿼리 파라미터로 전달된 ID 가져오기
+  // 1. JSON 데이터 처리 및 DOM 업데이트
   const urlParams = new URLSearchParams(window.location.search);
   const productId = urlParams.get("id");
 
@@ -72,41 +71,36 @@ document.addEventListener("DOMContentLoaded", function () {
             .querySelectorAll(".json-review")
             .forEach((el) => (el.textContent = `${product.review}+건 리뷰`));
 
-          // +- 계산 버튼을 위한 코드
+          // 2. 수량 증가/감소 및 가격 업데이트
           const minusBtn = document.getElementById("minusBtn");
           const plusBtn = document.getElementById("plusBtn");
           const productQty = document.getElementById("productQty");
           const totalSalePriceElement =
             document.getElementById("totalSalePrice");
 
-          // 기본 수량 및 가격 설정
           let quantity = 1;
           const unitPrice = product.salePrice;
 
-          // 합계 가격 계산 함수
           function updateTotalPrice() {
             const totalPrice = unitPrice * quantity;
             totalSalePriceElement.textContent = formatter.format(totalPrice);
           }
 
-          // plusBtn 클릭 시 수량 증가
           plusBtn.addEventListener("click", function () {
             quantity += 1;
             productQty.textContent = quantity;
-            updateTotalPrice(); // 총 가격 업데이트
+            updateTotalPrice();
           });
 
-          // minusBtn 클릭 시 수량 감소 (0 이하로는 내려가지 않음)
           minusBtn.addEventListener("click", function () {
             if (quantity > 1) {
               quantity -= 1;
               productQty.textContent = quantity;
-              updateTotalPrice(); // 총 가격 업데이트
+              updateTotalPrice();
             }
           });
 
-          // 초기 총합 가격 설정
-          updateTotalPrice();
+          updateTotalPrice(); // 초기 총합 가격 설정
         } else {
           const detailElement = document.getElementById("product-detail");
           if (detailElement) detailElement.textContent = "Product not found!";
@@ -119,6 +113,67 @@ document.addEventListener("DOMContentLoaded", function () {
     const detailElement = document.getElementById("product-detail");
     if (detailElement) detailElement.textContent = "No product selected!";
   }
-});
 
-// Scroll Event
+  // 3. 탭 클릭 시 스크롤 및 모달 창 기능
+  const detailTab = document.getElementById("tab-detail-desc");
+  const reviewTab = document.getElementById("tab-review");
+  const noticeTab = document.getElementById("tab-notice");
+  const inquiryTab = document.getElementById("tab-inquiry");
+
+  const firstImage = document.querySelector(
+    "#detail-section .imgs img:first-child"
+  );
+  const firstReview = document.querySelector(
+    "#review-section .review:first-child"
+  );
+
+  const noticeModal = document.getElementById("noticeModal");
+  const inquiryModal = document.getElementById("inquiryModal");
+
+  const closeNoticeBtn = document.getElementById("closeNotice");
+  const closeInquiryBtn = document.getElementById("closeInquiry");
+
+  if (detailTab && firstImage) {
+    detailTab.addEventListener("click", function () {
+      firstImage.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  if (reviewTab && firstReview) {
+    reviewTab.addEventListener("click", function () {
+      firstReview.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
+  if (noticeTab) {
+    noticeTab.addEventListener("click", function () {
+      noticeModal.style.display = "block";
+    });
+  }
+
+  if (inquiryTab) {
+    inquiryTab.addEventListener("click", function () {
+      inquiryModal.style.display = "block";
+    });
+  }
+
+  if (closeNoticeBtn) {
+    closeNoticeBtn.addEventListener("click", function () {
+      noticeModal.style.display = "none";
+    });
+  }
+
+  if (closeInquiryBtn) {
+    closeInquiryBtn.addEventListener("click", function () {
+      inquiryModal.style.display = "none";
+    });
+  }
+
+  window.addEventListener("click", function (event) {
+    if (event.target === noticeModal) {
+      noticeModal.style.display = "none";
+    } else if (event.target === inquiryModal) {
+      inquiryModal.style.display = "none";
+    }
+  });
+});
