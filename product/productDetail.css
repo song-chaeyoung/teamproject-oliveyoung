@@ -25,8 +25,8 @@
     flex-direction: column;
     margin-right: 40px;
     .thumbs {
-      width: 344px;
-      height: 458px;
+      width: 360px;
+      height: 360px;
       img {
         width: 100%;
         height: 100%;
@@ -56,7 +56,7 @@
     .title {
       h2 {
         margin-top: 0;
-        margin-bottom: 12px;
+        margin-bottom: 20px;
         font-size: 32px;
         font-weight: 400;
         /* border: 1px solid #f00; */
@@ -66,7 +66,7 @@
       display: flex;
       justify-content: space-between;
       align-items: end;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       .detail-left {
         display: flex;
         align-items: end;
@@ -126,7 +126,7 @@
           /* border: 1px solid #f00; */
           width: 50px;
           height: 72px;
-          margin-right: 10px;
+          margin-right: 20px;
           img {
             width: 100%;
             height: 100%;
@@ -154,7 +154,8 @@
     }
     hr {
       margin-top: 30px;
-      margin-bottom: 24px;
+      margin-bottom: 30px;
+      opacity: 0.2;
     }
     .points {
       display: flex;
@@ -180,9 +181,10 @@
         /* border: 1px solid #f00; */
         align-items: center;
         justify-content: space-between;
-        margin-top: 30px;
+        margin-top: 32px;
         .quantity {
           display: flex;
+          border: 1px solid rgba(0, 0, 0, 0.05);
           /* border: 1px solid #f00; */
           width: 145px;
           height: 34px;
@@ -190,10 +192,10 @@
           align-items: center;
           gap: 30px;
           font-size: 20px;
-          input {
+          button {
             width: 34px;
             height: 34px;
-            font-size: 26px;
+            font-size: 16px;
             background: none;
             border: none;
             cursor: pointer;
@@ -209,12 +211,12 @@
         align-items: baseline;
         gap: 4px;
         margin-top: 42px;
-        margin-bottom: 28px;
+        margin-bottom: 42px;
         span {
-          font-size: 16px;
+          font-size: 18px;
         }
         h4 {
-          font-size: 22px;
+          font-size: 24px;
         }
       }
       .btns {
@@ -765,13 +767,14 @@
       width: 100%;
       margin-bottom: 0;
       top: 48px;
+      background: #fff;
       .tab {
         height: 60px;
         label {
-          line-height: 3.6;
+          line-height: 3.8;
         }
         input[type="radio"]:checked ~ label {
-          line-height: 3.6;
+          line-height: 3.7;
         }
       }
     }
@@ -794,20 +797,21 @@
       .reviews {
         width: calc(100vw - (100vw - 100%));
         height: 100%;
-        padding: 2vh 2vw 2vh 5vw;
+        padding: 2vh 5vw 2vh 5vw;
         .review-sum {
           display: flex;
           flex-direction: column;
           justify-content: left;
           align-items: start;
-          gap: 10px;
+          gap: 14px;
           hr {
             display: none;
           }
           .sum-left {
             margin: 0;
             .sum-top {
-              gap: 10px;
+              display: flex;
+              justify-content: left;
               .stars {
                 display: flex;
                 font-size: 16px;
@@ -817,7 +821,8 @@
               }
             }
             .sum-bottom {
-              font-size: 16px;
+              font-size: 18px;
+              font-weight: bold;
             }
           }
           .sum-right {
@@ -832,7 +837,8 @@
             }
             span {
               background: #d4d4d4;
-              padding: 5px;
+              padding: 10px;
+              padding-bottom: 15px;
               display: flex;
               align-items: center;
               gap: 6px;
@@ -853,18 +859,49 @@
       ul {
         .review {
           padding: 2vh 2vw 2vh 2vw;
+          .review-list-top {
+            flex-direction: column;
+            gap: 10px;
+            .top-left {
+              font-size: 12px;
+              gap: 6px;
+              .bar {
+                font-size: 10px;
+              }
+              .stars {
+                font-size: 12px;
+              }
+            }
+            .top-right {
+              font-size: 12px;
+            }
+          }
           .review-imgs {
             display: flex;
             gap: 10px;
             margin-top: 28px;
             margin-bottom: 28px;
             div {
-              width: 108px;
-              height: 108px;
+              width: 20vw;
+              height: 20vw;
               img {
                 width: 100%;
                 height: 100%;
               }
+            }
+          }
+          .review-text {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 10px;
+            .mark {
+              padding: 4px 6px 4px 6px;
+              background: var(--main-green);
+              color: #fff;
+            }
+            .text {
+              font-size: 14px;
             }
           }
         }
