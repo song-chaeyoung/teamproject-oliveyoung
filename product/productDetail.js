@@ -123,9 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const firstImage = document.querySelector(
     "#detail-section .imgs img:first-child"
   );
-  const firstReview = document.querySelector(
-    "#review-section .review:first-child"
-  );
+  const firstReview = document.querySelector("#TAB02 .review-main");
 
   const noticeModal = document.getElementById("noticeModal");
   const inquiryModal = document.getElementById("inquiryModal");
