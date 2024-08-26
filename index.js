@@ -216,7 +216,7 @@ productItem.forEach((item, idx) => {
     const url = `/product/productDetail.html?category=${encodeURIComponent(
       category
     )}&id=${targetId}`;
-    // window.location.href = url;
+    window.location.href = url;
   });
 });
 
@@ -231,7 +231,6 @@ function cartEvent() {
       e.preventDefault();
 
       let dataID = btn.parentNode.parentNode.dataset.id;
-      console.log("dataID", dataID);
       productData.forEach((data, i) => {
         if (dataID == productData[i].id) {
           productCart.push(productData[i]);
@@ -246,11 +245,11 @@ function cartEvent() {
     };
 
     const save = () => {
-      localStorage.setItem(`cart`, JSON.stringify(productCart));
+      localStorage.setItem(`cartOliveyoung`, JSON.stringify(productCart));
     };
 
     const init = () => {
-      const cartInfos = JSON.parse(localStorage.getItem(`cart`));
+      const cartInfos = JSON.parse(localStorage.getItem(`cartOliveyoung`));
       if (cartInfos) {
         productCart = cartInfos;
       }
@@ -711,6 +710,7 @@ const makeClone = () => {
 const firstPosition = (slides) => {
   // const slideWidth = slides[0].clientWidth;
   const slideWidth = 1300;
+  console.log(-slideWidth);
   brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
 };
 
@@ -794,19 +794,21 @@ brandArrowLeft.addEventListener("click", () => {
   if (currentSlide == 0) {
     let slides = document.querySelectorAll(".brand_content_slide");
     const slideWidth = slides[0].clientWidth;
-    currentSlide = 10;
+    currentSlide = slides.length - 2;
 
     setTimeout(() => {
-      brandSlideContainer.style.transform = `translateX(${-slideWidth})`;
+      brandSlideContainer.style.transform = `translateX(${
+        -slideWidth * currentSlide
+      }px)`;
       brandSlideContainer.style.transition = "none";
-    }, 500);
+    }, 300);
 
     let newbrandItem = [];
     brandTabs.forEach((item, idx) => {
       if (idx + 1 === currentSlide) {
         item.classList.add("active");
         newbrandItem = item;
-        contentChange(brandTabs[9]);
+        contentChange(brandTabs[brandTabs.length - 1]);
       }
     });
   }
@@ -828,19 +830,14 @@ brandArrowRight.addEventListener("click", () => {
       newbrandItem = item;
     }
   });
-  let slides = document.querySelectorAll(".brand_content_slide");
+  const slides = document.querySelectorAll(".brand_content_slide");
 
   slide();
 
   if (currentSlide == slides.length - 1) {
-    const slides = document.querySelectorAll(".brand_content_slide");
     const slideWidth = slides[0].clientWidth;
     currentSlide = 1;
-
-    setTimeout(() => {
-      brandSlideContainer.style.transition = "none";
-      brandSlideContainer.style.transform = `translateX(${-slideWidth})`;
-    }, 500);
+    // slides[currentSlide];
 
     let newbrandItem = [];
     brandTabs.forEach((item, idx) => {
@@ -850,8 +847,15 @@ brandArrowRight.addEventListener("click", () => {
         contentChange(brandTabs[0]);
       }
     });
+
+    setTimeout(() => {
+      // slides[currentSlide];
+      brandSlideContainer.style.transition = "none";
+      brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
+    }, 300);
+  } else {
+    contentChange(newbrandItem);
   }
-  contentChange(newbrandItem);
 });
 
 function slide() {
