@@ -216,6 +216,50 @@ productItem.forEach((item, idx) => {
     const url = `/product/productDetail.html?category=${encodeURIComponent(
       category
     )}&id=${targetId}`;
+
+    window.location.href = url;
+  });
+});
+
+// Cart Btn Event
+let productCart = [];
+function cartEvent() {
+  const cartBtns = document.querySelectorAll(".cart_btn");
+
+  cartBtns.forEach((btn) => {
+    const pushLocalEvent = (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+
+      let dataID = btn.parentNode.parentNode.dataset.id;
+      productData.forEach((data, i) => {
+        if (dataID == productData[i].id) {
+          productCart.push(productData[i]);
+          save();
+        }
+      });
+      // alert("장바구니에 담겼습니다.");
+      if (!confirm("장바구니에 추가되었습니다. 장바구니로 이동하시겠습니까?")) {
+      } else {
+        window.location.href = `/cart/cart.html`;
+      }
+    };
+
+    const save = () => {
+      localStorage.setItem(`cartOliveyoung`, JSON.stringify(productCart));
+    };
+
+    const init = () => {
+      const cartInfos = JSON.parse(localStorage.getItem(`cartOliveyoung`));
+      if (cartInfos) {
+        productCart = cartInfos;
+      }
+    };
+    init();
+    btn.addEventListener("click", pushLocalEvent);
+  });
+}
+
 // Shortcut Tab Change Event
 const shortcutTabs = document.querySelectorAll(".shortcut_tab > p");
 shortcutTabs.forEach((tab, i) => {
@@ -533,6 +577,43 @@ fetch(indexInfo)
   .then((response) => response.json())
   .then((data) => {
 
+  let lastChild = slides[slides.length - 1];
+  let clonedLast = lastChild.cloneNode(true);
+  clonedLast.classList.add("clone");
+  brandSlideContainer.prepend(clonedLast);
+
+  firstPosition(slides);
+};
+
+const firstPosition = (slides) => {
+  // const slideWidth = slides[0].clientWidth;
+  const slideWidth = 1300;
+  console.log(-slideWidth);
+  brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
+};
+
+creatBrandSlide = (brandData) => {
+  brandData.forEach((item) => {
+    let newElement = document.createElement("div");
+    newElement.classList.add("brand_content_slide");
+    newElement.innerHTML = `
+        <div class="brand_content_img">
+          <img src="${item.img}" alt="brandimg01" />
+          <div class="brand_content_text">
+            <h4>${item.brandname}</h4>
+            <p>
+              <i class="fa-regular fa-heart"></i> ${item.likenum}명이 좋아합니다.
+            </p>
+          </div>
+        </div>
+      `;
+    brandSlideContainer.appendChild(newElement);
+  });
+  makeClone();
+};
+
+let currentSlide = 1;
+
 let brandItemData = [];
 const contentChange = (tab) => {
   productData.forEach(() => {
@@ -582,6 +663,34 @@ brandArrowLeft.addEventListener("click", () => {
     }
   });
 
+  slide();
+
+  if (currentSlide == 0) {
+    let slides = document.querySelectorAll(".brand_content_slide");
+    const slideWidth = slides[0].clientWidth;
+    currentSlide = slides.length - 2;
+
+    setTimeout(() => {
+      brandSlideContainer.style.transform = `translateX(${
+        -slideWidth * currentSlide
+      }px)`;
+      brandSlideContainer.style.transition = "none";
+    }, 300);
+
+    let newbrandItem = [];
+    brandTabs.forEach((item, idx) => {
+      if (idx + 1 === currentSlide) {
+        item.classList.add("active");
+        newbrandItem = item;
+        contentChange(brandTabs[brandTabs.length - 1]);
+      }
+    });
+  }
+  contentChange(newbrandItem);
+});
+
+brandArrowRight.addEventListener("click", () => {
+
   brandTabs.forEach((item) => {
     item.classList.remove("active");
   });
@@ -592,6 +701,38 @@ brandArrowLeft.addEventListener("click", () => {
       newbrandItem = item;
     }
   });
+
+  const slides = document.querySelectorAll(".brand_content_slide");
+
+  slide();
+
+  if (currentSlide == slides.length - 1) {
+    const slideWidth = slides[0].clientWidth;
+    currentSlide = 1;
+    // slides[currentSlide];
+
+    let newbrandItem = [];
+    brandTabs.forEach((item, idx) => {
+      if (idx + 1 === currentSlide) {
+        item.classList.add("active");
+        newbrandItem = item;
+        contentChange(brandTabs[0]);
+      }
+    });
+
+    setTimeout(() => {
+      // slides[currentSlide];
+      brandSlideContainer.style.transition = "none";
+      brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
+    }, 300);
+  } else {
+    contentChange(newbrandItem);
+  }
+});
+
+function slide() {
+  let slides = document.querySelectorAll(".brand_content_slide");
+  let slideWidth = slides[0].clientWidth;
 
 }
 

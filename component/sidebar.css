@@ -73,7 +73,7 @@
     position: absolute;
     bottom: 0;
     right: -150px;
-    background: rgba(202, 202, 202, 0.2);
+    background: rgba(232, 232, 232, 0.5);
     .sidebar_cart_box_header {
       background: var(--main-btn-green);
       display: flex;
@@ -161,6 +161,7 @@
               }
               p {
                 font: normal 10px/1.4 "Noto Sans";
+                letter-spacing: -1px;
               }
             }
           }
