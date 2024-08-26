@@ -117,13 +117,13 @@ const productJson = "./db.json";
 let productData = [];
 const productItem = document.querySelectorAll(".productitem");
 
+
 fetch(productJson)
   .then((response) => response.json())
   .then((data) => {
     return new Promise(async (resolve) => {
       try {
         await createProductData(data);
-        cartEvent();
         resolve();
       } catch (error) {
         console.error(error);
@@ -216,6 +216,7 @@ productItem.forEach((item, idx) => {
     const url = `/product/productDetail.html?category=${encodeURIComponent(
       category
     )}&id=${targetId}`;
+
     window.location.href = url;
   });
 });
@@ -435,51 +436,6 @@ shortcutSetting.addEventListener("click", () => {
 // personalitem Event
 const form = document.querySelector(".personalitem_select_container");
 
-const personalItemRandom = () => {
-  const personalProducts = document.querySelectorAll(
-    ".personalitem_product_itme"
-  );
-  let randomNum = new Set();
-  personalProducts.forEach((product, idx) => {
-    for (let i = 0; i <= idx; i++) {
-      randomNum = Math.floor(Math.random() * productData.length);
-    }
-
-    price = new Intl.NumberFormat("ko-kr", {
-      currency: "KRW",
-    }).format(productData[randomNum].salePrice);
-
-    if (randomNum == productData[randomNum].id) {
-      product.innerHTML = commonChangeElement(productData[randomNum]);
-    }
-  });
-};
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const inputs = document.querySelectorAll(".personalitem_select_type input");
-  let isChecked = false;
-  inputs.forEach((input) => {
-    if (input.checked) {
-      isChecked = true;
-    }
-  });
-  if (!isChecked) {
-    alert("피부 정보를 입력해주세요!");
-  } else {
-    document
-      .querySelector(".personalitem_product_itmes_loading")
-      .classList.add("loading");
-    setTimeout(() => {
-      document
-        .querySelector(".personalitem_product_itmes_loading")
-        .classList.remove("loading");
-    }, 3000);
-    personalItemRandom();
-  }
-
-  cartEvent();
 });
 
 // todayprice Timer
@@ -595,7 +551,7 @@ const productChange = (tab, i) => {
       item.innerHTML = commonChangeElement(allProductData[idx]);
     } else item.innerHTML = commonChangeElement(categoryItems[idx]);
   });
-  cartEvent();
+
 };
 
 todayRankingTabs.forEach((tab, i) => {
@@ -608,69 +564,6 @@ todayRankingTabs.forEach((tab, i) => {
   });
 });
 
-// TodayRanking Category Touch Event Mobile
-const todayRankingTabContainer = document.querySelector(".todayranking_tab");
-let startX = 0;
-let nowX = 0;
-let endX = 0;
-let listX = 0;
-
-const getClientX = (e) => {
-  // console.log(e.clientX);
-  // console.log(e);
-  // console.log(e.touches[0]);
-  // console.log(e.clientX);
-  return e.touches ? e.touches[0].clientX : e.clientX;
-  // return e.clientX;
-};
-// console.log(window.getComputedStyle(todayRankingTabContainer).transform);
-const getTranslateX = () => {
-  return parseInt(
-    getComputedStyle(todayRankingTabContainer).transform.split(/[^\-0-9]+/g)[5]
-  );
-};
-
-const setTranslateX = (x) => {
-  // console.log(x);
-  todayRankingTabContainer.style.transform = `translateX(${x}px)`;
-};
-
-const onScrollMove = (e) => {
-  e.stopPropagation();
-  nowX = getClientX(e);
-  // startX = getClientX(e);
-  console.log(nowX);
-  console.log(startX);
-  setTranslateX(listX + nowX - startX);
-};
-
-const onScrollEnd = (e) => {
-  endX = getClientX(e.clientX);
-  listX = getTranslateX();
-
-  if (listX > 0) {
-    // setTranslateX(0);
-    todayRankingTabContainer.style.transition = `all 0.1s ease`;
-    // listX = 0;
-  }
-};
-
-const onScrollStart = (e) => {
-  e.stopPropagation();
-  nowX = getClientX(e);
-  startX = getClientX(e);
-
-  window.addEventListener("touchmove", onScrollMove);
-  window.addEventListener("mousedown", onScrollMove);
-  window.addEventListener("touchend", onScrollEnd);
-  window.addEventListener("mouseup", onScrollEnd);
-};
-
-// if (window.matchMedia("(max-width: 445px)").matches) {
-todayRankingTabContainer.addEventListener("touchstart", onScrollStart);
-todayRankingTabContainer.addEventListener("mousedown", onScrollStart);
-
-// }
 
 // Brand Event
 const brandTabs = document.querySelectorAll(".brand_tab li");
@@ -679,25 +572,10 @@ const brandSlideContainer = document.querySelector(
 );
 const brandItems = document.querySelectorAll(".brand_content_item");
 
+
 fetch(indexInfo)
   .then((response) => response.json())
   .then((data) => {
-    return new Promise(async (resolve) => {
-      try {
-        await creatBrandSlide(data.brand);
-        resolve();
-      } catch (error) {
-        console.error(error);
-      }
-    });
-  });
-
-const makeClone = () => {
-  let slides = document.querySelectorAll(".brand_content_slide");
-  let firstChild = slides[0];
-  let clonedFirst = firstChild.cloneNode(true);
-  clonedFirst.classList.add("clone");
-  brandSlideContainer.appendChild(clonedFirst);
 
   let lastChild = slides[slides.length - 1];
   let clonedLast = lastChild.cloneNode(true);
@@ -735,6 +613,7 @@ creatBrandSlide = (brandData) => {
 };
 
 let currentSlide = 1;
+
 let brandItemData = [];
 const contentChange = (tab) => {
   productData.forEach(() => {
@@ -763,9 +642,7 @@ brandTabs.forEach((tab, idx) => {
       t.classList.remove("active");
     });
     tab.classList.add("active");
-    currentSlide = idx + 1;
 
-    slide();
     contentChange(tab);
   });
 });
@@ -774,16 +651,13 @@ const brandArrowLeft = document.querySelector(".brand_content_arrow_left");
 const brandArrowRight = document.querySelector(".brand_content_arrow_right");
 
 brandArrowLeft.addEventListener("click", () => {
+
   brandTabs.forEach((item) => {
     item.classList.remove("active");
   });
 
   currentSlide--;
-  console.log("currentSlide", currentSlide);
 
-  let newbrandItem = [];
-  brandTabs.forEach((item, idx) => {
-    if (idx + 1 === currentSlide) {
       item.classList.add("active");
       newbrandItem = item;
     }
@@ -816,20 +690,18 @@ brandArrowLeft.addEventListener("click", () => {
 });
 
 brandArrowRight.addEventListener("click", () => {
+
   brandTabs.forEach((item) => {
     item.classList.remove("active");
   });
 
   currentSlide++;
-  console.log("currentSlide", currentSlide);
 
-  let newbrandItem = [];
-  brandTabs.forEach((item, idx) => {
-    if (idx + 1 === currentSlide) {
       item.classList.add("active");
       newbrandItem = item;
     }
   });
+
   const slides = document.querySelectorAll(".brand_content_slide");
 
   slide();
@@ -862,10 +734,6 @@ function slide() {
   let slides = document.querySelectorAll(".brand_content_slide");
   let slideWidth = slides[0].clientWidth;
 
-  brandSlideContainer.style.transform = `translateX(${
-    currentSlide * -slideWidth
-  }px)`;
-  brandSlideContainer.style.transition = "0.3s";
 }
 
 // oliveyoung Live
@@ -884,3 +752,152 @@ videoMain.addEventListener("pause", () => {
     videoHover.classList.add("active");
   });
 });
+
+// Product Common
+// let saveData = [];
+// commonChangeElement = (data) => {
+//   let newElement = document.createElement("div");
+//   saveData.push(data);
+//   return (newElement.innerHTML = `
+//           <div class="productitem_img">
+//             <img src="${data.img}" alt="${data.id}" />
+//             <ul class="productitem_img_hoverbox">
+//               <li>
+//                 <a href="javascript:void(0)">
+//                   <i class="fa-regular fa-heart"></i>
+//                 </a>
+//               </li>
+//               <li class="cart_btn" data-id="${data.id}">
+//                 <a href="javascript:void(0)">
+//                   <i class="fa-solid fa-cart-arrow-down"></i>
+//                 </a>
+//               </li>
+//               <li>
+//                 <a href="javascript:void(0)">
+//                   <i class="fa-regular fa-credit-card"></i>
+//                 </a>
+//               </li>
+//             </ul>
+//           </div>
+//           <div class="productitem_text">
+//             <p>${data.title}</p>
+//             <h5>${data.price}</h5>
+//             <ul>
+//             </ul>
+//             <ul>
+//               <li><i class="fa-solid fa-star"></i></li>
+//               <li>${data.score}</li>
+//               <li>(${data.review})</li>
+//             </ul>
+//           </div>
+//           `);
+// };
+
+// let saveCategoryList = [];
+
+// window.onload = function () {
+//   console.log("saveData", saveData);
+
+//   // 타 컴포넌트에 연결되어있는 사이드 바를 불러온다.
+//   let cartTabWrap = sidebar.querySelectorAll(".sidebar_items > .sidebar_item");
+//   let cartTab = cartTabWrap[0].querySelector(" a > p");
+
+//   let cartBtn = document.querySelectorAll(".cart_btn");
+//   cartBtn.forEach((item, idx) => {
+//     item.addEventListener("click", () => {
+//       console.log("item", item.dataset.id);
+
+//       const itemId = Number(item.dataset.id);
+//       const itemIndex = saveCategoryList.findIndex(
+//         (item) => item.id === itemId
+//       );
+
+//       // 이미 존재하는 경우 삭제
+//       if (itemIndex !== -1) saveCategoryList.splice(itemIndex, 1);
+//       // 신규로 추가하는 경우
+//       else {
+//         saveData.forEach((v, i, a) => {
+//           if (a[i].id === itemId) saveCategoryList.push(v);
+//         });
+//       }
+
+//       console.log("saveCategoryList", saveCategoryList);
+
+//       // 사이드 바 장바구니 숫자 카운트
+//       cartTab.innerHTML = saveCategoryList.length;
+//     });
+//   });
+// };
+
+// LocalStorage Event
+// window.onload = function () {
+//   const cartBtns = document.querySelectorAll(".cart_btn");
+
+//   cartBtns.forEach((btn) => {
+//     btn.addEventListener("click", (e) => {
+//       e.stopPropagation();
+//       console.log(saveData);
+//       // conso$le.log(btn.dataset.id);
+//     });
+//   });
+// };
+// async function localStorageEvent() {
+//   try {
+//     const localEvent = await awaitEvent();
+//     const awaitEvent = () => {
+//       const cartBtns = document.querySelectorAll(".cart_btn");
+
+//       cartBtns.forEach((btn) => {
+//         btn.addEventListener("click", (e) => {
+//           e.stopPropagation();
+//           console.log(saveData);
+//           // console.log(btn.dataset.id);
+//         });
+//       });
+//     };
+//   } catch (error) {
+//     console.log("error");
+//   }
+// }
+
+// const time = function () {
+//   const cartBtns = document.querySelectorAll(".cart_btn");
+
+//   cartBtns.forEach((btn) => {
+//     btn.addEventListener("click", (e) => {
+//       e.stopPropagation();
+//       console.log(saveData);
+//       // conso$le.log(btn.dataset.id);
+//     });
+//   });
+// };
+
+// async function f() {
+//   const promise = new Promise((resolve, reject) => {
+//     // resolve(commonChangeElement())
+//     resolve(time());
+//   });
+// }
+
+// localStorageEvent();
+
+// async function commonChangeElementStart() {
+//   commonChangeElement();
+// }
+
+// function time() {
+//   const cartBtns = document.querySelectorAll(".cart_btn");
+
+//   cartBtns.forEach((btn) => {
+//     btn.addEventListener("click", (e) => {
+//       e.stopPropagation();
+//       console.log(saveData);
+//       // conso$le.log(btn.dataset.id);
+//     });
+//   });
+// }
+
+// // 바로 commonChangeElement 함수 호출
+// commonChangeElementStart().then(() => {
+//   time();
+// });
