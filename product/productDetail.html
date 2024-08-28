@@ -30,6 +30,7 @@
           <div class="A-left">
             <div class="thumbs">
               <img
+                class="json-image"
                 src="https://images.innisfree.co.kr/upload/product/37621_p_S_667.png?T202408011737"
                 alt="thumbs"
               />
@@ -56,16 +57,18 @@
           </div>
           <div class="A-right">
             <div class="title">
-              <h2>
+              <h2 class="json-title">
                 <b>BEST</b> 레티놀 시카 앰플 [대용량]X 2개 더블패키지
                 (50mL+50mL)
               </h2>
             </div>
             <div class="detail">
               <div class="detail-left">
-                <h4 class="price">79,800</h4>
+                <h4 class="price json-sale-price">79,800</h4>
                 <span class="discount">30%</span>
-                <span class="default-price"><del> 114,000 </del> </span>
+                <span id="product-price" class="default-price"
+                  ><del class="json-price"></del
+                ></span>
               </div>
               <div class="detail-right">
                 <div class="stars">
@@ -75,8 +78,10 @@
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                 </div>
-                <span class="score">4.8</span>
-                <span class="review">999+건 리뷰</span>
+                <span id="product-score" class="score json-score">4.8</span>
+                <span id="product-review" class="review json-review"
+                  >999+건 리뷰</span
+                >
               </div>
             </div>
             <div class="desc">
@@ -102,7 +107,7 @@
                     레티놀 & 그린티 트리오 키트
                     (레티놀앰플7mL+레티놀크림10mL+그린티폼20g)
                   </span>
-                  <span class="date">24.7.1 -24.7.31</span>
+                  <Sspan class="date">24.7.1 -24.7.31</Sspan>
                   <span class="sample">1개 구매시 4개 증정</span>
                 </div>
               </div>
@@ -121,15 +126,17 @@
             <section class="purchase">
               <div class="top-price">
                 <div class="quantity">
-                  <input type="button" value="-" />
-                  <p>1</p>
-                  <input type="button" value="+" />
+                  <button id="minusBtn">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <p id="productQty">1</p>
+                  <button id="plusBtn"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <span><b>79,800</b> 원</span>
+                <span><b class="json-sale-price"></b> 원</span>
               </div>
               <div class="bottom-price">
                 <span>합계</span>
-                <h4>79,800</h4>
+                <h4 id="totalSalePrice" class="json-sale-price"></h4>
                 <p>원</p>
               </div>
               <div class="btns">
@@ -145,7 +152,7 @@
             </section>
           </div>
         </section>
-        <section class="product-detail-B">
+        <section id="TAB01" class="product-detail-B">
           <ul class="tabs">
             <li class="tab">
               <input
@@ -185,7 +192,7 @@
             <div class="inquiry inner"></div>
           </div>
         </section>
-        <section class="product-detail-C">
+        <section id="TAB02" class="product-detail-C">
           <div class="review-main">
             <div class="reviews">
               <div class="review-sum">
@@ -259,7 +266,7 @@
                 </li>
                 <li>
                   <img
-                    src="https://images.innisfree.co.kr/upload/productReview/32009300378275631.jpeg"
+                    src="https://images.innisfree.co.kr/upload/productReview/131834914535499.jpg"
                     alt="review-imgs6"
                   />
                 </li>
@@ -283,7 +290,7 @@
                 </li>
                 <li>
                   <img
-                    src="https://images.innisfree.co.kr/upload/productReview/32006870341920384.jpg"
+                    src="https://images.innisfree.co.kr/upload/productReview/144503559309297.jpg"
                     alt="review-imgs10"
                   />
                 </li>
@@ -312,11 +319,11 @@
               <li class="review">
                 <div class="review-list-top">
                   <div class="top-left">
-                    <span class="id">ana*******</span>
+                    <span class="id">gun***** </span>
                     <p class="bar">|</p>
-                    <span class="age">10대</span>
+                    <span class="age">20대</span>
                     <p class="bar">|</p>
-                    <span class="gender">여성</span>
+                    <span class="gender">남성</span>
                     <p class="bar">|</p>
                     <span class="stars">
                       <i class="fa-solid fa-star"></i>
@@ -325,7 +332,7 @@
                       <i class="fa-solid fa-star"></i>
                       <i class="fa-solid fa-star"></i>
                     </span>
-                    <span class="date">2024.07.13</span>
+                    <span class="date">2024.08.22</span>
                   </div>
                   <div class="top-right">
                     <span>신고</span>
@@ -336,13 +343,13 @@
                 <div class="review-imgs">
                   <div>
                     <img
-                      src="https://images.innisfree.co.kr/upload/productReview/30319179197970260_crop.jpeg?T202408062357"
+                      src="https://images.innisfree.co.kr/upload/productReview/119888731278028355_crop.jpg?T202408221807"
                       alt="img1"
                     />
                   </div>
                   <div>
                     <img
-                      src="https://images.innisfree.co.kr/upload/productReview/30046039003174495_crop.jpeg?T202408062357"
+                      src="https://images.innisfree.co.kr/upload/productReview/119889251821677646_crop.jpg?T202408221807"
                       alt="img1"
                     />
                   </div>
@@ -358,9 +365,9 @@
               <li class="review">
                 <div class="review-list-top">
                   <div class="top-left">
-                    <span class="id">ana*******</span>
+                    <span class="id">hs9*** </span>
                     <p class="bar">|</p>
-                    <span class="age">10대</span>
+                    <span class="age">30대</span>
                     <p class="bar">|</p>
                     <span class="gender">여성</span>
                     <p class="bar">|</p>
@@ -382,33 +389,34 @@
                 <div class="review-imgs">
                   <div>
                     <img
-                      src="https://images.innisfree.co.kr/upload/productReview/30319179197970260_crop.jpeg?T202408062357"
+                      src="https://images.innisfree.co.kr/upload/productReview/29378665119361033_crop.jpeg?T202408221817"
                       alt="img1"
                     />
                   </div>
                   <div>
                     <img
-                      src="https://images.innisfree.co.kr/upload/productReview/30046039003174495_crop.jpeg?T202408062357"
+                      src="https://images.innisfree.co.kr/upload/productReview/29378663952815545_crop.jpeg?T202408221817"
                       alt="img1"
                     />
                   </div>
                 </div>
                 <div class="review-text">
-                  <span class="mark"> 체험단 </span>
+                  <span class="mark"> #사내체험단 </span>
                   <span class="text"
-                    >전, 후 입니다! 2,3 주 동안 써본결과에요! 사진으로는 별 차이
-                    없어보이지는 효과는 좋은것 같습니다!</span
-                  >
+                    >바르고 다음날 피부가 하루만에 매끈매끈해져서 깜짝
+                    놀랐어요😍사진은 바르고 나서 피부변화를 기록한 사진인데
+                    아침마다 피부가 점점 매끄러워지고, 속광도 생겼어요!
+                  </span>
                 </div>
               </li>
               <li class="review">
                 <div class="review-list-top">
                   <div class="top-left">
-                    <span class="id">ana*******</span>
+                    <span class="id">ana*****</span>
                     <p class="bar">|</p>
-                    <span class="age">10대</span>
+                    <span class="age">20대</span>
                     <p class="bar">|</p>
-                    <span class="gender">여성</span>
+                    <span class="gender">남성</span>
                     <p class="bar">|</p>
                     <span class="stars">
                       <i class="fa-solid fa-star"></i>
@@ -434,7 +442,7 @@
                   </div>
                   <div>
                     <img
-                      src="https://images.innisfree.co.kr/upload/productReview/30046039003174495_crop.jpeg?T202408062357"
+                      src="https://images.innisfree.co.kr/upload/productReview/29324708240499626_crop.jpeg?T202408221817"
                       alt="img1"
                     />
                   </div>
@@ -442,9 +450,11 @@
                 <div class="review-text">
                   <span class="mark"> 체험단 </span>
                   <span class="text"
-                    >전, 후 입니다! 2,3 주 동안 써본결과에요! 사진으로는 별 차이
-                    없어보이지는 효과는 좋은것 같습니다!</span
-                  >
+                    >작년부터 피부가 얇아지면서 힘이 없고, 속건조 땜에 고생하고
+                    있어요. 게다가 코로나때 마스크 땜에 코랑 볼쪽 모공이 커져서
+                    신경쓰이기 시작했어요 ㅠㅠ근데 마침 ! 탄력 모공 수분 다 되는
+                    제품이 나왔다고 해서 얼른 써보게 됐네요
+                  </span>
                 </div>
               </li>
             </ul>
