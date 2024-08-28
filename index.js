@@ -205,12 +205,6 @@ const commonChangeElement = (data) => {
 
 productItem.forEach((item, idx) => {
   item.addEventListener("click", (e) => {
-    console.log("target ==>", e.currentTarget);
-    console.log(
-      "target category ==>",
-      e.currentTarget.children[0].dataset.category
-    );
-    console.log("target ID ==>", e.currentTarget.children[0].dataset.id);
     let category = e.currentTarget.children[0].dataset.category;
     let targetId = e.currentTarget.children[0].dataset.id;
     const url = `/product/productDetail.html?category=${encodeURIComponent(
@@ -222,6 +216,8 @@ productItem.forEach((item, idx) => {
 
 // Cart Btn Event
 let productCart = [];
+
+let orderCount = 0;
 function cartEvent() {
   const cartBtns = document.querySelectorAll(".cart_btn");
 
@@ -231,23 +227,31 @@ function cartEvent() {
       e.preventDefault();
 
       let dataID = btn.parentNode.parentNode.dataset.id;
+
+      const save = () => {
+        localStorage.setItem(`cartOliveyoung`, JSON.stringify(productCart));
+      };
+
       productData.forEach((data, i) => {
         if (dataID == productData[i].id) {
-          productCart.push(productData[i]);
-          save();
+          const existingProduct = productCart.find((item) => item.id == dataID);
+          if (existingProduct) {
+            existingProduct.order++;
+          } else {
+            productCart.push({
+              ...productData[i],
+              order: ++orderCount,
+            });
+          }
         }
+        save();
       });
-      // alert("장바구니에 담겼습니다.");
+
       if (!confirm("장바구니에 추가되었습니다. 장바구니로 이동하시겠습니까?")) {
       } else {
         window.location.href = `/cart/cart.html`;
       }
     };
-
-    const save = () => {
-      localStorage.setItem(`cartOliveyoung`, JSON.stringify(productCart));
-    };
-
     const init = () => {
       const cartInfos = JSON.parse(localStorage.getItem(`cartOliveyoung`));
       if (cartInfos) {
@@ -289,18 +293,63 @@ const modalIcon = document.querySelectorAll(
 const modalIcon2 = document.querySelectorAll(
   ".modal_content_category .shortcut_modal_content_icon"
 );
+const shortcutModal = document.querySelector(".shortcut_modal_container");
+const pushBtn = shortcutModal.querySelector(
+  ".shortcut_modal_btnarea button:nth-child(2)"
+);
+
+let activeCount0 = 0;
+let activeCount1 = 0;
+
+function listPush() {
+  let serviceFirstTab = document.querySelectorAll(".first-short > div");
+  let serviceSecondTab = document.querySelectorAll(".second-short > div");
+  let serviceArray = [];
+  let serviceArray1 = [];
+
+  serviceFirstTab.forEach((i) => {
+    i.children[0].children[0].className = "fa-solid fa-plus";
+    i.children[0].children[0].style.color = "";
+    i.children[1].innerHTML = "바로가기";
+  });
+  serviceSecondTab.forEach((i) => {
+    i.children[0].children[0].className = "fa-solid fa-plus";
+    i.children[0].children[0].style.color = "";
+    i.children[1].innerHTML = "바로가기";
+  });
+
+  modalIcon.forEach((item) => {
+    if (item.classList.contains("check")) serviceArray.push(item);
+  });
+  modalIcon2.forEach((item) => {
+    if (item.classList.contains("check")) serviceArray1.push(item);
+  });
+
+  serviceArray.forEach((userchoice, idx) => {
+    serviceFirstTab[idx].children[0].children[0].className =
+      userchoice.children[0].className;
+    serviceFirstTab[idx].children[0].children[0].style.color = "#9ac75b";
+    serviceFirstTab[idx].children[1].innerHTML = userchoice.dataset.name;
+  });
+
+  serviceArray1.forEach((userchoice, idx) => {
+    serviceSecondTab[idx].children[0].children[0].className =
+      userchoice.children[0].className;
+    serviceSecondTab[idx].children[0].children[0].style.color = "#9ac75b";
+    serviceSecondTab[idx].children[1].innerHTML = userchoice.dataset.name;
+  });
+
+  shortcutModal.classList.remove("active");
+}
 
 shortcutSetting.addEventListener("click", () => {
-  const shortcutModal = document.querySelector(".shortcut_modal_container");
   shortcutModal.classList.add("active");
 
   const xMark = shortcutModal.querySelector(".fa-xmark");
   const cancelBtn = shortcutModal.querySelector(
     ".shortcut_modal_btnarea button:nth-child(1)"
   );
-  const pushBtn = shortcutModal.querySelector(
-    ".shortcut_modal_btnarea button:nth-child(2)"
-  );
+
   xMark.addEventListener("click", () => {
     shortcutModal.classList.remove("active");
   });
@@ -308,26 +357,25 @@ shortcutSetting.addEventListener("click", () => {
     shortcutModal.classList.remove("active");
   });
 
-  modalTabs.forEach((tab, i) => {
-    tab.addEventListener("click", function () {
-      modalTabs.forEach((t) => {
-        t.classList.remove("active");
-      });
-      contents.forEach((content) => {
-        content.classList.remove("active");
-      });
-      tab.classList.add("active");
-      contents[i].classList.add("active");
+  document.addEventListener("keydown", listPush);
+});
+
+modalTabs.forEach((tab, i) => {
+  tab.addEventListener("click", function () {
+    modalTabs.forEach((t) => {
+      t.classList.remove("active");
     });
+    contents.forEach((content) => {
+      content.classList.remove("active");
+    });
+    tab.classList.add("active");
+    contents[i].classList.add("active");
   });
+});
 
-  let activeCount0 = 0;
-  let activeCount1 = 0;
-  let serviceArray = [];
-  let serviceArray1 = [];
-
-  const modalEvent = (icon) => {
-    icon.addEventListener("click", (event) => {
+const selectIcon = (icon, firstTab) => {
+  icon.addEventListener("click", (e) => {
+    if (firstTab) {
       if (activeCount0 < 8) {
         icon.classList.toggle("check");
         activeCount0 = Math.max(
@@ -336,22 +384,13 @@ shortcutSetting.addEventListener("click", () => {
         );
       } else {
         if (icon.classList.contains("check")) {
-          event.currentTarget.classList.remove("check");
+          e.currentTarget.classList.remove("check");
           activeCount0--;
+        } else {
+          alert("최대 8개의 서비스를 선택할 수 있습니다.");
         }
       }
-
-      if (activeCount0 === 8) {
-        if (!icon.classList.contains("check") && event.currentTarget)
-          alert("최대 8개까지의 카테고리만 선택할 수 있습니다.");
-      }
-
-      if (serviceArray.length) event.currentTarget.classList.toggle("check");
-    });
-  };
-
-  const modalEvent1 = (icon) => {
-    icon.addEventListener("click", (event) => {
+    } else {
       if (activeCount1 < 8) {
         icon.classList.toggle("check");
         activeCount1 = Math.max(
@@ -360,77 +399,24 @@ shortcutSetting.addEventListener("click", () => {
         );
       } else {
         if (icon.classList.contains("check")) {
-          event.currentTarget.classList.remove("check");
+          e.currentTarget.classList.remove("check");
           activeCount1--;
+        } else {
+          alert("최대 8개의 카테고리를 선택할 수 있습니다.");
         }
       }
+    }
+  });
+};
 
-      if (activeCount1 === 8) {
-        if (!icon.classList.contains("check") && event.currentTarget)
-          alert("최대 8개까지의 카테고리만 선택할 수 있습니다.");
-      }
-
-      if (serviceArray1.length) event.currentTarget.classList.toggle("check");
-    });
-  };
-
-  modalIcon.forEach(modalEvent);
-  modalIcon2.forEach(modalEvent1);
-
-  const listPush = () => {
-    modalIcon.forEach((item) => {
-      if (item.classList.contains("check")) {
-        serviceArray.push({
-          name: item.dataset.name,
-          icon: item.children[0].className,
-        });
-      }
-    });
-    modalIcon2.forEach((item) => {
-      if (item.classList.contains("check")) {
-        serviceArray1.push({
-          name: item.dataset.name,
-          icon: item.children[0].className,
-        });
-      }
-    });
-
-    let serviceFirstTab = document.querySelectorAll(".first-short > div");
-    let serviceSecondTab = document.querySelectorAll(".second-short > div");
-
-    const tabPush = (division, index) => {
-      division.children[0].children[0].className = "fa-solid fa-plus";
-      division.children[0].children[0].style.color = "";
-      division.children[1].innerHTML = "바로가기";
-      serviceArray.forEach((userchoice, idx) => {
-        if (index == idx) {
-          division.children[0].children[0].className = userchoice.icon;
-          division.children[0].children[0].style.color = "#9ac75b";
-          division.children[1].innerHTML = userchoice.name;
-        }
-      });
-    };
-
-    const tabPush2 = (division, index) => {
-      division.children[0].children[0].className = "fa-solid fa-plus";
-      division.children[0].children[0].style.color = "";
-      division.children[1].innerHTML = "바로가기";
-      serviceArray1.forEach((userchoice, idx) => {
-        if (index == idx) {
-          division.children[0].children[0].className = userchoice.icon;
-          division.children[0].children[0].style.color = "#9ac75b";
-          division.children[1].innerHTML = userchoice.name;
-        }
-      });
-    };
-
-    serviceFirstTab.forEach(tabPush);
-    serviceSecondTab.forEach(tabPush2);
-
-    shortcutModal.classList.remove("active");
-  };
-  pushBtn.addEventListener("click", listPush);
+modalIcon.forEach((icon) => {
+  selectIcon(icon, true);
 });
+modalIcon2.forEach((icon) => {
+  selectIcon(icon, false);
+});
+
+pushBtn.addEventListener("click", listPush);
 
 // personalitem Event
 const form = document.querySelector(".personalitem_select_container");
@@ -708,9 +694,7 @@ const makeClone = () => {
 };
 
 const firstPosition = (slides) => {
-  // const slideWidth = slides[0].clientWidth;
-  const slideWidth = 1300;
-  console.log(-slideWidth);
+  const slideWidth = slides[0].clientWidth;
   brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
 };
 

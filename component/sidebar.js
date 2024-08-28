@@ -16,8 +16,14 @@ cartMark.addEventListener("click", () => {
   });
 });
 
-// Cart Count
+const topBtn = document.querySelector(".mobile_top");
 
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 1000) topBtn.classList.add("active");
+  else topBtn.classList.remove("active");
+});
+
+// Cart Count
 let cartData = [];
 
 const init = () => {

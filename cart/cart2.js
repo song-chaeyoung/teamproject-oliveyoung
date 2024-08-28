@@ -139,7 +139,6 @@ const deleteItem = (e) => {
   targetParent.remove();
   productLengthEvent();
   productCalc();
-  cartEmpty();
 };
 
 const allDeleteBtn = document.querySelector(".totalcheck_right input");
@@ -156,35 +155,14 @@ const allDeleteEvent = () => {
   }
   productLengthEvent();
   productCalc();
-  cartEmpty();
 };
 
 allDeleteBtn.addEventListener("click", allDeleteEvent);
 
 const deleteBtn = document.querySelectorAll(".fa-xmark");
-// console.log(deleteBtn);
 deleteBtn.forEach((btn) => {
   btn.addEventListener("click", deleteItem);
 });
-
-function cartEmpty() {
-  const cartEmpty = document.querySelector(".content_empty_container");
-  const cartContent = document.querySelector(".cart_content");
-
-  if (
-    cartItems === null ||
-    cartItems.length === 0 ||
-    cartItems.length === null ||
-    cartItems.length == undefined
-  ) {
-    cartEmpty.classList.remove("empty");
-    cartContent.classList.add("empty");
-  } else if (cartItems.length >= 1) {
-    cartEmpty.classList.add("empty");
-    cartContent.classList.remove("empty");
-  }
-}
-cartEmpty();
 
 // All Check Event
 const allCheck = document.querySelector("#check7");
@@ -231,7 +209,7 @@ moneyListbox.forEach((item, idx) => {
   let nomarlPrices = [];
   let discountPrices = [];
 
-  moneybox.forEach((mItem) => {
+  moneybox.forEach((mItem, idx) => {
     nomarlPrices.push(
       Number(mItem.children[0].innerHTML.slice(0, -1).replace(",", ""))
     );
@@ -240,14 +218,37 @@ moneyListbox.forEach((item, idx) => {
     );
   });
 
+  // function firstNum() {
+  //   cartItems.forEach((i, idx) => {
+  //     console.log(i.order);
+  //     clickCountArray.push(i.order);
+  //     // if (i.order > 1) {
+  //     //   clickCountArray.push(i.order);
+  //     //   // item.children[1].innerHTML = clickCount;
+  //     // } else if (i.oredr == 1) {
+  //     //   clickCountArray.push(i.order);
+  //     // }
+  //     // console.log(clickCount);
+  //     const targetIdx = item.children[0].dataset.index;
+
+  //     clacMoney(targetIdx);
+  //   });
+  //   console.log(clickCountArray);
+  //   item.children[1].innerHTML = clickCountArray[idx];
+  // }
+
+  // firstNum();
+
   const countLeft = item.children[0];
   const countRight = item.children[2];
   let countNumber = Number(item.children[1].innerHTML);
-  clickCount = countNumber;
+  // console.log(countNumber);
 
+  clickCount = countNumber;
   countLeft.addEventListener("click", (e) => {
     let targetIdx = Number(e.currentTarget.dataset.index);
     cartItems.forEach((cartitem, idx) => {
+      console.log(clickCount);
       if (clickCount == 1) return;
       if (idx === targetIdx) {
         clickCount -= 1;
@@ -263,7 +264,6 @@ moneyListbox.forEach((item, idx) => {
     cartItems.forEach((cartitem, idx) => {
       if (idx === targetIdx) clickCount += 1;
     });
-    console.log(clickCount);
     item.children[1].innerHTML = clickCount;
     clacMoney(targetIdx);
     productCalc();
@@ -288,9 +288,6 @@ function productLengthEvent() {
   );
   const listLength = document.querySelectorAll(".list").length;
 
-  document.querySelector(
-    ".pay_sticky_text p:nth-child(1)"
-  ).innerText = `총 ${listLength}건`;
   productLength.innerText = listLength;
 }
 productLengthEvent();
@@ -332,38 +329,14 @@ function productCalc() {
 
   if (slaePrieceNum >= 40000) {
     deliveryPrice.innerText = `0원`;
-    document.querySelector(
-      ".pay_sticky_text p:nth-child(3)"
-    ).innerText = `+ 배송비 0원`;
-    document.querySelector(
-      ".moblie_pay_text_three p:nth-child(2)"
-    ).innerText = `0원`;
   } else {
     deliveryPrice.innerText = `2,500원`;
-    document.querySelector(
-      ".pay_sticky_text p:nth-child(3)"
-    ).innerText = `+ 배송비 2,500원`;
-    document.querySelector(
-      ".moblie_pay_text_three p:nth-child(2)"
-    ).innerText = `2,500원`;
     slaePrieceNum += deliveryOption;
   }
   slaePrieceNum = formatter.format(slaePrieceNum);
   totalPrice.innerText = `${slaePrieceNum}원`;
-  document.querySelector(
-    ".pay_sticky_text p:nth-child(2)"
-  ).innerText = `${slaePrieceNum}원`;
-  document.querySelector(
-    ".moblie_pay_text_four p:nth-child(2)"
-  ).innerText = `${slaePrieceNum}원`;
 }
-productCalc();
-
-// pay link
-const allpayBtn = document.querySelector(".allpay");
-const selectpayBtn = document.querySelector(".selectpay");
-
-allpayBtn.addEventListener("click", () => {});
+// productCalc();
 
 // product Introduce
 const introductionproductJson = "/db.json?timestamp=" + new Date().getTime();

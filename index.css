@@ -12,6 +12,10 @@ button {
   cursor: pointer;
 }
 
+/* img {
+  width: 100%;
+} */
+
 .productitem {
   display: flex;
   flex-direction: column;
@@ -847,7 +851,7 @@ button {
         }
       }
       .brand_content_slide_container {
-        width: 100%;
+        width: 1300px;
         display: flex;
         transition: all 0.5s;
       }
@@ -968,7 +972,8 @@ button {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 60px 0;
+        padding: 30px 0;
+        gap: 60px;
         .oliveyounglive_items_container {
           > p {
             font: 900 20px/1 "Noto Sans";
@@ -976,7 +981,7 @@ button {
           }
           .oliveyounglive_items {
             display: flex;
-            gap: 70px;
+            gap: 60px;
           }
         }
       }
@@ -1237,7 +1242,8 @@ button {
           gap: 4px;
           li {
             margin-bottom: 10px;
-            font: normal 8px/1 "Noto Sans";
+            font: normal 10px/1 "Noto Sans";
+            padding: 5px;
           }
         }
         &:nth-child(2) {
@@ -1439,9 +1445,13 @@ button {
         .update_content {
           .update_content_img {
             width: 100%;
-            height: 200px;
+            height: 180px;
+            img {
+              height: 180px;
+            }
           }
           .update_content_text {
+            text-align: center;
             h5 {
               font: 700 16px/1 "Noto Sans";
               margin-bottom: 8px;
@@ -1466,18 +1476,22 @@ button {
       .todayranking_title {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 6px;
         text-align: center;
       }
       .todayranking_tab_container {
         align-self: flex-start;
         .todayranking_tab {
           transform: translate(0, 0);
-          overflow: hidden;
+          overflow-x: scroll;
           width: 445px;
           height: 60px;
           gap: 12px;
           margin-bottom: 0;
+          -ms-overflow-style: none;
+          &::-webkit-scrollbar {
+            display: none;
+          }
           li {
             height: fit-content;
             padding: 8px 10px;
@@ -1495,17 +1509,21 @@ button {
   /* Brand */
   .brand {
     .inner {
+      gap: 30px;
       .brand_tab_container {
         display: flex;
         align-self: flex-start;
-        width: 100%;
+        width: fit-content;
         overflow: hidden;
+        width: 100%;
         .brand_tab {
+          flex-wrap: wrap;
           /* justify-content: start; */
-          width: 500px;
-          gap: 12px;
+          width: 900px;
+          gap: 8px;
           li {
             padding: 8px 10px;
+            font: 500 13px / 1 "Noto Sans";
           }
         }
       }
@@ -1526,6 +1544,9 @@ button {
               width: 40px;
             }
           }
+          .brand_content_slide_container {
+            width: 100%;
+          }
           .brand_content_img {
             height: fit-content;
             .brand_content_text {
@@ -1541,7 +1562,7 @@ button {
         .brand_content_items {
           flex-direction: column;
           gap: 20px;
-          /* height: 110px; */
+          margin-top: 30px;
           .brand_content_item {
             gap: 14px;
             .brand_content_item_img {
