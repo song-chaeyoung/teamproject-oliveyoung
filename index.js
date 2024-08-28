@@ -117,7 +117,6 @@ const productJson = "./db.json";
 let productData = [];
 const productItem = document.querySelectorAll(".productitem");
 
-
 fetch(productJson)
   .then((response) => response.json())
   .then((data) => {
@@ -422,8 +421,6 @@ pushBtn.addEventListener("click", listPush);
 // personalitem Event
 const form = document.querySelector(".personalitem_select_container");
 
-});
-
 // todayprice Timer
 const todayPriceTimers = document.querySelectorAll(
   ".todayprice_content_item_timer_num"
@@ -537,7 +534,6 @@ const productChange = (tab, i) => {
       item.innerHTML = commonChangeElement(allProductData[idx]);
     } else item.innerHTML = commonChangeElement(categoryItems[idx]);
   });
-
 };
 
 todayRankingTabs.forEach((tab, i) => {
@@ -550,7 +546,6 @@ todayRankingTabs.forEach((tab, i) => {
   });
 });
 
-
 // Brand Event
 const brandTabs = document.querySelectorAll(".brand_tab li");
 const brandSlideContainer = document.querySelector(
@@ -558,18 +553,16 @@ const brandSlideContainer = document.querySelector(
 );
 const brandItems = document.querySelectorAll(".brand_content_item");
 
-
 fetch(indexInfo)
   .then((response) => response.json())
   .then((data) => {
+    let lastChild = slides[slides.length - 1];
+    let clonedLast = lastChild.cloneNode(true);
+    clonedLast.classList.add("clone");
+    brandSlideContainer.prepend(clonedLast);
 
-  let lastChild = slides[slides.length - 1];
-  let clonedLast = lastChild.cloneNode(true);
-  clonedLast.classList.add("clone");
-  brandSlideContainer.prepend(clonedLast);
-
-  firstPosition(slides);
-};
+    firstPosition(slides);
+  });
 
 const firstPosition = (slides) => {
   const slideWidth = slides[0].clientWidth;
@@ -635,17 +628,14 @@ const brandArrowLeft = document.querySelector(".brand_content_arrow_left");
 const brandArrowRight = document.querySelector(".brand_content_arrow_right");
 
 brandArrowLeft.addEventListener("click", () => {
-
   brandTabs.forEach((item) => {
     item.classList.remove("active");
   });
 
   currentSlide--;
 
-      item.classList.add("active");
-      newbrandItem = item;
-    }
-  });
+  item.classList.add("active");
+  newbrandItem = item;
 
   slide();
 
@@ -674,17 +664,14 @@ brandArrowLeft.addEventListener("click", () => {
 });
 
 brandArrowRight.addEventListener("click", () => {
-
   brandTabs.forEach((item) => {
     item.classList.remove("active");
   });
 
   currentSlide++;
 
-      item.classList.add("active");
-      newbrandItem = item;
-    }
-  });
+  item.classList.add("active");
+  newbrandItem = item;
 
   const slides = document.querySelectorAll(".brand_content_slide");
 
@@ -717,7 +704,6 @@ brandArrowRight.addEventListener("click", () => {
 function slide() {
   let slides = document.querySelectorAll(".brand_content_slide");
   let slideWidth = slides[0].clientWidth;
-
 }
 
 // oliveyoung Live
