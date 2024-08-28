@@ -355,7 +355,7 @@
       }
       .close {
         position: absolute;
-        top: 10vw;
+        top: 8vw;
         right: 10vw;
         color: #c9c9c9;
         float: right;
@@ -370,6 +370,15 @@
         color: #fff;
         text-decoration: none;
         cursor: pointer;
+      }
+      .inquiry-inner {
+        gap: 100px;
+        input {
+          width: 100%;
+          &:nth-of-type(2) {
+            height: 200px;
+          }
+        }
       }
     }
   }
@@ -790,7 +799,9 @@
           display: none;
         }
         .btns {
-          height: 9vh;
+          background: #585858;
+          min-height: 71px;
+          height: 9vw;
           width: calc(100vw - (100vw - 100%));
           position: fixed;
           bottom: 0;
