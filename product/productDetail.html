@@ -144,9 +144,10 @@
                   <ion-icon name="share-social-outline"></ion-icon>
                 </button>
                 <button class="small-btns">
-                  <i class="fa-regular fa-heart"></i>
+                  <i class="fa-regular fa-heart binHeart"></i>
+                  <i class="fa-solid fa-heart colorHeart"></i>
                 </button>
-                <button class="big-btns leftbtn">장바구니</button>
+                <button class="big-btns leftbtn cartBtn">장바구니</button>
                 <button class="big-btns rightbtn">바로구매</button>
               </div>
             </section>
@@ -228,14 +229,18 @@
                     id="submitTitle"
                     placeholder="제목을 입력하세요. (최대 30자 이내)"
                   />
-                  <input
-                    type="text"
+                  <textarea
                     name="submitContent"
                     id="submitContent"
-                    placeholder="내용을 입력하세요."
-                  />
+                    placeholder="내용을 입력하세요. (최대 300자 이내)"
+                  ></textarea>
                   <p>0/300자</p>
-                  <button type="submit" onclick="alert(`문의사항이 등록되었습니다.`)">문의등록</button>
+                  <button
+                    type="submit"
+                    onclick="alert(`문의사항이 등록되었습니다.`)"
+                  >
+                    문의등록
+                  </button>
                 </div>
               </div>
             </div>
