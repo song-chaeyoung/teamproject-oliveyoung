@@ -346,43 +346,75 @@
       background-color: rgba(0, 0, 0, 0.5);
       .modal-content {
         background-color: #fff;
-        margin: 20% auto;
+        margin: 3% auto;
         padding: 40px;
         border: 1px solid #888;
         width: 80%;
         max-width: 500px;
         border-radius: 10px;
       }
-      .close {
-        position: absolute;
-        top: 8vw;
-        right: 10vw;
-        color: #c9c9c9;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        i {
-          font-size: 50px;
+    }
+        .close {
+          position: absolute;
+          top: 8vw;
+          right: 10vw;
+          color: #c9c9c9;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+          i {
+            font-size: 50px;
+          }
         }
-      }
-      .close:hover,
-      .close:focus {
-        color: #fff;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .inquiry-inner {
-        gap: 100px;
-        input {
-          width: 100%;
-          &:nth-of-type(2) {
-            height: 200px;
+        .close:hover,
+        .close:focus {
+          color: #fff;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        .inquiry-inner {
+          gap: 10px;
+          h4{
+            font-size: 22px;
+            margin-bottom: 10px;
+          }
+          p{
+            margin: 10px 0;
+            &:nth-of-type(4) {
+              color: #f00;
+            }
+            &:nth-of-type(5) {
+              text-align: right;
+            }
+          }
+          input{
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #333;
+            padding: 10px;
+            font-size: 16px;
+            display: flex;
+            width: 100%;
+            &:nth-of-type(2) {
+              margin-top: 20px;
+              height: 250px;
+            }
+          }
+          button {
+            font-weight: bold;
+            font-size: 18px;
+            width: 100%;
+            border: none;
+            padding: 20px;
+            color: #fff;
+            background: #6fcf0f;
+            &:hover {
+              background: #58a808;
+            }
           }
         }
       }
-    }
   }
-}
+
 
 .product-detail-C {
   .review-main {
