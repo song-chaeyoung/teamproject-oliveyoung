@@ -1,15 +1,3 @@
-
-const header = document.querySelector("header");
-
-fetch("/component/header.html")
-  .then((res) => res.text())
-  .then((data) => {
-    header.innerHTML = data;
-    const script = document.createElement("script");
-    script.src = "/component/header.js";
-    script.defer = true;
-    document.body.appendChild(script);
-  });
 let markers = [];
 
 let mapContainer = document.getElementById("map"), // 지도를 표시할 div

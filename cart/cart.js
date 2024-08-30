@@ -443,6 +443,7 @@ allpayBtn.addEventListener("click", () => {});
 const introductionproductJson = "/db.json?timestamp=" + new Date().getTime();
 const cartItemsAll = document.querySelectorAll(".introduction_box");
 
+
 // 랜덤 섞기 함수 (Fisher-Yates 알고리즘)
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -469,7 +470,9 @@ fetch(introductionproductJson)
     const productData = shuffleArray(data.oliveyoungProduct);
 
     // DOM 업데이트
+
     cartItemsAll.forEach((item, idx) => {
+
       if (idx < productData.length) {
         const product = productData[idx];
 
