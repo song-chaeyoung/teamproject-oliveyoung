@@ -16,8 +16,6 @@ cartMark.addEventListener("click", () => {
   });
 });
 
-// Cart Count
-
 let cartData = [];
 
 const init = () => {
