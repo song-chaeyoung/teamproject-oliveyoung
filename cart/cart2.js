@@ -98,7 +98,7 @@ const createItem = (info) => {
                                       <p>${item.price}원</p>
                                       <p>${item.salePrice}원</p>
                                     </div>
-                                    <div class="money_listbox">
+                                    <div class="money_listbox" data-id=${item.id}>
                                       <button data-index=${index}>-</button>
                                       <p>1</p>
                                       <button data-index=${index}>+</button>
@@ -139,6 +139,7 @@ const deleteItem = (e) => {
   targetParent.remove();
   productLengthEvent();
   productCalc();
+  cartEmpty();
 };
 
 const allDeleteBtn = document.querySelector(".totalcheck_right input");
@@ -155,28 +156,66 @@ const allDeleteEvent = () => {
   }
   productLengthEvent();
   productCalc();
+  cartEmpty();
 };
 
 allDeleteBtn.addEventListener("click", allDeleteEvent);
 
 const deleteBtn = document.querySelectorAll(".fa-xmark");
+// console.log(deleteBtn);
 deleteBtn.forEach((btn) => {
   btn.addEventListener("click", deleteItem);
 });
 
+function cartEmpty() {
+  const cartEmpty = document.querySelector(".content_empty_container");
+  const cartContent = document.querySelector(".cart_content");
+
+  if (
+    cartItems === null ||
+    cartItems.length === 0 ||
+    cartItems.length === null ||
+    cartItems.length == undefined
+  ) {
+    cartEmpty.classList.remove("empty");
+    cartContent.classList.add("empty");
+  } else if (cartItems.length >= 1) {
+    cartEmpty.classList.add("empty");
+    cartContent.classList.remove("empty");
+  }
+}
+cartEmpty();
+
 // All Check Event
 const allCheck = document.querySelector("#check7");
+const allCheckMo = document.querySelector("#check9");
 const checkboxs = document.querySelectorAll(".listcheck");
 
 allCheck.addEventListener("change", () => {
+  eachCheckBoxFunction("pc");
+});
+
+allCheckMo.addEventListener("change", () => {
+  eachCheckBoxFunction("mobile");
+});
+
+eachCheckBoxFunction = (view) => {
   checkboxs.forEach((box) => {
-    if (allCheck.checked) {
-      box.checked = true;
+    if (view == "pc") {
+      if (allCheck.checked) {
+        box.checked = true;
+      } else {
+        box.checked = false;
+      }
     } else {
-      box.checked = false;
+      if (allCheckMo.checked) {
+        box.checked = true;
+      } else {
+        box.checked = false;
+      }
     }
   });
-});
+};
 
 checkboxs.forEach((box, idx) => {
   box.addEventListener("change", () => {
@@ -185,10 +224,11 @@ checkboxs.forEach((box, idx) => {
     );
     if (!box.checked) {
       allCheck.checked = false;
+      allCheckMo.checked = false;
     }
-    console.log();
     if (checkboxs.length === checked.length) {
       allCheck.checked = true;
+      allCheckMo.checked = true;
     }
   });
 });
@@ -201,59 +241,81 @@ const formatter = new Intl.NumberFormat("ko-KR", {
   currency: "KRW",
 });
 
-moneyListbox.forEach((item, idx) => {
-  // console.log(cartItems);
+// First Order Num Setting
+let clickCountArray = [];
+let nomarlPrices2 = [];
+let discountPrices2 = [];
+let calcNomarl2 = 0;
+let calcDisCount2 = 0;
 
+cartItems.forEach((item) => {
+  clickCountArray.push(item.order);
+});
+
+moneyListbox.forEach((money, idx) => {
+  money.children[1].innerHTML = clickCountArray[idx];
+});
+
+moneybox.forEach((mItem, idx) => {
+  nomarlPrices2.push(
+    Number(mItem.children[0].innerHTML.slice(0, -1).replace(",", ""))
+  );
+  discountPrices2.push(
+    Number(mItem.children[1].innerHTML.slice(0, -1).replace(",", ""))
+  );
+
+  calcNomarl2 = formatter.format(nomarlPrices2[idx] * clickCountArray[idx]);
+  calcDisCount2 = formatter.format(discountPrices2[idx] * clickCountArray[idx]);
+  mItem.children[0].innerHTML = `${calcNomarl2}원`;
+  mItem.children[1].innerHTML = `${calcDisCount2}원`;
+});
+
+moneyListbox.forEach((item, idx) => {
   let clickCount = 1;
-  let clickCountArray = [];
   let nomarlPrices = [];
   let discountPrices = [];
-
-  moneybox.forEach((mItem, idx) => {
+  moneybox.forEach((mItem) => {
     nomarlPrices.push(
-      Number(mItem.children[0].innerHTML.slice(0, -1).replace(",", ""))
+      Number(mItem.children[0].innerHTML.slice(0, -1).replace(",", "")) /
+        clickCountArray[idx]
     );
     discountPrices.push(
-      Number(mItem.children[1].innerHTML.slice(0, -1).replace(",", ""))
+      Number(mItem.children[1].innerHTML.slice(0, -1).replace(",", "")) /
+        clickCountArray[idx]
     );
   });
-
-  // function firstNum() {
-  //   cartItems.forEach((i, idx) => {
-  //     console.log(i.order);
-  //     clickCountArray.push(i.order);
-  //     // if (i.order > 1) {
-  //     //   clickCountArray.push(i.order);
-  //     //   // item.children[1].innerHTML = clickCount;
-  //     // } else if (i.oredr == 1) {
-  //     //   clickCountArray.push(i.order);
-  //     // }
-  //     // console.log(clickCount);
-  //     const targetIdx = item.children[0].dataset.index;
-
-  //     clacMoney(targetIdx);
-  //   });
-  //   console.log(clickCountArray);
-  //   item.children[1].innerHTML = clickCountArray[idx];
-  // }
-
-  // firstNum();
 
   const countLeft = item.children[0];
   const countRight = item.children[2];
   let countNumber = Number(item.children[1].innerHTML);
-  // console.log(countNumber);
-
   clickCount = countNumber;
+
+  let targetData;
+  const orderLocalPush = (targetData, plusminus) => {
+    const targetProduct = cartItems.find((item) => item.id == targetData[0].id);
+
+    if (plusminus) {
+      if (targetProduct) {
+        targetProduct.order++;
+      }
+    } else {
+      targetProduct.order--;
+    }
+    save();
+  };
+
   countLeft.addEventListener("click", (e) => {
     let targetIdx = Number(e.currentTarget.dataset.index);
     cartItems.forEach((cartitem, idx) => {
-      console.log(clickCount);
       if (clickCount == 1) return;
       if (idx === targetIdx) {
         clickCount -= 1;
         clacMoney(targetIdx);
         productCalc();
+
+        const targetID = e.target.parentNode.dataset.id;
+        targetData = cartItems.filter((data) => data.id == targetID);
+        orderLocalPush(targetData, false);
       }
     });
     item.children[1].innerHTML = clickCount;
@@ -267,11 +329,16 @@ moneyListbox.forEach((item, idx) => {
     item.children[1].innerHTML = clickCount;
     clacMoney(targetIdx);
     productCalc();
+
+    const targetID = e.target.parentNode.dataset.id;
+    targetData = cartItems.filter((data) => data.id == targetID);
+    orderLocalPush(targetData, true);
   });
 
   let calcNomarl = 0;
   let calcDisCount = 0;
   function clacMoney(targetIdx) {
+    console.log();
     calcNomarl = formatter.format(nomarlPrices[targetIdx] * clickCount);
     calcDisCount = formatter.format(discountPrices[targetIdx] * clickCount);
 
@@ -288,6 +355,9 @@ function productLengthEvent() {
   );
   const listLength = document.querySelectorAll(".list").length;
 
+  document.querySelector(
+    ".pay_sticky_text p:nth-child(1)"
+  ).innerText = `총 ${listLength}건`;
   productLength.innerText = listLength;
 }
 productLengthEvent();
@@ -313,6 +383,9 @@ function productCalc() {
   const originPrice2 = originPriceNum;
   originPriceNum = formatter.format(originPriceNum);
   orderPrice.innerText = `${originPriceNum}원`;
+  document.querySelector(
+    ".moblie_pay_text p:nth-child(2)"
+  ).innerText = `${originPriceNum}원`;
 
   const salePriceAll = document.querySelectorAll(".money_box p:nth-child(2)");
   let slaePrieceNum = 0;
@@ -324,25 +397,51 @@ function productCalc() {
   let salePriceFomatter = originPrice2 - salePrice2;
   const slaePriceFinalText = formatter.format(salePriceFomatter);
   slaePrice.innerText = `${slaePriceFinalText}원`;
+  document.querySelector(
+    ".moblie_pay_text_two p:nth-child(2)"
+  ).innerText = `${slaePriceFinalText}원`;
 
   const deliveryOption = 2500;
 
   if (slaePrieceNum >= 40000) {
     deliveryPrice.innerText = `0원`;
+    document.querySelector(
+      ".pay_sticky_text p:nth-child(3)"
+    ).innerText = `+ 배송비 0원`;
+    document.querySelector(
+      ".moblie_pay_text_three p:nth-child(2)"
+    ).innerText = `0원`;
   } else {
     deliveryPrice.innerText = `2,500원`;
+    document.querySelector(
+      ".pay_sticky_text p:nth-child(3)"
+    ).innerText = `+ 배송비 2,500원`;
+    document.querySelector(
+      ".moblie_pay_text_three p:nth-child(2)"
+    ).innerText = `2,500원`;
     slaePrieceNum += deliveryOption;
   }
+
   slaePrieceNum = formatter.format(slaePrieceNum);
   totalPrice.innerText = `${slaePrieceNum}원`;
+  document.querySelector(
+    ".pay_sticky_text p:nth-child(2)"
+  ).innerText = `${slaePrieceNum}원`;
+  document.querySelector(
+    ".moblie_pay_text_four p:nth-child(2)"
+  ).innerText = `${slaePrieceNum}원`;
 }
-// productCalc();
+productCalc();
+
+// pay link
+const allpayBtn = document.querySelector(".allpay");
+const selectpayBtn = document.querySelector(".selectpay");
+
+allpayBtn.addEventListener("click", () => {});
 
 // product Introduce
 const introductionproductJson = "/db.json?timestamp=" + new Date().getTime();
-// const cartItems = document.querySelectorAll(".introduction_box");
 const cartItemsAll = document.querySelectorAll(".introduction_box");
-// console.log(cartItems);
 
 // 랜덤 섞기 함수 (Fisher-Yates 알고리즘)
 function shuffleArray(array) {

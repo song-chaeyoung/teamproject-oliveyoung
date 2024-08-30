@@ -98,7 +98,7 @@ const createItem = (info) => {
                                       <p>${item.price}원</p>
                                       <p>${item.salePrice}원</p>
                                     </div>
-                                    <div class="money_listbox">
+                                    <div class="money_listbox" data-id=${item.id}>
                                       <button data-index=${index}>-</button>
                                       <p>1</p>
                                       <button data-index=${index}>+</button>
@@ -188,17 +188,34 @@ cartEmpty();
 
 // All Check Event
 const allCheck = document.querySelector("#check7");
+const allCheckMo = document.querySelector("#check9");
 const checkboxs = document.querySelectorAll(".listcheck");
 
 allCheck.addEventListener("change", () => {
+  eachCheckBoxFunction("pc");
+});
+
+allCheckMo.addEventListener("change", () => {
+  eachCheckBoxFunction("mobile");
+});
+
+eachCheckBoxFunction = (view) => {
   checkboxs.forEach((box) => {
-    if (allCheck.checked) {
-      box.checked = true;
+    if (view == "pc") {
+      if (allCheck.checked) {
+        box.checked = true;
+      } else {
+        box.checked = false;
+      }
     } else {
-      box.checked = false;
+      if (allCheckMo.checked) {
+        box.checked = true;
+      } else {
+        box.checked = false;
+      }
     }
   });
-});
+};
 
 checkboxs.forEach((box, idx) => {
   box.addEventListener("change", () => {
@@ -207,10 +224,11 @@ checkboxs.forEach((box, idx) => {
     );
     if (!box.checked) {
       allCheck.checked = false;
+      allCheckMo.checked = false;
     }
-    console.log();
     if (checkboxs.length === checked.length) {
       allCheck.checked = true;
+      allCheckMo.checked = true;
     }
   });
 });
@@ -223,20 +241,47 @@ const formatter = new Intl.NumberFormat("ko-KR", {
   currency: "KRW",
 });
 
-moneyListbox.forEach((item, idx) => {
-  // console.log(cartItems);
+// First Order Num Setting
+let clickCountArray = [];
+let nomarlPrices2 = [];
+let discountPrices2 = [];
+let calcNomarl2 = 0;
+let calcDisCount2 = 0;
 
+cartItems.forEach((item) => {
+  clickCountArray.push(item.order);
+});
+
+moneyListbox.forEach((money, idx) => {
+  money.children[1].innerHTML = clickCountArray[idx];
+});
+
+moneybox.forEach((mItem, idx) => {
+  nomarlPrices2.push(
+    Number(mItem.children[0].innerHTML.slice(0, -1).replace(",", ""))
+  );
+  discountPrices2.push(
+    Number(mItem.children[1].innerHTML.slice(0, -1).replace(",", ""))
+  );
+
+  calcNomarl2 = formatter.format(nomarlPrices2[idx] * clickCountArray[idx]);
+  calcDisCount2 = formatter.format(discountPrices2[idx] * clickCountArray[idx]);
+  mItem.children[0].innerHTML = `${calcNomarl2}원`;
+  mItem.children[1].innerHTML = `${calcDisCount2}원`;
+});
+
+moneyListbox.forEach((item, idx) => {
   let clickCount = 1;
-  let clickCountArray = [];
   let nomarlPrices = [];
   let discountPrices = [];
-
   moneybox.forEach((mItem) => {
     nomarlPrices.push(
-      Number(mItem.children[0].innerHTML.slice(0, -1).replace(",", ""))
+      Number(mItem.children[0].innerHTML.slice(0, -1).replace(",", "")) /
+        clickCountArray[idx]
     );
     discountPrices.push(
-      Number(mItem.children[1].innerHTML.slice(0, -1).replace(",", ""))
+      Number(mItem.children[1].innerHTML.slice(0, -1).replace(",", "")) /
+        clickCountArray[idx]
     );
   });
 
@@ -244,6 +289,20 @@ moneyListbox.forEach((item, idx) => {
   const countRight = item.children[2];
   let countNumber = Number(item.children[1].innerHTML);
   clickCount = countNumber;
+
+  let targetData;
+  const orderLocalPush = (targetData, plusminus) => {
+    const targetProduct = cartItems.find((item) => item.id == targetData[0].id);
+
+    if (plusminus) {
+      if (targetProduct) {
+        targetProduct.order++;
+      }
+    } else {
+      targetProduct.order--;
+    }
+    save();
+  };
 
   countLeft.addEventListener("click", (e) => {
     let targetIdx = Number(e.currentTarget.dataset.index);
@@ -253,6 +312,10 @@ moneyListbox.forEach((item, idx) => {
         clickCount -= 1;
         clacMoney(targetIdx);
         productCalc();
+
+        const targetID = e.target.parentNode.dataset.id;
+        targetData = cartItems.filter((data) => data.id == targetID);
+        orderLocalPush(targetData, false);
       }
     });
     item.children[1].innerHTML = clickCount;
@@ -263,15 +326,19 @@ moneyListbox.forEach((item, idx) => {
     cartItems.forEach((cartitem, idx) => {
       if (idx === targetIdx) clickCount += 1;
     });
-    console.log(clickCount);
     item.children[1].innerHTML = clickCount;
     clacMoney(targetIdx);
     productCalc();
+
+    const targetID = e.target.parentNode.dataset.id;
+    targetData = cartItems.filter((data) => data.id == targetID);
+    orderLocalPush(targetData, true);
   });
 
   let calcNomarl = 0;
   let calcDisCount = 0;
   function clacMoney(targetIdx) {
+    console.log();
     calcNomarl = formatter.format(nomarlPrices[targetIdx] * clickCount);
     calcDisCount = formatter.format(discountPrices[targetIdx] * clickCount);
 
@@ -316,6 +383,9 @@ function productCalc() {
   const originPrice2 = originPriceNum;
   originPriceNum = formatter.format(originPriceNum);
   orderPrice.innerText = `${originPriceNum}원`;
+  document.querySelector(
+    ".moblie_pay_text p:nth-child(2)"
+  ).innerText = `${originPriceNum}원`;
 
   const salePriceAll = document.querySelectorAll(".money_box p:nth-child(2)");
   let slaePrieceNum = 0;
@@ -327,6 +397,9 @@ function productCalc() {
   let salePriceFomatter = originPrice2 - salePrice2;
   const slaePriceFinalText = formatter.format(salePriceFomatter);
   slaePrice.innerText = `${slaePriceFinalText}원`;
+  document.querySelector(
+    ".moblie_pay_text_two p:nth-child(2)"
+  ).innerText = `${slaePriceFinalText}원`;
 
   const deliveryOption = 2500;
 
@@ -348,6 +421,7 @@ function productCalc() {
     ).innerText = `2,500원`;
     slaePrieceNum += deliveryOption;
   }
+
   slaePrieceNum = formatter.format(slaePrieceNum);
   totalPrice.innerText = `${slaePrieceNum}원`;
   document.querySelector(
@@ -367,9 +441,7 @@ allpayBtn.addEventListener("click", () => {});
 
 // product Introduce
 const introductionproductJson = "/db.json?timestamp=" + new Date().getTime();
-// const cartItems = document.querySelectorAll(".introduction_box");
 const cartItemsAll = document.querySelectorAll(".introduction_box");
-// console.log(cartItems);
 
 // 랜덤 섞기 함수 (Fisher-Yates 알고리즘)
 function shuffleArray(array) {
