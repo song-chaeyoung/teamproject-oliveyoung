@@ -306,3 +306,15 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("cartOliveyoung", JSON.stringify(cart));
   }
 });
+
+// 문의 유효성 검사
+function validateForm() {
+  const title = document.getElementById("submitTitle").value.trim();
+  const content = document.getElementById("submitContent").value.trim();
+
+  if (title === "" || content === "") {
+      alert("내용을 입력해 주세요.");
+  } else {
+      alert("문의사항이 등록되었습니다.");
+  }
+}
