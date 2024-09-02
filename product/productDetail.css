@@ -634,6 +634,14 @@
   margin-top: 160px;
   margin-bottom: 160px;
   gap: 120px;
+  .myslider {
+    > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
   h1 {
     color: #585858;
     font-size: 36px;
