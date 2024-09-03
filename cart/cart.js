@@ -175,7 +175,7 @@ function cartEmpty() {
     cartItems === null ||
     cartItems.length === 0 ||
     cartItems.length === null ||
-    cartItems.length == undefined
+    cartItems.length === undefined
   ) {
     cartEmpty.classList.remove("empty");
     cartContent.classList.add("empty");
@@ -436,8 +436,16 @@ productCalc();
 // pay link
 const allpayBtn = document.querySelector(".allpay");
 const selectpayBtn = document.querySelector(".selectpay");
+const mobileAllpayBtn = document.querySelector(
+  ".pay_sticky_button button:nth-child(2)"
+);
 
-allpayBtn.addEventListener("click", () => {});
+allpayBtn.addEventListener("click", () => {
+  window.location = "/pay/pay.html";
+});
+mobileAllpayBtn.addEventListener("click", () => {
+  window.location = "/pay/pay.html";
+});
 
 // product Introduce
 const introductionproductJson = "/db.json?timestamp=" + new Date().getTime();

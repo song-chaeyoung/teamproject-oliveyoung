@@ -1,4 +1,9 @@
-@import url(./common.css);
+@import url(/common.css);
+
+
+main {
+    height: 400px ;
+}
 
     .loginText {
         text-align: center;
@@ -107,13 +112,19 @@
             width: 780px;
             height: 90px;
             line-height: 144%;
-            padding: 32px 0 ;
+            padding: 32px 10px ;
             justify-content: space-between;
             margin: 0 auto;
             .find {
                 &:hover{
                     cursor: pointer;
                     }
+            }
+            .idCheck {
+                display: flex;
+                p {
+                    padding: 0 10px;
+                }
             }
             }
             .loginBtn01 {
@@ -138,8 +149,13 @@
                 align-items: center;
                 gap: 30px;
                 padding: 32px 0;
-                .cjoneBtn {            
-                border: 1px solid #EFEFEF; 
+                .cjoneBtn {   
+                border: 1px solid #EFEFEF;  
+                a {
+                    display: flex;
+                    gap: 10px;
+                    line-height: 42px;
+                }
                 button {
                     display: flex;
                     width: 374px;
@@ -246,9 +262,9 @@
             margin-top: 32px;
             padding: 10px;
             border: 1px solid #9AC75B;
-                button {
+                a {
                     color: #9AC75B;
-                    font-size: 26px;
+                    font-size: 22px;
                     &:hover{
                         cursor: pointer;
                 }

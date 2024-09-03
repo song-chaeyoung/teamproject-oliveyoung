@@ -1,15 +1,91 @@
 @import url(/common.css);
 
+.top_title {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: 138px;
+
+  .inner {
+    width: 100%;
+    height: 100%;
+    .cart_container {
+      width: 100%;
+      height: 100%;
+      /* gap: 36px; */
+      display: flex;
+      /* flex-direction: column; */
+      justify-content: space-between;
+      padding-left: 30px;
+      padding-right: 50px;
+      align-items: center;
+      margin: 40px 0 20px;
+      .cart_text {
+        font-size: 20px;
+      }
+      .icon {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        margin-bottom: 5px;
+        .icon_arrow {
+          font-size: 24px;
+          color: var(--main-btn-green);
+        }
+        .cart_icon {
+          width: 76px;
+          height: 76px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 6px;
+          font-size: 40px;
+          border-radius: 100%;
+          background: #cfcfcf;
+          color: var(--white);
+          i {
+            font-size: 34px;
+          }
+          p {
+            font-size: 12px;
+          }
+          &:nth-of-type(1) {
+            background-color: var(--main-btn-green);
+            i {
+              font-size: 30px;
+            }
+          }
+          &:nth-of-type(3) {
+            background-color: var(--main-btn-green);
+            i {
+              font-size: 28px;
+            }
+          }
+          &:nth-of-type(5) {
+            i {
+              font-size: 28px;
+              margin-left: 4px;
+            }
+          }
+          &.active {
+            background: var(--main-btn-green);
+          }
+        }
+      }
+    }
+  }
+}
 /* title */
 .title {
   width: 100%;
   padding-bottom: 60px;
-  padding-top: 124px;
   h1 {
-    font-size: 36px;
+    font-size: 30px;
   }
 }
-
 .contaniner_inner {
   width: 100%;
   height: 100%;
@@ -30,7 +106,6 @@
       flex-direction: column;
       .main_container_text {
         width: 100%;
-        padding: 0 16px;
         padding-bottom: 21px;
         h2 {
           font-size: 18px;
@@ -150,10 +225,6 @@
           gap: 10px;
           display: flex;
           padding-left: 26px;
-          .deliverybox {
-            #deliverybox {
-            }
-          }
         }
       }
       .delivery_address {
@@ -187,6 +258,8 @@
               margin-left: 26px;
               border: 1px solid #eee;
               background: #ddd;
+              border: 1px solid #f00;
+
             }
             .delivery_clickbox {
               width: 100%;
@@ -265,6 +338,10 @@
           .delivery_service_box {
             gap: 10px;
             padding-left: 26px;
+            label {
+              font-size: 14px;
+              align-items: center;
+            }
           }
         }
       }
@@ -284,10 +361,9 @@
         }
         #deliveryrequest {
           width: 476px;
-          height: 20px;
+          height: 30px;
           display: flex;
           align-items: center;
-          padding: 24px 108px 26px 30px;
           border: 1px solid #eee;
           p {
             font-size: 16px;
@@ -319,56 +395,68 @@
       }
       .item_inner_boxs {
         display: flex;
-        justify-content: space-between;
-        padding: 50px 0;
-        border-bottom: 1px solid #efefef;
-        .item_inner {
+        flex-direction: column;
+        /* justify-content: space-between; */
+        .item_inner_box {
+          width: 100%;
           display: flex;
-          .item_img {
-            width: 108px;
-            height: 108px;
-            border: 1px solid #999;
-          }
-          .item_img_text {
+          border-bottom: 1px solid #efefef;
+          padding: 30px 0;
+          justify-content: space-between;
+          .item_inner {
             display: flex;
-            flex-direction: column;
-
-            padding-left: 10px;
-            h3 {
-              font-size: 16px;
-              padding-bottom: 6px;
+            gap: 20px;
+            .item_img {
+              width: 108px;
+              height: 108px;
+              /* border: 1px solid #999; */
             }
-            p {
-              font-size: 12px;
+            .item_img_text {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              /* padding-left: 10px; */
+              h3 {
+                font-size: 16px;
+                padding-bottom: 6px;
+              }
+              p {
+                font-size: 12px;
+              }
+              p:nth-child(2) {
+                display: flex;
+                padding-bottom: 20px;
+              }
+              .tags {
+                display: flex;
+                gap: 4px;
+                p {
+                  align-items: center;
+                  display: flex;
+                  justify-content: center;
+                  width: 60px;
+                  height: 20px;
+                  border: none;
+                  border-radius: 16px;
+                  background: #9bce26;
+                  padding: 2px 6px;
+                  color: #fff;
+                }
+              }
+            }
+          }
+          .item_img_pay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            p:nth-child(1) {
+              font-size: 18px;
+              font-weight: bold;
             }
             p:nth-child(2) {
-              display: flex;
-              padding-bottom: 40px;
+              font-size: 12px;
             }
-            p:nth-child(3) {
-              align-items: center;
-              display: flex;
-              justify-content: center;
-              width: 60px;
-              height: 20px;
-              border: none;
-              border-radius: 16px;
-              background: #9bce26;
-              padding: 2px 6px;
-              color: #fff;
-            }
-          }
-        }
-        .item_img_pay {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          p:nth-child(1) {
-            font-size: 18px;
-            font-weight: bold;
-          }
-          p:nth-child(2) {
-            font-size: 12px;
           }
         }
       }
@@ -490,7 +578,6 @@
       .pay_secode_box {
         width: 100%;
         display: flex;
-        display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 28px 32px 16px 26px;
@@ -541,11 +628,18 @@
 }
 
 @media screen and (max-width: 1080px) {
+  .top_title {
+    display: none;
+  }
+  .title {
+    padding-bottom: 30px;
+  }
   .contaniner_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     .input_container {
       .main_container {
-        .main_container_text {
-        }
         .main_container_name {
           width: 100%;
           font-size: 14px;
@@ -613,16 +707,12 @@
           }
           .delivery_checkbox {
             font-size: 14px;
-            .deliverybox {
-              #deliverybox {
-              }
-            }
           }
         }
         .delivery_address {
           .delivery_address_first {
             .delivery_address_text {
-              padding-top: 10px;
+              padding-top: 20px;
               font-size: 14px;
             }
             .delivery_address_firstboxs {
@@ -641,6 +731,7 @@
                 buttom {
                   width: 100px;
                   font-size: 10px;
+                  font-weight: bold;
                 }
               }
             }
@@ -648,18 +739,120 @@
           #second {
             width: 270px;
           }
-          .military_delivery {
+        }
+
+        .delivery_phone {
+          .delivery_phone_box {
+            .deliveryphone {
+              font-size: 14px;
+            }
+            #deliveryphone {
+              width: 86px;
+              border: 1px solid #efefef;
+            }
           }
         }
       }
-      .delivery_phone {
-        .delivery_phone_box {
-          .deliveryphone {
+      .delivery_request_container {
+        border: 1px solid #efefef;
+        width: 100%;
+        height: 100%;
+        padding: 10px 10px;
+        .delivery_request_inner {
+          gap: 10px;
+          .deliveryrequest {
+            display: flex;
+            padding: 0;
+            width: 100px;
             font-size: 14px;
+            justify-content: center;
           }
-          #deliveryphone {
-            border: 1px solid #f00;
+          #deliveryrequest {
+            width: 190px;
+            height: 20px;
+            padding: 2px 2px;
           }
+        }
+      }
+      .item_container {
+        .item_inner_boxs {
+          .item_inner {
+            .item_img_text {
+              h3 {
+                font-size: 12px;
+              }
+              p {
+                font-weight: bold;
+              }
+              p:nth-child(2) {
+                padding-bottom: 50px;
+              }
+              p:nth-child(3) {
+                font-size: 10px;
+                font-weight: bold;
+                padding: 0;
+              }
+            }
+          }
+          .item_img_pay {
+            p:nth-child(1) {
+              font-size: 14px;
+            }
+            p:nth-child(2) {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+      .pay_container {
+        .pay_text {
+          padding-bottom: 12px;
+        }
+        .pay_inner {
+          .pay_btns {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            padding-left: 0;
+            gap: 10px;
+            .pay_btn {
+              gap: 10px;
+              .btn_p {
+                font-size: 12px;
+                gap: 4px;
+              }
+            }
+            .pay_btn2 {
+              padding-left: 4px;
+              gap: 20px;
+              .btn_p {
+                font-size: 12px;
+                gap: 2px;
+              }
+            }
+          }
+          .pay_text_sale {
+            padding-top: 10px;
+            padding-bottom: 12px;
+            font-size: 14px;
+            font-weight: bold;
+          }
+        }
+      }
+      .manual_container {
+        .manual_text {
+          font-size: 12px;
+        }
+      }
+    }
+    .pay_box_container {
+      .pay_box_inner {
+        .pay_secode_box {
+          padding: 28px 26px 16px 26px;
+        }
+        .pay_thrd_box_text {
+          font-size: 12px;
+          padding: 0 94px 40px 26px;
         }
       }
     }
