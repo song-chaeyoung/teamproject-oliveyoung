@@ -774,9 +774,8 @@
       }
     }
   }
-  .myslider {
+  .productitem {
     display: flex;
-    flex-direction: column;
     gap: 24px;
     cursor: pointer;
     width: fit-content;
