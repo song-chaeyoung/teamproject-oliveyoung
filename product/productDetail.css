@@ -394,18 +394,18 @@
         text-decoration: none;
         cursor: pointer;
       }
-      .notice-inner{
-        .notice-list{
+      .notice-inner {
+        .notice-list {
           gap: 20px;
-          .notice-list-main{
+          .notice-list-main {
             margin-bottom: 10px;
           }
-          .notice-cont{
+          .notice-cont {
             margin: 10px;
             gap: 20px;
             display: flex;
-            p{
-              &:nth-child(1){
+            p {
+              &:nth-child(1) {
                 width: 300px;
                 color: #303030;
               }
@@ -704,7 +704,7 @@
 
 /* 모달 안의 이미지 */
 .modal-content-review {
-  margin:50vh auto;
+  margin: 50vh auto;
   display: block;
   max-width: 90%;
   max-height: 80%;
@@ -1049,12 +1049,12 @@
           text-decoration: none;
           cursor: pointer;
         }
-        .notice-inner{
-          .notice-list{
-            .notice-list-main{
+        .notice-inner {
+          .notice-list {
+            .notice-list-main {
               font-size: 14px;
             }
-            .notice-cont{
+            .notice-cont {
               font-size: 12px;
             }
           }
