@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script
       src="https://kit.fontawesome.com/580465cdf5.js"
       crossorigin="anonymosus"
@@ -14,8 +16,35 @@
   <body>
     <!-- header -->
     <header></header>
-    []
     <main>
+      <!-- titl -->
+      <div class="top_title">
+        <div class="inner">
+          <div class="cart_container">
+            <div class="cart_text"><h1>장바구니</h1></div>
+            <div class="icon">
+              <div class="cart_icon">
+                <i class="fa-brands fa-shopify"></i>
+                <p>장바구니</p>
+              </div>
+              <div class="icon_arrow">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="cart_icon">
+                <i class="fa-regular fa-credit-card"></i>
+                <p>주문/결제</p>
+              </div>
+              <div class="icon_arrow">
+                <i class="fa-solid fa-chevron-right"></i>
+              </div>
+              <div class="cart_icon">
+                <i class="fa-solid fa-truck"></i>
+                <p>배송</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="inner">
         <form action="http://" method="get" class="phone_box">
           <div class="title">
@@ -87,12 +116,29 @@
                         </div>
                         <div class="delivery_address_firstboxs">
                           <div class="delivery_address_firstbox">
-                            <input type="text" name="address" id="address" />
+                            <input type="text" id="address" />
                           </div>
                           <div class="delivery_clickbox">
-                            <buttom>우편번호 검색</buttom>
-                            <buttom>CU 편의점 찾기</buttom>
-                            <buttom>GS 편의점 찾기</buttom>
+                            <input
+                              type="button"
+                              onclick="sample6_execDaumPostcode()"
+                              id="button"
+                              value="우편번호"
+                            />
+
+                            <input
+                              type="button"
+                              onclick="sample6_execDaumPostcode()"
+                              id="button"
+                              value="CU편의점"
+                            />
+
+                            <input
+                              type="button"
+                              onclick="sample6_execDaumPostcode()"
+                              id="button"
+                              value="GS편의점"
+                            />
                           </div>
                         </div>
                       </div>
@@ -149,34 +195,24 @@
                   <label class="deliveryrequest" for="deliveryrequest">
                     배송 요청사항
                   </label>
-                  <input
-                    type="text"
-                    name="deliveryrequest"
-                    id="deliveryrequest"
-                    placeholder="배송 요청사항을 선택해주세요"
-                  />
+                  <select name="deliveryrequest" id="deliveryrequest">
+                    <option disabled selected value="">
+                      배송메시지를 입력해주세요.
+                    </option>
+                    <option value="">그냥 문 앞에 놓아 주시면 돼요.</option>
+                    <option value="">직접 받을게요.(부재 시 문앞)</option>
+                    <option value="">벨을 누르지 말아주세요.</option>
+                    <option value="">
+                      도착 후 전화주시면 직접 받으러 갈게요.
+                    </option>
+                  </select>
                 </div>
               </div>
               <div class="item_container">
                 <div class="item_text">
                   <h2>주문 상품 정보</h2>
                 </div>
-                <div class="item_inner_boxs">
-                  <div class="item_inner">
-                    <div class="item_img">
-                      <img src="" alt="" />
-                    </div>
-                    <div class="item_img_text">
-                      <h3>한란 인리치드 크림 50ml</h3>
-                      <p>1개</p>
-                      <p>오늘드림</p>
-                    </div>
-                  </div>
-                  <div class="item_img_pay">
-                    <p>30,000</p>
-                    <p>원</p>
-                  </div>
-                </div>
+                <div class="item_inner_boxs"></div>
               </div>
               <div class="pay_container">
                 <div class="pay_text">
@@ -235,21 +271,21 @@
                   <ul>
                     <li>
                       <h3>주문금액</h3>
-                      <p>0원</p>
+                      <p class="orderpirce">0원</p>
                     </li>
                     <li>
                       <h3>할인/차감 금액</h3>
-                      <span>-0원</span>
+                      <p class="salepirce">-0원</p>
                     </li>
                     <li>
                       <h3>배송비</h3>
-                      <p>무료</p>
+                      <p class="deliverypirce">무료</p>
                     </li>
                   </ul>
                 </div>
                 <div class="pay_secode_box">
                   <p>최종 결제 금액</p>
-                  <p>0원</p>
+                  <p class="finalpirce">0원</p>
                 </div>
                 <div class="pay_thrd_box">
                   <label for="pay"> 모두 동의합니다. </label>
@@ -264,7 +300,9 @@
                   <input type="checkbox" name="pay2" id="pay2" />
                   <label for="pay2"></label>
                 </div>
-                <button>결제하기</button>
+                <div class="button">
+                  <button>결제하기</button>
+                </div>
               </div>
             </div>
           </div>

@@ -2,16 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="user-scalable=1.0 width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"
+    />
+    <meta property="og:image" content="/indeximg/logo_s.svg" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:title" content="올리브영 온라인몰" />
+    <meta
+      property="og:description"
+      content="어디가? 올리브영! 뭐해? 올리브영! 전국매장과 온라인앱으로 가고 켜고, 주문하면 3시간 내 배송되는 오늘드림까지. 언제 어디서나 편리한 뷰티&헬스, 라이프스타일 쇼핑을 즐기는 곳, 올리브영"
+    />
+    <title>매장안내 | 올리브영</title>
+    <link rel="shortcut icon" href="/indeximg/logo_s.svg" type="image/x-icon" />
+    <!-- kakao -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f73befc20651ccf6ad51aab9aaa7dbb4&&libraries=services"
+    ></script>
     <!-- fontawesome -->
     <script
-      src="https://kit.fontawesome.com/d0d7b265e4.js"
+      src="https://kit.fontawesome.com/580465cdf5.js"
       crossorigin="anonymous"
     ></script>
     <!-- custom js&css -->
     <link rel="stylesheet" href="./api.css" />
-    <script
-      type="text/javascript"
-    ></script>
     <script defer src="./api.js"></script>
   </head>
   <body>
@@ -20,6 +36,7 @@
     <div class="inners">
       <div class="map_wrap">
         <div
+          class="only_pc"
           id="map"
           style="
             width: 100%;
@@ -34,12 +51,26 @@
               <form onsubmit="searchPlaces(); return false;">
                 <div class="nav">
                   <ul>
-                    <li><a href="#none">직접검색</a></li>
+                    <li>
+                      <a class="active" href="#none">직접검색</a>
+                    </li>
                     <li><a href="#none">지역검색</a></li>
                     <li><a href="#none">관심매장</a></li>
                     <li><a href="#none">판매매장</a></li>
                   </ul>
                 </div>
+                <div class="input_box">
+                  <input
+                    type="text"
+                    id="keyword"
+                    value="올리브영 강남"
+                    placeholder="올리브영 강남"
+                  />
+                  <button class="submit_btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </div>
+                <!-- <button id="submit_btn" type="submit"></button> -->
               </form>
             </div>
           </div>
