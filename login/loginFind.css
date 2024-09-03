@@ -1,8 +1,5 @@
-@import url(/common.css);
+@import url(./common.css);
 
-main {
-    height: 300px ;
-}
 
     .loginText {
         text-align: center;

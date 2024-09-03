@@ -78,7 +78,6 @@
     }
   }
 }
-
 /* title */
 .title {
   width: 100%;
@@ -260,6 +259,7 @@
               border: 1px solid #eee;
               background: #ddd;
               border: 1px solid #f00;
+
             }
             .delivery_clickbox {
               width: 100%;

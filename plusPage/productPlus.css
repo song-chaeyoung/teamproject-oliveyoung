@@ -1,0 +1,310 @@
+@import url(/common.css);
+
+
+.container {
+display: flex;
+justify-content: center;
+margin-top: 10%;
+
+.category {
+    display: flex;
+    width: 260px;
+    margin-top: 6px;
+    flex-direction: column;
+    align-items: flex-start;
+    ul {
+        
+        font-size: 16px;
+        color: #000;
+        margin-bottom: 40px;
+    }
+    li {
+        font-size: 14px;
+        color: #868686;
+        margin-bottom: 24px;
+        &:hover {
+            cursor: pointer;
+        }
+        
+    }
+}
+
+.ranking {
+    display: flex;
+    flex-direction: column;
+    .rankingMenu {
+        width: 1036px;
+        display: flex;
+        justify-content: space-between;
+        h1 {
+            font-size: 36px;
+            width: 740px;
+        }
+        p { 
+            font-size: 14px;
+            gap: 10px;
+            margin-top: 16px;
+            &:hover {
+                cursor: pointer;
+            }
+            }
+            span {
+                font-size: 14px;
+                gap: 10px;
+                margin-top: 16px;
+            }
+
+        }
+    }
+    .rankingList{
+        margin-top: 58px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, auto); 
+        gap: 20px; 
+        .productitem {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            cursor: pointer;
+            width: fit-content;
+            .productitem_img {
+                position: relative;
+                width: 240px;
+                height: 320px;
+                overflow: hidden;
+                /* border: 1px solid #f00; */
+                img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 40px 0;
+                z-index: 1;
+                }
+                .productitem_img_hoverbox {
+                position: absolute;
+                height: 50px;
+                bottom: -50px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 50px;
+                transition: all 0.3s;
+                background: var(--main-btn-green);
+                z-index: 3;
+                li > a > i {
+                    color: var(--white);
+                    font-size: 24px;
+                    transform: translateY(0);
+                    transition: all 0.3s;
+                    &:hover {
+                    transform: translateY(-4px);
+                    }
+                }
+                }
+                &:hover {
+                .productitem_img_hoverbox {
+                    bottom: 0;
+                    }
+                }
+            }
+            .productitem_text {
+                letter-spacing: -0.06px;
+                p {
+                    color: #707070;
+                    font: 500 13px/1 "Noto Sans";
+                }
+                .price{
+                    display: flex;
+                h5 {
+                    font: 700 20px/1 "Noto Sans";
+                    margin: 14px 0 18px;
+                    color: #000;
+                }
+                ul {
+                    display: flex;
+                    &:nth-of-type(1)
+                    .sale {
+                        font: 400 20px/1 "Noto Sans";
+                        margin: 14px 10px 18px;
+                        color: #000;
+                    }
+                    .salePrice {
+                        font: 400 14px/1 "Noto Sans";
+                        margin: 16px 10px 18px;
+                        color: #000;
+                        }
+                    }
+                }
+                .star {
+                    
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    font: normal 12px/1.44 "Noto Sans";
+                    }
+            }
+        }
+    }
+}
+
+
+/* mobile */
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    .category {
+        display: flex;
+        position: sticky;
+        width: 260px;
+        top: 140px;
+        height: 400px;
+        margin-top: 6px;
+        flex-direction: column;
+        align-items: flex-start;
+        /* border: 1px solid #f00; */        
+        ul {
+            
+            font-size: 16px;
+            color: #000;
+            margin-bottom: 40px;
+        }
+        li {
+            font-size: 14px;
+            color: #868686;
+            margin-bottom: 24px;
+            &:hover {
+                cursor: pointer;
+            }
+            
+        }
+    }
+    
+    .ranking {
+        display: flex;
+        flex-direction: column;
+        .rankingMenu {
+            width: 1036px;
+            display: flex;
+            justify-content: space-between;
+            h1 {
+                font-size: 36px;
+                width: 740px;
+            }
+            p { 
+                font-size: 14px;
+                gap: 10px;
+                margin-top: 16px;
+                &:hover {
+                    cursor: pointer;
+                }
+                }
+                span {
+                    font-size: 14px;
+                    gap: 10px;
+                    margin-top: 16px;
+                }
+    
+            }
+        }
+        .rankingList{
+            margin-top: 58px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(5, auto); 
+            gap: 20px; 
+            .productitem {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                cursor: pointer;
+                width: fit-content;
+                .productitem_img {
+                    /* position: relative; */
+                    width: 240px;
+                    height: 320px;
+                    overflow: hidden;
+                    img {
+                    /* position: absolute; */
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 40px 0;
+                    z-index: 1;
+                    }
+                    .productitem_img_hoverbox {
+                    /* position: absolute; */
+                    height: 50px;
+                    bottom: -50px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 50px;
+                    transition: all 0.3s;
+                    background: var(--main-btn-green);
+                    z-index: 3;
+                    li > a > i {
+                        color: var(--white);
+                        font-size: 24px;
+                        transform: translateY(0);
+                        transition: all 0.3s;
+                        &:hover {
+                        transform: translateY(-4px);
+                        }
+                    }
+                    }
+                    &:hover {
+                    .productitem_img_hoverbox {
+                        bottom: 0;
+                        }
+                    }
+                }
+                .productitem_text {
+                    letter-spacing: -0.06px;
+                    p {
+                        color: #707070;
+                        font: 500 13px/1 "Noto Sans";
+                    }
+                    .price{
+                        display: flex;
+                    h5 {
+                        font: 700 20px/1 "Noto Sans";
+                        margin: 14px 0 18px;
+                        color: #000;
+                    }
+                    ul {
+                        display: flex;
+                        &:nth-of-type(1)
+                        .sale {
+                            font: 400 20px/1 "Noto Sans";
+                            margin: 14px 10px 18px;
+                            color: #000;
+                        }
+                        .salePrice {
+                            font: 400 14px/1 "Noto Sans";
+                            margin: 16px 10px 18px;
+                            color: #000;
+                            }
+                        }
+                    }
+                    .star {
+                        
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+                        font: normal 12px/1.44 "Noto Sans";
+                        }
+                }
+            }
+        }
+    }
+    
