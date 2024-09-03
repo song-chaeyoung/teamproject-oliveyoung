@@ -7,7 +7,6 @@
   width: 100%;
   height: auto;
   margin-top: 138px;
-
   .inner {
     width: 100%;
     height: 100%;
@@ -85,16 +84,13 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
+  padding-bottom: 60px;
   li {
     display: flex;
     justify-content: center;
     align-items: center;
     /* width: 650px; */
     width: 100%;
-    /* height: 60px; */
-    font-size: 20px;
-    padding: 12px 0px;
-    background: var(--main-black);
     color: var(--white);
     &.active {
       background: var(--main-btn-green);
@@ -169,43 +165,21 @@
   }
 }
 
+.list_text {
+  font-size: 20px;
+  font-weight: 500;
+}
+input {
+  display: none;
+}
+label {
+  display: none;
+}
+
 .contents {
   width: 100%;
   height: fit-content;
   position: relative;
-  .content1 {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    .cart_content {
-      &.empty {
-        display: none;
-      }
-    }
-    .content_empty_container {
-      width: 100%;
-      height: 500px;
-      background: #fff;
-      /* z-index: 4; */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .content_empty {
-        color: var(--text-color-gray);
-        i {
-          font-size: 40px;
-          margin-bottom: 20px;
-        }
-      }
-      &.empty {
-        display: none;
-      }
-    }
-  }
-  .content1,
-  .content2 {
-    width: 100%;
-    height: 100%;
     text-align: center;
     display: none;
     /* justify-content: center;
@@ -243,14 +217,12 @@
   width: 1300px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  gap: 50px;
-  /* gap: 38px; */
+
   .list_container {
     position: relative;
     display: flex;
     justify-content: center;
-    /* padding-top: 30px; */
+
     gap: 45px;
   }
   /* list */
@@ -269,7 +241,7 @@
         width: 100%;
         display: flex;
         /* width: 985px; */
-        /* height: 180px; */
+
         border-top: 1px solid #efefef;
         border-bottom: 1px solid #efefef;
       }
@@ -278,6 +250,8 @@
         justify-content: center;
         align-items: center;
         width: 180px;
+
+
         /* height: 180px; */
         /* background: #999; */
         position: relative;
@@ -291,6 +265,7 @@
         position: absolute;
         display: none;
       }
+
       input:checked ~ label {
         z-index: 1;
         background: var(--main-btn-green);
@@ -301,10 +276,12 @@
         top: 0;
         left: 0;
         position: absolute;
+
         display: inline-block;
         width: 20px;
         height: 20px;
         background: var(--white);
+
         text-align: center;
         cursor: pointer;
         transition: all 0.3s;
@@ -312,10 +289,12 @@
           line-height: 20px;
           display: block;
           font-size: 14px;
+
         }
       }
       .text {
         width: 100%;
+
         /* height: 240px; */
         display: flex;
         justify-content: space-between;
@@ -329,6 +308,8 @@
           flex-direction: column;
           align-items: start;
           gap: 6px;
+
+
           p {
             font-weight: 500;
             &:nth-child(1) {
@@ -362,8 +343,6 @@
       }
     }
     .money {
-      width: fit-content;
-      height: fit-content;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -384,7 +363,22 @@
         height: 100%;
         /* padding-left: 400px; */
       }
+      .money_container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding-left: 400px;
+      }
+      .money_container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding-left: 400px;
+      }
       .money_box {
+
         /* width: 131px; */
         width: 200px;
         display: flex;
@@ -410,16 +404,19 @@
       .money_listbox {
         width: 100%;
         height: 36px;
+
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-size: 16px;
+
         border: 1px solid var(--line-gray);
         button {
           padding: 0 10px;
           font-size: 16px;
           /* width: 20px; */
           /* height: 30px; */
+
           justify-content: center;
           align-items: center;
           display: flex;
@@ -436,7 +433,7 @@
   height: 100%;
   position: sticky;
   top: 80px;
-  /* margin-top: 30px; */
+
   .inner {
     .pay_first_text {
       width: 100%;
@@ -661,6 +658,7 @@
           display: flex;
           width: 100%;
           height: 100%;
+
           justify-content: center;
           align-items: center;
           img {
@@ -675,6 +673,7 @@
           display: flex;
           flex-direction: column;
           justify-content: center;
+
           align-items: center;
           gap: 10px;
           .text_box {
@@ -687,7 +686,9 @@
           .introduction_pay {
             display: flex;
             font-size: 18px;
+
             gap: 8px;
+            padding-left: 10px;
             p:nth-child(1) {
               text-decoration: line-through;
               color: #999;
@@ -716,28 +717,19 @@
     li {
       width: 100%;
       height: 60px;
-      font-size: 20px;
+
     }
   }
 
   .list_text {
     position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    /* justify-content: space-between; */
-    align-items: center;
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 20px;
+
     i:nth-child(4) {
       cursor: pointer;
     }
     p:nth-child(5) {
       cursor: pointer;
-      position: absolute;
-      right: 0;
-      /* padding-left: 80px; */
+
     }
   }
   .list_text p {
@@ -750,6 +742,7 @@
     font-size: 20px;
   }
   .list_text label {
+
     margin: 0;
     display: inline-block;
     width: 20px;
@@ -762,6 +755,7 @@
     margin-right: 20px;
     .fa-check {
       font-size: 15px;
+
     }
   }
   input[type="checkbox"] {
@@ -771,6 +765,8 @@
     background: var(--main-btn-green);
     color: var(--white);
     border: 1px solid #fff;
+
+
     /* .fa-check {
       display: inline-block;
       font-size: 20px;
@@ -798,6 +794,7 @@
       font-size: 14px;
       font-weight: bold;
       /* margin-bottom: 30px; */
+
     }
   }
   input[type="checkbox"] {
@@ -813,6 +810,7 @@
     }
   }
   label {
+
     /* margin: 10px 10px; */
     z-index: 2;
     /* left: 10px; */
@@ -828,10 +826,12 @@
     .fa-check {
       font-size: 15px;
       /* line-height: 15px; */
+
     }
   }
   .contents {
     width: 100%;
+
     height: fit-content;
     .content1 {
       width: 100%;
@@ -839,6 +839,7 @@
       .inner {
         padding: 0;
       }
+
     }
     .content2 {
       padding: 30px;
@@ -848,25 +849,30 @@
     }
     .bar {
       position: relative;
-      /* top: -40px; */
+
       display: flex;
       border-bottom: 2px solid #5fbe00;
       margin-top: 20px;
       width: 100%;
+
       /* height: 30px; */
       padding-bottom: 10px;
+
       p {
         font-size: 14px;
         font-family: 400;
       }
     }
     .pay_sticky_container {
+
       bottom: 70px;
+
       position: fixed;
       z-index: 10;
       right: 0px;
       width: 100%;
       height: 70px;
+
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
 
@@ -877,6 +883,7 @@
         display: flex;
         gap: 4px;
         align-items: center;
+
         p {
           font-weight: bold;
           font-size: 14px;
@@ -890,7 +897,7 @@
         gap: 12px;
         justify-content: center;
         top: 26px;
-        cursor: pointer;
+
         button:nth-child(1) {
           width: 154px;
           height: 30px;
@@ -898,11 +905,13 @@
           border-radius: 5px;
           background: #fff;
           font-weight: bold;
+
           transition: all 0.3s;
           &:hover {
             background: #000;
             color: #fff;
           }
+
         }
         button:nth-child(2) {
           border: 1px solid #fff;
@@ -913,25 +922,31 @@
           width: 154px;
           height: 30px;
           font-weight: bold;
+
           border: 1px solid var(--main-black);
           transition: all 0.3s;
           &:hover {
             background: #fff;
             color: var(--main-black);
           }
+
         }
       }
     }
   }
   .content {
+
+
     width: 100%;
     height: fit-content;
     flex-direction: column;
+
     .list_container {
       width: 100%;
       display: flex;
     }
     .list {
+
       width: 100%;
       display: flex;
       .inner {
@@ -960,11 +975,14 @@
             .fa-check {
               font-size: 15px;
               line-height: 20px;
+
             }
           }
         }
         .text {
           width: 100%;
+
+
           /* width: 80%; */
           height: fit-content;
           padding: 0;
@@ -996,11 +1014,14 @@
                 /* width: 40px; */
                 /* height: 10px; */
               }
+
             }
           }
         }
       }
       .money {
+
+
         width: 100%;
         flex-direction: row-reverse;
         align-items: end;
@@ -1016,6 +1037,7 @@
           /* flex-direction: row-reverse; */
           /* justify-content: space-between; */
           align-items: flex-end;
+
           width: 100%;
           height: 100%;
           padding-left: 0px;
@@ -1036,6 +1058,7 @@
         }
         .money_listbox {
           width: 40%;
+
           height: 30px;
           font-size: 16px;
         }
@@ -1044,12 +1067,13 @@
     .mobile_pay_inner {
       width: 100%;
       height: 190px;
+
       /* position: absolute; */
       /* bottom: 140px;
       right: 20px; */
+
       display: flex;
       flex-direction: column;
-
       .moblie_pay {
         width: 100%;
         justify-content: center;
@@ -1058,38 +1082,48 @@
         display: flex;
         flex-direction: column;
         align-content: center;
+
         gap: 10px;
+
         .moblie_pay_text {
           width: 100%;
           height: 20px;
           display: flex;
           justify-content: space-between;
+
           /* margin-bottom: 16px;
           margin-left: 20px; */
+
         }
         .moblie_pay_text_two {
           width: 100%;
           height: 20px;
           display: flex;
           justify-content: space-between;
+
           /* margin-bottom: 16px;
           margin-left: 20px; */
+
         }
         .moblie_pay_text_three {
           width: 100%;
           height: 20px;
           display: flex;
           justify-content: space-between;
+
           /* margin-bottom: 16px;
           margin-left: 20px; */
+
         }
         .moblie_pay_text_four {
           width: 100%;
           height: 20px;
           display: flex;
           justify-content: space-between;
+
           /* margin-bottom: 10px;
           margin-left: 20px; */
+
           p:nth-child(1) {
             font-weight: bold;
           }
@@ -1098,9 +1132,11 @@
           }
         }
         .warning {
+
           /* left: 20px;
           gap: 0px;
           top: -8px; */
+
           border-bottom: 3px solid #efefef;
           display: flex;
           position: relative;
@@ -1109,7 +1145,9 @@
           justify-content: center;
           align-items: center;
           .warning_inner {
+
             /* left: 8px; */
+
             width: 100%;
             height: 34px;
             display: flex;
@@ -1153,6 +1191,7 @@
         /* width: 320px; */
         height: 30px;
         margin-bottom: 20px;
+
         p {
           font-size: 16px;
         }
@@ -1168,23 +1207,29 @@
       }
       .introduction_contents {
         width: 100%;
+
         height: fit-content;
         /* height: 150px; */
+
         display: flex;
         position: relative;
         .introduction_container {
           width: 100%;
+
+
           display: flex;
           justify-content: center;
           gap: 10px;
         }
         .introduction_box {
+
           width: 100%;
           gap: 10px;
           display: flex;
           flex-direction: column;
           align-items: center;
           height: fit-content;
+
           .introduction_img {
             width: 100px;
             height: 100px;
@@ -1196,6 +1241,7 @@
             }
           }
           .text_container {
+
             height: fit-content;
             .text_box {
               width: 100%;
@@ -1204,6 +1250,7 @@
               p {
                 font-size: 10px;
                 height: 60px;
+
               }
             }
             .introduction_pay {

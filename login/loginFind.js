@@ -72,10 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
           if(index === 0) {
               loginText.textContent = '아이디 찾기';
-            //   loginSubText.textContent = '휴대폰번호로 아이디 찾기';
+            //   loginSubText.textContent = '올리브영의 다양한 서비스와 혜택을 누리세요.';
           } else {
               loginText.textContent = '아이디 찾기';
-            //   loginSubText.textContent = '이메일주소로 아이디찾기';
+              loginSubText.textContent = '주문번호로 비회원 주문을 조회하세요.';
           }
       });
   });
@@ -100,43 +100,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const loginBtn = document.querySelector(".loginBtn01 button");
 
   // 회원 로그인 아이디와 비밀번호 입력 필드
-  const inputMemberName = document.querySelector(".content1 #inputId");
-  const inputMemberPhoneNum = document.querySelector(".content1 #inputPw");
+  const inputMemberId = document.querySelector(".content1 #inputId");
+  const inputMemberPw = document.querySelector(".content1 #inputPw");
 
   // 유효성 검사 함수 - 회원 로그인
   function validateLoginForm() {
-    const nameValue = inputMemberName.value.trim();
-    const PhoneNumValue = inputMemberPhoneNum.value.trim();
+      const idValue = inputMemberId.value.trim();
+      const pwValue = inputMemberPw.value.trim();
 
-      // 이름 입력 확인
-      if (nameValue === "") {
+      // 아이디 입력 확인
+      if (idValue === "") {
           alert("이름을 입력하세요.");
-          inputMemberName.focus();
+          inputMemberId.focus();
           return false;
       }
 
-            // 주문자명 한글 확인
-            const namePattern = /^[가-힣]+$/;
-            if (!namePattern.test(nameValue)) {
-                alert("올바른 이름을 입력해주세요.");
-                inputOrderName.value = ""; // 입력 필드 초기화
-                inputOrderName.focus(); // 입력 필드에 포커스
-                return false;
-            }
+      // 비밀번호 입력 확인
+      if (pwValue === "") {
+          alert("휴대폰번호를 입력하세요.");
+          inputMemberPw.focus();
+          return false;
+      }
 
-     // 휴대혼번호 입력 확인
-        if (PhoneNumValue === "") {
-        alert("휴대폰번호를 입력하세요.");
-        inputMemberPhoneNum.focus();
-        return false;
-    }
-
-      // 휴대폰번호 조건 확인 ()
-      const phoneNumPattern = /^010\d{8}$/;
-      if (!PhoneNumValue.match(phoneNumPattern)) {
-          alert("올바른 휴대폰 번호를 입력해주세요.");
-          inputMemberPhoneNum.value = ""; // 비밀번호 필드 초기화
-          inputMemberPhoneNum.focus();
+      // 비밀번호 조건 확인 (8-12자, 최소 하나의 영문자, 하나의 숫자, 하나의 특수문자)
+      const pwPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{10,11}$/;
+      if (!pwValue.match(pwPattern)) {
+          alert("비밀번호는 10-11자이며, 최소 하나의 영문자, 하나의 숫자, 하나의 특수문자를 포함해야 합니다.");
+          inputMemberPw.value = ""; // 비밀번호 필드 초기화
+          inputMemberPw.focus();
           return false;
       }
 
@@ -148,11 +139,11 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!validateLoginForm()) {
           e.preventDefault(); // 유효성 검사가 실패하면 form 제출 방지
       } else {
-          alert("아이디 찾기 페이지로 넘어갑니다!");
+          alert("올리브영 회원님 반갑습니다!");
       }
   });
 
-  // 이메일주소로 아이디찾기 버튼
+  // 비회원 주문조회 버튼
   const orderBtn = document.querySelector(".orderbtn button");
 
   // 비회원 주문조회 - 주문자명과 주문번호 입력 필드
@@ -182,15 +173,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 주문번호 입력 확인
       if (orderNumberValue === "") {
-          alert("이메일주소를 입력하세요.");
+          alert("주문번호를 입력하세요.");
           inputOrderNumber.focus();
           return false;
       }
 
       // 주문번호 조건 확인 (6-12자리 숫자)
-      const orderNumberPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const orderNumberPattern = /^\d{6,12}$/;
       if (!orderNumberPattern.test(orderNumberValue)) {
-          alert("올바른 이메일주소의 형식을 입력하세요.");
+          alert("주문번호는 6-12자리 숫자로 입력하세요.");
           inputOrderNumber.value = ""; // 주문번호 필드 초기화
           inputOrderNumber.focus(); // 주문번호 입력 필드에 포커스
           return false;
@@ -204,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!validateOrderForm()) {
           e.preventDefault(); // 유효성 검사가 실패하면 form 제출 방지
       } else {
-          alert("아이디 찾기 페이지로 넘어갑니다!");
+          alert("주문 조회 성공!");
       }
   });
 });
