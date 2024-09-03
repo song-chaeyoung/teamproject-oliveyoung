@@ -21,7 +21,7 @@
       <div class="top_title">
         <div class="inner">
           <div class="cart_container">
-            <div class="cart_text"><h1>장바구니</h1></div>
+            <div class="cart_text"><h1>결제하기</h1></div>
             <div class="icon">
               <div class="cart_icon">
                 <i class="fa-brands fa-shopify"></i>
@@ -39,7 +39,7 @@
               </div>
               <div class="cart_icon">
                 <i class="fa-solid fa-truck"></i>
-                <p>배송</p>
+                <p>결제완료</p>
               </div>
             </div>
           </div>
@@ -47,9 +47,9 @@
       </div>
       <div class="inner">
         <form action="http://" method="get" class="phone_box">
-          <div class="title">
+          <!-- <div class="title">
             <h1>결제하기</h1>
-          </div>
+          </div> -->
           <div class="contaniner_inner">
             <div class="input_container">
               <div class="main_container">
@@ -62,6 +62,7 @@
                     이름
                   </label>
                   <input type="text" name="name" id="name" />
+                  <div id="error_name" class="error"></div>
                 </div>
               </div>
               <div class="phone_container">
@@ -70,11 +71,8 @@
                     <p>*</p>
                     연락처</label
                   >
-                  <input type="text" name="phone1" id="phone1" />
-                  -
-                  <input type="text" name="phone2" id="phone1" />
-                  -
-                  <input type="text" name="phone3" id="phone1" />
+                  <input type="text" name="phoneNum" id="phoneNum" />
+                  <div id="error_phoneNum" class="error"></div>
                 </div>
               </div>
               <div class="email_container">
@@ -83,6 +81,7 @@
                   이메일
                 </label>
                 <input type="text" name="email" id="email" />
+                <div id="error_email" class="error"></div>
               </div>
               <div class="delivery_container">
                 <span>배송지작성</span>
@@ -97,6 +96,7 @@
                     id="delivery"
                     placeholder="최대 10자까지 입력 가능"
                   />
+                  <div id="error_delivey" class="error"></div>
                   <div class="delivery_checkbox">
                     <input
                       type="checkbox"
@@ -116,7 +116,8 @@
                         </div>
                         <div class="delivery_address_firstboxs">
                           <div class="delivery_address_firstbox">
-                            <input type="text" id="address" />
+                            <input disabled type="text" id="address" />
+                            <div id="error_address" class="error"></div>
                           </div>
                           <div class="delivery_clickbox">
                             <input
@@ -125,27 +126,15 @@
                               id="button"
                               value="우편번호"
                             />
-
-                            <input
-                              type="button"
-                              onclick="sample6_execDaumPostcode()"
-                              id="button"
-                              value="CU편의점"
-                            />
-
-                            <input
-                              type="button"
-                              onclick="sample6_execDaumPostcode()"
-                              id="button"
-                              value="GS편의점"
-                            />
+                            <buttom>CU 편의점 찾기</buttom>
+                            <buttom>GS 편의점 찾기</buttom>
                           </div>
                         </div>
                       </div>
                       <div class="delivery_check_second_box">
                         <input type="text" name="second" id="second" />
+                        <input type="text" name="third" id="third" />
                       </div>
-                      <div class="delivery_check_tThird_box"></div>
                       <div class="military_delivery">
                         <p>군부대 배송안내</p>
                       </div>
@@ -157,23 +146,8 @@
                         <p>*</p>
                         휴대폰번호
                       </label>
-                      <input
-                        type="text"
-                        name="deliveryphone"
-                        id="deliveryphone"
-                      />
-                      -
-                      <input
-                        type="text"
-                        name="deliveryphone"
-                        id="deliveryphone"
-                      />
-                      -
-                      <input
-                        type="text"
-                        name="deliveryphone"
-                        id="deliveryphone"
-                      />
+                      <input type="text" name="phoneNums" id="phoneNums" />
+                      <div id="error_phoneNums" class="error"></div>
                     </div>
                     <div class="delivery_service">
                       <div class="delivery_service_box">
@@ -222,7 +196,7 @@
                   <div class="pay_btns">
                     <div class="pay_btn">
                       <div class="btn_p">
-                        <input type="radio" name="btn" id="btn" />
+                        <input checked type="radio" name="btn" id="btn" />
                         <p>신용카드결제</p>
                       </div>
                       <div class="btn_p">
@@ -231,7 +205,7 @@
                       </div>
                       <div class="btn_p">
                         <input type="radio" name="btn" id="btn" />
-                        <p>카카오페어</p>
+                        <p>카카오페이</p>
                       </div>
                       <div class="btn_p">
                         <input type="radio" name="btn" id="btn" />
@@ -265,8 +239,8 @@
               </div>
             </div>
             <div class="pay_box_container">
-              <h1>결제 예정 금액</h1>
               <div class="pay_box_inner">
+                <h1>결제 예정 금액</h1>
                 <div class="pay_box_text">
                   <ul>
                     <li>
@@ -288,17 +262,17 @@
                   <p class="finalpirce">0원</p>
                 </div>
                 <div class="pay_thrd_box">
-                  <label for="pay"> 모두 동의합니다. </label>
+                  <label for="pay"> (필수) 모두 동의합니다. </label>
                   <input type="checkbox" name="pay" id="pay" />
                 </div>
                 <div class="pay_thrd_box_text">
                   <p>주문 상품정보 및 결제 대행 서비스</p>
                   <p>약관에 모두 동의합니다.</p>
                 </div>
+                <div id="error_pay" class="error"></div>
                 <div class="pay_forn_box">
                   <label for="pay2"> 배송지와 결제 정보를 저장하기</label>
                   <input type="checkbox" name="pay2" id="pay2" />
-                  <label for="pay2"></label>
                 </div>
                 <div class="button">
                   <button>결제하기</button>
