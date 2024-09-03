@@ -251,8 +251,6 @@ document.addEventListener("DOMContentLoaded", function () {
           // 장바구니 버튼 클릭 시 로컬 스토리지에 저장
           const addToCartBtn = document.querySelector(".cartBtn"); // 장바구니 버튼 선택
 
-          console.log(addToCartBtn);
-
           if (addToCartBtn) {
             addToCartBtn.addEventListener("click", function (e) {
               e.preventDefault();
