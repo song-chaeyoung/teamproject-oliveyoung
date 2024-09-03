@@ -305,4 +305,46 @@ document.addEventListener("DOMContentLoaded", function () {
     // 업데이트된 장바구니를 로컬 스토리지에 저장
     localStorage.setItem("cartOliveyoung", JSON.stringify(cart));
   }
+
+  // 모달 관련 스크립트
+  const modal = document.getElementById("myModal");
+  const modalImg = document.getElementById("modalImage");
+
+  function openModal(src) {
+    modal.style.display = "block";
+    console.log(modalImg);
+    modalImg.src = src;
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("myModal");
+    if (modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  };
+
+  // 이미지 클릭 시 모달을 열도록 이벤트 리스너 추가
+  document.querySelectorAll(".review-imgs img").forEach((img) => {
+    img.addEventListener("click", function () {
+      openModal(this.src);
+    });
+  });
 });
+
+// 문의 유효성 검사
+function validateForm() {
+  const title = document.getElementById("submitTitle").value.trim();
+  const content = document.getElementById("submitContent").value.trim();
+
+  if (title === "" || content === "") {
+    alert("내용을 입력해 주세요.");
+  } else {
+    alert("문의사항이 등록되었습니다.");
+  }
+}
