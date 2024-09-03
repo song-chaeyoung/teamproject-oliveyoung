@@ -346,3 +346,13 @@ function validateForm() {
     alert("문의사항이 등록되었습니다.");
   }
 }
+
+// Slick Slider
+$('.autoplay').slick({
+  dots: false,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  infinite: true,
+  autoplaySpeed: 1000,
+});

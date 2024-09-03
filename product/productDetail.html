@@ -3,6 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- jQuery -->
+    <script
+      type="text/javascript"
+      defer
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      defer
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <!-- slick slider -->
+    <link rel="stylesheet" href="./slick/slick.css" />
+    <link rel="stylesheet" href="./slick/slick-theme.css" />
+    <script defer src="./slick/slick.min.js"></script>
+    <!-- scrollTo -->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"
+    ></script>
     <!-- STYTLE SHEET -->
     <link rel="stylesheet" href="./productDetail.css" />
     <script defer src="./productDetail.js"></script>
@@ -415,7 +435,7 @@
               </div>
               <!-- 모달 창 -->
               <div id="myModal" class="modal-review">
-                <span class="close-btn-review-modal" onclick="closeModal()"
+                <span class="close-btn-review-modal"
                   >&times;</span
                 >
                 <img class="modal-content-review" id="modalImage" />
@@ -604,7 +624,7 @@
             <h1>BEST 추천 상품</h1>
             <div class="product-items-all">
               <div class="product-items-list">
-                <div class="personalitem_product_itme productitem">
+                <div class="personalitem_product_itme myslider">
                   <div class="productitem_img">
                     <img
                       src="https://images.innisfree.co.kr/upload/product/35097_l1_S_240.jpg?T202409030217"
