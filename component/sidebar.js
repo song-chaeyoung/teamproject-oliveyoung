@@ -16,4 +16,19 @@ cartMark.addEventListener("click", () => {
   });
 });
 
-let test = document.querySelector(".haeder_category_container");
+let cartData = [];
+
+const init = () => {
+  const cartCount = JSON.parse(localStorage.getItem(`cartOliveyoung`));
+  cartData = cartCount;
+};
+
+init();
+
+const cartNum = document.querySelector(".cart_num");
+
+if (cartData == null || cartData.length == 0) {
+  cartNum.innerText = 0;
+} else if (cartData.length >= 1) {
+  cartNum.innerHTML = `${cartData.length}`;
+}

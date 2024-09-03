@@ -154,8 +154,10 @@
     }
     hr {
       margin-top: 30px;
+
       margin-bottom: 30px;
       opacity: 0.2;
+
     }
     .points {
       display: flex;
@@ -181,10 +183,12 @@
         /* border: 1px solid #f00; */
         align-items: center;
         justify-content: space-between;
+
         margin-top: 32px;
         .quantity {
           display: flex;
           border: 1px solid rgba(0, 0, 0, 0.05);
+
           /* border: 1px solid #f00; */
           width: 145px;
           height: 34px;
@@ -192,10 +196,12 @@
           align-items: center;
           gap: 30px;
           font-size: 20px;
+
           button {
             width: 34px;
             height: 34px;
             font-size: 16px;
+
             background: none;
             border: none;
             cursor: pointer;
@@ -211,12 +217,14 @@
         align-items: baseline;
         gap: 4px;
         margin-top: 42px;
+
         margin-bottom: 42px;
         span {
           font-size: 18px;
         }
         h4 {
           font-size: 24px;
+
         }
       }
       .btns {
@@ -225,7 +233,9 @@
         height: 60px;
         .small-btns {
           cursor: pointer;
+
           background: #808080;
+
           color: #fff;
           display: flex;
           justify-content: center;
@@ -234,6 +244,7 @@
           flex: 1;
           height: 100%;
           transition: all 0.3s;
+
           .binHeart {
             opacity: 1;
             transition: all 0.3s;
@@ -259,6 +270,7 @@
               color: rgb(255, 19, 19);
               scale: 1.2;
             }
+
           }
         }
         .big-btns {
@@ -269,10 +281,12 @@
           color: #fff;
         }
         .leftbtn {
+
           background: #535353;
           transition: all 0.3s;
           &:hover {
             background: #303030;
+
           }
         }
         .rightbtn {
@@ -302,7 +316,9 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 90px;
+
     z-index: 1;
+
     .tab {
       background: #fff;
       display: flex;
@@ -503,6 +519,7 @@
         }
       }
     }
+
   }
 }
 
@@ -621,9 +638,11 @@
     width: 1152px;
     ul {
       .review {
+
         margin-bottom: 80px;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         padding-top: 50px;
+
         /* border: 1px solid #f00; */
         .review-list-top {
           display: flex;
@@ -964,9 +983,11 @@
           display: none;
         }
         .btns {
+
           background: #585858;
           min-height: 71px;
           height: 9vw;
+
           width: calc(100vw - (100vw - 100%));
           position: fixed;
           bottom: 0;
@@ -990,6 +1011,7 @@
       width: 100%;
       margin-bottom: 0;
       top: 48px;
+
       background: #fff;
       .tab {
         height: 60px;
@@ -998,6 +1020,7 @@
         }
         input[type="radio"]:checked ~ label {
           line-height: 3.7;
+
         }
       }
     }
@@ -1141,6 +1164,7 @@
           }
         }
       }
+
     }
   }
 
@@ -1151,21 +1175,26 @@
       .reviews {
         width: calc(100vw - (100vw - 100%));
         height: 100%;
+
         padding: 2vh 5vw 2vh 5vw;
+
         .review-sum {
           display: flex;
           flex-direction: column;
           justify-content: left;
           align-items: start;
           gap: 14px;
+
           hr {
             display: none;
           }
           .sum-left {
             margin: 0;
             .sum-top {
+
               display: flex;
               justify-content: left;
+
               .stars {
                 display: flex;
                 font-size: 16px;
@@ -1175,8 +1204,10 @@
               }
             }
             .sum-bottom {
+
               font-size: 18px;
               font-weight: bold;
+
             }
           }
           .sum-right {
@@ -1191,8 +1222,10 @@
             }
             span {
               background: #d4d4d4;
+
               padding: 10px;
               padding-bottom: 15px;
+
               display: flex;
               align-items: center;
               gap: 6px;
@@ -1212,6 +1245,7 @@
       width: calc(100vw - (100vw - 100%));
       ul {
         .review {
+
           padding: 2vh 3vw 2vh 5vw;
           .review-list-top {
             flex-direction: column;
@@ -1230,20 +1264,24 @@
               font-size: 12px;
             }
           }
+
           .review-imgs {
             display: flex;
             gap: 10px;
             margin-top: 28px;
             margin-bottom: 28px;
             div {
+
               width: 20vw;
               height: 20vw;
+
               img {
                 width: 100%;
                 height: 100%;
               }
             }
           }
+
           .review-text {
             display: flex;
             justify-content: left;
@@ -1260,6 +1298,7 @@
               width: 60%;
             }
           }
+
         }
       }
     }

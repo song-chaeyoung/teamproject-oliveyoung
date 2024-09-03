@@ -10,7 +10,6 @@ window.addEventListener("scroll", () => {
 const categoryBtn = document.querySelector(".header .header_left_category");
 
 categoryBtn.addEventListener("click", () => {
-  console.log("click");
   const category = document.querySelector(".haeder_category_container");
   const categoryXmark = category.querySelector(".haader_category_xmark");
 
