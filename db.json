@@ -91,7 +91,7 @@
       "price": 38000,
       "salePrice": 27900,
       "score": "4.8",
-      "review": "10313",
+      "review": "10,313",
       "tag": [{ "name": "쿠폰" }, { "name": "증정" }, { "name": "오늘드림" }],
       "img": "/productimg/product07.jpg",
       "category": "skincare"
@@ -103,7 +103,7 @@
       "price": 41000,
       "salePrice": 26500,
       "score": "5.0",
-      "review": "4401",
+      "review": "4,401",
       "tag": [{ "name": "세일" }, { "name": "오늘드림" }],
       "img": "/productimg/product08.jpg",
       "category": "food"
@@ -115,7 +115,7 @@
       "price": 13600,
       "salePrice": 12200,
       "score": "4.8",
-      "review": "20353",
+      "review": "20,353",
       "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
       "img": "/productimg/product09.jpg",
       "category": "sunkcare"
@@ -127,7 +127,7 @@
       "price": 2000,
       "salePrice": 1000,
       "score": "4.9",
-      "review": "95872",
+      "review": "95,872",
       "tag": [{ "name": "세일" }, { "name": "오늘드림" }],
       "img": "/productimg/product10.jpg",
       "category": "maskpack"
@@ -139,7 +139,7 @@
       "price": 50000,
       "salePrice": 40500,
       "score": "4.9",
-      "review": "5750",
+      "review": "5,750",
       "tag": [{ "name": "세일" }, { "name": "증정" }, { "name": "오늘드림" }],
       "img": "/productimg/product11.jpg",
       "category": "skincare"
@@ -151,7 +151,7 @@
       "price": 45000,
       "salePrice": 30000,
       "score": "4.8",
-      "review": "11882",
+      "review": "11,882",
       "tag": [{ "name": "세일" }, { "name": "오늘드림" }],
       "img": "/productimg/product12.jpg",
       "category": "skincare"
@@ -884,7 +884,7 @@
       "company": "일소",
       "title": "일소 네추럴 마일드 클리어 노우즈 팩 5매입",
       "price": 12900,
-      "salePrice": null,
+      "salePrice": 10000,
       "score": "4.7",
       "review": "1,800",
       "tag": [{ "name": "오늘드림" }],
