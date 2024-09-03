@@ -39,7 +39,6 @@ const slideArrowRight = document.querySelector(".mainslide_arrow_right");
 fetch(indexInfo)
   .then((response) => response.json())
   .then((data) => {
-    console.log("슬라이드 데이터 ==>", JSON.parse(JSON.stringify(data)));
     slideData = data.mainsilde;
   });
 
@@ -340,6 +339,19 @@ function listPush() {
   });
 
   shortcutModal.classList.remove("active");
+
+  const choiceIcons = document.querySelectorAll(".shortcut_icon");
+  choiceIcons.forEach((icon) => {
+    if (icon.querySelector("p").innerText === "장바구니") {
+      icon.addEventListener("click", () => {
+        window.location.href = `/cart/cart.html`;
+      });
+    } else if (icon.querySelector("p").innerText === "매장안내") {
+      icon.addEventListener("click", () => {
+        window.location.href = `/api/api.html`;
+      });
+    }
+  });
 }
 
 shortcutSetting.addEventListener("click", () => {
@@ -357,7 +369,9 @@ shortcutSetting.addEventListener("click", () => {
     shortcutModal.classList.remove("active");
   });
 
-  document.addEventListener("keydown", listPush);
+  document.addEventListener("keydown", (e) => {
+    if (e.code == "Enter") listPush();
+  });
 });
 
 modalTabs.forEach((tab, i) => {
@@ -434,7 +448,6 @@ const personalItemRandom = () => {
     price = new Intl.NumberFormat("ko-kr", {
       currency: "KRW",
     }).format(productData[randomNum].salePrice);
-
     if (randomNum == productData[randomNum].id) {
       product.innerHTML = commonChangeElement(productData[randomNum]);
     }
@@ -464,7 +477,6 @@ form.addEventListener("submit", (e) => {
     }, 3000);
     personalItemRandom();
   }
-
   cartEvent();
 });
 
@@ -596,20 +608,18 @@ todayRankingTabs.forEach((tab, i) => {
 
 // TodayRanking Category Touch Event Mobile
 const todayRankingTabContainer = document.querySelector(".todayranking_tab");
+const listClientWidth = todayRankingTabContainer.clientWidth;
+const listScrollWidth =
+  todayRankingTabContainer.clientWidth + todayRankingTabContainer.scrollWidth;
 let startX = 0;
 let nowX = 0;
 let endX = 0;
 let listX = 0;
 
 const getClientX = (e) => {
-  // console.log(e.clientX);
-  // console.log(e);
-  // console.log(e.touches[0]);
-  // console.log(e.clientX);
   return e.touches ? e.touches[0].clientX : e.clientX;
-  // return e.clientX;
 };
-// console.log(window.getComputedStyle(todayRankingTabContainer).transform);
+
 const getTranslateX = () => {
   return parseInt(
     getComputedStyle(todayRankingTabContainer).transform.split(/[^\-0-9]+/g)[5]
@@ -617,16 +627,13 @@ const getTranslateX = () => {
 };
 
 const setTranslateX = (x) => {
-  // console.log(x);
   todayRankingTabContainer.style.transform = `translateX(${x}px)`;
 };
 
 const onScrollMove = (e) => {
   e.stopPropagation();
   nowX = getClientX(e);
-  // startX = getClientX(e);
-  console.log(nowX);
-  console.log(startX);
+  startX = getClientX(e);
   setTranslateX(listX + nowX - startX);
 };
 
@@ -635,9 +642,12 @@ const onScrollEnd = (e) => {
   listX = getTranslateX();
 
   if (listX > 0) {
-    // setTranslateX(0);
+    setTranslateX(0);
     todayRankingTabContainer.style.transition = `all 0.1s ease`;
-    // listX = 0;
+  } else if (listX < listClientWidth - listScrollWidth) {
+    setTranslateX(listClientWidth - listScrollWidth);
+    todayRankingTabContainer.style.transition = `all 0.1s ease`;
+    listX = listClientWidth - listScrollWidth;
   }
 };
 
@@ -646,17 +656,18 @@ const onScrollStart = (e) => {
   nowX = getClientX(e);
   startX = getClientX(e);
 
+  window.addEventListener("touchstart", onScrollMove);
+  window.addEventListener("mousemove", onScrollMove);
   window.addEventListener("touchmove", onScrollMove);
   window.addEventListener("mousedown", onScrollMove);
   window.addEventListener("touchend", onScrollEnd);
   window.addEventListener("mouseup", onScrollEnd);
 };
 
-// if (window.matchMedia("(max-width: 445px)").matches) {
-todayRankingTabContainer.addEventListener("touchstart", onScrollStart);
-todayRankingTabContainer.addEventListener("mousedown", onScrollStart);
-
-// }
+if (window.matchMedia(`(max-width: ${listClientWidth})`).matches) {
+  todayRankingTabContainer.addEventListener("touchstart", onScrollStart);
+  todayRankingTabContainer.addEventListener("mousedown", onScrollStart);
+}
 
 // Brand Event
 const brandTabs = document.querySelectorAll(".brand_tab li");
@@ -694,7 +705,9 @@ const makeClone = () => {
 };
 
 const firstPosition = (slides) => {
+  // const slideWidth = slides[0].clientWidth;
   const slideWidth = slides[0].clientWidth;
+  // console.log(slideWidth);
   brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
 };
 
@@ -726,7 +739,7 @@ const contentChange = (tab) => {
   });
   brandItems.forEach((item, i) => {
     item.innerHTML = `
-                <div class="brand_content_item_img">
+                <div class="brand_content_item_img" data-id="${brandItemData[i].id}" data-category=${brandItemData[i].category}>
                   <img src="${brandItemData[i].img}" alt="${brandItemData[i].id}" />
                 </div>
                 <div class="brand_content_item_info">
@@ -763,7 +776,6 @@ brandArrowLeft.addEventListener("click", () => {
   });
 
   currentSlide--;
-  console.log("currentSlide", currentSlide);
 
   let newbrandItem = [];
   brandTabs.forEach((item, idx) => {
@@ -805,7 +817,6 @@ brandArrowRight.addEventListener("click", () => {
   });
 
   currentSlide++;
-  console.log("currentSlide", currentSlide);
 
   let newbrandItem = [];
   brandTabs.forEach((item, idx) => {
@@ -821,9 +832,7 @@ brandArrowRight.addEventListener("click", () => {
   if (currentSlide == slides.length - 1) {
     const slideWidth = slides[0].clientWidth;
     currentSlide = 1;
-    // slides[currentSlide];
 
-    let newbrandItem = [];
     brandTabs.forEach((item, idx) => {
       if (idx + 1 === currentSlide) {
         item.classList.add("active");
@@ -833,7 +842,6 @@ brandArrowRight.addEventListener("click", () => {
     });
 
     setTimeout(() => {
-      // slides[currentSlide];
       brandSlideContainer.style.transition = "none";
       brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
     }, 300);
@@ -845,6 +853,7 @@ brandArrowRight.addEventListener("click", () => {
 function slide() {
   let slides = document.querySelectorAll(".brand_content_slide");
   let slideWidth = slides[0].clientWidth;
+  // let slideWidth = slides[0].scrollWidth;
 
   brandSlideContainer.style.transform = `translateX(${
     currentSlide * -slideWidth
@@ -852,9 +861,19 @@ function slide() {
   brandSlideContainer.style.transition = "0.3s";
 }
 
+brandItems.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    const itemID = e.currentTarget.children[0].dataset.id;
+    const itemCategory = e.currentTarget.children[0].dataset.category;
+    const url = `/product/productDetail.html?category=${encodeURIComponent(
+      itemCategory
+    )}&id=${itemID}`;
+    window.location.href = url;
+  });
+});
+
 // oliveyoung Live
 const videoMain = document.querySelector(".video_main");
-
 videoMain.addEventListener("pause", () => {
   const videoHover = document.querySelector(
     ".oliveyounglive_right_video_hover"

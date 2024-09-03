@@ -271,9 +271,13 @@
         gap: 46px;
         .haader_category_list {
           width: 100%;
-          flex-direction: column;
+          /* flex-direction: column; */
+          flex-wrap: wrap;
+          padding-bottom: 20%;
           dl {
-            width: 100%;
+            /* width: 100%; */
+            /* width: fit-content; */
+            width: 40%;
           }
         }
       }

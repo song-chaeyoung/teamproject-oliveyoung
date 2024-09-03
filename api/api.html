@@ -16,17 +16,18 @@
     />
     <title>매장안내 | 올리브영</title>
     <link rel="shortcut icon" href="/indeximg/logo_s.svg" type="image/x-icon" />
+    <!-- kakao -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f73befc20651ccf6ad51aab9aaa7dbb4&&libraries=services"
+    ></script>
     <!-- fontawesome -->
     <script
-      src="https://kit.fontawesome.com/d0d7b265e4.js"
+      src="https://kit.fontawesome.com/580465cdf5.js"
       crossorigin="anonymous"
     ></script>
     <!-- custom js&css -->
     <link rel="stylesheet" href="./api.css" />
-    <script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55a6e3b38772777bb10a2ec44e077b3c"
-    ></script>
     <script defer src="./api.js"></script>
   </head>
   <body>
@@ -42,6 +43,7 @@
     <div class="inners">
       <div class="map_wrap">
         <div
+          class="only_pc"
           id="map"
           style="
             width: 100%;
@@ -56,14 +58,26 @@
               <form onsubmit="searchPlaces(); return false;">
                 <div class="nav">
                   <ul>
-                    <li><a href="#none">직접검색</a></li>
+                    <li>
+                      <a class="active" href="#none">직접검색</a>
+                    </li>
                     <li><a href="#none">지역검색</a></li>
                     <li><a href="#none">관심매장</a></li>
                     <li><a href="#none">판매매장</a></li>
                   </ul>
                 </div>
-                <input type="text" value="올리브영" id="keyword" />
-                <!-- <button type="submit">검색하기</button> -->
+                <div class="input_box">
+                  <input
+                    type="text"
+                    id="keyword"
+                    value="올리브영 강남"
+                    placeholder="올리브영 강남"
+                  />
+                  <button class="submit_btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </div>
+                <!-- <button id="submit_btn" type="submit"></button> -->
               </form>
             </div>
           </div>
