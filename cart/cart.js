@@ -140,9 +140,11 @@ const deleteItem = (e) => {
   productLengthEvent();
   productCalc();
   cartEmpty();
+  mobileStickyStyle();
 };
 
 const allDeleteBtn = document.querySelector(".totalcheck_right input");
+const mobileAllDelBtn = document.querySelector(".list_text p:nth-child(5)");
 
 const allDeleteEvent = () => {
   const innerAll = document.querySelectorAll(".list");
@@ -157,12 +159,14 @@ const allDeleteEvent = () => {
   productLengthEvent();
   productCalc();
   cartEmpty();
+  mobileStickyStyle();
 };
 
 allDeleteBtn.addEventListener("click", allDeleteEvent);
+mobileAllDelBtn.addEventListener("click", allDeleteEvent);
 
 const deleteBtn = document.querySelectorAll(".fa-xmark");
-// console.log(deleteBtn);
+
 deleteBtn.forEach((btn) => {
   btn.addEventListener("click", deleteItem);
 });
@@ -185,6 +189,22 @@ function cartEmpty() {
   }
 }
 cartEmpty();
+
+const mobileSticky = document.querySelector(".pay_sticky_container");
+console.log(mobileSticky);
+function mobileStickyStyle() {
+  if (
+    cartItems === null ||
+    cartItems.length === 0 ||
+    cartItems.length === null ||
+    cartItems.length === undefined
+  ) {
+    mobileSticky.style.display = "none";
+  } else {
+    mobileSticky.style.display = "flex";
+  }
+}
+mobileStickyStyle();
 
 // All Check Event
 const allCheck = document.querySelector("#check7");
@@ -482,7 +502,7 @@ fetch(introductionproductJson)
         const product = productData[idx];
 
         item.innerHTML = `
-            <div class="introduction_img">
+          <div class="introduction_img" data-id="${product.id}" data-cate="${product.category}">
             <img src="${product.img}" alt="${product.id}" />
           </div>
           <div class="text_container">
@@ -496,6 +516,19 @@ fetch(introductionproductJson)
           </div>
           `;
       }
+    });
+
+    const introItem = document.querySelectorAll(".introduction_box");
+
+    introItem.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        const itemId = e.currentTarget.children[0].dataset.id;
+        const itemCategory = e.currentTarget.children[0].dataset.cate;
+        const url = `/product/productDetail.html?category=${encodeURIComponent(
+          itemCategory
+        )}&id=${itemId}`;
+        window.location.href = url;
+      });
     });
   })
   .catch((error) => console.error("Error fetching the JSON:", error));

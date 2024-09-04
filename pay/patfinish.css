@@ -76,9 +76,6 @@ main {
 .oreder_finish {
   margin: 100px 0 50px;
   .inner {
-    /* border-top: 1px solid var(--line-gray); */
-    /* border-bottom: 1px solid var(--line-gray); */
-    /* padding: 30px 0; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,19 +121,19 @@ main {
       &:nth-child(1) {
         border: 1px solid #9ac75b;
         color: #9ac75b;
-        &:hover {
+        /* &:hover {
           background: #9ac75b;
           color: #fff;
-        }
+        } */
       }
       &:nth-child(2) {
         background: #9ac75b;
         color: #fff;
-        &:hover {
+        /* &:hover {
           border: 1px solid #9ac75b;
           background: #fff;
           color: #9ac75b;
-        }
+        } */
       }
       a {
         width: 100%;

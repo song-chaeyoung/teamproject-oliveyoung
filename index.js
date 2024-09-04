@@ -664,10 +664,10 @@ const onScrollStart = (e) => {
   window.addEventListener("mouseup", onScrollEnd);
 };
 
-if (window.matchMedia(`(max-width: ${listClientWidth})`).matches) {
-  todayRankingTabContainer.addEventListener("touchstart", onScrollStart);
-  todayRankingTabContainer.addEventListener("mousedown", onScrollStart);
-}
+// if (window.matchMedia(`(max-width: ${listClientWidth})`).matches) {
+todayRankingTabContainer.addEventListener("touchstart", onScrollStart);
+todayRankingTabContainer.addEventListener("mousedown", onScrollStart);
+// }
 
 // Brand Event
 const brandTabs = document.querySelectorAll(".brand_tab li");
