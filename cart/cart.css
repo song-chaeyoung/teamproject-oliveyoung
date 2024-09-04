@@ -13,9 +13,7 @@
     .cart_container {
       width: 100%;
       height: 100%;
-      /* gap: 36px; */
       display: flex;
-      /* flex-direction: column; */
       justify-content: space-between;
       padding-left: 30px;
       padding-right: 50px;
@@ -80,7 +78,6 @@
 
 /* tab */
 .tabs {
-  /* margin-top: 10px; */
   display: flex;
   justify-content: center;
   cursor: pointer;
@@ -89,8 +86,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 650px; */
     width: 100%;
+    font-size: 20px;
+    padding: 12px 0px;
+    background: var(--main-black);
     color: var(--white);
     &.active {
       background: var(--main-btn-green);
@@ -102,8 +101,6 @@
 .totalcheck {
   width: 100%;
   display: flex;
-  /* flex-direction: row-reverse; */
-  /* gap: 20px; */
   justify-content: space-between;
   margin: 40px 0;
   align-items: end;
@@ -125,9 +122,6 @@
     }
     label {
       z-index: 2;
-      /* top: 0;
-      left: 0; */
-      /* position: absolute; */
       display: inline-block;
       width: 20px;
       height: 20px;
@@ -136,6 +130,7 @@
       cursor: pointer;
       transition: all 0.3s;
       border: 1px solid var(--main-black);
+      color: #dfdfdf;
       .fa-check {
         line-height: 20px;
         display: block;
@@ -144,10 +139,8 @@
     }
   }
   .totalcheck_right {
-    /* margin-right: 340px; */
     input {
       display: flex;
-      /* font-size: 18px; */
       font-weight: 500;
       width: 120px;
       height: 40px;
@@ -165,29 +158,46 @@
   }
 }
 
-.list_text {
-  font-size: 20px;
-  font-weight: 500;
-}
-input {
-  display: none;
-}
-label {
-  display: none;
-}
-
 .contents {
   width: 100%;
   height: fit-content;
   position: relative;
+  .content1 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .cart_content {
+      &.empty {
+        display: none;
+      }
+    }
+    .content_empty_container {
+      width: 100%;
+      height: 500px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .content_empty {
+        color: var(--text-color-gray);
+        i {
+          font-size: 40px;
+          margin-bottom: 20px;
+        }
+      }
+      &.empty {
+        display: none;
+      }
+    }
+  }
+  .content1,
+  .content2 {
+    width: 100%;
+    height: 100%;
     text-align: center;
     display: none;
-    /* justify-content: center;
-    align-items: center; */
     &.active {
-      /* background: #bbb; */
       display: block;
-      /* height: 400px; */
     }
   }
 }
@@ -217,12 +227,12 @@ label {
   width: 1300px;
   margin: 0 auto;
   display: flex;
-
+  justify-content: space-between;
+  gap: 50px;
   .list_container {
     position: relative;
     display: flex;
     justify-content: center;
-
     gap: 45px;
   }
   /* list */
@@ -240,8 +250,6 @@ label {
       .list_box {
         width: 100%;
         display: flex;
-        /* width: 985px; */
-
         border-top: 1px solid #efefef;
         border-bottom: 1px solid #efefef;
       }
@@ -250,14 +258,9 @@ label {
         justify-content: center;
         align-items: center;
         width: 180px;
-
-
-        /* height: 180px; */
-        /* background: #999; */
         position: relative;
         img {
           width: 100%;
-          /* height: 180px; */
         }
       }
       input[type="checkbox"] {
@@ -285,35 +288,30 @@ label {
         text-align: center;
         cursor: pointer;
         transition: all 0.3s;
+        color: #dfdfdf;
         .fa-check {
           line-height: 20px;
           display: block;
           font-size: 14px;
-
         }
       }
       .text {
         width: 100%;
-
-        /* height: 240px; */
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 0 0 40px;
         gap: 60px;
         .text_box {
-          /* height: 95px; */
           width: fit-content;
           display: flex;
           flex-direction: column;
           align-items: start;
           gap: 6px;
 
-
           p {
             font-weight: 500;
             &:nth-child(1) {
-              /* font-size: 20px; */
               font-size: 12px;
               font-weight: 300;
             }
@@ -326,17 +324,14 @@ label {
           }
           .text_inner {
             width: 260px;
-            /* height: 26px; */
             display: flex;
             gap: 8px;
             span {
               padding: 4px 8px;
               text-align: center;
               font-size: 10px;
-              /* font-weight: 500; */
               background: var(--line-gray);
               border-radius: 20px;
-              /* color: #fff; */
             }
           }
         }
@@ -347,7 +342,6 @@ label {
       flex-direction: column;
       justify-content: space-between;
       gap: 6px;
-      /* align-items: center; */
       .money_icon {
         display: flex;
         justify-content: end;
@@ -361,25 +355,8 @@ label {
         flex-direction: column;
         width: 100%;
         height: 100%;
-        /* padding-left: 400px; */
-      }
-      .money_container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        padding-left: 400px;
-      }
-      .money_container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        padding-left: 400px;
       }
       .money_box {
-
-        /* width: 131px; */
         width: 200px;
         display: flex;
         justify-content: center;
@@ -414,9 +391,6 @@ label {
         button {
           padding: 0 10px;
           font-size: 16px;
-          /* width: 20px; */
-          /* height: 30px; */
-
           justify-content: center;
           align-items: center;
           display: flex;
@@ -433,7 +407,6 @@ label {
   height: 100%;
   position: sticky;
   top: 80px;
-
   .inner {
     .pay_first_text {
       width: 100%;
@@ -475,7 +448,6 @@ label {
           }
           span:nth-child(3) {
             font-size: 16px;
-            /* font-weight: 500; */
           }
         }
       }
@@ -557,14 +529,11 @@ label {
         align-items: center;
         border: 1px solid #efefef;
         padding: 0 20px;
-        /* gap: 83px; */
         p:nth-child(1) {
-          /* font-size: 1px; */
           color: var(--text-color-gray);
           letter-spacing: -1px;
         }
         p:nth-child(2) {
-          /* padding-top: 32px; */
           font-weight: 500;
           font-size: 20px;
           color: var(--main-price-red);
@@ -620,11 +589,10 @@ label {
 /* introduction list */
 .introduction {
   width: 100%;
-  padding-top: 80px;
+  padding: 80px 0;
   .inner {
     .introduction_text {
       width: 100%;
-      /* height: 58px; */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -644,16 +612,14 @@ label {
         width: 100%;
         height: 100%;
         display: flex;
-        /* justify-content: center; */
         justify-content: space-between;
         align-content: center;
-        /* gap: 30px; */
       }
       .introduction_box {
-        /* width: 360px; */
         height: 140px;
         display: flex;
         gap: 20px;
+        cursor: pointer;
         .introduction_img {
           display: flex;
           width: 100%;
@@ -679,7 +645,6 @@ label {
           .text_box {
             display: flex;
             width: 240px;
-            /* height: 82px; */
             font-size: 13px;
             font-weight: 400;
           }
@@ -717,23 +682,28 @@ label {
     li {
       width: 100%;
       height: 60px;
-
     }
   }
 
   .list_text {
     position: relative;
-
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
     i:nth-child(4) {
       cursor: pointer;
     }
     p:nth-child(5) {
+      font-weight: bold;
       cursor: pointer;
-
+      position: absolute;
+      right: 0;
     }
   }
   .list_text p {
-    /* display: none; */
     display: inline-block;
   }
   .list_text::before {
@@ -742,7 +712,6 @@ label {
     font-size: 20px;
   }
   .list_text label {
-
     margin: 0;
     display: inline-block;
     width: 20px;
@@ -755,7 +724,6 @@ label {
     margin-right: 20px;
     .fa-check {
       font-size: 15px;
-
     }
   }
   input[type="checkbox"] {
@@ -765,16 +733,9 @@ label {
     background: var(--main-btn-green);
     color: var(--white);
     border: 1px solid #fff;
-
-
-    /* .fa-check {
-      display: inline-block;
-      font-size: 20px;
-    } */
   }
   .check_box {
     width: 100%;
-    /* height: 60px; */
     background: #f2fbdf;
     display: flex;
     align-items: center;
@@ -788,13 +749,9 @@ label {
       }
     }
     p {
-      /* position: absolute; */
       display: inline-block;
-      /* margin-top: 18px; */
       font-size: 14px;
       font-weight: bold;
-      /* margin-bottom: 30px; */
-
     }
   }
   input[type="checkbox"] {
@@ -802,20 +759,15 @@ label {
   }
   input:checked ~ label {
     z-index: 1;
-
     background: var(--main-btn-green);
     color: var(--white);
     .fa-check {
       display: inline;
+      color: var(--white);
     }
   }
   label {
-
-    /* margin: 10px 10px; */
     z-index: 2;
-    /* left: 10px; */
-    /* bottom: 100px; */
-    /* right: 0px; */
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -823,10 +775,9 @@ label {
     border: 1px solid var(--main-black);
     text-align: center;
     line-height: 18px;
+    color: #dfdfdf;
     .fa-check {
       font-size: 15px;
-      /* line-height: 15px; */
-
     }
   }
   .contents {
@@ -839,7 +790,6 @@ label {
       .inner {
         padding: 0;
       }
-
     }
     .content2 {
       padding: 30px;
@@ -849,13 +799,10 @@ label {
     }
     .bar {
       position: relative;
-
       display: flex;
       border-bottom: 2px solid #5fbe00;
       margin-top: 20px;
       width: 100%;
-
-      /* height: 30px; */
       padding-bottom: 10px;
 
       p {
@@ -864,41 +811,38 @@ label {
       }
     }
     .pay_sticky_container {
-
       bottom: 70px;
 
       position: fixed;
       z-index: 10;
       right: 0px;
       width: 100%;
-      height: 70px;
-
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
-
       background: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      padding: 6px 36px;
+      gap: 8px;
       .pay_sticky_text {
-        padding-top: 5px;
-        padding-left: 21px;
         display: flex;
         gap: 4px;
         align-items: center;
 
         p {
-          font-weight: bold;
+          font-weight: normal;
           font-size: 14px;
         }
       }
       .pay_sticky_button {
-        position: absolute;
         width: 100%;
         height: 100%;
         display: flex;
         gap: 12px;
         justify-content: center;
-        top: 26px;
-
         button:nth-child(1) {
+          cursor: pointer;
           width: 154px;
           height: 30px;
           border: 1px solid #000;
@@ -907,13 +851,12 @@ label {
           font-weight: bold;
 
           transition: all 0.3s;
-          &:hover {
-            background: #000;
-            color: #fff;
-          }
-
+          /* &:hover {
+            background: #aaa;
+          } */
         }
         button:nth-child(2) {
+          cursor: pointer;
           border: 1px solid #fff;
           border-radius: 5px;
           border-radius: 5px;
@@ -925,18 +868,14 @@ label {
 
           border: 1px solid var(--main-black);
           transition: all 0.3s;
-          &:hover {
-            background: #fff;
-            color: var(--main-black);
-          }
-
+          /* &:hover {
+            background: #aaa;
+          } */
         }
       }
     }
   }
   .content {
-
-
     width: 100%;
     height: fit-content;
     flex-direction: column;
@@ -946,7 +885,6 @@ label {
       display: flex;
     }
     .list {
-
       width: 100%;
       display: flex;
       .inner {
@@ -955,16 +893,12 @@ label {
           width: 100%;
           border-top: none;
           display: flex;
-          /* justify-content: center; */
           gap: 16px;
           padding: 20px 0;
           .image {
-            /* width: fit-content; */
-            /* width: 146px; */
             width: 140px;
             img {
               width: 100%;
-              /* height: 100px; */
               max-width: fit-content;
             }
           }
@@ -972,18 +906,15 @@ label {
             margin: 0;
             width: 20px;
             height: 20px;
+            color: #dfdfdf;
             .fa-check {
               font-size: 15px;
               line-height: 20px;
-
             }
           }
         }
         .text {
           width: 100%;
-
-
-          /* width: 80%; */
           height: fit-content;
           padding: 0;
           flex-direction: column;
@@ -991,9 +922,7 @@ label {
           gap: 10px;
           .text_box {
             width: 100%;
-            /* width: 80%; */
             height: fit-content;
-            /* justify-content: space-between; */
             p {
               display: flex;
               &:nth-child(1) {
@@ -1011,17 +940,12 @@ label {
                 padding: 2px 8px;
                 font-size: 10px;
                 font-weight: 400;
-                /* width: 40px; */
-                /* height: 10px; */
               }
-
             }
           }
         }
       }
       .money {
-
-
         width: 100%;
         flex-direction: row-reverse;
         align-items: end;
@@ -1034,8 +958,6 @@ label {
         .money_container {
           width: 100%;
           display: flex;
-          /* flex-direction: row-reverse; */
-          /* justify-content: space-between; */
           align-items: flex-end;
 
           width: 100%;
@@ -1067,76 +989,48 @@ label {
     .mobile_pay_inner {
       width: 100%;
       height: 190px;
-
-      /* position: absolute; */
-      /* bottom: 140px;
-      right: 20px; */
-
       display: flex;
       flex-direction: column;
       .moblie_pay {
         width: 100%;
         justify-content: center;
         font-size: 14px;
-        font-weight: 500;
+        /* font-weight: 500; */
         display: flex;
         flex-direction: column;
         align-content: center;
-
-        gap: 10px;
-
+        gap: 16px;
         .moblie_pay_text {
           width: 100%;
-          height: 20px;
           display: flex;
           justify-content: space-between;
-
-          /* margin-bottom: 16px;
-          margin-left: 20px; */
-
+          color: #666;
         }
         .moblie_pay_text_two {
           width: 100%;
-          height: 20px;
           display: flex;
           justify-content: space-between;
-
-          /* margin-bottom: 16px;
-          margin-left: 20px; */
-
+          color: #666;
         }
         .moblie_pay_text_three {
           width: 100%;
-          height: 20px;
           display: flex;
           justify-content: space-between;
-
-          /* margin-bottom: 16px;
-          margin-left: 20px; */
-
+          color: #666;
         }
         .moblie_pay_text_four {
           width: 100%;
-          height: 20px;
           display: flex;
           justify-content: space-between;
-
-          /* margin-bottom: 10px;
-          margin-left: 20px; */
-
           p:nth-child(1) {
             font-weight: bold;
           }
           p:nth-child(2) {
             font-weight: bold;
+            color: var(--main-price-red);
           }
         }
         .warning {
-
-          /* left: 20px;
-          gap: 0px;
-          top: -8px; */
-
           border-bottom: 3px solid #efefef;
           display: flex;
           position: relative;
@@ -1145,9 +1039,6 @@ label {
           justify-content: center;
           align-items: center;
           .warning_inner {
-
-            /* left: 8px; */
-
             width: 100%;
             height: 34px;
             display: flex;
@@ -1169,26 +1060,18 @@ label {
     display: none;
   }
   .introduction {
-    /* position: relative; */
     width: 100%;
-    /* height: 400px; */
-    /* top: 150px; */
     justify-content: center;
     align-items: center;
-    padding-top: 0;
-    /* margin-bottom: 20px; */
+    padding: 0 0 40px;
     .inner {
       width: 100%;
       height: 100%;
       padding: 0;
       .introduction_text {
-        /* right: 0px; */
-        /* position: absolute; */
-        /* top: 0px; */
         display: flex;
         width: 100%;
         justify-content: space-between;
-        /* width: 320px; */
         height: 30px;
         margin-bottom: 20px;
 
@@ -1209,20 +1092,16 @@ label {
         width: 100%;
 
         height: fit-content;
-        /* height: 150px; */
-
         display: flex;
         position: relative;
         .introduction_container {
           width: 100%;
-
 
           display: flex;
           justify-content: center;
           gap: 10px;
         }
         .introduction_box {
-
           width: 100%;
           gap: 10px;
           display: flex;
@@ -1241,7 +1120,6 @@ label {
             }
           }
           .text_container {
-
             height: fit-content;
             .text_box {
               width: 100%;
@@ -1250,7 +1128,6 @@ label {
               p {
                 font-size: 10px;
                 height: 60px;
-
               }
             }
             .introduction_pay {

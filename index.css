@@ -1300,6 +1300,7 @@ button {
           p {
             font-size: 14px;
             margin-bottom: 20px;
+            letter-spacing: -1px;
           }
         }
       }
@@ -1334,6 +1335,11 @@ button {
             overflow: scroll;
             margin: 10px 16px;
             align-content: start;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+              display: none;
+            }
             .shortcut_modal_content_icon {
               height: 40px;
               padding: 6px;
@@ -1342,6 +1348,7 @@ button {
                 margin-right: 10px;
               }
               ul {
+                letter-spacing: -1px;
                 width: 100%;
                 font-size: 12px;
                 display: flex;
@@ -1501,6 +1508,8 @@ button {
           li {
             height: fit-content;
             padding: 8px 10px;
+            /* padding: 8px 6px; */
+            font-size: 12px;
           }
         }
       }
