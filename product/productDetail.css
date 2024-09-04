@@ -53,15 +53,13 @@
     }
   }
   .A-right {
-    width: 680px;
-    height: 715px;
     .title {
+      width: 680px;
       h2 {
         margin-top: 0;
         margin-bottom: 20px;
         font-size: 32px;
         font-weight: 400;
-        /* border: 1px solid #f00; */
       }
     }
     .detail {
@@ -726,6 +724,8 @@
   cursor: pointer;
 }
 
+/* DDDDD */
+
 .product-detail-D {
   display: flex;
   flex-direction: column;
@@ -735,6 +735,7 @@
   h1 {
     color: #585858;
     font-size: 36px;
+    margin-bottom: 30px;
   }
   .product-items-all {
     position: relative;
@@ -742,10 +743,11 @@
     justify-content: center;
     align-items: center;
   }
+
   .product-items-list {
-    margin-top: 28px;
     display: flex;
-    gap: 23px;
+    justify-content: space-between;
+    width: 1050px;
   }
   .controls {
     position: absolute;
@@ -775,17 +777,18 @@
     }
   }
   .productitem {
-    display: flex;
-    gap: 24px;
-    cursor: pointer;
     width: fit-content;
+    /* display: flex; */
+    flex-direction: column;
+    cursor: pointer;
     .productitem_img {
       position: relative;
-      width: 240px;
-      height: 320px;
+      width: 220px;
+      height: 280px;
       overflow: hidden;
       img {
-        position: absolute;
+        /* position: absolute; */
+        position: relative;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -823,6 +826,7 @@
       }
     }
     .productitem_text {
+      margin-top: 10px;
       letter-spacing: -0.06px;
       p {
         color: #707070;
@@ -855,6 +859,7 @@
     }
   }
 }
+/* 모바일 */
 @media screen and (max-width: 1080px) {
   .section-all {
     width: calc(100vw - (100vw - 100%));
@@ -889,6 +894,7 @@
     .A-right {
       padding: 0 5vw;
       .title {
+        width: auto;
         h2 {
           margin-top: 3vh;
           font-size: 1em;
@@ -1014,6 +1020,8 @@
         height: 100%;
         overflow: scroll;
         background-color: rgba(0, 0, 0, 0.5);
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
         .modal-content {
           background-color: #fff;
           /* margin: 4% auto; */
@@ -1052,6 +1060,9 @@
               font-size: 12px;
             }
           }
+        }
+        #noticeModal &::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Opera*/
         }
       }
       #inquiryModal {

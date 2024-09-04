@@ -348,25 +348,29 @@ function validateForm() {
 }
 
 // Slick Slider
-$(document).ready(function(){
-  $('.productItemsList').slick({
-    dots: true,
-    slidesToShow: 1,
+$(document).ready(function () {
+  $(".product-items-list").slick({
+    dots: false,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     infinite: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 2000,
     arrows: true,
+    prevArrow: $(".prev"), //이전 화살표만 변경
+    nextArrow: $(".next"), //다음 화살표만 변경
+    speed: 700,
+
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1,
           infinite: true,
           dots: false,
         },
       },
-    ]
+    ],
   });
 });
