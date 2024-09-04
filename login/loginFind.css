@@ -1,9 +1,8 @@
 @import url(/common.css);
 
-
 main {
-    height: 800px ;
-    margin-bottom: 200px;
+    height: 400px ;
+    margin-bottom: 300px;
 }
 
     .loginText {
@@ -96,6 +95,7 @@ main {
             width: 780px;
             height: 90px;
             margin: 0 auto;
+            margin-bottom: 32px;
             border: 1px solid  #9BCE26;
             border-top: none;
             padding: 30px;
@@ -108,27 +108,7 @@ main {
                 font-size: 18px;
             }
         }
-        .idFind {
-            display: flex;
-            width: 780px;
-            height: 90px;
-            line-height: 144%;
-            padding: 32px 10px ;
-            justify-content: space-between;
-            margin: 0 auto;
-            color: #666;
-            .find {
-                &:hover{
-                    cursor: pointer;
-                    }
-            }
-            .idCheck {
-                display: flex;
-                p {
-                    padding: 0 10px;
-                }
-            }
-            }
+
             .loginBtn01 {
                 display: flex;
                 width: 780px;
@@ -146,52 +126,6 @@ main {
                         font-size: 26px;
                         }
             }
-            .signBtn {
-                display: inline-flex;
-                align-items: center;
-                gap: 30px;
-                padding: 32px 0;
-                .cjoneBtn {   
-                border: 1px solid #EFEFEF;  
-                a {
-                    display: flex;
-                    gap: 10px;
-                    line-height: 42px;
-                }
-                button {
-                    display: flex;
-                    width: 374px;
-                    height: 90px;
-                    padding: 16px 34px;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 12px;
-                    color: #333;
-                    font-size: 20px;
-                    &:hover{
-                        cursor: pointer;
-                        }
-                    }
-                }
-            }
-            .kakaoBtn {           
-                border: 1px solid #EFEFEF; 
-                button {
-                    display: flex;
-                    width: 374px;
-                    height: 90px;
-                    padding: 16px 34px;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 12px;
-                    color: #333;
-                    font-size: 20px;
-                    background: #F9E003;
-                    &:hover{
-                        cursor: pointer;
-                    }
-                }
-            }            
         }
 
     .content2 {
@@ -254,43 +188,7 @@ main {
                         }
                     }
             }
-            .joinbtn {
-            display: flex;
-            width: 780px;
-            height: 90px;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            margin-top: 32px;
-            padding: 10px;
-            border: 1px solid #9AC75B;
-                a {
-                    color: #9AC75B;
-                    font-size: 22px;
-                    &:hover{
-                        cursor: pointer;
-                }
-            }
-        }
     }
-}
-
-    .loginBtn01 {
-        display: flex;
-        width: 780px;
-        height: 90px;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        padding: 10px;
-        background: #9BCE26;
-            button {
-                color: #fff;
-                font-size: 26px;
-                &:hover{
-                    cursor: pointer;
-                    }
-                }
 }
 
 
@@ -367,6 +265,7 @@ main {
                     width: 100%;
                     height: 80px;
                     margin: 0 auto;
+                    margin-bottom: 32px;
                     border: 1px solid  #9BCE26;
                     border-top: none;
                     padding: 28px;
@@ -379,21 +278,6 @@ main {
                         font-size: 16px;
                     }
                 }
-                .idFind {
-                    display: flex;
-                    width: 96%;
-                    height: 80px;
-                    line-height: 144%;
-                    padding: 28px 0 ;
-                    justify-content: space-between;
-                    margin: 0 auto;
-                    color: #666;
-                    .find {
-                        &:hover{
-                            cursor: pointer;
-                            }
-                    }
-                    }
                     .loginBtn01 {
                         display: flex;
                         width: 100%;
@@ -435,26 +319,7 @@ main {
                                 }
                             }
                         }
-                    }
-                    .kakaoBtn {      
-                        width: 100%;     
-                        border: 1px solid #EFEFEF; 
-                        button {
-                            display: flex;
-                            width: 100%;
-                            height: 80px;
-                            padding: 16px 34px;
-                            justify-content: center;
-                            align-items: center;
-                            gap: 12px;
-                            color: #333;
-                            font-size: 20px;
-                            background: #F9E003;
-                            &:hover{
-                                cursor: pointer;
-                            }
-                        }
-                    }            
+                    }         
                 }
         
     
@@ -488,6 +353,7 @@ main {
             width: 100%;
             height: 80px;
             margin: 0 auto;
+            margin-bottom: 32px;
             border: 1px solid  #9BCE26;
             border-top: none;
             padding: 28px;
@@ -513,7 +379,6 @@ main {
                 button {
                     color: #fff;
                     font-size: 22px;
-                    line-height: 20px;
                     &:hover{
                         cursor: pointer;
                         }
@@ -522,19 +387,16 @@ main {
             .joinbtn {
             display: flex;
             width: 100%;
-            height: 80px;
+            height: 90px;
             justify-content: center;
             align-items: center;
             margin: 0 auto;
             margin-top: 30px;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #9AC75B;
-            a {
-                font-size: 19px;
-                                
-            }
                 button {
                     color: #9AC75B;
+                    font-size: 22px;
                     &:hover{
                         cursor: pointer;
                 }
