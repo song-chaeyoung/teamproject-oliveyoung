@@ -251,8 +251,6 @@ document.addEventListener("DOMContentLoaded", function () {
           // 장바구니 버튼 클릭 시 로컬 스토리지에 저장
           const addToCartBtn = document.querySelector(".cartBtn"); // 장바구니 버튼 선택
 
-          console.log(addToCartBtn);
-
           if (addToCartBtn) {
             addToCartBtn.addEventListener("click", function (e) {
               e.preventDefault();
@@ -348,3 +346,31 @@ function validateForm() {
     alert("문의사항이 등록되었습니다.");
   }
 }
+
+// Slick Slider
+$(document).ready(function () {
+  $(".product-items-list").slick({
+    dots: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    infinite: true,
+    autoplaySpeed: 2000,
+    arrows: true,
+    prevArrow: $(".prev"), //이전 화살표만 변경
+    nextArrow: $(".next"), //다음 화살표만 변경
+    speed: 700,
+
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false,
+        },
+      },
+    ],
+  });
+});
