@@ -2,14 +2,17 @@
 
 .section-all {
   width: calc(100vw - (100vw - 100%));
+  width: calc(100vw - (100vw - 100%));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   align-content: center;
+  align-content: center;
 }
 .product-detail-A {
   margin-top: 60px;
+  /* border: 1px solid #f00; */
   width: 1080px;
   height: 716px;
   display: flex;
@@ -18,6 +21,8 @@
     flex-direction: column;
     margin-right: 40px;
     .thumbs {
+      width: 360px;
+      height: 360px;
       width: 360px;
       height: 360px;
       img {
@@ -51,14 +56,17 @@
       h2 {
         margin-top: 0;
         margin-bottom: 20px;
+        margin-bottom: 20px;
         font-size: 32px;
         font-weight: 400;
+        /* border: 1px solid #f00; */
       }
     }
     .detail {
       display: flex;
       justify-content: space-between;
       align-items: end;
+      margin-bottom: 16px;
       margin-bottom: 16px;
       .detail-left {
         display: flex;
@@ -107,16 +115,21 @@
     }
     .benefits {
       display: flex;
+      /* border: 1px solid #f00; */
+      justify-content: space-between;
       .benefit {
         width: 100px;
         margin-right: 30px;
         font-size: 14px;
+        /* border: 1px solid #ff0; */
       }
       .benefits-right {
         display: flex;
         .benefit-img {
+          /* border: 1px solid #f00; */
           width: 50px;
           height: 72px;
+          margin-right: 20px;
           margin-right: 20px;
           img {
             width: 100%;
@@ -124,6 +137,7 @@
           }
         }
         .box {
+          /* border: 1px solid #f00; */
           display: flex;
           flex-direction: column;
           .benefit-desc {
@@ -131,6 +145,7 @@
             font-size: 14px;
             letter-spacing: -0.6px;
             width: 386px;
+            /* border: 1px solid #f00; */
           }
           .date {
             font-size: 12px;
@@ -143,7 +158,6 @@
     }
     hr {
       margin-top: 30px;
-
       margin-bottom: 30px;
       opacity: 0.2;
     }
@@ -151,12 +165,15 @@
       display: flex;
       flex-direction: column;
       width: 330px;
+      /* border: 1px solid dodgerblue; */
       font-size: 14px;
       .desc {
         display: flex;
+        /* border: 1px solid #ff0; */
         p {
           &:first-child {
             width: 100px;
+            /* border: 1px solid #f00; */
             margin-right: 30px;
           }
         }
@@ -165,25 +182,24 @@
     .purchase {
       .top-price {
         display: flex;
+        /* border: 1px solid #f00; */
         align-items: center;
         justify-content: space-between;
-
         margin-top: 32px;
         .quantity {
           display: flex;
           border: 1px solid rgba(0, 0, 0, 0.05);
+          /* border: 1px solid #f00; */
           width: 145px;
           height: 34px;
           justify-content: center;
           align-items: center;
           gap: 30px;
           font-size: 20px;
-
           button {
             width: 34px;
             height: 34px;
             font-size: 16px;
-
             background: none;
             border: none;
             cursor: pointer;
@@ -199,23 +215,23 @@
         align-items: baseline;
         gap: 4px;
         margin-top: 42px;
-
         margin-bottom: 42px;
         span {
+          font-size: 18px;
           font-size: 18px;
         }
         h4 {
           font-size: 24px;
+          font-size: 24px;
         }
       }
       .btns {
+        /* border: 1px solid #f00; */
         display: flex;
         height: 60px;
         .small-btns {
           cursor: pointer;
-
           background: #808080;
-
           color: #fff;
           display: flex;
           justify-content: center;
@@ -224,7 +240,6 @@
           flex: 1;
           height: 100%;
           transition: all 0.3s;
-
           .binHeart {
             opacity: 1;
             transition: all 0.3s;
@@ -250,6 +265,19 @@
               color: rgb(255, 19, 19);
               scale: 1.2;
             }
+            & > .binHeart {
+              opacity: 0;
+            }
+            & > .colorHeart {
+              opacity: 1;
+            }
+            background: #303030;
+          }
+          &:active {
+            & > .colorHeart {
+              color: rgb(255, 19, 19);
+              scale: 1.2;
+            }
           }
         }
         .big-btns {
@@ -261,8 +289,10 @@
         }
         .leftbtn {
           background: #535353;
+          background: #535353;
           transition: all 0.3s;
           &:hover {
+            background: #303030;
             background: #303030;
           }
         }
@@ -283,7 +313,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   .tabs {
+    position: sticky;
+    top: 74px;
     position: sticky;
     top: 74px;
     width: 1152px;
@@ -293,10 +329,9 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 90px;
-
     z-index: 1;
-
     .tab {
+      background: #fff;
       background: #fff;
       display: flex;
       flex-direction: column;
@@ -305,11 +340,15 @@
       flex: 1;
       width: 100%;
       height: 70px;
+      height: 70px;
       label {
         display: flex;
         justify-content: center;
         width: 100%;
         cursor: pointer;
+        line-height: 4.2;
+        border-bottom: 2px solid #d6d6d6;
+        color: #919191;
         line-height: 4.2;
         border-bottom: 2px solid #d6d6d6;
         color: #919191;
@@ -320,19 +359,24 @@
       }
       input[type="radio"]:checked ~ label {
         line-height: 4.2;
+        line-height: 4.2;
         justify-content: center;
+        border-bottom: 3px solid #757575;
+        color: #000;
         border-bottom: 3px solid #757575;
         color: #000;
         position: relative;
       }
       input[type="radio"]:checked + .tab-contents {
         display: block;
+        /* color: #f00; */
         position: absolute;
         z-index: 1;
       }
     }
   }
   .tabs-contents {
+    /* border: 1px solid #f99; */
     .inner-items {
       display: flex;
       justify-content: center;
@@ -348,67 +392,7 @@
         }
       }
     }
-    #noticeModal {
-      display: none;
-      position: fixed;
-      z-index: 10;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: rgba(0, 0, 0, 0.5);
-      .modal-content {
-        background-color: #fff;
-        margin: 3% auto;
-        padding: 40px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 900px;
-        border-radius: 10px;
-      }
-      .close {
-        position: absolute;
-        top: 10px;
-        right: 12px;
-        color: #c9c9c9;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        i {
-          font-size: 50px;
-        }
-      }
-      .close:hover,
-      .close:focus {
-        color: #fff;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      .notice-inner {
-        .notice-list {
-          gap: 20px;
-          .notice-list-main {
-            margin-bottom: 10px;
-          }
-          .notice-cont {
-            margin: 10px;
-            gap: 20px;
-            display: flex;
-            p {
-              &:nth-child(1) {
-                width: 300px;
-                color: #303030;
-              }
-              &:nth-child(2) {
-                width: 500px;
-              }
-            }
-          }
-        }
-      }
-    }
-    #inquiryModal {
+    .modal {
       display: none;
       position: fixed;
       z-index: 10;
@@ -506,6 +490,7 @@
     .reviews {
       width: 1152px;
       height: 146px;
+      /* border: 1px solid #00ff22; */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -518,6 +503,7 @@
           border: 1px solid #e7e7e7;
         }
         .sum-left {
+          /* border: 1px solid #000; */
           display: flex;
           flex-direction: column;
           line-height: 1.5;
@@ -542,6 +528,7 @@
           }
         }
         .sum-right {
+          /* border: 1px solid #000; */
           width: 826px;
           margin: 10px 10px;
           .desc {
@@ -607,11 +594,13 @@
   }
   .review-list {
     width: 1152px;
+    width: 1152px;
     ul {
       .review {
         margin-bottom: 80px;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         padding-top: 50px;
+        /* border: 1px solid #f00; */
         .review-list-top {
           display: flex;
           justify-content: space-between;
@@ -660,6 +649,7 @@
           }
           .text {
             font-size: 14px;
+            width: 70%;
             width: 70%;
           }
         }
@@ -857,11 +847,17 @@
   .section-all {
     width: calc(100vw - (100vw - 100%));
   }
+  .section-all {
+    width: calc(100vw - (100vw - 100%));
+  }
   .product-detail-A {
+    margin-top: 0;
     margin-top: 0;
     flex-direction: column;
     justify-content: center;
     height: auto;
+    width: calc(100vw - (100vw - 100%));
+
     width: calc(100vw - (100vw - 100%));
 
     .A-left {
@@ -872,6 +868,7 @@
         display: flex;
         align-items: center;
         overflow: hidden;
+        /* border: 1px solid #f00; */
         width: calc(100vw - (100vw - 100%));
         height: 100vw;
         img {
@@ -885,6 +882,7 @@
     }
     .A-right {
       padding: 0 5vw;
+      padding: 0 5vw;
       .title {
         width: auto;
         h2 {
@@ -896,6 +894,13 @@
         flex-direction: column;
         align-items: start;
         .detail-left {
+          font-size: 16px;
+          .discount {
+            font-size: 14px;
+            .default-price {
+              font-size: 12px;
+            }
+          }
           font-size: 16px;
           .discount {
             font-size: 14px;
@@ -925,9 +930,12 @@
         .benefits-right {
           .box {
             .benefit-desc {
+          .box {
+            .benefit-desc {
               font-size: 12px;
               width: 100%;
             }
+            .date {
             .date {
               font-size: 10px;
             }
@@ -938,6 +946,9 @@
         }
       }
       hr {
+        background: #eee;
+        height: 1px;
+        border: 0;
         background: #eee;
         height: 1px;
         border: 0;
@@ -959,15 +970,16 @@
           background: #585858;
           min-height: 71px;
           height: 9vw;
-
           width: calc(100vw - (100vw - 100%));
           position: fixed;
           bottom: 0;
           left: 0;
           z-index: 999;
           .small-btns {
+          .small-btns {
             flex: 1;
           }
+          .big-btns {
           .big-btns {
             flex: 4;
           }
@@ -983,7 +995,6 @@
       width: 100%;
       margin-bottom: 0;
       top: 48px;
-
       background: #fff;
       .tab {
         height: 60px;
@@ -1004,62 +1015,7 @@
           }
         }
       }
-      #noticeModal {
-        display: none;
-        position: fixed;
-        z-index: 10;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: scroll;
-        background-color: rgba(0, 0, 0, 0.5);
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-        .modal-content {
-          background-color: #fff;
-          /* margin: 4% auto; */
-          margin-top: 4vh;
-          margin-bottom: 9vh;
-          padding: 20px;
-          border: 1px solid #888;
-          width: 80%;
-          max-width: 500px;
-          border-radius: 10px;
-        }
-        .close {
-          position: absolute;
-          top: 10px;
-          right: 12px;
-          color: #c9c9c9;
-          float: right;
-          font-size: 28px;
-          font-weight: bold;
-          i {
-            font-size: 30px;
-          }
-        }
-        .close:hover,
-        .close:focus {
-          color: #fff;
-          text-decoration: none;
-          cursor: pointer;
-        }
-        .notice-inner {
-          .notice-list {
-            .notice-list-main {
-              font-size: 14px;
-            }
-            .notice-cont {
-              font-size: 12px;
-            }
-          }
-        }
-        #noticeModal &::-webkit-scrollbar {
-          display: none; /* Chrome, Safari, Opera*/
-        }
-      }
-      #inquiryModal {
+      .modal {
         display: none;
         position: fixed;
         z-index: 10;
@@ -1071,6 +1027,7 @@
         background-color: rgba(0, 0, 0, 0.5);
         .modal-content {
           background-color: #fff;
+          /* margin: 4% auto; */
           margin-top: 4vh;
           padding: 20px;
           border: 1px solid #888;
@@ -1145,20 +1102,19 @@
   /* review~ */
   .product-detail-C {
     width: calc(100vw - (100vw - 100%));
+    width: calc(100vw - (100vw - 100%));
     .review-main {
       .reviews {
         width: calc(100vw - (100vw - 100%));
+        width: calc(100vw - (100vw - 100%));
         height: 100%;
-
         padding: 2vh 5vw 2vh 5vw;
-
         .review-sum {
           display: flex;
           flex-direction: column;
           justify-content: left;
           align-items: start;
           gap: 14px;
-
           hr {
             display: none;
           }
@@ -1167,7 +1123,6 @@
             .sum-top {
               display: flex;
               justify-content: left;
-
               .stars {
                 display: flex;
                 font-size: 16px;
@@ -1177,6 +1132,8 @@
               }
             }
             .sum-bottom {
+              font-size: 18px;
+              font-weight: bold;
               font-size: 18px;
               font-weight: bold;
             }
@@ -1193,10 +1150,8 @@
             }
             span {
               background: #d4d4d4;
-
               padding: 10px;
               padding-bottom: 15px;
-
               display: flex;
               align-items: center;
               gap: 6px;
@@ -1213,6 +1168,7 @@
       }
     }
     .review-list {
+      width: calc(100vw - (100vw - 100%));
       width: calc(100vw - (100vw - 100%));
       ul {
         .review {
@@ -1234,7 +1190,6 @@
               font-size: 12px;
             }
           }
-
           .review-imgs {
             display: flex;
             gap: 10px;
@@ -1243,14 +1198,12 @@
             div {
               width: 20vw;
               height: 20vw;
-
               img {
                 width: 100%;
                 height: 100%;
               }
             }
           }
-
           .review-text {
             display: flex;
             justify-content: left;
@@ -1273,6 +1226,7 @@
   }
 
   /* best products _ SCROLL*/
+  .product-detail-D {
   .product-detail-D {
     display: none;
   }

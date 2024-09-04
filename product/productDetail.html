@@ -58,7 +58,11 @@
         <section class="product-detail-A">
           <div class="A-left">
             <div class="thumbs">
-              <img class="json-image" src="" alt="thumbs" />
+              <img
+                class="json-image"
+                src="https://images.innisfree.co.kr/upload/product/37621_p_S_667.png?T202408011737"
+                alt="thumbs"
+              />
             </div>
             <div class="card-gift">
               <ul>
@@ -83,6 +87,7 @@
           <div class="A-right">
             <div class="title">
               <h2 class="json-title">
+              <h2 class="json-title">
                 <b>BEST</b> 레티놀 시카 앰플 [대용량]X 2개 더블패키지
                 (50mL+50mL)
               </h2>
@@ -90,7 +95,11 @@
             <div class="detail">
               <div class="detail-left">
                 <h4 class="price json-sale-price">79,800</h4>
+                <h4 class="price json-sale-price">79,800</h4>
                 <span class="discount">30%</span>
+                <span id="product-price" class="default-price"
+                  ><del class="json-price"></del
+                ></span>
                 <span id="product-price" class="default-price"
                   ><del class="json-price"></del
                 ></span>
@@ -103,6 +112,10 @@
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                 </div>
+                <span id="product-score" class="score json-score">4.8</span>
+                <span id="product-review" class="review json-review"
+                  >999+건 리뷰</span
+                >
                 <span id="product-score" class="score json-score">4.8</span>
                 <span id="product-review" class="review json-review"
                   >999+건 리뷰</span
@@ -133,6 +146,7 @@
                     (레티놀앰플7mL+레티놀크림10mL+그린티폼20g)
                   </span>
                   <Sspan class="date">24.7.1 -24.7.31</Sspan>
+                  <Sspan class="date">24.7.1 -24.7.31</Sspan>
                   <span class="sample">1개 구매시 4개 증정</span>
                 </div>
               </div>
@@ -156,11 +170,18 @@
                   </button>
                   <p id="productQty">1</p>
                   <button id="plusBtn"><i class="fa-solid fa-plus"></i></button>
+                  <button id="minusBtn">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <p id="productQty">1</p>
+                  <button id="plusBtn"><i class="fa-solid fa-plus"></i></button>
                 </div>
+                <span><b class="json-sale-price"></b> 원</span>
                 <span><b class="json-sale-price"></b> 원</span>
               </div>
               <div class="bottom-price">
                 <span>합계</span>
+                <h4 id="totalSalePrice" class="json-sale-price"></h4>
                 <h4 id="totalSalePrice" class="json-sale-price"></h4>
                 <p>원</p>
               </div>
@@ -171,7 +192,10 @@
                 <button class="small-btns">
                   <i class="fa-regular fa-heart binHeart"></i>
                   <i class="fa-solid fa-heart colorHeart"></i>
+                  <i class="fa-regular fa-heart binHeart"></i>
+                  <i class="fa-solid fa-heart colorHeart"></i>
                 </button>
+                <button class="big-btns leftbtn cartBtn">장바구니</button>
                 <button class="big-btns leftbtn cartBtn">장바구니</button>
                 <button class="big-btns rightbtn">바로구매</button>
               </div>
@@ -179,14 +203,17 @@
           </div>
         </section>
         <section id="TAB01" class="product-detail-B">
+        <section id="TAB01" class="product-detail-B">
           <ul class="tabs">
             <li class="tab">
               <input
                 type="radio"
                 id="tab-detail-desc"
+                id="tab-detail-desc"
                 name="tab-group-a"
                 checked
               />
+              <label for="tab-detail-desc">상세정보</label>
               <label for="tab-detail-desc">상세정보</label>
             </li>
             <li class="tab">
@@ -204,6 +231,7 @@
           </ul>
           <div class="tabs-contents">
             <div id="detail-section" class="detail-desc inner-items">
+            <div id="detail-section" class="detail-desc inner-items">
               <div class="imgs">
                 <img src="./product_img/detail_01.png" alt="img1" />
                 <img src="./product_img/detail_02.png" alt="img2" />
@@ -220,65 +248,7 @@
                   <i class="fa-solid fa-xmark"></i>
                 </span>
                 <div class="notice-inner">
-                  <div class="notice-list">
-                    <h4 class="notice-list-main">제품요약정보</h4>
-                    <div class="notice-cont">
-                      <p>내용물의 용량 또는 중량</p>
-                      <p>100ml + 3ml</p>
-                    </div>
-                    <div class="notice-cont">
-                      <p>사용기한(또는 개봉 후 사용기간)</p>
-                      <p>민감성 및 모든 피부에 사용 적합</p>
-                    </div>
-                    <div class="notice-cont">
-                      <p>사용기한(또는 개봉 후 사용기간)</p>
-                      <p>
-                        18개월 이상 남아있는 제품부터 순차적으로 발송 / 개봉 후
-                        6개월
-                      </p>
-                    </div>
-                    <div class="notice-cont">
-                      <p>
-                        화장품제조업자,화장품책임판매업자 및 맞춤형
-                        화장품판매업자
-                      </p>
-                      <p>
-                        세안 후, 크림 단계에서 피부에 부드럽게 펴 발라 줍니다.
-                        자기 전, 피부에 듬뿍 발라 슬리핑 팩 처럼 사용해 주셔도
-                        됩니다
-                      </p>
-                    </div>
-                    <div class="notice-cont">
-                      <p>제조사</p>
-                      <p>엘오케이 유한회사</p>
-                    </div>
-                    <div class="notice-cont">
-                      <p>제조국</p>
-                      <p>프랑스</p>
-                    </div>
-                    <div class="notice-cont">
-                      <p>화장품법에 따라 기재해야 하는 모든 성분</p>
-                      <p>
-                        정제수 하이드로제네이티드폴리아이소부텐 다이메티콘
-                        글리세린 시어버터 판테놀 옥수수전분 프로판다이올
-                        부틸렌글라이콜 세틸피이지/피피지-10/1다이메티콘
-                        트라이하이드록시스테아린 병풀잎추출물 야콘뿌리즙
-                        징크글루코네이트 마데카소사이드 망가니즈글루코네이트
-                        알파-글루칸올리고사카라이드 실리카
-                        알루미늄하이드록사이드 마그네슘설페이트 만노오스
-                        카프릴로일글라이신 카프릴릴글라이콜 비트레오스실라발효물
-                        시트릭애씨드 트라이소듐에틸렌다이아민다이석시네이트
-                        락토바실러스 아세틸레이티드글라이콜스테아레이트
-                        말토덱스트린 폴리글리세릴-4아이소스테아레이트 토코페롤
-                        펜타에리스리틸테트라-다이-t-부틸하이드록시하이드로신나메이트
-                        티타늄디옥사이드
-                      </p>
-                    </div>
-                    <div class="notice-cont">
-                      <p>사용할 때의 주의사항</p>
-                      <p>해당사항 없음</p>
-                    </div>
-                  </div>
+                  111111123123123123123123123123123123123
                 </div>
               </div>
             </div>
@@ -318,7 +288,10 @@
                     placeholder="내용을 입력하세요. (최대 300자 이내)"
                   ></textarea>
                   <p>0/300자</p>
-                  <button type="submit" onclick="validateForm()">
+                  <button
+                    type="submit"
+                    onclick="alert(`문의사항이 등록되었습니다.`)"
+                  >
                     문의등록
                   </button>
                 </div>
@@ -428,14 +401,6 @@
                     />
                   </li>
                 </ul>
-              </div>
-              <!-- 모달 창 -->
-              <div id="myModal" class="modal-review">
-                <span class="close-btn-review-modal" onclick="closeModal()"
-                  >&times;</span
-                >
-                <img class="modal-content-review" id="modalImage" />
-                <div id="caption"></div>
               </div>
               <div class="review-title only_pc">
                 <div class="review-title-left only_pc">
