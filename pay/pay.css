@@ -87,6 +87,7 @@ input[type="checkbox"] {
   padding-bottom: 60px;
   h1 {
     font-size: 30px;
+    font-size: 30px;
   }
 }
 .contaniner_inner {
@@ -96,11 +97,20 @@ input[type="checkbox"] {
   position: relative;
   gap: 66px;
   margin-bottom: 50px;
+  margin-bottom: 50px;
   .input_container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    .error {
+      color: #f00;
+      width: fit-content;
+      height: 10px;
+      font-size: 11px;
+      padding-left: 24px;
+      margin-bottom: 10px;
+    }
     .error {
       color: #f00;
       width: fit-content;
@@ -128,10 +138,14 @@ input[type="checkbox"] {
         border-top: 1px solid #000;
         align-items: center;
         width: 100%;
+        width: 100%;
         label {
           width: 200px;
           padding: 20px;
+          width: 200px;
+          padding: 20px;
           display: flex;
+          /* padding: 24px 0 32px 20px; */
           /* padding: 24px 0 32px 20px; */
           gap: 6px;
           p {
@@ -140,6 +154,9 @@ input[type="checkbox"] {
         }
         #name {
           border: 1px solid #eee;
+          width: 300px;
+          /* height: 40px; */
+          padding: 12px 10px;
           width: 300px;
           /* height: 40px; */
           padding: 12px 10px;
@@ -154,12 +171,16 @@ input[type="checkbox"] {
       border-bottom: 1px solid #efefef;
       .phone_boxs {
         width: 100%;
+        width: 100%;
         align-items: center;
         display: flex;
         label {
           width: 200px;
           padding: 20px;
+          width: 200px;
+          padding: 20px;
           display: flex;
+          /* padding: 24px 60px 32px 20px; */
           /* padding: 24px 60px 32px 20px; */
           gap: 6px;
           font-size: 16px;
@@ -169,8 +190,12 @@ input[type="checkbox"] {
         }
         #phoneNum {
           width: 300px;
+        #phoneNum {
+          width: 300px;
           display: flex;
           align-items: center;
+          /* height: 40px; */
+          padding: 12px 10px;
           /* height: 40px; */
           padding: 12px 10px;
           gap: 6px;
@@ -188,6 +213,8 @@ input[type="checkbox"] {
       label {
         width: 200px;
         padding: 20px;
+        width: 200px;
+        padding: 20px;
         display: flex;
         align-items: center;
         gap: 6px;
@@ -199,7 +226,10 @@ input[type="checkbox"] {
       #email {
         width: 300px;
         /* height: 40px; */
+        width: 300px;
+        /* height: 40px; */
         border: 1px solid #eee;
+        padding: 12px 10px;
         padding: 12px 10px;
       }
     }
@@ -211,6 +241,8 @@ input[type="checkbox"] {
       span {
         width: 200px;
         padding: 20px;
+        width: 200px;
+        padding: 20px;
         font-size: 16px;
       }
       .deliveryfirst {
@@ -219,12 +251,19 @@ input[type="checkbox"] {
         /* gap: 10px; */
         /* width: 676px;
         height: 512px; */
+        /* gap: 10px; */
+        /* width: 676px;
+        height: 512px; */
         border: 1px solid #efefef;
         margin: 20px 0;
+        padding: 30px;
         padding: 30px;
         .delivery {
           display: flex;
           gap: 6px;
+          margin-bottom: 14px;
+          /* padding: 22px 26px 468px 26px; */
+          /* padding-bottom: 10px; */
           margin-bottom: 14px;
           /* padding: 22px 26px 468px 26px; */
           /* padding-bottom: 10px; */
@@ -236,13 +275,18 @@ input[type="checkbox"] {
           width: 100%;
           /* height: 30px; */
           /* margin: 0 26px; */
+          width: 100%;
+          /* height: 30px; */
+          /* margin: 0 26px; */
           padding: 12px 16px;
           border: 1px solid #efefef;
         }
         .delivery_checkbox {
           /* padding-top: 10px; */
+          /* padding-top: 10px; */
           gap: 10px;
           display: flex;
+          /* padding-left: 26px; */
           /* padding-left: 26px; */
         }
       }
@@ -260,7 +304,10 @@ input[type="checkbox"] {
             height: 100%;
             display: flex;
             /* padding-left: 26px; */
+            /* padding-left: 26px; */
             gap: 6px;
+            /* padding-bottom: 10px; */
+            margin: 14px 0;
             /* padding-bottom: 10px; */
             margin: 14px 0;
             p:nth-child(1) {
@@ -276,7 +323,11 @@ input[type="checkbox"] {
               height: 40px;
               display: flex;
               /* margin-left: 26px; */
+              /* margin-left: 26px; */
               border: 1px solid #eee;
+              background: #fff;
+              margin-right: 20px;
+              /* border: 1px solid #f00; */
               background: #fff;
               margin-right: 20px;
               /* border: 1px solid #f00; */
@@ -290,10 +341,16 @@ input[type="checkbox"] {
               gap: 10px;
               /* padding-bottom: 10px; */
               input[type="button"],
+              /* padding-left: 10px; */
+              gap: 10px;
+              /* padding-bottom: 10px; */
+              input[type="button"],
               buttom {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: 8px 10px;
+                /* width: 110px; */
                 padding: 8px 10px;
                 /* width: 110px; */
                 height: 40px;
@@ -318,13 +375,30 @@ input[type="checkbox"] {
             /* margin-top: 10px; */
             background: #fff;
           }
+        .delivery_check_second_box {
+          display: flex;
+          gap: 10px;
+          #second,
+          #third {
+            flex: 1;
+            height: 40px;
+            display: flex;
+            border: 1px solid #eee;
+            padding: 10px;
+            /* margin-left: 26px; */
+            /* margin-top: 10px; */
+            background: #fff;
+          }
         }
         .military_delivery {
           width: 100%;
           height: 100%;
           display: flex;
           /* padding-left: 26px; */
+          /* padding-left: 26px; */
           font-size: 12px;
+          margin-top: 6px;
+          cursor: pointer;
           margin-top: 6px;
           cursor: pointer;
           p {
@@ -340,10 +414,14 @@ input[type="checkbox"] {
         width: 100%;
         /* height: 100%; */
         /* padding-top: 30px; */
+        /* height: 100%; */
+        /* padding-top: 30px; */
         .delivery_phone_box {
           width: 100%;
           /* padding-left: 26px; */
+          /* padding-left: 26px; */
           .deliveryphone {
+            /* padding-bottom: 14px; */
             /* padding-bottom: 14px; */
             width: 100%;
             display: flex;
@@ -351,10 +429,14 @@ input[type="checkbox"] {
             gap: 6px;
             font-size: 16px;
             margin: 14px 0;
+            margin: 14px 0;
             p:nth-child(1) {
               color: #f00;
             }
           }
+          #phoneNums {
+            width: 49%;
+            /* height: 22px; */
           #phoneNums {
             width: 49%;
             /* height: 22px; */
@@ -364,11 +446,18 @@ input[type="checkbox"] {
         }
         .delivery_service {
           /* padding-top: 10px; */
+          /* padding-top: 10px; */
           width: 100%;
           display: flex;
           align-items: center;
+          align-items: center;
           .delivery_service_box {
             gap: 10px;
+            /* padding-left: 26px; */
+            label {
+              font-size: 14px;
+              align-items: center;
+            }
             /* padding-left: 26px; */
             label {
               font-size: 14px;
@@ -383,6 +472,8 @@ input[type="checkbox"] {
     .delivery_request_container {
       border-top: 1px solid #efefef;
       border-bottom: 1px solid #efefef;
+      border-top: 1px solid #efefef;
+      border-bottom: 1px solid #efefef;
       width: 100%;
       .delivery_request_inner {
         width: 100%;
@@ -391,13 +482,19 @@ input[type="checkbox"] {
         .deliveryrequest {
           width: 200px;
           padding: 20px;
+          width: 200px;
+          padding: 20px;
         }
         #deliveryrequest {
           width: 300px;
           /* height: 20px; */
           padding: 12px 10px;
+          width: 300px;
+          /* height: 20px; */
+          padding: 12px 10px;
           display: flex;
           align-items: center;
+          /* padding: 24px 108px 26px 30px; */
           /* padding: 24px 108px 26px 30px; */
           border: 1px solid #eee;
           p {
@@ -510,6 +607,9 @@ input[type="checkbox"] {
         margin: 40px 0 30px;
         /* padding-top: 42px;
         padding-bottom: 22px; */
+        margin: 40px 0 30px;
+        /* padding-top: 42px;
+        padding-bottom: 22px; */
       }
       .pay_inner {
         width: 100%;
@@ -522,10 +622,13 @@ input[type="checkbox"] {
           height: 118px;
           gap: 20px;
           padding: 0 100px;
+          padding: 0 100px;
           background: #efefef;
+          font-size: 14px;
           font-size: 14px;
           .pay_btn {
             display: flex;
+            /* justify-content: center; */
             /* justify-content: center; */
             gap: 100px;
             .btn_p {
@@ -537,6 +640,7 @@ input[type="checkbox"] {
             display: flex;
             justify-content: start;
             /* padding-left: 108px; */
+            /* padding-left: 108px; */
             gap: 110px;
             .btn_p {
               display: flex;
@@ -546,8 +650,12 @@ input[type="checkbox"] {
         }
         .pay_text_sale {
           /* width: 100%;
+          /* width: 100%;
           height: 100%;
           padding-top: 22px;
+          padding-bottom: 24px; */
+          margin: 40px 0 20px;
+          padding-bottom: 10px;
           padding-bottom: 24px; */
           margin: 40px 0 20px;
           padding-bottom: 10px;
@@ -561,6 +669,7 @@ input[type="checkbox"] {
       .manual_text {
         display: flex;
         font-size: 14px;
+        /* padding-top: 14px; */
         /* padding-top: 14px; */
         flex-direction: column;
         gap: 14px;
@@ -583,13 +692,17 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     /* position: sticky; */
+    /* position: sticky; */
     h1 {
       font-size: 20px;
       font-weight: bold;
       /* padding-bottom: 16px; */
       margin: 20px 0;
+      /* padding-bottom: 16px; */
+      margin: 20px 0;
     }
     .pay_box_inner {
+      width: 100%;
       width: 100%;
       top: 80px;
       position: sticky;
@@ -598,13 +711,23 @@ input[type="checkbox"] {
       flex-direction: column;
       align-items: center;
       /* padding: 20px; */
+      /* padding: 20px; */
       .pay_box_text {
         display: flex;
         width: 100%;
         border-bottom: 1px solid #efefef;
         display: flex;
         justify-content: space-between;
+        justify-content: space-between;
         align-items: center;
+        /* padding: 16px 26px 14px 26px; */
+        ul {
+          width: 100%;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
         /* padding: 16px 26px 14px 26px; */
         ul {
           width: 100%;
@@ -617,14 +740,23 @@ input[type="checkbox"] {
           text-align: center;
           width: 100%;
           /* height: 24px; */
+          width: 100%;
+          /* height: 24px; */
           display: flex;
           justify-content: space-between;
+          gap: 16px;
+          /* margin-bottom: 16px; */
           gap: 16px;
           /* margin-bottom: 16px; */
           span {
             color: #9bce26;
           }
           h3 {
+            font-size: 14px;
+            font-weight: normal;
+          }
+          p {
+            font-weight: bold;
             font-size: 14px;
             font-weight: normal;
           }
@@ -639,6 +771,7 @@ input[type="checkbox"] {
         justify-content: space-between;
         align-items: center;
         padding: 20px;
+        padding: 20px;
         border-bottom: 1px solid #efefef;
         font-size: 20px;
         font-weight: bold;
@@ -646,8 +779,13 @@ input[type="checkbox"] {
           font-weight: normal;
           font-size: 16px;
         }
+        p:nth-child(1) {
+          font-weight: normal;
+          font-size: 16px;
+        }
         p:nth-child(2) {
           font-size: 20px;
+          color: var(--main-price-red);
           color: var(--main-price-red);
         }
       }
@@ -656,7 +794,9 @@ input[type="checkbox"] {
         width: 100%;
         justify-content: space-between;
         /* padding: 30px 50px 32px 26px; */
+        /* padding: 30px 50px 32px 26px; */
         font-weight: bold;
+        padding: 20px 20px 10px;
         padding: 20px 20px 10px;
       }
       .pay_thrd_box_text {
@@ -665,9 +805,15 @@ input[type="checkbox"] {
         flex-direction: column;
         /* padding: 0px 94px 84px 26px; */
         padding: 0 20px;
+        /* padding: 0px 94px 84px 26px; */
+        padding: 0 20px;
         font-size: 14px;
         cursor: pointer;
+        cursor: pointer;
         p {
+          /* border-bottom: 1px solid #333; */
+          text-decoration: underline;
+          font-size: 12px;
           /* border-bottom: 1px solid #333; */
           text-decoration: underline;
           font-size: 12px;
@@ -678,7 +824,12 @@ input[type="checkbox"] {
         display: flex;
         gap: 10px;
         /* justify-content: space; */
+        gap: 10px;
+        /* justify-content: space; */
         align-items: center;
+        /* padding: 0px 26px 38px 26px; */
+        padding: 20px;
+        font-size: 12px;
         /* padding: 0px 26px 38px 26px; */
         padding: 20px;
         font-size: 12px;
@@ -689,6 +840,7 @@ input[type="checkbox"] {
       width: 320px;
       height: 60px;
       border: none;
+      background-color: var(--main-btn-green);
       background-color: var(--main-btn-green);
       color: #fff;
       font-size: 16px;
@@ -704,7 +856,16 @@ input[type="checkbox"] {
   /* .title {
     padding-bottom: 30px;
   } */
+  .top_title {
+    display: none;
+  }
+  /* .title {
+    padding-bottom: 30px;
+  } */
   .contaniner_inner {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -718,11 +879,16 @@ input[type="checkbox"] {
         .main_container_name {
           flex-direction: column;
           align-items: start;
+          flex-direction: column;
+          align-items: start;
           width: 100%;
           font-size: 14px;
           padding: 10px 0;
           gap: 10px;
+          padding: 10px 0;
+          gap: 10px;
           label {
+            width: 100%;
             width: 100%;
             padding: 0;
             margin: 0;
@@ -730,13 +896,18 @@ input[type="checkbox"] {
           }
           #name {
             width: 100%;
+            width: 100%;
           }
         }
       }
       .phone_container {
         display: flex;
         padding: 10px 0;
+        padding: 10px 0;
         .phone_boxs {
+          flex-direction: column;
+          align-items: start;
+          gap: 10px;
           flex-direction: column;
           align-items: start;
           gap: 10px;
@@ -751,6 +922,8 @@ input[type="checkbox"] {
           }
           #phoneNum {
             width: 100%;
+          #phoneNum {
+            width: 100%;
           }
         }
       }
@@ -760,13 +933,19 @@ input[type="checkbox"] {
         flex-direction: column;
         align-items: start;
         gap: 10px;
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: start;
+        gap: 10px;
         label {
           width: 190px;
           display: flex;
           font-size: 14px;
           padding: 0;
+          padding: 0;
         }
         #email {
+          width: 100%;
           width: 100%;
         }
       }
@@ -780,6 +959,7 @@ input[type="checkbox"] {
         }
         .deliveryfirst {
           width: 100%;
+          padding: 20px 10px;
           padding: 20px 10px;
           .delivery {
             font-size: 14px;
@@ -796,12 +976,17 @@ input[type="checkbox"] {
           .delivery_address_boxs {
             width: 100%;
           }
+          .delivery_address_boxs {
+            width: 100%;
+          }
           .delivery_address_first {
             .delivery_address_text {
+              padding-top: 20px;
               padding-top: 20px;
               font-size: 14px;
             }
             .delivery_address_firstboxs {
+              width: 100%;
               width: 100%;
               display: flex;
               flex-direction: column;
@@ -810,16 +995,23 @@ input[type="checkbox"] {
               gap: 10px;
               #address {
                 width: 100%;
+                width: 100%;
               }
               .delivery_clickbox {
+                width: 100%;
                 width: 100%;
                 padding: 0;
                 /* margin-left: 26px; */
                 justify-content: center;
                 input[type="button"],
+                /* margin-left: 26px; */
+                justify-content: center;
+                input[type="button"],
                 buttom {
                   width: calc(100% / 3);
+                  width: calc(100% / 3);
                   font-size: 10px;
+                  font-weight: bold;
                   font-weight: bold;
                 }
               }

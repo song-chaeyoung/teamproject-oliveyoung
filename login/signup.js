@@ -1,5 +1,7 @@
 // header & footer
 
+// header & footer
+
 const header = document.querySelector("header");
 const sidebar = document.querySelector(".sidebar_common");
 const footer = document.querySelector("footer");

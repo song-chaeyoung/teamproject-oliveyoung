@@ -129,6 +129,12 @@ label {
     gap: 20px;
 }
 
+.address_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .address_wrapper > button {
     width: 596px;
     margin-top: 20px;
@@ -164,7 +170,13 @@ label {
     display: flex;
     align-items: center; 
     justify-content: space-between;
+    justify-content: space-between;
     span {
+        width: 100%;
+        margin-left: -70px;
+        &:hover{
+            cursor: pointer;
+            }
         width: 100%;
         margin-left: -70px;
         &:hover{
@@ -172,6 +184,19 @@ label {
             }
     }       
 }
+.agreeAll, .agreeCheck, .agree {
+    width: 100%;
+    flex-grow: 1;
+}
+.snsBox {
+    width: 180px;
+    flex-grow: 1;
+}
+.emailBox {
+    width: 180px;
+    flex-grow: 1;
+}
+
 .agreeAll, .agreeCheck, .agree {
     width: 100%;
     flex-grow: 1;
