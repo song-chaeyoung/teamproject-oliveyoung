@@ -722,6 +722,7 @@
     margin-bottom: 30px;
   }
   .product-items-all {
+    height: 430px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -761,15 +762,15 @@
     }
   }
   .productitem {
-    height: 433px;
+    height: 430px;
     margin: 0 20px;
-    border: 1px solid #f00;
     width: 220px;
     flex-direction: column;
     cursor: pointer;
     overflow: hidden;
     .productitem_img {
       position: relative;
+      height: 280px;
       width: 100%;
       overflow: hidden;
       img {
