@@ -1,7 +1,8 @@
 @import url(/common.css);
 
 main {
-    height: 300px ;
+    height: 400px ;
+    margin-bottom: 300px;
 }
 
     .loginText {
@@ -194,17 +195,17 @@ main {
     /* mobile */
     @media screen and (max-width: 1080px) {
     .tabs {
-        height: 90px;
+        height: 80px;
         margin-top: 45px;
         display: flex;
         justify-content: center;
         cursor: pointer;
         .tab1 {
             border: 1px solid #eee;
-            padding: 10px 30px;
+            padding: 10px;
             width: 100%;
             text-align: center;
-            line-height: 64px;
+            line-height: 60px;
             font-size: 16px;
             &.active {
             background: #9AC75B;
@@ -216,9 +217,9 @@ main {
             border: 1px solid #eee;
             border-left: none;
             width: 100%;
-            padding: 10px 30px;
+            padding: 10px;
             text-align: center;
-            line-height: 64px;
+            line-height: 60px;
             font-size: 16px;
             &.active {
             width: 100%;
@@ -247,10 +248,10 @@ main {
                 }
                 .memberId {
                     width: 100%;
-                    height: 90px;
+                    height: 80px;
                     margin: 0 auto;
                     border: 1px solid  #9BCE26;
-                    padding: 32px;
+                    padding: 28px;
                     align-items: center;
                     #inputId {
                         border: none;
@@ -262,12 +263,12 @@ main {
                 }
                 .memberPw {
                     width: 100%;
-                    height: 90px;
+                    height: 80px;
                     margin: 0 auto;
                     margin-bottom: 32px;
                     border: 1px solid  #9BCE26;
                     border-top: none;
-                    padding: 32px;
+                    padding: 28px;
                     align-items: center;
                     #inputPw {
                         border: none;
@@ -277,24 +278,10 @@ main {
                         font-size: 16px;
                     }
                 }
-                /* .idFind {
-                    display: flex;
-                    width: 100%;
-                    height: 90px;
-                    line-height: 144%;
-                    padding: 32px 0 ;
-                    justify-content: space-between;
-                    margin: 0 auto;
-                    .find {
-                        &:hover{
-                            cursor: pointer;
-                            }
-                    }
-                    } */
                     .loginBtn01 {
                         display: flex;
                         width: 100%;
-                        height: 90px;
+                        height: 80px;
                         justify-content: center;
                         align-items: center;
                         margin: 0 auto;
@@ -321,8 +308,7 @@ main {
                         button {
                             display: flex;
                             width: 100%; 
-                            height: 90px;
-                            /* padding: 16px 34px; */
+                            height: 80px;
                             justify-content: center;
                             align-items: center;
                             gap: 12px;
@@ -350,10 +336,10 @@ main {
         }
         .memberId {
             width: 100%;
-            height: 90px;
+            height: 80px;
             margin: 0 auto;
             border: 1px solid  #9BCE26;
-            padding: 30px;
+            padding: 28px;
             align-items: center;
             #inputId {
                 border: none;
@@ -365,12 +351,12 @@ main {
         }
         .memberPw {
             width: 100%;
-            height: 90px;
+            height: 80px;
             margin: 0 auto;
             margin-bottom: 32px;
             border: 1px solid  #9BCE26;
             border-top: none;
-            padding: 30px;
+            padding: 28px;
             align-items: center;
             #inputPw {
                 border: none;
@@ -383,7 +369,7 @@ main {
         .orderbtn {
             display: flex;
             width: 100%;
-            height: 90px;
+            height: 80px;
             justify-content: center;
             align-items: center;
             margin: 0 auto;

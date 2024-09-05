@@ -3,6 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- jQuery -->
+    <script
+      type="text/javascript"
+      defer
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      defer
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <!-- slick slider -->
+    <link rel="stylesheet" href="./slick.css" />
+    <link rel="stylesheet" href="./slick-theme.css" />
+    <script defer src="./slick.min.js"></script>
+    <!-- scrollTo -->
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.3/jquery.scrollTo.min.js"
+    ></script>
     <!-- STYTLE SHEET -->
     <link rel="stylesheet" href="./productDetail.css" />
     <script defer src="./productDetail.js"></script>
@@ -11,7 +31,7 @@
       src="https://kit.fontawesome.com/e28c4bff31.js"
       crossorigin="anonymous"
     ></script>
-    <!-- iomicon -->
+    <!-- ionicon -->
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -20,7 +40,16 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-    <title>Document</title>
+    <meta property="og:image" content="/indeximg/logo_s.svg" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:title" content="올리브영 온라인몰" />
+    <meta
+      property="og:description"
+      content="어디가? 올리브영! 뭐해? 올리브영! 전국매장과 온라인앱으로 가고 켜고, 주문하면 3시간 내 배송되는 오늘드림까지. 언제 어디서나 편리한 뷰티&헬스, 라이프스타일 쇼핑을 즐기는 곳, 올리브영"
+    />
+    <title>상품상세 | 올리브영</title>
+    <link rel="shortcut icon" href="/indeximg/logo_s.svg" type="image/x-icon" />
   </head>
   <body>
     <header></header>
@@ -29,11 +58,7 @@
         <section class="product-detail-A">
           <div class="A-left">
             <div class="thumbs">
-              <img
-                class="json-image"
-                src="https://images.innisfree.co.kr/upload/product/37621_p_S_667.png?T202408011737"
-                alt="thumbs"
-              />
+              <img class="json-image" src="" alt="thumbs" />
             </div>
             <div class="card-gift">
               <ul>
@@ -116,7 +141,7 @@
             <div class="points">
               <div class="desc">
                 <p>뷰티포인트</p>
-                <p>결제 금액의 1% 적립?</p>
+                <p>결제 금액의 1% 적립</p>
               </div>
               <div class="desc">
                 <p>배송비</p>
@@ -195,7 +220,65 @@
                   <i class="fa-solid fa-xmark"></i>
                 </span>
                 <div class="notice-inner">
-                  111111123123123123123123123123123123123
+                  <div class="notice-list">
+                    <h4 class="notice-list-main">제품요약정보</h4>
+                    <div class="notice-cont">
+                      <p>내용물의 용량 또는 중량</p>
+                      <p>100ml + 3ml</p>
+                    </div>
+                    <div class="notice-cont">
+                      <p>사용기한(또는 개봉 후 사용기간)</p>
+                      <p>민감성 및 모든 피부에 사용 적합</p>
+                    </div>
+                    <div class="notice-cont">
+                      <p>사용기한(또는 개봉 후 사용기간)</p>
+                      <p>
+                        18개월 이상 남아있는 제품부터 순차적으로 발송 / 개봉 후
+                        6개월
+                      </p>
+                    </div>
+                    <div class="notice-cont">
+                      <p>
+                        화장품제조업자,화장품책임판매업자 및 맞춤형
+                        화장품판매업자
+                      </p>
+                      <p>
+                        세안 후, 크림 단계에서 피부에 부드럽게 펴 발라 줍니다.
+                        자기 전, 피부에 듬뿍 발라 슬리핑 팩 처럼 사용해 주셔도
+                        됩니다
+                      </p>
+                    </div>
+                    <div class="notice-cont">
+                      <p>제조사</p>
+                      <p>엘오케이 유한회사</p>
+                    </div>
+                    <div class="notice-cont">
+                      <p>제조국</p>
+                      <p>프랑스</p>
+                    </div>
+                    <div class="notice-cont">
+                      <p>화장품법에 따라 기재해야 하는 모든 성분</p>
+                      <p>
+                        정제수 하이드로제네이티드폴리아이소부텐 다이메티콘
+                        글리세린 시어버터 판테놀 옥수수전분 프로판다이올
+                        부틸렌글라이콜 세틸피이지/피피지-10/1다이메티콘
+                        트라이하이드록시스테아린 병풀잎추출물 야콘뿌리즙
+                        징크글루코네이트 마데카소사이드 망가니즈글루코네이트
+                        알파-글루칸올리고사카라이드 실리카
+                        알루미늄하이드록사이드 마그네슘설페이트 만노오스
+                        카프릴로일글라이신 카프릴릴글라이콜 비트레오스실라발효물
+                        시트릭애씨드 트라이소듐에틸렌다이아민다이석시네이트
+                        락토바실러스 아세틸레이티드글라이콜스테아레이트
+                        말토덱스트린 폴리글리세릴-4아이소스테아레이트 토코페롤
+                        펜타에리스리틸테트라-다이-t-부틸하이드록시하이드로신나메이트
+                        티타늄디옥사이드
+                      </p>
+                    </div>
+                    <div class="notice-cont">
+                      <p>사용할 때의 주의사항</p>
+                      <p>해당사항 없음</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -235,10 +318,7 @@
                     placeholder="내용을 입력하세요. (최대 300자 이내)"
                   ></textarea>
                   <p>0/300자</p>
-                  <button
-                    type="submit"
-                    onclick="alert(`문의사항이 등록되었습니다.`)"
-                  >
+                  <button type="submit" onclick="validateForm()">
                     문의등록
                   </button>
                 </div>
@@ -348,6 +428,14 @@
                     />
                   </li>
                 </ul>
+              </div>
+              <!-- 모달 창 -->
+              <div id="myModal" class="modal-review">
+                <span class="close-btn-review-modal" onclick="closeModal()"
+                  >&times;</span
+                >
+                <img class="modal-content-review" id="modalImage" />
+                <div id="caption"></div>
               </div>
               <div class="review-title only_pc">
                 <div class="review-title-left only_pc">
@@ -535,7 +623,7 @@
                 <div class="personalitem_product_itme productitem">
                   <div class="productitem_img">
                     <img
-                      src="https://images.innisfree.co.kr/upload/product/37621_p1_S_240.jpg?T202408131647"
+                      src="https://images.innisfree.co.kr/upload/product/35097_l1_S_240.jpg?T202409030217"
                       alt=""
                     />
                     <ul class="productitem_img_hoverbox">
@@ -557,23 +645,23 @@
                     </ul>
                   </div>
                   <div class="productitem_text">
-                    <p>애플씨드 클렌징 오일</p>
-                    <h5>21,000</h5>
+                    <p>그린티 히알루론산 스킨케어 2종 세트</p>
+                    <h5>26,000</h5>
                     <ul>
-                      <li>#클렌징오일</li>
-                      <li>#클렌징오일</li>
+                      <li>#토너</li>
+                      <li>#로션</li>
                     </ul>
                     <ul>
                       <li><i class="fa-solid fa-star"></i></li>
                       <li>4.8</li>
-                      <li>(48,424)</li>
+                      <li>(19,990)</li>
                     </ul>
                   </div>
                 </div>
                 <div class="personalitem_product_itme productitem">
                   <div class="productitem_img">
                     <img
-                      src="https://images.innisfree.co.kr/upload/product/37621_p1_S_240.jpg?T202408131647"
+                      src="https://images.innisfree.co.kr/upload/product/36056_p1_S_240.jpg?T202409030217"
                       alt=""
                     />
                     <ul class="productitem_img_hoverbox">
@@ -595,23 +683,23 @@
                     </ul>
                   </div>
                   <div class="productitem_text">
-                    <p>애플씨드 클렌징 오일</p>
-                    <h5>21,000</h5>
+                    <p>그린티 아미노 수분 폼 클렌징</p>
+                    <h5>6,500</h5>
                     <ul>
-                      <li>#클렌징오일</li>
-                      <li>#클렌징오일</li>
+                      <li>#폼클렌징</li>
+                      <li>#폼클렌징</li>
                     </ul>
                     <ul>
                       <li><i class="fa-solid fa-star"></i></li>
-                      <li>4.8</li>
-                      <li>(48,424)</li>
+                      <li>4.9</li>
+                      <li>(11,904)</li>
                     </ul>
                   </div>
                 </div>
                 <div class="personalitem_product_itme productitem">
                   <div class="productitem_img">
                     <img
-                      src="https://images.innisfree.co.kr/upload/product/37621_p1_S_240.jpg?T202408131647"
+                      src="https://images.innisfree.co.kr/upload/product/35097_l1_S_240.jpg?T202409030217"
                       alt=""
                     />
                     <ul class="productitem_img_hoverbox">
@@ -633,23 +721,23 @@
                     </ul>
                   </div>
                   <div class="productitem_text">
-                    <p>애플씨드 클렌징 오일</p>
-                    <h5>21,000</h5>
+                    <p>그린티 히알루론산 스킨케어 2종 세트</p>
+                    <h5>26,000</h5>
                     <ul>
-                      <li>#클렌징오일</li>
-                      <li>#클렌징오일</li>
+                      <li>#토너</li>
+                      <li>#로션</li>
                     </ul>
                     <ul>
                       <li><i class="fa-solid fa-star"></i></li>
                       <li>4.8</li>
-                      <li>(48,424)</li>
+                      <li>(19,990)</li>
                     </ul>
                   </div>
                 </div>
                 <div class="personalitem_product_itme productitem">
                   <div class="productitem_img">
                     <img
-                      src="https://images.innisfree.co.kr/upload/product/37621_p1_S_240.jpg?T202408131647"
+                      src="https://images.innisfree.co.kr/upload/product/36056_p1_S_240.jpg?T202409030217"
                       alt=""
                     />
                     <ul class="productitem_img_hoverbox">
@@ -671,186 +759,291 @@
                     </ul>
                   </div>
                   <div class="productitem_text">
-                    <p>애플씨드 클렌징 오일</p>
-                    <h5>21,000</h5>
+                    <p>그린티 아미노 수분 폼 클렌징</p>
+                    <h5>6,500</h5>
                     <ul>
-                      <li>#클렌징오일</li>
-                      <li>#클렌징오일</li>
+                      <li>#폼클렌징</li>
+                      <li>#폼클렌징</li>
+                    </ul>
+                    <ul>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li>4.9</li>
+                      <li>(11,904)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="personalitem_product_itme productitem">
+                  <div class="productitem_img">
+                    <img
+                      src="https://images.innisfree.co.kr/upload/product/37641_p_S_240.png?T202409042347"
+                      alt=""
+                    />
+                    <ul class="productitem_img_hoverbox">
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-solid fa-cart-arrow-down"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-credit-card"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="productitem_text">
+                    <p>레티놀 그린티 PDRN 앰플 25mL</p>
+                    <h5>69,840</h5>
+                    <ul>
+                      <li>#증정</li>
+                      <li>#앰플</li>
+                    </ul>
+                    <ul>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li>4.9</li>
+                      <li>(2,954)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="personalitem_product_itme productitem">
+                  <div class="productitem_img">
+                    <img
+                      src="https://images.innisfree.co.kr/upload/product/37563_l_S_240.jpg?T202409042347"
+                      alt=""
+                    />
+                    <ul class="productitem_img_hoverbox">
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-solid fa-cart-arrow-down"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-credit-card"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="productitem_text">
+                    <p>유브이액티브 포어리스 선스크린 트리플 기획세트</p>
+                    <h5>22,800</h5>
+                    <ul>
+                      <li>#선크림</li>
+                      <li>#UV</li>
                     </ul>
                     <ul>
                       <li><i class="fa-solid fa-star"></i></li>
                       <li>4.8</li>
-                      <li>(48,424)</li>
+                      <li>(19,990)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="personalitem_product_itme productitem">
+                  <div class="productitem_img">
+                    <img
+                      src="https://images.innisfree.co.kr/upload/product/37143_l1_S_240.jpg?T202409042347"
+                      alt=""
+                    />
+                    <ul class="productitem_img_hoverbox">
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-solid fa-cart-arrow-down"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-credit-card"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="productitem_text">
+                    <p>비타C 잡티토닝패드</p>
+                    <h5>39,200</h5>
+                    <ul>
+                      <li>#토닝패드</li>
+                      <li>#잡티</li>
+                    </ul>
+                    <ul>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li>4.8</li>
+                      <li>(3,141)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="personalitem_product_itme productitem">
+                  <div class="productitem_img">
+                    <img
+                      src="https://image.oliveyoung.co.kr/cfimages/cf-goods/uploads/images/html/crop/A000000207444/202408292344/crop0/img.manyo.co.kr/page/231110/pure_10_03.jpg?created=202408292345"
+                      alt=""
+                    />
+                    <ul class="productitem_img_hoverbox">
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-solid fa-cart-arrow-down"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-credit-card"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="productitem_text">
+                    <p>마녀공장 퓨어 클렌징 오일 200mlX2</p>
+                    <h5>21,900</h5>
+                    <ul>
+                      <li>#세일</li>
+                      <li>#쿠폰</li>
+                    </ul>
+                    <ul>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li>4.9</li>
+                      <li>(43,461)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="personalitem_product_itme productitem">
+                  <div class="productitem_img">
+                    <img
+                      src="https://images.innisfree.co.kr/upload/product/36865_l1_S_240.jpg?T202409042347"
+                      alt=""
+                    />
+                    <ul class="productitem_img_hoverbox">
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-solid fa-cart-arrow-down"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-credit-card"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="productitem_text">
+                    <p>콜라겐 그린티 세라마이드 탄력장벽 크립</p>
+                    <h5>19,600</h5>
+                    <ul>
+                      <li>#세일</li>
+                      <li>#탄력장벽크림</li>
+                    </ul>
+                    <ul>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li>4.9</li>
+                      <li>(15,948)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="personalitem_product_itme productitem">
+                  <div class="productitem_img">
+                    <img
+                      src="https://images.innisfree.co.kr/upload/product/35136_l1_S_240.jpg?T202409042347"
+                      alt=""
+                    />
+                    <ul class="productitem_img_hoverbox">
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-solid fa-cart-arrow-down"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-credit-card"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="productitem_text">
+                    <p>왕벚꽃 톤업 크림</p>
+                    <h5>20,250</h5>
+                    <ul>
+                      <li>#크림</li>
+                      <li>#세일</li>
+                    </ul>
+                    <ul>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li>4.7</li>
+                      <li>(1,346)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="personalitem_product_itme productitem">
+                  <div class="productitem_img">
+                    <img
+                      src="https://images.innisfree.co.kr/upload/product/34622_l1_S_240.jpg?T202409042347"
+                      alt=""
+                    />
+                    <ul class="productitem_img_hoverbox">
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-heart"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-solid fa-cart-arrow-down"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">
+                          <i class="fa-regular fa-credit-card"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="productitem_text">
+                    <p>비자 시카 밤 EX</p>
+                    <h5>38,000</h5>
+                    <ul>
+                      <li>#시카</li>
+                      <li>#밤</li>
+                    </ul>
+                    <ul>
+                      <li><i class="fa-solid fa-star"></i></li>
+                      <li>4.7</li>
+                      <li>(13,044)</li>
                     </ul>
                   </div>
                 </div>
               </div>
               <div class="controls">
-                <span><i class="fa-solid fa-angle-left"></i></span>
-                <span><i class="fa-solid fa-angle-right"></i></span>
-              </div>
-            </div>
-          </div>
-          <div class="similar-product-list">
-            <h1>이 제품을 본 분들의 관심 제품</h1>
-            <div class="product-items-all">
-              <div class="product-items-list">
-                <div class="personalitem_product_itme productitem">
-                  <div class="productitem_img">
-                    <img
-                      src="https://images.innisfree.co.kr/upload/product/37621_p1_S_240.jpg?T202408131647"
-                      alt=""
-                    />
-                    <ul class="productitem_img_hoverbox">
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-regular fa-heart"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-solid fa-cart-arrow-down"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-regular fa-credit-card"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="productitem_text">
-                    <p>애플씨드 클렌징 오일</p>
-                    <h5>21,000</h5>
-                    <ul>
-                      <li>#클렌징오일</li>
-                      <li>#클렌징오일</li>
-                    </ul>
-                    <ul>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li>4.8</li>
-                      <li>(48,424)</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="personalitem_product_itme productitem">
-                  <div class="productitem_img">
-                    <img
-                      src="https://images.innisfree.co.kr/upload/product/37621_p1_S_240.jpg?T202408131647"
-                      alt=""
-                    />
-                    <ul class="productitem_img_hoverbox">
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-regular fa-heart"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-solid fa-cart-arrow-down"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-regular fa-credit-card"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="productitem_text">
-                    <p>애플씨드 클렌징 오일</p>
-                    <h5>21,000</h5>
-                    <ul>
-                      <li>#클렌징오일</li>
-                      <li>#클렌징오일</li>
-                    </ul>
-                    <ul>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li>4.8</li>
-                      <li>(48,424)</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="personalitem_product_itme productitem">
-                  <div class="productitem_img">
-                    <img
-                      src="https://images.innisfree.co.kr/upload/product/37621_p1_S_240.jpg?T202408131647"
-                      alt=""
-                    />
-                    <ul class="productitem_img_hoverbox">
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-regular fa-heart"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-solid fa-cart-arrow-down"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-regular fa-credit-card"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="productitem_text">
-                    <p>애플씨드 클렌징 오일</p>
-                    <h5>21,000</h5>
-                    <ul>
-                      <li>#클렌징오일</li>
-                      <li>#클렌징오일</li>
-                    </ul>
-                    <ul>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li>4.8</li>
-                      <li>(48,424)</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="personalitem_product_itme productitem">
-                  <div class="productitem_img">
-                    <img
-                      src="https://images.innisfree.co.kr/upload/product/37621_p1_S_240.jpg?T202408131647"
-                      alt=""
-                    />
-                    <ul class="productitem_img_hoverbox">
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-regular fa-heart"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-solid fa-cart-arrow-down"></i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="javascript:void(0)">
-                          <i class="fa-regular fa-credit-card"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="productitem_text">
-                    <p>애플씨드 클렌징 오일</p>
-                    <h5>21,000</h5>
-                    <ul>
-                      <li>#클렌징오일</li>
-                      <li>#클렌징오일</li>
-                    </ul>
-                    <ul>
-                      <li><i class="fa-solid fa-star"></i></li>
-                      <li>4.8</li>
-                      <li>(48,424)</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="controls">
-                <span><i class="fa-solid fa-angle-left"></i></span>
-                <span><i class="fa-solid fa-angle-right"></i></span>
+                <span class="prev"><i class="fa-solid fa-angle-left"></i></span>
+                <span class="next"
+                  ><i class="fa-solid fa-angle-right"></i
+                ></span>
               </div>
             </div>
           </div>

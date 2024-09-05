@@ -705,11 +705,26 @@ const makeClone = () => {
 };
 
 const firstPosition = (slides) => {
+  // // const slideWidth = slides[0].clientWidth;
   // const slideWidth = slides[0].clientWidth;
-  const slideWidth = slides[0].clientWidth;
-  // console.log(slideWidth);
-  brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
+  // // console.log(slideWidth);
+  // brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
+
+  let slidesss = document.querySelector(".brand_content");
+
+  setTimeout(() => {
+    const slideWidth = slidesss.clientWidth;
+    console.log(slideWidth);
+    brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
+  }, 300);
 };
+
+window.addEventListener("resize", function () {
+  let slidesss = document.querySelector(".brand_content");
+  const slideWidth = slidesss.clientWidth;
+  console.log(slideWidth);
+  brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
+});
 
 creatBrandSlide = (brandData) => {
   brandData.forEach((item) => {

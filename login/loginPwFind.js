@@ -19,8 +19,6 @@ tabs.forEach((tab, i) => {
 });
 
 
-
-
 // header & footer
 
 const header = document.querySelector("header");
@@ -71,16 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
           contents[index].classList.add('active');
 
           if(index === 0) {
-              loginText.textContent = '아이디 찾기';
-            //   loginSubText.textContent = '휴대폰번호로 아이디 찾기';
+              loginText.textContent = '비밀번호 찾기';
           } else {
-              loginText.textContent = '아이디 찾기';
-            //   loginSubText.textContent = '이메일주소로 아이디찾기';
+              loginText.textContent = '비밀번호 찾기';
           }
       });
   });
 });
-
 
 
 
@@ -97,13 +92,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const nameValue = inputMemberName.value.trim();
     const PhoneNumValue = inputMemberPhoneNum.value.trim();
 
-
       if (nameValue === "") {
           alert("이름을 입력하세요.");
           inputMemberName.focus();
           return false;
       }
-
 
             const namePattern = /^[가-힣]+$/;
             if (!namePattern.test(nameValue)) {
@@ -113,12 +106,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 return false;
             }
 
-
         if (PhoneNumValue === "") {
         alert("휴대폰번호를 입력하세요.");
         inputMemberPhoneNum.focus();
         return false;
     }
+
 
       const phoneNumPattern = /^010\d{8}$/;
       if (!PhoneNumValue.match(phoneNumPattern)) {
@@ -131,10 +124,9 @@ document.addEventListener("DOMContentLoaded", function () {
       return true;
   }
 
-
   loginBtn.addEventListener("click", function (e) {
       if (!validateLoginForm()) {
-          e.preventDefault();
+          e.preventDefault(); 
       } else {
           alert("아이디 찾기 페이지로 넘어갑니다!");
       }
@@ -142,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   const orderBtn = document.querySelector(".orderbtn button");
-
 
   const inputOrderName = document.querySelector(".content2 #inputId");
   const inputOrderNumber = document.querySelector(".content2 #inputPw");

@@ -3,20 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="/indeximg/logo_s.svg" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:title" content="올리브영 온라인몰" />
+    <meta
+      property="og:description"
+      content="어디가? 올리브영! 뭐해? 올리브영! 전국매장과 온라인앱으로 가고 켜고, 주문하면 3시간 내 배송되는 오늘드림까지. 언제 어디서나 편리한 뷰티&헬스, 라이프스타일 쇼핑을 즐기는 곳, 올리브영"
+    />
+    <title>회원가입 | 올리브영</title>
+    <link
+      rel="shortcut icon"
+      href="/indeximg/logo_s.svg"
+      type="image/x-icon"
+    />
     <!--fontawesome-->
     <script src="https://kit.fontawesome.com/dc916c7b69.js" crossorigin="anonymous"></script>
     <!--custom css & JS-->
     <link rel="stylesheet" href="./signup.css" />
     <script defer src="./signup.js"></script>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <title>Document</title>
   </head>
   <body>
     <!--header-->
     <header></header>
     <main>
     <div class="inner">
-        <!-- <form action="http://localhost:3000" method="post"> -->
           <div class="wrapper">
             <h3>
               회원가입
@@ -109,9 +121,7 @@
                     <input type="text" id="address_detail" class="inputbox" placeholder="상세주소를 입력해주세요." />
                 </div>
           </div>
-          <!--line-->
           <br>
-          <!-- <hr /> -->
             <!--이용약관동의-->
           <div class="useCheck_wrapper">
               <label class="useCheck">이용약관 동의 <span>*</span></label>
@@ -202,12 +212,10 @@
                 <button id="confirmButton">확인</button>
               </div>
             </div>
-        <!-- </form> -->
 </div>
 </div>
     </main>
     <div class="sidebar_common"></div>
-    <!--footer-->
     <footer></footer>
   </body>
 </html>

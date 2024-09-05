@@ -1,5 +1,7 @@
 @import url("/common.css");
 
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap");
+
 h1 {
   font: 700 26px/1 "Noto Sans";
   /* section title */
@@ -601,10 +603,11 @@ button {
             .todayprice_content_item_timer_sale {
               display: flex;
               align-items: center;
+              justify-content: center;
               gap: 8px;
               color: var(--white);
               background: var(--main-btn-green);
-              width: fit-content;
+              width: 100%;
               padding: 6px 12px;
               margin-bottom: 12px;
               i {
@@ -616,8 +619,11 @@ button {
               }
             }
             .todayprice_content_item_timer_num {
-              font: normal 34px/1 "Noto Sans";
-              letter-spacing: -3px;
+              font: 300 50px/1 "Teko";
+              color: #333;
+              letter-spacing: -1px;
+              width: 100%;
+              text-align: center;
             }
           }
         }
@@ -1430,14 +1436,13 @@ button {
           .todayprice_content_item_wrapper {
             .todayprice_content_item_timer {
               .todayprice_content_item_timer_sale {
-                border-radius: 10px;
                 padding: 6px 10px;
                 p {
                   font: 500 14px/1 "Noto Sans";
                 }
               }
               .todayprice_content_item_timer_num {
-                font: normal 30px/1 "Noto Sans";
+                font: 300 40px/1 "Teko";
               }
             }
           }
@@ -1493,22 +1498,16 @@ button {
         text-align: center;
       }
       .todayranking_tab_container {
-        align-self: flex-start;
         .todayranking_tab {
-          transform: translate(0, 0);
-          overflow-x: scroll;
-          width: 445px;
-          height: 60px;
+          flex-wrap: wrap;
+          width: 100%;
           gap: 12px;
           margin-bottom: 0;
-          -ms-overflow-style: none;
-          &::-webkit-scrollbar {
-            display: none;
-          }
+          justify-content: center;
           li {
+            width: fit-content;
             height: fit-content;
             padding: 8px 10px;
-            /* padding: 8px 6px; */
             font-size: 12px;
           }
         }
@@ -1591,7 +1590,6 @@ button {
                 font: 400 14px/1.2 "Noto Sans";
                 margin: 2px 0;
               }
-
               > p:nth-of-type(1) {
                 font: 500 14px/1 "Noto Sans";
               }

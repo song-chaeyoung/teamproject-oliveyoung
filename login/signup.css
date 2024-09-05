@@ -3,8 +3,10 @@
 
     .wrapper {
         margin: 0 auto;
-        width: 980px;
+        width: 90%;
+        max-width: 980px;
         margin-top: 240px;
+        margin-bottom: 100px;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -36,7 +38,7 @@ h4 {
 .user_name, .user_email, 
 .user_phone, .user_address {
     display: flex;
-    position: relative; /**/   
+    position: relative;  
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
@@ -102,10 +104,6 @@ label {
         }
 }
 
-.token_wrapper > button {
-    color: #aaa;
-    border: 1px solid #eee;
-}
 
 .address_wrapper {
     display: flex;
@@ -244,11 +242,6 @@ text-align: center;
         border: none;
         cursor: pointer;
     }
-    
-    /* #confirmBtn:hover {
-        background-color: #4e006b;
-    } */
-
 
     /* mobile */
     @media screen and (max-width: 1080px) {
@@ -268,7 +261,7 @@ text-align: center;
         .wrapper {
             width: 100%;
             margin-top: 120px;
-            display: flex;  /**/
+            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -369,10 +362,6 @@ text-align: center;
         border: 1px solid #9AC75B;
     }
     
-    .token_wrapper > button {
-        color: #aaa;
-        border: 1px solid #eee;
-    }
     
     .address_wrapper > button {
         width: 100%;
@@ -395,6 +384,8 @@ text-align: center;
     .useCheck_section {
         display: flex;
         width: 100%;
+        font-size: 14px;
+        overflow: hidden;
         height: 40px;
         align-items: center; 
         justify-content: space-between;
@@ -404,21 +395,24 @@ text-align: center;
     }
     .agreeAll, .agreeCheck, .agree {
         margin-bottom: 36px;
+        font-size: 16px;
         flex-grow: 1;
         display: flex;
         align-items: center;
         }
 
         .snsBox {
-            width: 200px;
+            width: 154px;
             flex-grow: 1;
             margin-bottom: 26px;
+            font-size: 16px;
         }
     
         .emailBox {
             width: 200px;
             flex-grow: 1;
             margin-bottom: 26px;
+            font-size: 16px;
         }
         
 

@@ -191,7 +191,7 @@ function cartEmpty() {
 cartEmpty();
 
 const mobileSticky = document.querySelector(".pay_sticky_container");
-console.log(mobileSticky);
+
 function mobileStickyStyle() {
   if (
     cartItems === null ||
