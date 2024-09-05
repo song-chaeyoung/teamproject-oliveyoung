@@ -33,6 +33,10 @@ fetch("/component/footer.html")
   });
 
 document.addEventListener("DOMContentLoaded", function () {
+  let isIdChecked = false;
+  let isEmailChecked = false;
+  let isPhoneVerified = false;
+
   const signId = document.getElementById("signId");
   const password1 = document.getElementById("password1");
   const password2 = document.getElementById("password2");
@@ -141,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const isIdAvailable = true;
       if (isIdAvailable) {
         alert("사용 가능한 아이디입니다.");
+        isIdChecked = true;
       } else {
         alert("이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.");
       }
@@ -156,6 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const isEmailAvailable = true;
       if (isEmailAvailable) {
         alert("사용 가능한 이메일입니다.");
+        isEmailChecked = true;
       } else {
         alert("이미 사용 중인 이메일입니다. 다른 이메일을 입력해주세요.");
       }
@@ -212,7 +218,11 @@ document.addEventListener("DOMContentLoaded", function () {
       (checkbox) => checkbox.checked
     );
 
-    if (!formValid) {
+    if (!isIdChecked) {
+      alert("아이디 중복 확인을 해주세요.");
+    } else if (!isEmailChecked) {
+      alert("이메일 중복 확인을 해주세요.");
+    } else if (!formValid) {
       alert("모든 입력 항목을 올바르게 작성해주세요.");
     } else if (!allRequiredChecked) {
       alert("필수 이용약관에 동의해주세요.");

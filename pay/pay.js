@@ -66,19 +66,18 @@ function sample6_execDaumPostcode() {
 }
 
 // 유효성검사
+
 document.addEventListener("DOMContentLoaded", function () {
   const loginBtn = document.querySelector("button");
 
   const nameId = document.getElementById("name");
   const phoneNum = document.getElementById("phoneNum");
-  const phoneNumId = document.getElementById("phone");
   const email = document.getElementById("email");
-
+  const emailId = document.getElementById("email");
   const delivery = document.getElementById("delivery");
   const address = document.getElementById("address");
-
+  const second = document.getElementById("second");
   const phoneNums = document.getElementById("phoneNums");
-
   const payCheckbox = document.getElementById("pay");
 
   const errorname = document.getElementById("error_name");
@@ -86,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const erroremail = document.getElementById("error_email");
   const errordelivey = document.getElementById("error_delivey");
   const erroraddress = document.getElementById("error_address");
-
+  const errorsecond = document.getElementById("error_second");
   const errorphonenum = document.getElementById("error_phoneNums");
   const errorPay = document.getElementById("error_pay");
 
@@ -101,8 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const phoneNumsRegex2 = /^(011|017|018|019|016)\d{3}\d{4}$/;
 
   function validateLoginForm() {
-    let isValid = true;
-
     const nameValue = nameId.value.trim();
     const phoneNumValue = phoneNum.value.trim();
     const emailValue = email.value.trim();
@@ -110,76 +107,155 @@ document.addEventListener("DOMContentLoaded", function () {
     const addressValue = address.value.trim();
     const phoneNumsValue = phoneNums.value.trim();
 
-    if (nameValue.length < 2 || !nameRegex.test(nameValue)) {
-      errorname.textContent =
-        "이름은 한글만 입력할 수 있으며 2글자 이상이어야 합니다.";
-      isValid = false;
-    } else {
-      errorname.textContent = "";
+    if (nameValue.length < 2) {
+      alert("이름을 입력하세요");
+      nameId.focus();
+      return false;
+    } else if (!nameRegex.test(nameValue)) {
+      alert("이름은 한글만 입력할 수 있습니다.");
+      nameId.focus();
+      return false;
     }
 
     if (
       !phoneNumsRegex1.test(phoneNumValue) &&
       !phoneNumsRegex2.test(phoneNumValue)
     ) {
-      errorPhoneNum.textContent = "유효한 연락처를 입력하세요.";
-      isValid = false;
-    } else {
-      errorPhoneNum.textContent = "";
+      alert("유효한 연락처를 입력하세요.");
+      phoneNum.focus();
+      return false;
     }
 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (emailValue.length < 5 || !emailRegex.test(emailValue)) {
-      erroremail.textContent = "올바른 이메일 주소를 입력하세요.";
-      isValid = false;
-    } else {
-      erroremail.textContent = "";
+      alert("올바른 이메일 주소를 입력하세요.");
+      emailId.focus();
+      return false;
     }
 
-    if (deliveryValue.length < 2 || !deliveyRegex.test(deliveryValue)) {
-      errordelivey.textContent = "받으시는 분의 이름을 입력해주세요.";
-      isValid = false;
-    } else {
-      errordelivey.textContent = "";
+    if (deliveryValue.length < 2) {
+      alert("이름을 입력하세요");
+      delivery.focus();
+      return false;
+    } else if (!deliveyRegex.test(deliveryValue)) {
+      alert("받으시는 분의 이름을 입력해주세요.");
+      delivery.focus();
+      return false;
     }
 
-    if (addressValue === "" || !addressRegex.test(addressValue)) {
-      erroraddress.textContent = "주소를 입력해 주세요.";
-      isValid = false;
-    } else {
-      erroraddress.textContent = "";
+    if (addressValue === "") {
+      alert("주소를 입력해주세요");
+      address.focus();
+      return false;
     }
-
     if (
       !phoneNumsRegex1.test(phoneNumsValue) &&
       !phoneNumsRegex2.test(phoneNumsValue)
     ) {
-      errorphonenum.textContent = "유효한 휴대폰번호를 입력하세요.";
-      isValid = false;
+      alert("유효한 휴대폰번호를 입력하세요.");
+      phoneNums.focus();
+      return false;
+    }
+
+    const btnChecked = payCheckbox.checked;
+    if (!btnChecked) {
+      alert("필수 약관에 동의해주세요.");
+      errorPay.innerText = "약관에 동의해야 합니다.";
+      return false;
+    } else {
+      errorPay.textContent = "";
+    }
+
+    return true;
+  }
+
+  function validateId() {
+    if (!nameRegex.test(nameId.value)) {
+      errorname.textContent = "올바르지 않은 이름 입니다.";
+    } else {
+      errorname.textContent = "";
+    }
+  }
+
+  function validatePhoneNum() {
+    if (
+      !(phoneRegex11.test(phoneNum.value) || phoneRegex10.test(phoneNum.value))
+    ) {
+      errorPhoneNum.textContent = "휴대폰 번호를 정확히 입력해주세요.";
+    } else {
+      errorPhoneNum.textContent = "";
+    }
+
+    return true;
+  }
+
+  function validateemail() {
+    if (!emailRegex.test(email.value)) {
+      erroremail.textContent = "유효한 이메일 주소를 입력해주세요.";
+    } else {
+      erroremail.textContent = "";
+    }
+  }
+
+  function validatendelivery() {
+    if (!deliveyRegex.test(delivery.value)) {
+      errordelivey.textContent = "올바르지 않은 이름 입니다.";
+    } else {
+      errordelivey.textContent = "";
+    }
+  }
+
+  function validatenadress() {
+    if (!addressRegex.test(erroraddress.value)) {
+      erroraddress.textContent = "주소를 입력해 주세요";
+    } else {
+      erroraddress.textContent = "";
+    }
+  }
+  function validatensecond() {
+    if (!secondRegex.test(errorsecond.value)) {
+      errorsecond.textContent = "주소를 입력해 주세요";
+    } else {
+      errorsecond.textContent = "";
+    }
+  }
+
+  function validatephoneNums() {
+    if (
+      !(
+        phoneNumsRegex1.test(phoneNums.value) ||
+        phoneNumsRegex2.test(phoneNums.value)
+      )
+    ) {
+      errorphonenum.textContent = "휴대폰 번호를 정확히 입력해주세요.";
     } else {
       errorphonenum.textContent = "";
     }
-
-    return isValid;
   }
 
   function validateCheckbox() {
     const btnChecked = payCheckbox.checked;
     if (!btnChecked) {
+      errorPay.textContent = "약관에 동의해야 합니다.";
+    } else {
       errorPay.textContent = "";
-      alert("필수동의 해주세요");
-      return false;
     }
-    errorPay.textContent = "";
-    return true;
   }
+
+  nameId.addEventListener("input", validateId);
+  phoneNum.addEventListener("input", validatePhoneNum);
+  email.addEventListener("input", validateemail);
+  delivery.addEventListener("input", validatendelivery);
+  address.addEventListener("input", validatenadress);
+  second.addEventListener("input", validatensecond);
+  phoneNums.addEventListener("input", validatephoneNums);
+  payCheckbox.addEventListener("change", validateCheckbox);
 
   loginBtn.addEventListener("click", function (e) {
     e.preventDefault();
-
-    const isFormValid = validateLoginForm();
-    const isCheckboxValid = validateCheckbox();
-
-    if (isFormValid && isCheckboxValid) {
+    if (!validateLoginForm()) {
+    } else {
+      alert("올리브영 회원님 반갑습니다!");
       window.location.href = "/pay/payfinish.html";
     }
   });

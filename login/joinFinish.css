@@ -37,7 +37,7 @@ main {
 .buttonHome {
   width: 180px;
   height: 70px;
-  padding: 15px 30px;
+  padding: 22px 30px;
   font-size: 16px;
   border: 1px solid #9ac75b;
   color: #9ac75b;
@@ -94,7 +94,7 @@ main {
   .buttonHome {
     width: 160px;
     height: 70px;
-    padding: 15px 30px;
+    padding: 22px 30px;
     font-size: 16px;
     border: 1px solid #9ac75b;
     color: #9ac75b;

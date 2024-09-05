@@ -793,8 +793,6 @@ input[type="checkbox"] {
         display: flex;
         width: 100%;
         justify-content: space-between;
-        /* padding: 30px 50px 32px 26px; */
-        /* padding: 30px 50px 32px 26px; */
         font-weight: bold;
         padding: 20px 20px 10px;
         padding: 20px 20px 10px;
@@ -803,34 +801,27 @@ input[type="checkbox"] {
         width: 100%;
         display: flex;
         flex-direction: column;
-        /* padding: 0px 94px 84px 26px; */
-        padding: 0 20px;
-        /* padding: 0px 94px 84px 26px; */
         padding: 0 20px;
         font-size: 14px;
         cursor: pointer;
         cursor: pointer;
         p {
-          /* border-bottom: 1px solid #333; */
-          text-decoration: underline;
-          font-size: 12px;
-          /* border-bottom: 1px solid #333; */
           text-decoration: underline;
           font-size: 12px;
         }
+      }
+      #error_pay {
+        align-self: flex-start;
+        color: #f00;
+        font-size: 12px;
+        padding: 0 20px;
       }
       .pay_forn_box {
         width: 100%;
         display: flex;
         gap: 10px;
-        /* justify-content: space; */
-        gap: 10px;
-        /* justify-content: space; */
         align-items: center;
-        /* padding: 0px 26px 38px 26px; */
-        padding: 20px;
-        font-size: 12px;
-        /* padding: 0px 26px 38px 26px; */
+        justify-content: space-between;
         padding: 20px;
         font-size: 12px;
       }
@@ -1101,6 +1092,7 @@ input[type="checkbox"] {
       }
       .pay_container {
         .pay_inner {
+          width: 100%;
           .pay_btns {
             width: 100%;
             height: fit-content;
@@ -1151,12 +1143,12 @@ input[type="checkbox"] {
         .pay_thrd_box_text {
           font-size: 12px;
         }
-      }
-      .button {
-        width: 100%;
-      }
-      button {
-        width: 100%;
+        .div {
+          width: 100%;
+          button {
+            width: 100%;
+          }
+        }
       }
     }
   }
