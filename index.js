@@ -39,7 +39,6 @@ const slideArrowRight = document.querySelector(".mainslide_arrow_right");
 fetch(indexInfo)
   .then((response) => response.json())
   .then((data) => {
-    console.log("슬라이드 데이터 ==>", JSON.parse(JSON.stringify(data)));
     slideData = data.mainsilde;
   });
 
@@ -123,6 +122,7 @@ fetch(productJson)
     return new Promise(async (resolve) => {
       try {
         await createProductData(data);
+        cartEvent();
         resolve();
       } catch (error) {
         console.error(error);
@@ -209,7 +209,6 @@ productItem.forEach((item, idx) => {
     const url = `/product/productDetail.html?category=${encodeURIComponent(
       category
     )}&id=${targetId}`;
-
     window.location.href = url;
   });
 });
@@ -340,6 +339,19 @@ function listPush() {
   });
 
   shortcutModal.classList.remove("active");
+
+  const choiceIcons = document.querySelectorAll(".shortcut_icon");
+  choiceIcons.forEach((icon) => {
+    if (icon.querySelector("p").innerText === "장바구니") {
+      icon.addEventListener("click", () => {
+        window.location.href = `/cart/cart.html`;
+      });
+    } else if (icon.querySelector("p").innerText === "매장안내") {
+      icon.addEventListener("click", () => {
+        window.location.href = `/api/api.html`;
+      });
+    }
+  });
 }
 
 shortcutSetting.addEventListener("click", () => {
@@ -357,7 +369,9 @@ shortcutSetting.addEventListener("click", () => {
     shortcutModal.classList.remove("active");
   });
 
-  document.addEventListener("keydown", listPush);
+  document.addEventListener("keydown", (e) => {
+    if (e.code == "Enter") listPush();
+  });
 });
 
 modalTabs.forEach((tab, i) => {
@@ -420,6 +434,51 @@ pushBtn.addEventListener("click", listPush);
 
 // personalitem Event
 const form = document.querySelector(".personalitem_select_container");
+
+const personalItemRandom = () => {
+  const personalProducts = document.querySelectorAll(
+    ".personalitem_product_itme"
+  );
+  let randomNum = new Set();
+  personalProducts.forEach((product, idx) => {
+    for (let i = 0; i <= idx; i++) {
+      randomNum = Math.floor(Math.random() * productData.length);
+    }
+
+    price = new Intl.NumberFormat("ko-kr", {
+      currency: "KRW",
+    }).format(productData[randomNum].salePrice);
+    if (randomNum == productData[randomNum].id) {
+      product.innerHTML = commonChangeElement(productData[randomNum]);
+    }
+  });
+};
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const inputs = document.querySelectorAll(".personalitem_select_type input");
+  let isChecked = false;
+  inputs.forEach((input) => {
+    if (input.checked) {
+      isChecked = true;
+    }
+  });
+  if (!isChecked) {
+    alert("피부 정보를 입력해주세요!");
+  } else {
+    document
+      .querySelector(".personalitem_product_itmes_loading")
+      .classList.add("loading");
+    setTimeout(() => {
+      document
+        .querySelector(".personalitem_product_itmes_loading")
+        .classList.remove("loading");
+    }, 3000);
+    personalItemRandom();
+  }
+  cartEvent();
+});
 
 // todayprice Timer
 const todayPriceTimers = document.querySelectorAll(
@@ -534,6 +593,7 @@ const productChange = (tab, i) => {
       item.innerHTML = commonChangeElement(allProductData[idx]);
     } else item.innerHTML = commonChangeElement(categoryItems[idx]);
   });
+  cartEvent();
 };
 
 todayRankingTabs.forEach((tab, i) => {
@@ -546,6 +606,69 @@ todayRankingTabs.forEach((tab, i) => {
   });
 });
 
+// TodayRanking Category Touch Event Mobile
+const todayRankingTabContainer = document.querySelector(".todayranking_tab");
+const listClientWidth = todayRankingTabContainer.clientWidth;
+const listScrollWidth =
+  todayRankingTabContainer.clientWidth + todayRankingTabContainer.scrollWidth;
+let startX = 0;
+let nowX = 0;
+let endX = 0;
+let listX = 0;
+
+const getClientX = (e) => {
+  return e.touches ? e.touches[0].clientX : e.clientX;
+};
+
+const getTranslateX = () => {
+  return parseInt(
+    getComputedStyle(todayRankingTabContainer).transform.split(/[^\-0-9]+/g)[5]
+  );
+};
+
+const setTranslateX = (x) => {
+  todayRankingTabContainer.style.transform = `translateX(${x}px)`;
+};
+
+const onScrollMove = (e) => {
+  e.stopPropagation();
+  nowX = getClientX(e);
+  startX = getClientX(e);
+  setTranslateX(listX + nowX - startX);
+};
+
+const onScrollEnd = (e) => {
+  endX = getClientX(e.clientX);
+  listX = getTranslateX();
+
+  if (listX > 0) {
+    setTranslateX(0);
+    todayRankingTabContainer.style.transition = `all 0.1s ease`;
+  } else if (listX < listClientWidth - listScrollWidth) {
+    setTranslateX(listClientWidth - listScrollWidth);
+    todayRankingTabContainer.style.transition = `all 0.1s ease`;
+    listX = listClientWidth - listScrollWidth;
+  }
+};
+
+const onScrollStart = (e) => {
+  e.stopPropagation();
+  nowX = getClientX(e);
+  startX = getClientX(e);
+
+  window.addEventListener("touchstart", onScrollMove);
+  window.addEventListener("mousemove", onScrollMove);
+  window.addEventListener("touchmove", onScrollMove);
+  window.addEventListener("mousedown", onScrollMove);
+  window.addEventListener("touchend", onScrollEnd);
+  window.addEventListener("mouseup", onScrollEnd);
+};
+
+// if (window.matchMedia(`(max-width: ${listClientWidth})`).matches) {
+todayRankingTabContainer.addEventListener("touchstart", onScrollStart);
+todayRankingTabContainer.addEventListener("mousedown", onScrollStart);
+// }
+
 // Brand Event
 const brandTabs = document.querySelectorAll(".brand_tab li");
 const brandSlideContainer = document.querySelector(
@@ -556,16 +679,35 @@ const brandItems = document.querySelectorAll(".brand_content_item");
 fetch(indexInfo)
   .then((response) => response.json())
   .then((data) => {
-    let lastChild = slides[slides.length - 1];
-    let clonedLast = lastChild.cloneNode(true);
-    clonedLast.classList.add("clone");
-    brandSlideContainer.prepend(clonedLast);
-
-    firstPosition(slides);
+    return new Promise(async (resolve) => {
+      try {
+        await creatBrandSlide(data.brand);
+        resolve();
+      } catch (error) {
+        console.error(error);
+      }
+    });
   });
 
+const makeClone = () => {
+  let slides = document.querySelectorAll(".brand_content_slide");
+  let firstChild = slides[0];
+  let clonedFirst = firstChild.cloneNode(true);
+  clonedFirst.classList.add("clone");
+  brandSlideContainer.appendChild(clonedFirst);
+
+  let lastChild = slides[slides.length - 1];
+  let clonedLast = lastChild.cloneNode(true);
+  clonedLast.classList.add("clone");
+  brandSlideContainer.prepend(clonedLast);
+
+  firstPosition(slides);
+};
+
 const firstPosition = (slides) => {
+  // const slideWidth = slides[0].clientWidth;
   const slideWidth = slides[0].clientWidth;
+  // console.log(slideWidth);
   brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
 };
 
@@ -590,7 +732,6 @@ creatBrandSlide = (brandData) => {
 };
 
 let currentSlide = 1;
-
 let brandItemData = [];
 const contentChange = (tab) => {
   productData.forEach(() => {
@@ -598,7 +739,7 @@ const contentChange = (tab) => {
   });
   brandItems.forEach((item, i) => {
     item.innerHTML = `
-                <div class="brand_content_item_img">
+                <div class="brand_content_item_img" data-id="${brandItemData[i].id}" data-category=${brandItemData[i].category}>
                   <img src="${brandItemData[i].img}" alt="${brandItemData[i].id}" />
                 </div>
                 <div class="brand_content_item_info">
@@ -619,7 +760,9 @@ brandTabs.forEach((tab, idx) => {
       t.classList.remove("active");
     });
     tab.classList.add("active");
+    currentSlide = idx + 1;
 
+    slide();
     contentChange(tab);
   });
 });
@@ -634,8 +777,13 @@ brandArrowLeft.addEventListener("click", () => {
 
   currentSlide--;
 
-  item.classList.add("active");
-  newbrandItem = item;
+  let newbrandItem = [];
+  brandTabs.forEach((item, idx) => {
+    if (idx + 1 === currentSlide) {
+      item.classList.add("active");
+      newbrandItem = item;
+    }
+  });
 
   slide();
 
@@ -670,9 +818,13 @@ brandArrowRight.addEventListener("click", () => {
 
   currentSlide++;
 
-  item.classList.add("active");
-  newbrandItem = item;
-
+  let newbrandItem = [];
+  brandTabs.forEach((item, idx) => {
+    if (idx + 1 === currentSlide) {
+      item.classList.add("active");
+      newbrandItem = item;
+    }
+  });
   const slides = document.querySelectorAll(".brand_content_slide");
 
   slide();
@@ -680,9 +832,7 @@ brandArrowRight.addEventListener("click", () => {
   if (currentSlide == slides.length - 1) {
     const slideWidth = slides[0].clientWidth;
     currentSlide = 1;
-    // slides[currentSlide];
 
-    let newbrandItem = [];
     brandTabs.forEach((item, idx) => {
       if (idx + 1 === currentSlide) {
         item.classList.add("active");
@@ -692,7 +842,6 @@ brandArrowRight.addEventListener("click", () => {
     });
 
     setTimeout(() => {
-      // slides[currentSlide];
       brandSlideContainer.style.transition = "none";
       brandSlideContainer.style.transform = `translateX(${-slideWidth}px)`;
     }, 300);
@@ -704,11 +853,27 @@ brandArrowRight.addEventListener("click", () => {
 function slide() {
   let slides = document.querySelectorAll(".brand_content_slide");
   let slideWidth = slides[0].clientWidth;
+  // let slideWidth = slides[0].scrollWidth;
+
+  brandSlideContainer.style.transform = `translateX(${
+    currentSlide * -slideWidth
+  }px)`;
+  brandSlideContainer.style.transition = "0.3s";
 }
+
+brandItems.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    const itemID = e.currentTarget.children[0].dataset.id;
+    const itemCategory = e.currentTarget.children[0].dataset.category;
+    const url = `/product/productDetail.html?category=${encodeURIComponent(
+      itemCategory
+    )}&id=${itemID}`;
+    window.location.href = url;
+  });
+});
 
 // oliveyoung Live
 const videoMain = document.querySelector(".video_main");
-
 videoMain.addEventListener("pause", () => {
   const videoHover = document.querySelector(
     ".oliveyounglive_right_video_hover"
@@ -722,152 +887,3 @@ videoMain.addEventListener("pause", () => {
     videoHover.classList.add("active");
   });
 });
-
-// Product Common
-// let saveData = [];
-// commonChangeElement = (data) => {
-//   let newElement = document.createElement("div");
-//   saveData.push(data);
-//   return (newElement.innerHTML = `
-//           <div class="productitem_img">
-//             <img src="${data.img}" alt="${data.id}" />
-//             <ul class="productitem_img_hoverbox">
-//               <li>
-//                 <a href="javascript:void(0)">
-//                   <i class="fa-regular fa-heart"></i>
-//                 </a>
-//               </li>
-//               <li class="cart_btn" data-id="${data.id}">
-//                 <a href="javascript:void(0)">
-//                   <i class="fa-solid fa-cart-arrow-down"></i>
-//                 </a>
-//               </li>
-//               <li>
-//                 <a href="javascript:void(0)">
-//                   <i class="fa-regular fa-credit-card"></i>
-//                 </a>
-//               </li>
-//             </ul>
-//           </div>
-//           <div class="productitem_text">
-//             <p>${data.title}</p>
-//             <h5>${data.price}</h5>
-//             <ul>
-//             </ul>
-//             <ul>
-//               <li><i class="fa-solid fa-star"></i></li>
-//               <li>${data.score}</li>
-//               <li>(${data.review})</li>
-//             </ul>
-//           </div>
-//           `);
-// };
-
-// let saveCategoryList = [];
-
-// window.onload = function () {
-//   console.log("saveData", saveData);
-
-//   // 타 컴포넌트에 연결되어있는 사이드 바를 불러온다.
-//   let cartTabWrap = sidebar.querySelectorAll(".sidebar_items > .sidebar_item");
-//   let cartTab = cartTabWrap[0].querySelector(" a > p");
-
-//   let cartBtn = document.querySelectorAll(".cart_btn");
-//   cartBtn.forEach((item, idx) => {
-//     item.addEventListener("click", () => {
-//       console.log("item", item.dataset.id);
-
-//       const itemId = Number(item.dataset.id);
-//       const itemIndex = saveCategoryList.findIndex(
-//         (item) => item.id === itemId
-//       );
-
-//       // 이미 존재하는 경우 삭제
-//       if (itemIndex !== -1) saveCategoryList.splice(itemIndex, 1);
-//       // 신규로 추가하는 경우
-//       else {
-//         saveData.forEach((v, i, a) => {
-//           if (a[i].id === itemId) saveCategoryList.push(v);
-//         });
-//       }
-
-//       console.log("saveCategoryList", saveCategoryList);
-
-//       // 사이드 바 장바구니 숫자 카운트
-//       cartTab.innerHTML = saveCategoryList.length;
-//     });
-//   });
-// };
-
-// LocalStorage Event
-// window.onload = function () {
-//   const cartBtns = document.querySelectorAll(".cart_btn");
-
-//   cartBtns.forEach((btn) => {
-//     btn.addEventListener("click", (e) => {
-//       e.stopPropagation();
-//       console.log(saveData);
-//       // conso$le.log(btn.dataset.id);
-//     });
-//   });
-// };
-// async function localStorageEvent() {
-//   try {
-//     const localEvent = await awaitEvent();
-//     const awaitEvent = () => {
-//       const cartBtns = document.querySelectorAll(".cart_btn");
-
-//       cartBtns.forEach((btn) => {
-//         btn.addEventListener("click", (e) => {
-//           e.stopPropagation();
-//           console.log(saveData);
-//           // console.log(btn.dataset.id);
-//         });
-//       });
-//     };
-//   } catch (error) {
-//     console.log("error");
-//   }
-// }
-
-// const time = function () {
-//   const cartBtns = document.querySelectorAll(".cart_btn");
-
-//   cartBtns.forEach((btn) => {
-//     btn.addEventListener("click", (e) => {
-//       e.stopPropagation();
-//       console.log(saveData);
-//       // conso$le.log(btn.dataset.id);
-//     });
-//   });
-// };
-
-// async function f() {
-//   const promise = new Promise((resolve, reject) => {
-//     // resolve(commonChangeElement())
-//     resolve(time());
-//   });
-// }
-
-// localStorageEvent();
-
-// async function commonChangeElementStart() {
-//   commonChangeElement();
-// }
-
-// function time() {
-//   const cartBtns = document.querySelectorAll(".cart_btn");
-
-//   cartBtns.forEach((btn) => {
-//     btn.addEventListener("click", (e) => {
-//       e.stopPropagation();
-//       console.log(saveData);
-//       // conso$le.log(btn.dataset.id);
-//     });
-//   });
-// }
-
-// // 바로 commonChangeElement 함수 호출
-// commonChangeElementStart().then(() => {
-//   time();
-// });

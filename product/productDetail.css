@@ -143,6 +143,7 @@
     }
     hr {
       margin-top: 30px;
+
       margin-bottom: 30px;
       opacity: 0.2;
     }
@@ -166,6 +167,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         margin-top: 32px;
         .quantity {
           display: flex;
@@ -176,10 +178,12 @@
           align-items: center;
           gap: 30px;
           font-size: 20px;
+
           button {
             width: 34px;
             height: 34px;
             font-size: 16px;
+
             background: none;
             border: none;
             cursor: pointer;
@@ -195,6 +199,7 @@
         align-items: baseline;
         gap: 4px;
         margin-top: 42px;
+
         margin-bottom: 42px;
         span {
           font-size: 18px;
@@ -208,7 +213,9 @@
         height: 60px;
         .small-btns {
           cursor: pointer;
+
           background: #808080;
+
           color: #fff;
           display: flex;
           justify-content: center;
@@ -217,6 +224,7 @@
           flex: 1;
           height: 100%;
           transition: all 0.3s;
+
           .binHeart {
             opacity: 1;
             transition: all 0.3s;
@@ -285,7 +293,9 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 90px;
+
     z-index: 1;
+
     .tab {
       background: #fff;
       display: flex;
@@ -948,6 +958,7 @@
           background: #585858;
           min-height: 71px;
           height: 9vw;
+
           width: calc(100vw - (100vw - 100%));
           position: fixed;
           bottom: 0;
@@ -971,6 +982,7 @@
       width: 100%;
       margin-bottom: 0;
       top: 48px;
+
       background: #fff;
       .tab {
         height: 60px;
@@ -1136,13 +1148,16 @@
       .reviews {
         width: calc(100vw - (100vw - 100%));
         height: 100%;
+
         padding: 2vh 5vw 2vh 5vw;
+
         .review-sum {
           display: flex;
           flex-direction: column;
           justify-content: left;
           align-items: start;
           gap: 14px;
+
           hr {
             display: none;
           }
@@ -1151,6 +1166,7 @@
             .sum-top {
               display: flex;
               justify-content: left;
+
               .stars {
                 display: flex;
                 font-size: 16px;
@@ -1176,8 +1192,10 @@
             }
             span {
               background: #d4d4d4;
+
               padding: 10px;
               padding-bottom: 15px;
+
               display: flex;
               align-items: center;
               gap: 6px;
@@ -1215,6 +1233,7 @@
               font-size: 12px;
             }
           }
+
           .review-imgs {
             display: flex;
             gap: 10px;
@@ -1223,12 +1242,14 @@
             div {
               width: 20vw;
               height: 20vw;
+
               img {
                 width: 100%;
                 height: 100%;
               }
             }
           }
+
           .review-text {
             display: flex;
             justify-content: left;
